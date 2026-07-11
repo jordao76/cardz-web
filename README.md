@@ -15,3 +15,5 @@ Then open <http://localhost:4173>.
 ## Deploy
 
 The site can be deployed as-is to Netlify, Cloudflare Pages, or any static host.
+For GitHub Pages, publish the `main` branch from the repository root. The
+`.nojekyll` marker keeps the site on the direct static-file path.
