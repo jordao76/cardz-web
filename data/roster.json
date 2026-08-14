@@ -1,0 +1,25 @@
+{
+  "_comment": "Editorial overlay for data/games.json — display order, website-voice taglines, and what to badge as new. Hand-maintained: this is the marketing voice, which deliberately does not live in the app's presets. Keyed by page slug (a game's slug, or its family's when variants share a page). build.mjs fails if games.json contains a game this file does not mention, so a new release cannot silently drop off the site.",
+  "entries": [
+    { "slug": "klondike", "tagline": "Draw 1 & Draw 3 · The timeless original" },
+    { "slug": "spider", "tagline": "1-suit & 4-suit · Eight perfect runs" },
+    { "slug": "freecell", "tagline": "Every card in plain sight" },
+    { "slug": "eight-off", "tagline": "Eight cells, and room to think", "new": true },
+    { "slug": "seahaven-towers", "tagline": "Free the Kings first", "new": true },
+    { "slug": "yukon", "tagline": "Move whole tails at once" },
+    { "slug": "scorpion", "tagline": "Lift a card, buried and all", "new": true },
+    { "slug": "forty-thieves", "tagline": "Two decks. No second chances." },
+    { "slug": "beleaguered-castle", "tagline": "Eight open wings, no stock", "new": true },
+    { "slug": "bisley", "tagline": "Build each suit from both ends", "new": true },
+    { "slug": "flower-garden", "tagline": "Reach anywhere in the bouquet", "new": true },
+    { "slug": "golf", "tagline": "One rank away" },
+    { "slug": "tri-peaks", "tagline": "Clear all three peaks" },
+    { "slug": "pyramid", "tagline": "Pairs add up to thirteen" },
+    { "slug": "black-hole", "tagline": "Fifty-one cards, one way in", "new": true },
+    { "slug": "calculation", "tagline": "Count by one, two, three, four", "new": true },
+    { "slug": "canfield", "tagline": "Foundations can start anywhere" },
+    { "slug": "clock", "tagline": "Beat the fourth King" },
+    { "slug": "la-belle-lucie", "tagline": "Eighteen fans, two redeals" },
+    { "slug": "crazy-quilt", "tagline": "Unpick the weave" }
+  ]
+}
