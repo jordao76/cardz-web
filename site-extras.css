@@ -2,6 +2,7 @@
 .roster-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .roster-list > span { background: var(--paper); padding: 1.3rem; font: 600 1.05rem "Playfair Display", serif; }
 .roster-list small { display: block; margin-top: .35rem; color: var(--muted); font: 500 .62rem "DM Sans", sans-serif; }
+.roster-list b { display: inline-block; margin-left: .5rem; vertical-align: .16em; padding: .2rem .42rem; border: 1px solid var(--gold); color: #795915; font: 600 .55rem/1 "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .sandbox-button { margin-top: 1.2rem; }
 
 .sandbox-page { background: #100f14; color: var(--paper); }
