@@ -218,7 +218,7 @@ ${board(primary)}
 ${alternates}
       <div class="game-cta">
         <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Play it in</small>Cardz for Windows</span></a>
-        <small>Free. No ads, no accounts, fully offline.</small>
+        <small>No ads, no accounts, fully offline.</small>
       </div>
       <nav class="game-more" aria-label="Other games">
         <p class="eyebrow"><span></span> More solitaire</p>
