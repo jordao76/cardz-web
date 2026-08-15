@@ -16,6 +16,11 @@ img.floating-card, img.demo-card { background: none; border: 0; padding: 0; obje
 img.floating-card { height: auto; aspect-ratio: 84 / 114; }
 img.demo-card { height: auto; aspect-ratio: 84 / 114; display: block; }
 img.demo-card.c2 { border: 0; }
+/* The sandbox trio was spaced for blank rectangles, where a tight stack read as
+   a deck. Illustrated cards need to be seen, so the fan opens up. */
+.sandbox-deck img.demo-card:nth-child(1) { transform: translate(-118%, -54%) rotate(-18deg); }
+.sandbox-deck img.demo-card:nth-child(2) { transform: translate(-50%, -62%) rotate(-3deg); }
+.sandbox-deck img.demo-card:nth-child(3) { transform: translate(18%, -46%) rotate(14deg); }
 
 .sandbox-page { background: #100f14; color: var(--paper); }
 .sandbox-hero { min-height: 610px; padding: 130px clamp(24px, 9vw, 150px) 90px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 7vw; background: radial-gradient(circle at 80% 35%, rgba(216,168,78,.13), transparent 30%), linear-gradient(145deg,#0f192a,#100f14 55%,#25182d); }
