@@ -4,16 +4,6 @@
     "width": 708,
     "height": 457
   },
-  "scarab": {
-    "file": "scarab.webp",
-    "width": 708,
-    "height": 457
-  },
-  "olympus": {
-    "file": "olympus.webp",
-    "width": 708,
-    "height": 457
-  },
   "herbarium": {
     "file": "herbarium.webp",
     "width": 708,
@@ -36,6 +26,26 @@
   },
   "monosolid": {
     "file": "monosolid.webp",
+    "width": 708,
+    "height": 457
+  },
+  "scarab": {
+    "file": "scarab.webp",
+    "width": 708,
+    "height": 457
+  },
+  "olympus": {
+    "file": "olympus.webp",
+    "width": 708,
+    "height": 457
+  },
+  "felt-house": {
+    "file": "felt-house.webp",
+    "width": 708,
+    "height": 457
+  },
+  "noir": {
+    "file": "noir.webp",
     "width": 708,
     "height": 457
   }

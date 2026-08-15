@@ -39,11 +39,22 @@ taglines, and which games wear a *New* badge. The build **fails** if
 cannot quietly go missing from the site.
 
 `decks.html` is generated the same way, from `data/decks.json` (editorial) plus
-`assets/decks/*.webp` — three-card fans composited from the app's own shipped
-card art by cardz-win's `scripts/build-deck-gallery.mjs`. Run that when a deck's
-art changes. Only the illustrated decks can be pictured; Felt House, Noir and
-Colourblind are painted by the app at runtime, so the page names them instead of
-faking a mock-up.
+`assets/decks/*.webp` — three-card fans composited by cardz-win's
+`scripts/build-deck-gallery.mjs`. Run that when a deck's art changes.
+
+Its card art comes from two places. Most decks ship their cards as PNGs, so the
+fan is cut straight from those. The rest — the procedural decks, which have no
+art on disk, and the hybrids, whose art carries no rank index because the app
+draws that on top — are rendered by the app itself first:
+
+```powershell
+winapp run <build output> --detach --args "--export-decks=<dir>"
+node ..\cardz-win\scripts\build-deck-gallery.mjs --rendered <dir>
+```
+
+The same script also cuts the single cards in `assets/cards/`, which decorate the
+home page's hero and sandbox sections. Those used to be CSS rectangles with a
+glyph in them.
 
 See `docs/website-plan.md` in the app repo for why it is built this way and
 what comes next (board diagrams, a decks gallery, localized pages).

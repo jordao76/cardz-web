@@ -240,7 +240,7 @@ ${footer}
 
 function deckPage() {
   const { head, header, footer } = chrome(0);
-  const cards = decks.illustrated
+  const cards = decks.decks
     .map((deck) => {
       const art = deckArt[deck.slug];
       if (!art)
@@ -248,42 +248,34 @@ function deckPage() {
           `data/decks.json lists '${deck.slug}', but assets/decks/manifest.json has no art for it. ` +
             `Run cardz-win's scripts/build-deck-gallery.mjs.`
         );
+      const credit = deck.credit ? `\n          <p class="deck-credit">${escape(deck.credit)}</p>` : "";
       return `        <article class="deck-card">
           <img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy"
                alt="Three cards from the ${escape(deck.name)} deck: the back, the King of Spades, and the Ace of Hearts">
           <h2>${escape(deck.name)}</h2>
-          <p>${escape(deck.blurb)}</p>
+          <p>${escape(deck.blurb)}</p>${credit}
         </article>`;
     })
     .join("\n");
 
-  const drawn = decks.drawn
-    .map((deck) => `          <div><h3>${escape(deck.name)}</h3><p>${escape(deck.blurb)}</p></div>`)
-    .join("\n");
-
   return `${head(
     "Card decks — Cardz",
-    "Every card deck in Cardz: Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, and more."
+    "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, neon noir, and more."
   )}
 <body class="decks-page">
   <a class="skip-link" href="#main">Skip to content</a>
 ${header}
   <main id="main" class="decks-main">
     <header class="decks-head">
-      <p class="eyebrow"><span></span> Eleven decks</p>
+      <p class="eyebrow"><span></span> ${decks.decks.length} decks</p>
       <h1>Every hand<br><em>looks like somewhere.</em></h1>
       <p class="lede">A deck is not a skin in Cardz — each one brings its own table, its own suit colours, and its own painted courts and jokers. Switch at any time, mid-game.</p>
     </header>
     <section class="deck-grid" aria-label="Illustrated decks">
 ${cards}
     </section>
-    <section class="decks-drawn">
-      <p class="eyebrow"><span></span> Drawn by the app</p>
-      <h2>Three more, painted live.</h2>
-      <p>These are rendered by Cardz itself rather than shipped as pictures, so there is nothing to photograph here — you will meet them in the app.</p>
-      <div>
-${drawn}
-      </div>
+    <section class="decks-note">
+      <p>${escape(decks.note)}</p>
     </section>
     <section class="decks-cta">
       <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Get it on the</small>Microsoft Store</span></a>
@@ -343,5 +335,5 @@ writeFileSync(indexPath, index, "utf8");
 
 console.log(
   `${ordered.length} pages → games/  (${games.games.filter((g) => !g.sandbox).length} games, ${games.culture})\n` +
-    `decks.html  (${decks.illustrated.length} illustrated, ${decks.drawn.length} drawn)`
+    `decks.html  (${decks.decks.length} decks)`
 );

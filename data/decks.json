@@ -1,6 +1,11 @@
 {
-  "_comment": "Editorial copy for the deck gallery. 'illustrated' decks ship pre-rendered art, composited into a three-card fan by cardz-win's scripts/build-deck-gallery.mjs; build.mjs refuses a slug with no art in assets/decks/manifest.json. 'drawn' decks are painted by the app at runtime with no art on disk, so they are named and described but not pictured — no invented mock-ups.",
-  "illustrated": [
+  "_comment": "Editorial copy for the deck gallery. Art is composited into a three-card fan by cardz-win's scripts/build-deck-gallery.mjs — from the PNGs the app ships, or, for decks whose cards the app draws rather than loads, from cards the app renders itself (--export-decks). build.mjs refuses a slug with no art in assets/decks/manifest.json. 'credit' is optional and only present where art comes from outside the project.",
+  "decks": [
+    {
+      "slug": "felt-house",
+      "name": "Felt House",
+      "blurb": "The house deck, and the one Cardz deals with until you choose otherwise. Classical proportions, a warm cream face, and a gold clubs medallion on the back."
+    },
     {
       "slug": "valhalla",
       "name": "Valhalla",
@@ -29,12 +34,18 @@
     {
       "slug": "ornamental",
       "name": "Ornamental",
-      "blurb": "The first illustrated deck Cardz shipped — drawn as vector ornament and rasterized so that every hairline survives at card size."
+      "blurb": "The first illustrated deck Cardz shipped — vector ornament rasterized so that every hairline survives at card size, on a Victorian damask table.",
+      "credit": "Card art by Nicu Buculei, from his OpenClipart ornamental deck. Released into the public domain (CC0 1.0)."
     },
     {
       "slug": "deepfield",
       "name": "Deepfield",
-      "blurb": "A commissioned space deck: dark navy cards, orbital pips, celestial courts, and four colours of suit instead of the usual two."
+      "blurb": "A space deck: dark navy cards, orbital pips, celestial courts, and four colours of suit instead of the usual two."
+    },
+    {
+      "slug": "noir",
+      "name": "Noir",
+      "blurb": "Neo-noir neon. Near-black cards in cyan and magenta, glowing two-headed courts, and a lit grid on the back."
     },
     {
       "slug": "monosolid",
@@ -42,18 +53,5 @@
       "blurb": "Paper-cut shapes in two inks against a dark ink table. Type as image, tally pips, and courts cut down to a crown, an orb, and a blade."
     }
   ],
-  "drawn": [
-    {
-      "name": "Felt House",
-      "blurb": "The house deck, drawn by the app itself. Clean, classical, and the one Cardz deals with until you choose otherwise."
-    },
-    {
-      "name": "Noir",
-      "blurb": "Neo-noir neon — near-black cards in cyan and magenta, glowing two-headed courts, and a lit grid on the back."
-    },
-    {
-      "name": "Colourblind",
-      "blurb": "A two-colour deck built for colour-vision deficiency: blue hearts and diamonds, black spades and clubs, so the suits never rely on red against green."
-    }
-  ]
+  "note": "Cardz also ships a Colourblind deck — blue hearts and diamonds against black spades and clubs — so that telling the suits apart never depends on telling red from green."
 }
