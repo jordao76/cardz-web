@@ -19,6 +19,9 @@ Then open <http://localhost:4173>.
 cannot disagree with Cardz about which games exist or what their rules say.
 Everything else on the site is hand-written and stays that way.
 
+Each page's board diagram (`diagram.mjs`) is drawn to scale from the same file's
+depot coordinates — no screenshot, so it cannot fall out of date with the game.
+
 ```powershell
 node build.mjs      # no dependencies; rewrites games/ and two marked regions of index.html
 ```

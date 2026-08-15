@@ -1,7 +1,13 @@
 {
-  "schema": 1,
+  "schema": 2,
   "culture": "en",
-  "generated": "2026-08-14T21:38:57Z",
+  "generated": "2026-08-15T00:26:35Z",
+  "layout": {
+    "cardWidth": 84,
+    "cardHeight": 114,
+    "cornerRadius": 6,
+    "gridGap": 20
+  },
   "games": [
     {
       "slug": "sandbox",

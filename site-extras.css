@@ -39,6 +39,20 @@
 .game-shell { width: min(760px, 100%); margin: auto; }
 .game-shell h1 { margin: 0 0 1.5rem; font: 600 clamp(3.2rem, 7vw, 5.5rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
 .game-facts { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; padding-bottom: 1.8rem; border-bottom: 1px solid var(--line); color: var(--muted); font: 600 .66rem "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: .18em; }
+.game-board { margin: 2.4rem 0 0; padding: 1.7rem 1.7rem 1.3rem; background: rgba(243, 236, 219, .6); border: 1px solid var(--line); }
+.game-board svg { display: block; width: 100%; height: auto; }
+.game-board .cfd-ghost { opacity: .42; }
+/* Breaks out of the reading column by negative margin, not by transform: a
+   transform moves the paint but leaves the layout box where it was, which put
+   a horizontal scrollbar on the whole document. Width stops at the page's own
+   gutters so the breakout can never be the thing that overflows. */
+.game-board-wide { --bleed: min(1120px, calc(100vw - 48px)); width: var(--bleed); margin-left: calc((100% - var(--bleed)) / 2); margin-right: calc((100% - var(--bleed)) / 2); }
+.game-board-tall svg { max-width: 430px; margin: 0 auto; }
+.game-board figcaption { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.game-board-legend { display: flex; flex-wrap: wrap; gap: .55rem 1.3rem; color: var(--muted); font: 600 .6rem "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: .14em; }
+.game-board-legend span { display: inline-flex; align-items: center; gap: .5rem; }
+.game-board-legend i { width: 13px; height: 18px; border: 1px solid; border-radius: 2px; }
+
 .game-rules { padding-top: 2.2rem; }
 .game-rules p, .game-rules li { color: #5f5852; line-height: 1.85; }
 .game-rules p { margin: 0 0 1.3rem; }

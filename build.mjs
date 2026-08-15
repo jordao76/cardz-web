@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { boardDiagram } from "./diagram.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const STORE = "https://apps.microsoft.com/detail/9N96G6H34XCT";
@@ -148,6 +149,23 @@ function deckLine(game) {
   return jokers ? `${base} · ${jokers} jokers` : base;
 }
 
+/**
+ * The board, to scale, from the depot coordinates — no screenshot involved, so
+ * it cannot fall behind the game the way a photograph of one deal does.
+ * A wide board (Crazy Quilt) gets to run wider than the reading column.
+ */
+function board(game) {
+  const diagram = boardDiagram(game, games.layout);
+  if (!diagram) return "";
+  // A long board earns room past the reading column; a squarish one (Clock's
+  // face, Beleaguered Castle's column) would otherwise tower over the page.
+  const shape = diagram.ratio > 1.6 ? " game-board-wide" : diagram.ratio < 1.2 ? " game-board-tall" : "";
+  return `      <figure class="game-board${shape}">
+        ${diagram.svg}
+        <figcaption><span class="game-board-legend">${diagram.legend}</span></figcaption>
+      </figure>`;
+}
+
 function gamePage(page, all) {
   const { up, head, header, footer } = chrome(2);
   const primary = page.variants[0];
@@ -193,6 +211,7 @@ ${header}
       <div class="game-facts">
         <span>${deckLine(primary)}</span>${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
+${board(primary)}
       <div class="game-rules game-rules-primary">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
