@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "culture": "en",
-  "generated": "2026-08-15T00:26:35Z",
+  "generated": "2026-08-15T02:27:05Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -1198,7 +1198,7 @@
       "slug": "pyramid",
       "name": "Pyramid",
       "sandbox": false,
-      "rules": "The classic 28-card **pyramid**. **Goal:** clear the whole pyramid. A card can be lifted only once the two cards overlapping it from below are gone — the base row is free to start, the rest open up as you clear toward the apex. Remove cards in pairs that total **13** (A=1 … Q=12) by dragging them onto the **discard**; a **King** (13) goes alone. The stock's top turns face-up and is playable; set turned cards aside on the waste. _Tip: the **Scarab** deck shows a small gold hint on each card — the rank it pairs with to reach 13._",
+      "rules": "**Goal:** clear the whole 28-card **pyramid**.\n\n- Remove cards in **pairs that total 13** (A=1 … Q=12) by dragging them onto the **discard**; a **King** (13) goes alone.\n- A card can be lifted only once the **two cards overlapping it from below** are gone — the base row is free to start, and the rest open up as you clear toward the apex.\n- The **stock's** top card turns face-up and is playable; turned cards are set aside on the **waste**.\n- _Tip: the **Scarab** deck shows a small gold hint on each card — the rank it pairs with to reach 13._",
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -2054,7 +2054,7 @@
       "slug": "crazy-quilt",
       "name": "Crazy Quilt",
       "sandbox": false,
-      "rules": "**Goal:** build all eight foundations to move every card home — four built **up in suit from Ace to King**, four built **down in suit from King to Ace** (two decks, so each suit fills one up-pile and one down-pile). The foundations **start seeded** with an Ace and a King of each suit.\n\n- The **quilt** is 64 cards woven in a lattice. A quilt card is **available** when **either of its short ends** is clear — i.e. one of the two neighbours it points at is gone (cards on the rim start free).\n- Play any available quilt card, or the **waste** top, onto a foundation.\n- You may also lay an available quilt card on the **waste** if it is one rank **up or down** (any suit, and Ace/King wrap) — this chains, and is the main way to dig the weave open. Waste cards then only advance to foundations.\n- Draw from the **stock** to the waste; recycle the waste when it runs out.",
+      "rules": "**Goal:** build all eight foundations to move every card home — four built **up in suit from Ace to King**, four built **down in suit from King to Ace** (two decks, so each suit fills one up-pile and one down-pile).\n\n- The foundations **start seeded** with an Ace and a King of each suit.\n- The **quilt** is 64 cards woven in a lattice. A quilt card is **available** when **either of its short ends** is clear — i.e. one of the two neighbours it points at is gone (cards on the rim start free).\n- Play any available quilt card, or the **waste** top, onto a foundation.\n- You may also lay an available quilt card on the **waste** if it is one rank **up or down** (any suit, and Ace/King wrap) — this chains, and is the main way to dig the weave open. Waste cards then only advance to foundations.\n- Draw from the **stock** to the waste; recycle the waste when it runs out.",
       "decks": {
         "packs": 2,
         "cards": 104,

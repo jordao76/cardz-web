@@ -102,6 +102,24 @@ function slug(name) {
     .replace(/^-|-$/g, "");
 }
 
+/**
+ * The opening paragraph is set as a display lede — big Playfair against a gold
+ * rule — which only works while it stays a one-line statement of the goal. A
+ * preset that packs its whole rule set into that paragraph would render as a
+ * wall of display type (Pyramid did), so past a sensible length the lede
+ * treatment is simply dropped and the text reads as body copy.
+ *
+ * The cutoff clears the longest real goal — Crazy Quilt's, which runs to 253
+ * characters in French — while still excluding a whole rule set. It has to
+ * clear the translations, not just the English: fr/pt/es run 10–20% longer, and
+ * a threshold tuned to English alone would quietly strip the lede from one
+ * game in one locale.
+ */
+function ledeClass(rules) {
+  const first = rules.split("\n").find((line) => line.trim() && !line.trim().startsWith("- ")) ?? "";
+  return first.trim().length <= 280 ? " game-rules-primary" : "";
+}
+
 /** First sentence of the rules, stripped to plain text, for <meta description>. */
 function summarize(page) {
   const first = (page.variants[0].rules ?? "").split("\n")[0];
@@ -214,7 +232,7 @@ ${header}
         <span>${deckLine(primary)}</span>${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
 ${board(primary)}
-      <div class="game-rules game-rules-primary">
+      <div class="game-rules${ledeClass(primary.rules ?? "")}">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
 ${alternates}
