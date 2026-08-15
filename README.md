@@ -38,6 +38,13 @@ taglines, and which games wear a *New* badge. The build **fails** if
 `games.json` contains a game `roster.json` never mentions, so a new release
 cannot quietly go missing from the site.
 
+`decks.html` is generated the same way, from `data/decks.json` (editorial) plus
+`assets/decks/*.webp` — three-card fans composited from the app's own shipped
+card art by cardz-win's `scripts/build-deck-gallery.mjs`. Run that when a deck's
+art changes. Only the illustrated decks can be pictured; Felt House, Noir and
+Colourblind are painted by the app at runtime, so the page names them instead of
+faking a mock-up.
+
 See `docs/website-plan.md` in the app repo for why it is built this way and
 what comes next (board diagrams, a decks gallery, localized pages).
 

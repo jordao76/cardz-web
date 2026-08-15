@@ -20,6 +20,8 @@ const STORE = "https://apps.microsoft.com/detail/9N96G6H34XCT";
 
 const games = JSON.parse(readFileSync(join(root, "data/games.json"), "utf8"));
 const roster = JSON.parse(readFileSync(join(root, "data/roster.json"), "utf8"));
+const decks = JSON.parse(readFileSync(join(root, "data/decks.json"), "utf8"));
+const deckArt = JSON.parse(readFileSync(join(root, "assets/decks/manifest.json"), "utf8"));
 
 // Variants of one game share a page: two near-identical pages would compete
 // with each other for the same search, and neither would deserve to win.
@@ -131,7 +133,7 @@ function chrome(depth) {
     header: `  <header class="site-header">
     <a class="brand" href="${up}index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
     <nav aria-label="Main navigation">
-      <a href="${up}index.html#games">Games</a><a href="${up}sandbox.html">Sandbox</a><a href="${up}index.html#features">Features</a><a href="${up}privacy.html">Privacy</a>
+      <a href="${up}index.html#games">Games</a><a href="${up}decks.html">Decks</a><a href="${up}sandbox.html">Sandbox</a><a href="${up}privacy.html">Privacy</a>
     </nav>
     <a class="button button-small" href="${STORE}">Get Cardz</a>
   </header>`,
@@ -234,6 +236,65 @@ ${footer}
 `;
 }
 
+// ---------------------------------------------------------------- decks
+
+function deckPage() {
+  const { head, header, footer } = chrome(0);
+  const cards = decks.illustrated
+    .map((deck) => {
+      const art = deckArt[deck.slug];
+      if (!art)
+        throw new Error(
+          `data/decks.json lists '${deck.slug}', but assets/decks/manifest.json has no art for it. ` +
+            `Run cardz-win's scripts/build-deck-gallery.mjs.`
+        );
+      return `        <article class="deck-card">
+          <img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy"
+               alt="Three cards from the ${escape(deck.name)} deck: the back, the King of Spades, and the Ace of Hearts">
+          <h2>${escape(deck.name)}</h2>
+          <p>${escape(deck.blurb)}</p>
+        </article>`;
+    })
+    .join("\n");
+
+  const drawn = decks.drawn
+    .map((deck) => `          <div><h3>${escape(deck.name)}</h3><p>${escape(deck.blurb)}</p></div>`)
+    .join("\n");
+
+  return `${head(
+    "Card decks — Cardz",
+    "Every card deck in Cardz: Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, and more."
+  )}
+<body class="decks-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+${header}
+  <main id="main" class="decks-main">
+    <header class="decks-head">
+      <p class="eyebrow"><span></span> Eleven decks</p>
+      <h1>Every hand<br><em>looks like somewhere.</em></h1>
+      <p class="lede">A deck is not a skin in Cardz — each one brings its own table, its own suit colours, and its own painted courts and jokers. Switch at any time, mid-game.</p>
+    </header>
+    <section class="deck-grid" aria-label="Illustrated decks">
+${cards}
+    </section>
+    <section class="decks-drawn">
+      <p class="eyebrow"><span></span> Drawn by the app</p>
+      <h2>Three more, painted live.</h2>
+      <p>These are rendered by Cardz itself rather than shipped as pictures, so there is nothing to photograph here — you will meet them in the app.</p>
+      <div>
+${drawn}
+      </div>
+    </section>
+    <section class="decks-cta">
+      <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Get it on the</small>Microsoft Store</span></a>
+    </section>
+  </main>
+${footer}
+</body>
+</html>
+`;
+}
+
 // ---------------------------------------------------------------- index regions
 
 function rosterMarkup(all) {
@@ -272,10 +333,15 @@ for (const page of ordered) {
   writeFileSync(join(dir, "index.html"), gamePage(page, ordered), "utf8");
 }
 
+writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
+
 const indexPath = join(root, "index.html");
 let index = readFileSync(indexPath, "utf8");
 index = replaceRegion(index, "roster", rosterMarkup(ordered));
 index = replaceRegion(index, "ticker", tickerMarkup(ordered));
 writeFileSync(indexPath, index, "utf8");
 
-console.log(`${ordered.length} pages → games/  (${games.games.filter((g) => !g.sandbox).length} games, ${games.culture})`);
+console.log(
+  `${ordered.length} pages → games/  (${games.games.filter((g) => !g.sandbox).length} games, ${games.culture})\n` +
+    `decks.html  (${decks.illustrated.length} illustrated, ${decks.drawn.length} drawn)`
+);

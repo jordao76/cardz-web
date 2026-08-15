@@ -1,0 +1,59 @@
+{
+  "_comment": "Editorial copy for the deck gallery. 'illustrated' decks ship pre-rendered art, composited into a three-card fan by cardz-win's scripts/build-deck-gallery.mjs; build.mjs refuses a slug with no art in assets/decks/manifest.json. 'drawn' decks are painted by the app at runtime with no art on disk, so they are named and described but not pictured — no invented mock-ups.",
+  "illustrated": [
+    {
+      "slug": "valhalla",
+      "name": "Valhalla",
+      "blurb": "A Norse woodcut deck. The courts are true two-headed figures, mirrored about the card's centre rather than merely drawn twice, and the pair of Loki jokers are worth finding."
+    },
+    {
+      "slug": "scarab",
+      "name": "Scarab",
+      "blurb": "Ancient Egypt on papyrus. Alone among the decks it wears a small gold cartouche beside each index — the rank this card pairs with to make thirteen, which is Pyramid's whole problem solved in the corner of your eye."
+    },
+    {
+      "slug": "olympus",
+      "name": "Olympus",
+      "blurb": "Gods painted on marble, with a gold index laid over the plate. A plain decorative deck: the corners hold the rank and the suit, nothing more."
+    },
+    {
+      "slug": "herbarium",
+      "name": "Herbarium",
+      "blurb": "A pressed-botanical plate book in ink and watercolour, with the four suits as four plant families — rose, marigold, clover, thistle — on a deep botanical-green table."
+    },
+    {
+      "slug": "filigree",
+      "name": "Filigree",
+      "blurb": "Engraved vermilion and iron-gall ink, in the classic two-colour convention, laid on an antique espresso-leather writing desk."
+    },
+    {
+      "slug": "ornamental",
+      "name": "Ornamental",
+      "blurb": "The first illustrated deck Cardz shipped — drawn as vector ornament and rasterized so that every hairline survives at card size."
+    },
+    {
+      "slug": "deepfield",
+      "name": "Deepfield",
+      "blurb": "A commissioned space deck: dark navy cards, orbital pips, celestial courts, and four colours of suit instead of the usual two."
+    },
+    {
+      "slug": "monosolid",
+      "name": "Monosolid",
+      "blurb": "Paper-cut shapes in two inks against a dark ink table. Type as image, tally pips, and courts cut down to a crown, an orb, and a blade."
+    }
+  ],
+  "drawn": [
+    {
+      "name": "Felt House",
+      "blurb": "The house deck, drawn by the app itself. Clean, classical, and the one Cardz deals with until you choose otherwise."
+    },
+    {
+      "name": "Noir",
+      "blurb": "Neo-noir neon — near-black cards in cyan and magenta, glowing two-headed courts, and a lit grid on the back."
+    },
+    {
+      "name": "Colourblind",
+      "blurb": "A two-colour deck built for colour-vision deficiency: blue hearts and diamonds, black spades and clubs, so the suits never rely on red against green."
+    }
+  ]
+}

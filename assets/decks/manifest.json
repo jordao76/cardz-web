@@ -1,0 +1,42 @@
+{
+  "valhalla": {
+    "file": "valhalla.webp",
+    "width": 708,
+    "height": 457
+  },
+  "scarab": {
+    "file": "scarab.webp",
+    "width": 708,
+    "height": 457
+  },
+  "olympus": {
+    "file": "olympus.webp",
+    "width": 708,
+    "height": 457
+  },
+  "herbarium": {
+    "file": "herbarium.webp",
+    "width": 708,
+    "height": 457
+  },
+  "filigree": {
+    "file": "filigree.webp",
+    "width": 708,
+    "height": 457
+  },
+  "ornamental": {
+    "file": "ornamental.webp",
+    "width": 708,
+    "height": 457
+  },
+  "deepfield": {
+    "file": "deepfield.webp",
+    "width": 708,
+    "height": 457
+  },
+  "monosolid": {
+    "file": "monosolid.webp",
+    "width": 708,
+    "height": 457
+  }
+}
