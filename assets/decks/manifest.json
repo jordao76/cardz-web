@@ -1,52 +1,52 @@
 {
   "valhalla": {
     "file": "valhalla.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "herbarium": {
     "file": "herbarium.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "filigree": {
     "file": "filigree.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "ornamental": {
     "file": "ornamental.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "deepfield": {
     "file": "deepfield.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "monosolid": {
     "file": "monosolid.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "scarab": {
     "file": "scarab.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "olympus": {
     "file": "olympus.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "felt-house": {
     "file": "felt-house.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   },
   "noir": {
     "file": "noir.webp",
-    "width": 708,
-    "height": 457
+    "width": 595,
+    "height": 384
   }
 }

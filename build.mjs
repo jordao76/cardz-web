@@ -286,7 +286,7 @@ ${header}
   <main id="main" class="decks-main">
     <header class="decks-head">
       <p class="eyebrow"><span></span> ${decks.decks.length} decks</p>
-      <h1>Every hand<br><em>looks like somewhere.</em></h1>
+      <h1>Every hand<br><em>takes you places.</em></h1>
       <p class="lede">A deck is not a skin in Cardz — each one brings its own table, its own suit colours, and its own painted courts and jokers. Switch at any time, mid-game.</p>
     </header>
     <section class="deck-grid" aria-label="Illustrated decks">
