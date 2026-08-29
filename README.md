@@ -14,7 +14,7 @@ Then open <http://localhost:4173>.
 
 ## The game pages are generated
 
-`games/<slug>/index.html`, the index roster, and the ticker are built from
+`games/<slug>/index.html` and the index roster are built from
 `data/games.json` — a projection of the app's own preset catalog, so the site
 cannot disagree with Cardz about which games exist or what their rules say.
 Everything else on the site is hand-written and stays that way.
@@ -23,7 +23,7 @@ Each page's board diagram (`diagram.mjs`) is drawn to scale from the same file's
 depot coordinates — no screenshot, so it cannot fall out of date with the game.
 
 ```powershell
-node build.mjs      # no dependencies; rewrites games/ and two marked regions of index.html
+node build.mjs      # no dependencies; rewrites games/ and one marked region of index.html
 ```
 
 `data/games.json` comes from the app repo and is refreshed there, whenever you
@@ -55,6 +55,18 @@ node ..\cardz-win\scripts\build-deck-gallery.mjs --rendered <dir>
 The same script also cuts the single cards in `assets/cards/`, which decorate the
 home page's hero and sandbox sections. Those used to be CSS rectangles with a
 glyph in them.
+
+`assets/ornament/*-court-band.webp` — the ornamental rules that divide the home
+page's sections — are cut the same way, from the band a two-headed court draws
+across its own mirror line:
+
+```powershell
+node ..\cardz-win\scripts\build-ornament-band.mjs
+```
+
+Each is a run of that band beside its own mirror image, so the tile's two edges
+are identical and `repeat-x` shows no seam. Only Felt House and Valhalla qualify;
+the script's header says why the other decks do not.
 
 See `docs/website-plan.md` in the app repo for why it is built this way and
 what comes next (board diagrams, a decks gallery, localized pages).

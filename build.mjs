@@ -1,11 +1,11 @@
-// Generates the game pages and the index's roster/ticker from data/games.json,
-// which cardz-win's scripts/export-games.ps1 projects out of the app's own
-// catalog. See cardz-win docs/website-plan.md.
+// Generates the game pages and the index's roster from data/games.json, which
+// cardz-win's scripts/export-games.ps1 projects out of the app's own catalog.
+// See cardz-win docs/website-plan.md.
 //
 //   node build.mjs
 //
 // Everything else on the site stays hand-written. This only owns games/<slug>/
-// and the two marked regions in index.html, so a redesign can move freely
+// and the one marked region in index.html, so a redesign can move freely
 // around it.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
@@ -319,11 +319,6 @@ function rosterMarkup(all) {
     .join("\n");
 }
 
-function tickerMarkup(all) {
-  const names = all.map((page) => `${escape(page.name)} <b>✦</b>`).join(" ");
-  return `      <div>${names}</div>`;
-}
-
 function replaceRegion(html, name, body) {
   const open = `<!-- build:${name} -->`;
   const close = `<!-- /build:${name} -->`;
@@ -348,7 +343,6 @@ writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
 const indexPath = join(root, "index.html");
 let index = readFileSync(indexPath, "utf8");
 index = replaceRegion(index, "roster", rosterMarkup(ordered));
-index = replaceRegion(index, "ticker", tickerMarkup(ordered));
 writeFileSync(indexPath, index, "utf8");
 
 console.log(

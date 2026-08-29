@@ -124,5 +124,12 @@ img.demo-card.c2 { border: 0; }
 .policy-content strong { color: var(--ink); }
 .back-link { display: inline-flex; gap: .55rem; margin-bottom: 3rem; color: var(--muted); font-size: .8rem; }
 
+/* The roster went straight from five columns to two at 900px, so every width
+   between there and a wide desktop kept five: at 1045px that is a 172px cell,
+   and "Beleaguered Castle" does not fit one. These two steps ramp it down.
+   They precede the 900px rule deliberately — equal specificity, so the narrower
+   query has to come later to win where both match. */
+@media (max-width: 1200px) { .roster-list { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1000px) { .roster-list { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 900px) { .roster-list { grid-template-columns: repeat(2, 1fr); } .sandbox-hero,.sandbox-intro { grid-template-columns: 1fr; } .modes-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 560px) { .roster-list,.modes-grid { grid-template-columns: 1fr; } .policy-main { padding-top: 60px; } .sandbox-hero { padding-top: 110px; } .sandbox-deck { height: 260px; transform: scale(.8); } }

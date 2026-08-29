@@ -1,0 +1,14 @@
+{
+  "felt-house": {
+    "file": "felt-house-court-band.webp",
+    "width": 248,
+    "height": 30,
+    "ground": "#6c412a"
+  },
+  "valhalla": {
+    "file": "valhalla-court-band.webp",
+    "width": 180,
+    "height": 18,
+    "ground": "#62605d"
+  }
+}
