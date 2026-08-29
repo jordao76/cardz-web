@@ -278,7 +278,7 @@ function deckPage() {
 
   return `${head(
     "Card decks — Cardz",
-    "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, neon noir, and more."
+    "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, midnight neon, gothic horror, and more."
   )}
 <body class="decks-page">
   <a class="skip-link" href="#main">Skip to content</a>

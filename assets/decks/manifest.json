@@ -29,6 +29,11 @@
     "width": 595,
     "height": 384
   },
+  "dread": {
+    "file": "dread.webp",
+    "width": 595,
+    "height": 384
+  },
   "scarab": {
     "file": "scarab.webp",
     "width": 595,
@@ -44,8 +49,8 @@
     "width": 595,
     "height": 384
   },
-  "noir": {
-    "file": "noir.webp",
+  "neon": {
+    "file": "neon.webp",
     "width": 595,
     "height": 384
   }

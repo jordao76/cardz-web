@@ -43,9 +43,14 @@
       "blurb": "A space deck: dark navy cards, orbital pips, celestial courts, and four colours of suit instead of the usual two."
     },
     {
-      "slug": "noir",
-      "name": "Noir",
-      "blurb": "Neo-noir neon. Near-black cards in cyan and magenta, glowing two-headed courts, and a lit grid on the back."
+      "slug": "neon",
+      "name": "Neon",
+      "blurb": "A midnight arcade. Near-black cards printed in four inks and lit cyan and magenta, with glowing two-headed courts and a lattice on the back — cyan and a ring for one deck, magenta and a diamond for the other. The floor is darker than the card stock, so every card reads as a lit object, and the sign hanging over the table hums and stutters while you play."
+    },
+    {
+      "slug": "dread",
+      "name": "Dread",
+      "blurb": "Restrained gothic horror in soot black, dried-blood crimson and cold bone ash. The courts and jokers are true mirrored portraits, the aces are cursed reliquaries, and the number cards keep clean glyph pips over distressed stock. Its table is blackened altar stone lit by a candle rather than a gradient — the pool of light gutters and wanders under the cards."
     },
     {
       "slug": "monosolid",
