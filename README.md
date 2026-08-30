@@ -12,6 +12,16 @@ python -m http.server 4173
 
 Then open <http://localhost:4173>.
 
+If the page stops reflecting what is on disk, that server is why: it sends
+`Last-Modified` and no `Cache-Control`, so the browser caches on a heuristic of
+roughly a tenth of the file's age — a file untouched for a fortnight is held for
+over a day. `devserve.py` is the same server with caching off, and takes the same
+port:
+
+```powershell
+python devserve.py 4173
+```
+
 ## The game pages are generated
 
 `games/<slug>/index.html` and the index roster are built from
