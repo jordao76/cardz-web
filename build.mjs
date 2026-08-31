@@ -129,6 +129,11 @@ function summarize(page) {
 
 // ---------------------------------------------------------------- templates
 
+// Marks the nav item you are looking at. Game pages pass nothing deliberately:
+// none of the five links is the current page, and putting it on Games would tell
+// a screen reader that the index's #games anchor is the page it is already on.
+const mark = (current, slug) => (current === slug ? ` aria-current="page"` : "");
+
 function chrome(depth) {
   const up = "../".repeat(depth);
   return {
@@ -148,10 +153,10 @@ function chrome(depth) {
   <link rel="stylesheet" href="${up}styles.css">
   <link rel="stylesheet" href="${up}site-extras.css">
 </head>`,
-    header: `  <header class="site-header">
+    header: (current) => `  <header class="site-header">
     <a class="brand" href="${up}index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
     <nav aria-label="Main navigation">
-      <a href="${up}index.html#games">Games</a><a href="${up}decks.html">Decks</a><a href="${up}sandbox.html">Sandbox</a><a href="${up}privacy.html">Privacy</a>
+      <a href="${up}index.html">Home</a><a href="${up}index.html#games">Games</a><a href="${up}decks.html"${mark(current, "decks")}>Decks</a><a href="${up}sandbox.html"${mark(current, "sandbox")}>Sandbox</a><a href="${up}privacy.html"${mark(current, "privacy")}>Privacy</a>
     </nav>
     <a class="button button-small" href="${STORE}">Get Cardz</a>
   </header>`,
@@ -222,7 +227,7 @@ ${page.variants
   return `${head(`${escape(page.name)} — how to play | Cardz`, summarize(page))}
 <body class="game-page">
   <a class="skip-link" href="#main">Skip to content</a>
-${header}
+${header()}
   <main id="main" class="game-main">
     <article class="game-shell">
       <a class="back-link" href="${up}index.html#games"><span aria-hidden="true">←</span> All games</a>
@@ -282,7 +287,7 @@ function deckPage() {
   )}
 <body class="decks-page">
   <a class="skip-link" href="#main">Skip to content</a>
-${header}
+${header("decks")}
   <main id="main" class="decks-main">
     <header class="decks-head">
       <p class="eyebrow"><span></span> ${decks.decks.length} decks</p>

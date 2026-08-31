@@ -132,6 +132,10 @@ img.demo-card.c2 { border: 0; }
 .policy-content strong { color: var(--ink); }
 .back-link { display: inline-flex; gap: .55rem; margin-bottom: 3rem; color: var(--muted); font-size: .8rem; }
 
+/* The nav dims every link to .72, so the page you are on had no way to show
+   itself — aria-current was reaching screen readers and nobody else. */
+.site-header nav a[aria-current] { opacity: 1; color: var(--gold); }
+
 /* The roster went straight from five columns to two at 900px, so every width
    between there and a wide desktop kept five: at 1045px that is a 172px cell,
    and "Beleaguered Castle" does not fit one. These two steps ramp it down.
