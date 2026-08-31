@@ -7,6 +7,14 @@
 .roster-list small { display: block; margin-top: .35rem; color: var(--muted); font: 500 .62rem "DM Sans", sans-serif; }
 .roster-list b { display: inline-block; margin-left: .5rem; vertical-align: .16em; padding: .2rem .42rem; border: 1px solid var(--gold); color: #795915; font: 600 .55rem/1 "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .sandbox-button { margin-top: 1.2rem; }
+/* Borrows the arrow from the Sandbox button without the red fill, which at a
+   fifth of the page width would outshout the two Store CTAs. Red rather than
+   gold: gold on the #eee3d1 details panel is 1.8:1, nowhere near readable. */
+.feature-link { display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.4rem; color: var(--red); font: 600 .7rem "DM Sans", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.feature-link span { transition: transform .25s ease; }
+.feature-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.feature-link:hover span { transform: translateX(4px); }
+.feature-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 /* The hero and sandbox decoration are real cards now, not CSS rectangles with a
    glyph in them. These strip the drawn card's fills, borders and inner glyph
