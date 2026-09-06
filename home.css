@@ -1,0 +1,57 @@
+/* First design iteration: give the actual card tables room to be seen.
+   Home-only styles keep generated game/deck pages independently reviewable. */
+.home-page .hero {
+  grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr);
+  min-height: 740px;
+  padding: 150px clamp(24px, 5vw, 80px) 90px;
+  gap: 4vw;
+  background: radial-gradient(ellipse at 75% 45%, #263b30 0, transparent 60%), #131815;
+}
+.home-page .hero::after { display: none; }
+.home-page .hero h1 { font-size: clamp(4rem, 6.5vw, 6.5rem); line-height: .98; }
+.home-page .lede { max-width: 380px; }
+.home-page .hero-actions { flex-wrap: wrap; gap: 1.4rem; }
+.home-page .trust-row { color: #b8b4a7; gap: 1rem; flex-wrap: wrap; }
+.home-page .trust-row span + span::before { margin-right: 1rem; }
+.text-link { font-size: .85rem; padding: .7rem 0; border-bottom: 1px solid #82764f; }
+.text-link span { margin-left: .8rem; color: var(--gold); }
+.table-capture { margin: 0; min-width: 0; }
+.table-capture img { width: 100%; height: auto; border: 1px solid #ffffff26; border-radius: 6px; box-shadow: 0 24px 60px #0005; }
+.table-capture figcaption { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; color: #c8c0b5; font-size: .75rem; padding-top: 1.1rem; line-height: 1.6; }
+.table-capture figcaption > span { text-transform: uppercase; letter-spacing: .13em; font-size: .6rem; color: var(--gold); }
+.table-capture figcaption a { margin-left: auto; text-decoration: underline; text-underline-offset: 4px; }
+.home-page .sandbox { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 5vw; min-height: 0; padding: 85px clamp(24px, 5vw, 80px); background: #1d2020; }
+.home-page .sandbox h2 { font-size: clamp(3rem, 5vw, 5rem); }
+.home-page .sandbox-copy > p:nth-of-type(2) { margin: 1.5rem 0; }
+.home-page .sandbox ul { margin-top: 1.5rem; }
+.home-page .section { padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px); }
+.table-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+.table-tile { display: block; min-width: 0; border-bottom: 1px solid var(--line); padding-bottom: 1.4rem; }
+.table-tile img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #17151a; border-radius: 4px; }
+.table-tile h3 { font: 600 1.6rem "Playfair Display", serif; margin: 1rem 0 .4rem; }
+.table-tile h3 span { float: right; font: 1rem "DM Sans", sans-serif; color: #8c6232; }
+.table-tile p { color: #655b54; margin: 0 0 .6rem; font-size: .85rem; }
+.table-tile small { text-transform: uppercase; letter-spacing: .1em; font-size: .6rem; color: #74604b; }
+.table-tile:hover h3 { color: var(--red); }
+.home-page a:focus-visible { outline: 3px solid #c28b36; outline-offset: 5px; }
+/* Content remains visible if JavaScript is unavailable. */
+.home-page .reveal { opacity: 1; transform: none; }
+@media (max-width: 1100px) {
+  .table-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .home-page .hero, .home-page .sandbox { grid-template-columns: 1fr; }
+  .home-page .hero { padding-top: 145px; min-height: 0; }
+  .home-page .hero-art { margin-top: 1rem; }
+  .home-page .lede { max-width: 540px; }
+  .home-page .site-header { height: 110px; flex-wrap: wrap; padding-top: 15px; padding-bottom: 12px; gap: 12px; }
+  .home-page .site-header nav { display: flex; order: 3; width: 100%; justify-content: space-between; gap: 1rem; font-size: .8rem; }
+}
+@media (max-width: 560px) {
+  .table-gallery { grid-template-columns: 1fr; gap: 2rem; }
+  .home-page .hero { padding-bottom: 50px; }
+  .home-page .hero h1 { font-size: clamp(3.5rem, 15vw, 5rem); }
+  .home-page .hero-actions { flex-direction: row; align-items: center; }
+  .table-capture figcaption a { margin-left: 0; }
+  .home-page .sandbox { padding-top: 60px; padding-bottom: 60px; }
+}
