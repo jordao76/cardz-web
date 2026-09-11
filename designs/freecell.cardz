@@ -260,7 +260,6 @@
         "tab-7",
         "tab-8"
       ],
-      "FaceDown": 0,
       "FaceUp": 6,
       "RoundRobin": true
     },
@@ -272,7 +271,6 @@
         "tab-3",
         "tab-4"
       ],
-      "FaceDown": 0,
       "FaceUp": 1,
       "RoundRobin": true
     }

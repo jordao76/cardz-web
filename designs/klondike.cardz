@@ -227,7 +227,6 @@
       "To": [
         "tab-1"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     },
     {
@@ -241,7 +240,6 @@
         "tab-7"
       ],
       "FaceDown": 1,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -249,7 +247,6 @@
       "To": [
         "tab-2"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     },
     {
@@ -262,7 +259,6 @@
         "tab-7"
       ],
       "FaceDown": 1,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -270,7 +266,6 @@
       "To": [
         "tab-3"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     },
     {
@@ -282,7 +277,6 @@
         "tab-7"
       ],
       "FaceDown": 1,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -290,7 +284,6 @@
       "To": [
         "tab-4"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     },
     {
@@ -301,7 +294,6 @@
         "tab-7"
       ],
       "FaceDown": 1,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -309,7 +301,6 @@
       "To": [
         "tab-5"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     },
     {
@@ -319,7 +310,6 @@
         "tab-7"
       ],
       "FaceDown": 1,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -327,7 +317,6 @@
       "To": [
         "tab-6"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     },
     {
@@ -335,15 +324,13 @@
       "To": [
         "tab-7"
       ],
-      "FaceDown": 1,
-      "FaceUp": 0
+      "FaceDown": 1
     },
     {
       "kind": "dealGroup",
       "To": [
         "tab-7"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     }
   ],

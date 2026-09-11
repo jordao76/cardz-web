@@ -138,7 +138,6 @@
         "tab-6",
         "tab-7"
       ],
-      "FaceDown": 0,
       "FaceUp": 5,
       "RoundRobin": true
     },
@@ -147,7 +146,6 @@
       "To": [
         "foundation"
       ],
-      "FaceDown": 0,
       "FaceUp": 1
     }
   ],

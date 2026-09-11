@@ -435,7 +435,6 @@
         "tab-10"
       ],
       "FaceDown": 4,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -447,7 +446,6 @@
         "tab-4"
       ],
       "FaceDown": 1,
-      "FaceUp": 0,
       "RoundRobin": true
     },
     {
@@ -464,7 +462,6 @@
         "tab-9",
         "tab-10"
       ],
-      "FaceDown": 0,
       "FaceUp": 1,
       "RoundRobin": true
     }
@@ -484,7 +481,6 @@
         "tab-9",
         "tab-10"
       ],
-      "FaceDown": 0,
       "FaceUp": 1,
       "RoundRobin": true
     }
