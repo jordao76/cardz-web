@@ -1,0 +1,164 @@
+{
+  "$schema": "https://cardz.roderic.dev/designs/schema.json",
+  "Name": "My Golf",
+  "Description": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- There is **no wrap**: only a Queen plays on a King, and only a 2 plays on an Ace.\n- Stuck with no legal move and an empty stock? The game is **lost**.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).",
+  "Decks": [
+    {}
+  ],
+  "Depots": [
+    {
+      "Type": "Stock",
+      "FanDirection": "None",
+      "Col": 5,
+      "Row": 0,
+      "Name": "stock",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      },
+      "Draw": {
+        "To": "foundation"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 6,
+      "Row": 0,
+      "Name": "foundation",
+      "AcceptRule": {
+        "Build": {
+          "Direction": "Either"
+        }
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 0,
+      "Row": 1,
+      "Name": "tab-1",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 1,
+      "Row": 1,
+      "Name": "tab-2",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 2,
+      "Row": 1,
+      "Name": "tab-3",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 3,
+      "Row": 1,
+      "Name": "tab-4",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 4,
+      "Row": 1,
+      "Name": "tab-5",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 5,
+      "Row": 1,
+      "Name": "tab-6",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 6,
+      "Row": 1,
+      "Name": "tab-7",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    }
+  ],
+  "DealRules": [
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7"
+      ],
+      "FaceDown": 0,
+      "FaceUp": 5,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "foundation"
+      ],
+      "FaceDown": 0,
+      "FaceUp": 1
+    }
+  ],
+  "DepotOnly": true,
+  "WinCondition": {
+    "kind": "depotsEmpty",
+    "Depots": {
+      "OfType": "Tableau"
+    }
+  },
+  "LossCondition": {
+    "kind": "noLegalMoves"
+  }
+}

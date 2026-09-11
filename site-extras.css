@@ -139,7 +139,7 @@ img.demo-card.c2 { border: 0; }
 .decks-cta { padding: 90px 0 110px; }
 
 .policy-body { background: #eee3d1; }
-.policy-header, .game-page .site-header, .decks-page .site-header { position: static; background: #100f14; }
+.policy-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header { position: static; background: #100f14; }
 .policy-main { min-height: calc(100vh - 180px); padding: 90px 24px 120px; }
 .policy-shell { width: min(760px, 100%); margin: auto; }
 .policy-shell h1 { margin: 0 0 1rem; font: 600 clamp(3.5rem, 8vw, 6.5rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
@@ -152,6 +152,53 @@ img.demo-card.c2 { border: 0; }
 .policy-content a { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
 .policy-content strong { color: var(--ink); }
 .back-link { display: inline-flex; gap: .55rem; margin-bottom: 3rem; color: var(--muted); font-size: .8rem; }
+
+/* Make a game: a hand-written guide over a generated reference (build.mjs renders
+   data/rule-vocabulary.md into it). A wider column than the game pages, because
+   the reference's tables need the room; wider still, they scroll in place. */
+.format-page { background: #eee3d1; color: var(--ink); }
+.format-main { min-height: calc(100vh - 180px); padding: 70px 24px 110px; }
+.format-shell { width: min(880px, 100%); margin: auto; }
+.format-shell h1 { margin: 0 0 1.5rem; font: 600 clamp(3.2rem, 7vw, 5.5rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
+.format-shell h1 em { color: #8c6232; }
+.format-lede { font: 600 1.35rem/1.55 "Playfair Display", serif; border-left: 2px solid var(--gold); padding-left: 1.4rem; margin: 0 0 3rem; }
+.format-section { padding: 2.6rem 0; border-top: 1px solid var(--line); }
+.format-section > h2 { margin: 0 0 1.2rem; font: 600 2rem "Playfair Display", serif; }
+.format-section p, .format-section li { color: #5f5852; line-height: 1.8; }
+.format-section strong { color: var(--ink); }
+.format-section a:not(.button) { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.format-section code, .reference code { font: .82em ui-monospace, "Cascadia Code", Consolas, monospace; background: rgba(50, 37, 28, .07); padding: .08em .3em; border-radius: 3px; color: var(--ink); overflow-wrap: anywhere; }
+.format-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: format-step; }
+.format-steps li { counter-increment: format-step; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+.format-steps li::before { content: "0" counter(format-step); color: #8c6232; font-size: .75rem; letter-spacing: .12em; }
+.format-steps h3 { margin: .8rem 0 .6rem; font: 600 1.35rem "Playfair Display", serif; color: var(--ink); }
+.format-steps p { margin: 0; font-size: .92rem; }
+.format-note { margin: 2rem 0 0; font-size: .9rem; }
+.starter-list { list-style: none; padding: 0; margin: 1.4rem 0 1.6rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.starter-list li { background: var(--paper); padding: 1.2rem 1.3rem; }
+.starter-list a { font: 600 1.15rem "Playfair Display", serif; color: var(--ink); }
+.starter-list span { display: block; margin-top: .35rem; font-size: .82rem; line-height: 1.6; color: var(--muted); }
+.format-prompt { margin: 1.4rem 0; padding: 1.1rem 1.4rem; background: var(--paper); border-left: 2px solid var(--gold); }
+.format-prompt p { margin: 0; font: italic 600 1.1rem/1.6 "Playfair Display", serif; color: var(--ink); }
+.ref-toc ol { margin: 1.4rem 0 0; padding: 1.2rem 1.4rem 1.2rem 2.6rem; background: var(--paper); border: 1px solid var(--line); columns: 2; column-gap: 2.5rem; }
+.ref-toc li { break-inside: avoid; padding: .15rem 0; font-size: .88rem; }
+.ref-toc li::marker { color: #8c6232; font-size: .75rem; }
+.reference h3 { margin: 3rem 0 1rem; padding-top: 2rem; border-top: 1px solid var(--line); font: 600 1.75rem "Playfair Display", serif; color: var(--ink); scroll-margin-top: 1.5rem; }
+.reference h4 { margin: 2.2rem 0 .8rem; font: 600 1.25rem "Playfair Display", serif; color: var(--ink); scroll-margin-top: 1.5rem; }
+.reference p, .reference li { color: #5f5852; line-height: 1.8; }
+.reference strong { color: var(--ink); }
+.reference ul { margin: 0 0 1.2rem; padding-left: 1.2rem; }
+.reference li { margin-bottom: .5rem; }
+.reference li::marker { color: var(--gold); }
+.reference pre { margin: 1.2rem 0 1.6rem; overflow-x: auto; padding: 1.2rem 1.3rem; background: #17151a; color: #e9dfcd; border-radius: 4px; font-size: .78rem; line-height: 1.6; }
+.reference pre code { background: none; padding: 0; color: inherit; font-size: inherit; overflow-wrap: normal; }
+.ref-table { margin: 1.2rem 0 1.6rem; overflow-x: auto; border: 1px solid var(--line); background: rgba(243, 236, 219, .6); }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.ref-table th, .ref-table td { padding: .7rem .8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); line-height: 1.65; color: #5f5852; }
+.ref-table th { background: var(--paper2); color: var(--ink); font-weight: 600; }
+.ref-table tr:last-child td { border-bottom: 0; }
+.ref-table td:first-child { min-width: 9rem; }
+@media (max-width: 800px) { .format-steps, .starter-list { grid-template-columns: 1fr; gap: 1px; } .format-steps { gap: 1.2rem; } .ref-toc ol { columns: 1; } }
 
 /* The nav dims every link to .72, so the page you are on had no way to show
    itself — aria-current was reaching screen readers and nobody else. */

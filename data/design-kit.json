@@ -1,0 +1,25 @@
+{
+  "schemaUrl": "https://cardz.roderic.dev/designs/schema.json",
+  "starters": [
+    {
+      "name": "My Klondike",
+      "file": "klondike.cardz",
+      "blurb": "A stock that deals and recycles, foundations built up by suit, and columns that turn up their next card."
+    },
+    {
+      "name": "My FreeCell",
+      "file": "freecell.cardz",
+      "blurb": "Every card dealt face up, free cells that hold one card each, and moves sized by the space you have."
+    },
+    {
+      "name": "My Spider (1 Suit)",
+      "file": "spider-1-suit.cardz",
+      "blurb": "A stock that deals a whole row, runs that move together, and finished runs that bank themselves."
+    },
+    {
+      "name": "My Golf",
+      "file": "golf.cardz",
+      "blurb": "One foundation built up or down, columns that give up only their top card, and a loss when no move is left."
+    }
+  ]
+}

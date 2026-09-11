@@ -78,6 +78,26 @@ Each is a run of that band beside its own mirror image, so the tile's two edges
 are identical and `repeat-x` shows no seam. Only Felt House and Valhalla qualify;
 the script's header says why the other decks do not.
 
+## Make a game is half generated
+
+`make-a-game.html` is hand-written around three marked regions that `build.mjs`
+fills: the starter-game links, the reference's table of contents, and the
+reference itself, rendered from `data/rule-vocabulary.md`. That file is the app
+repo's `docs/rule-vocabulary.md` byte for byte — the same document Cardz serves to
+AI agents — so the page cannot describe a design format the app does not read.
+The build fails if the kit is missing.
+
+The kit comes from the app repo, on its own cadence like `games.json`:
+
+```powershell
+..\cardz-win\scripts\export-design-kit.ps1
+```
+
+It writes `data/rule-vocabulary.md`, `data/design-kit.json` (the starter list),
+`designs/schema.json` (a JSON Schema generated from the design types, which a
+design file can name in `"$schema"`), and `designs/*.cardz` — starter games cut
+from built-ins, each checked to import before it is written.
+
 See `docs/website-plan.md` in the app repo for why it is built this way and
 what comes next (board diagrams, a decks gallery, localized pages).
 

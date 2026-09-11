@@ -1,12 +1,14 @@
 // Generates the game pages and the index's roster from data/games.json, which
-// cardz-win's scripts/export-games.ps1 projects out of the app's own catalog.
-// See cardz-win docs/website-plan.md.
+// cardz-win's scripts/export-games.ps1 projects out of the app's own catalog,
+// and the generated half of make-a-game.html from the design kit, which
+// cardz-win's scripts/export-design-kit.ps1 exports. See cardz-win
+// docs/website-plan.md.
 //
 //   node build.mjs
 //
-// Everything else on the site stays hand-written. This only owns games/<slug>/
-// and the one marked region in index.html, so a redesign can move freely
-// around it.
+// Everything else on the site stays hand-written. This only owns games/<slug>/,
+// decks.html, and the marked regions in index.html and make-a-game.html, so a
+// redesign can move freely around it.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -22,6 +24,8 @@ const games = JSON.parse(readFileSync(join(root, "data/games.json"), "utf8"));
 const roster = JSON.parse(readFileSync(join(root, "data/roster.json"), "utf8"));
 const decks = JSON.parse(readFileSync(join(root, "data/decks.json"), "utf8"));
 const deckArt = JSON.parse(readFileSync(join(root, "assets/decks/manifest.json"), "utf8"));
+const designKit = JSON.parse(readFileSync(join(root, "data/design-kit.json"), "utf8"));
+const reference = readFileSync(join(root, "data/rule-vocabulary.md"), "utf8");
 
 // Variants of one game share a page: two near-identical pages would compete
 // with each other for the same search, and neither would deserve to win.
@@ -102,6 +106,140 @@ function slug(name) {
     .replace(/^-|-$/g, "");
 }
 
+// ---------------------------------------------------------------- reference markdown
+
+/**
+ * The design reference is a document, not a rules blurb: sections, tables, JSON.
+ * It gets a renderer of its own rather than a looser markdown(), which stays
+ * strict so a preset description that grows a table still fails the build. This
+ * one is strict too, over its own closed set — headings, paragraphs, nested "- "
+ * lists, pipe tables, fenced code, `code`, **bold**, *italic* — and throws on
+ * anything else.
+ *
+ * Headings drop a level: the page's own "Reference" section is the h2, so the
+ * document's ## sections are h3s inside it, and its # title is the page's to set.
+ */
+function referenceMarkdown(source) {
+  const lines = source.replace(/\r\n/g, "\n").split("\n");
+  const blockStart = /^(#{1,3} |```|\||\s*- )/;
+  const html = [];
+  const toc = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line.trim() || /^---\s*$/.test(line) || /^# /.test(line)) {
+      i++;
+      continue;
+    }
+
+    const heading = line.match(/^(##|###) (.+)$/);
+    if (heading) {
+      const level = heading[1].length + 1;
+      const id = slug(heading[2].replace(/[`*]/g, ""));
+      if (level === 3) toc.push({ id, text: heading[2] });
+      html.push(`<h${level} id="${id}">${inlineReference(heading[2])}</h${level}>`);
+      i++;
+      continue;
+    }
+
+    if (line.startsWith("```")) {
+      const language = line.slice(3).trim();
+      const body = [];
+      for (i++; i < lines.length && !lines[i].startsWith("```"); i++) body.push(lines[i]);
+      if (i === lines.length) throw new Error("The design reference has an unclosed code fence");
+      i++;
+      const cls = language ? ` class="language-${escape(language)}"` : "";
+      html.push(`<pre><code${cls}>${escape(body.join("\n"))}</code></pre>`);
+      continue;
+    }
+
+    if (line.startsWith("|")) {
+      const rows = [];
+      while (i < lines.length && lines[i].startsWith("|")) rows.push(cells(lines[i++]));
+      const [head, rule, ...body] = rows;
+      if (!rule || !rule.every((cell) => /^:?-+:?$/.test(cell)))
+        throw new Error(`The design reference has a table with no header rule: ${line}`);
+      const th = head.map((cell) => `<th scope="col">${inlineReference(cell)}</th>`).join("");
+      const tr = body.map((row) => `<tr>${row.map((cell) => `<td>${inlineReference(cell)}</td>`).join("")}</tr>`);
+      html.push(`<div class="ref-table"><table><thead><tr>${th}</tr></thead><tbody>${tr.join("")}</tbody></table></div>`);
+      continue;
+    }
+
+    if (/^\s*- /.test(line)) {
+      const items = [];
+      for (; i < lines.length && lines[i].trim() && !/^(#{1,3} |```|\|)/.test(lines[i]); i++) {
+        const item = lines[i].match(/^(\s*)- (.*)$/);
+        if (item) items.push({ depth: Math.floor(item[1].length / 2), text: item[2] });
+        else items[items.length - 1].text += ` ${lines[i].trim()}`;
+      }
+      html.push(nestedList(items));
+      continue;
+    }
+
+    if (/^\s*(>|\d+\. )/.test(line))
+      throw new Error(`Unsupported markdown in the design reference: ${JSON.stringify(line)}`);
+
+    const paragraph = [];
+    while (i < lines.length && lines[i].trim() && !blockStart.test(lines[i]) && !/^---\s*$/.test(lines[i]))
+      paragraph.push(lines[i++].trim());
+    html.push(`<p>${inlineReference(paragraph.join(" "))}</p>`);
+  }
+
+  return { html: html.join("\n"), toc };
+}
+
+/** A pipe-table row's cells. A pipe inside `code` is text, not a cell break. */
+function cells(line) {
+  const body = line.trim().replace(/^\|/, "").replace(/\|$/, "");
+  const out = [];
+  let cell = "";
+  let code = false;
+  for (const ch of body) {
+    if (ch === "`") code = !code;
+    if (ch === "|" && !code) {
+      out.push(cell.trim());
+      cell = "";
+    } else cell += ch;
+  }
+  out.push(cell.trim());
+  return out;
+}
+
+/** "- " items at two spaces per level, as a nested <ul>. */
+function nestedList(items) {
+  let out = "";
+  let depth = -1;
+  for (const item of items) {
+    if (item.depth > depth + 1) throw new Error(`A list in the design reference skips a level: ${item.text}`);
+    if (item.depth > depth) out += "<ul>";
+    else {
+      out += "</li>";
+      for (let d = depth; d > item.depth; d--) out += "</ul></li>";
+    }
+    out += `<li>${inlineReference(item.text)}`;
+    depth = item.depth;
+  }
+  out += "</li>";
+  for (let d = depth; d > 0; d--) out += "</ul></li>";
+  return `${out}</ul>`;
+}
+
+/**
+ * Code spans are set aside behind @@codeN@@ placeholders before anything else, so a
+ * `*` inside one stays text — and so emphasis can run across one, as in
+ * **`AutoSend` offers the largest group first**. Neither `@` nor a digit is
+ * something the emphasis patterns look at.
+ */
+function inlineReference(text) {
+  const codes = [];
+  const held = text.replace(/`([^`]+)`/g, (_, code) => `@@code${codes.push(code) - 1}@@`);
+  return escape(held)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[^*\w])\*(?=\S)(.+?)(?<=\S)\*(?![*\w])/g, "$1<em>$2</em>")
+    .replace(/@@code(\d+)@@/g, (_, n) => `<code>${escape(codes[Number(n)])}</code>`);
+}
+
 /**
  * The opening paragraph is set as a display lede — big Playfair against a gold
  * rule — which only works while it stays a one-line statement of the goal. A
@@ -130,7 +268,7 @@ function summarize(page) {
 // ---------------------------------------------------------------- templates
 
 // Marks the nav item you are looking at. Game pages pass nothing deliberately:
-// none of the five links is the current page, and putting it on Games would tell
+// none of the six links is the current page, and putting it on Games would tell
 // a screen reader that the index's #games anchor is the page it is already on.
 const mark = (current, slug) => (current === slug ? ` aria-current="page"` : "");
 
@@ -156,7 +294,7 @@ function chrome(depth) {
     header: (current) => `  <header class="site-header">
     <a class="brand" href="${up}index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
     <nav aria-label="Main navigation">
-      <a href="${up}index.html">Home</a><a href="${up}index.html#games">Games</a><a href="${up}decks.html"${mark(current, "decks")}>Decks</a><a href="${up}sandbox.html"${mark(current, "sandbox")}>Sandbox</a><a href="${up}privacy.html"${mark(current, "privacy")}>Privacy</a>
+      <a href="${up}index.html">Home</a><a href="${up}index.html#games">Games</a><a href="${up}decks.html"${mark(current, "decks")}>Decks</a><a href="${up}sandbox.html"${mark(current, "sandbox")}>Sandbox</a><a href="${up}make-a-game.html"${mark(current, "make-a-game")}>Make a game</a><a href="${up}privacy.html"${mark(current, "privacy")}>Privacy</a>
     </nav>
     <a class="button button-small" href="${STORE}">Get Cardz</a>
   </header>`,
@@ -310,7 +448,29 @@ ${footer}
 `;
 }
 
-// ---------------------------------------------------------------- index regions
+// ---------------------------------------------------------------- make a game
+
+/** Download links for the starter games the design kit exported, each checked to exist. */
+function starterMarkup() {
+  return designKit.starters
+    .map((starter) => {
+      if (!existsSync(join(root, "designs", starter.file)))
+        throw new Error(
+          `data/design-kit.json lists designs/${starter.file}, which is not on disk. ` +
+            `Run cardz-win's scripts/export-design-kit.ps1.`
+        );
+      return `          <li><a href="designs/${starter.file}" download>${escape(starter.name)}</a><span>${escape(starter.blurb)}</span></li>`;
+    })
+    .join("\n");
+}
+
+function tocMarkup(toc) {
+  return toc
+    .map((entry) => `            <li><a href="#${entry.id}">${inlineReference(entry.text)}</a></li>`)
+    .join("\n");
+}
+
+// ---------------------------------------------------------------- regions
 
 function rosterMarkup(all) {
   return all
@@ -324,16 +484,26 @@ function rosterMarkup(all) {
     .join("\n");
 }
 
-function replaceRegion(html, name, body) {
+function replaceRegion(html, name, body, file) {
   const open = `<!-- build:${name} -->`;
   const close = `<!-- /build:${name} -->`;
   const start = html.indexOf(open);
   const end = html.indexOf(close);
-  if (start < 0 || end < 0) throw new Error(`index.html is missing the ${name} region markers`);
+  if (start < 0 || end < 0) throw new Error(`${file} is missing the ${name} region markers`);
   return `${html.slice(0, start + open.length)}\n${body}\n${html.slice(end)}`;
 }
 
+function rewrite(file, regions) {
+  const path = join(root, file);
+  let html = readFileSync(path, "utf8");
+  for (const [name, body] of Object.entries(regions)) html = replaceRegion(html, name, body, file);
+  writeFileSync(path, html, "utf8");
+}
+
 // ---------------------------------------------------------------- run
+
+if (!existsSync(join(root, "designs/schema.json")))
+  throw new Error("designs/schema.json is missing. Run cardz-win's scripts/export-design-kit.ps1.");
 
 const outDir = join(root, "games");
 if (existsSync(outDir)) rmSync(outDir, { recursive: true });
@@ -345,12 +515,17 @@ for (const page of ordered) {
 
 writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
 
-const indexPath = join(root, "index.html");
-let index = readFileSync(indexPath, "utf8");
-index = replaceRegion(index, "roster", rosterMarkup(ordered));
-writeFileSync(indexPath, index, "utf8");
+rewrite("index.html", { roster: rosterMarkup(ordered) });
+
+const rendered = referenceMarkdown(reference);
+rewrite("make-a-game.html", {
+  starters: starterMarkup(),
+  "reference-toc": tocMarkup(rendered.toc),
+  reference: rendered.html,
+});
 
 console.log(
   `${ordered.length} pages → games/  (${games.games.filter((g) => !g.sandbox).length} games, ${games.culture})\n` +
-    `decks.html  (${decks.decks.length} decks)`
+    `decks.html  (${decks.decks.length} decks)\n` +
+    `make-a-game.html  (${designKit.starters.length} starters, ${rendered.toc.length} reference sections)`
 );

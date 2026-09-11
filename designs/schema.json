@@ -1,0 +1,1289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardz.roderic.dev/designs/schema.json",
+  "title": "Cardz design",
+  "description": "A solitaire for Cardz, written as data. The reference is https://cardz.roderic.dev/make-a-game.html",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Family": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "Description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "VariantAxis": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "VariantLabel": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "VariantSelections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ParameterId": {
+            "type": "string"
+          },
+          "AxisLabel": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
+          },
+          "OptionLabel": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ParameterId",
+          "AxisLabel",
+          "Value",
+          "OptionLabel"
+        ]
+      }
+    },
+    "Draft": {
+      "type": "boolean"
+    },
+    "NoTemplate": {
+      "type": "boolean"
+    },
+    "Decks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Suits": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "Clubs",
+                "Diamonds",
+                "Hearts",
+                "Spades"
+              ]
+            },
+            "default": null
+          },
+          "Ranks": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "Ace",
+                "Two",
+                "Three",
+                "Four",
+                "Five",
+                "Six",
+                "Seven",
+                "Eight",
+                "Nine",
+                "Ten",
+                "Jack",
+                "Queen",
+                "King"
+              ]
+            },
+            "default": null
+          },
+          "Count": {
+            "type": "integer",
+            "default": 1
+          },
+          "Jokers": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      }
+    },
+    "Depots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "enum": [
+              "Stock",
+              "Waste",
+              "Foundation",
+              "Tableau",
+              "Cell",
+              "Reserve",
+              "Layout"
+            ]
+          },
+          "FanDirection": {
+            "enum": [
+              "None",
+              "Down",
+              "Up",
+              "Left",
+              "Right",
+              "Radial"
+            ]
+          },
+          "FanWindow": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Col": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Row": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "X": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Y": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "AcceptRule": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "RejectsAll": {
+                "type": "boolean"
+              },
+              "EmptyOnly": {
+                "type": "boolean"
+              },
+              "Single": {
+                "type": "boolean"
+              },
+              "MinCount": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "Seed": {
+                "enum": [
+                  "Ace",
+                  "Two",
+                  "Three",
+                  "Four",
+                  "Five",
+                  "Six",
+                  "Seven",
+                  "Eight",
+                  "Nine",
+                  "Ten",
+                  "Jack",
+                  "Queen",
+                  "King",
+                  null
+                ]
+              },
+              "SeedNone": {
+                "type": "boolean"
+              },
+              "SeedFromDeal": {
+                "type": "boolean"
+              },
+              "RankIs": {
+                "enum": [
+                  "Ace",
+                  "Two",
+                  "Three",
+                  "Four",
+                  "Five",
+                  "Six",
+                  "Seven",
+                  "Eight",
+                  "Nine",
+                  "Ten",
+                  "Jack",
+                  "Queen",
+                  "King",
+                  null
+                ]
+              },
+              "Build": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "Direction": {
+                    "enum": [
+                      "Up",
+                      "Down",
+                      "Either"
+                    ]
+                  },
+                  "Step": {
+                    "type": "integer",
+                    "default": 1
+                  },
+                  "Wrap": {
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "Sum": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "default": null
+                  }
+                },
+                "required": [
+                  "Direction"
+                ]
+              },
+              "Suit": {
+                "enum": [
+                  "Any",
+                  "Same",
+                  "AlternateColor"
+                ]
+              },
+              "Follow": {
+                "type": "boolean"
+              },
+              "WildRank": {
+                "enum": [
+                  "Ace",
+                  "Two",
+                  "Three",
+                  "Four",
+                  "Five",
+                  "Six",
+                  "Seven",
+                  "Eight",
+                  "Nine",
+                  "Ten",
+                  "Jack",
+                  "Queen",
+                  "King",
+                  null
+                ]
+              },
+              "WildDeclares": true,
+              "DeclaredSuit": {
+                "enum": [
+                  "Clubs",
+                  "Diamonds",
+                  "Hearts",
+                  "Spades",
+                  null
+                ]
+              },
+              "WildJoker": {
+                "type": "boolean"
+              },
+              "AcceptFrom": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "OfType": {
+                    "enum": [
+                      "Stock",
+                      "Waste",
+                      "Foundation",
+                      "Tableau",
+                      "Cell",
+                      "Reserve",
+                      "Layout",
+                      null
+                    ]
+                  },
+                  "Names": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "AllowFaceDown": {
+                "type": "boolean"
+              }
+            }
+          },
+          "EjectRule": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "Gate": {
+                "enum": [
+                  "Any",
+                  "Locked",
+                  "FaceUp",
+                  "TopOnly"
+                ]
+              },
+              "Unit": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "Kind": {
+                    "enum": [
+                      "Single",
+                      "Any",
+                      "Run"
+                    ],
+                    "default": "Any"
+                  },
+                  "Build": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "Direction": {
+                        "enum": [
+                          "Up",
+                          "Down",
+                          "Either"
+                        ]
+                      },
+                      "Step": {
+                        "type": "integer",
+                        "default": 1
+                      },
+                      "Wrap": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "Sum": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "default": null
+                      }
+                    },
+                    "required": [
+                      "Direction"
+                    ],
+                    "default": null
+                  },
+                  "Suit": {
+                    "enum": [
+                      "Any",
+                      "Same",
+                      "AlternateColor"
+                    ],
+                    "default": "Any"
+                  }
+                }
+              },
+              "Loose": {
+                "type": "boolean"
+              }
+            }
+          },
+          "LandFace": {
+            "enum": [
+              "Up",
+              "Down",
+              null
+            ]
+          },
+          "AutoFlipTop": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "Draw": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "To": {
+                "type": "string"
+              },
+              "Count": {
+                "type": "integer",
+                "default": 1
+              },
+              "Recycle": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": [
+              "To"
+            ]
+          },
+          "Angle": {
+            "type": "number"
+          },
+          "OffTable": {
+            "type": "boolean"
+          },
+          "FanOffsetFaceDown": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "FanOffsetFaceUp": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LandUnder": {
+            "type": "boolean"
+          },
+          "LooseOrder": {
+            "type": "boolean"
+          },
+          "UncoveredBy": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "UncoveredByAny": {
+            "type": "boolean"
+          },
+          "AutoFlipUncovered": {
+            "type": "boolean"
+          },
+          "AutoSend": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "OfType": {
+                "enum": [
+                  "Stock",
+                  "Waste",
+                  "Foundation",
+                  "Tableau",
+                  "Cell",
+                  "Reserve",
+                  "Layout",
+                  null
+                ]
+              },
+              "Names": {
+                "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+              }
+            }
+          },
+          "AutoRefill": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "OfType": {
+                "enum": [
+                  "Stock",
+                  "Waste",
+                  "Foundation",
+                  "Tableau",
+                  "Cell",
+                  "Reserve",
+                  "Layout",
+                  null
+                ]
+              },
+              "Names": {
+                "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+              }
+            }
+          },
+          "Owner": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Visibility": {
+            "enum": [
+              "All",
+              "Owner"
+            ]
+          },
+          "PerSeat": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "Type",
+          "FanDirection"
+        ]
+      }
+    },
+    "DealRules": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "anyOf": [
+          {
+            "properties": {
+              "kind": {
+                "const": "move"
+              },
+              "From": {
+                "type": "string"
+              },
+              "To": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "From",
+              "To"
+            ]
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "flipTop"
+              },
+              "Depot": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Depot"
+            ]
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "dealGroup"
+              },
+              "To": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "FaceDown": {
+                "type": "integer"
+              },
+              "FaceUp": {
+                "type": "integer"
+              },
+              "RoundRobin": {
+                "type": "boolean"
+              },
+              "From": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "To"
+            ]
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "gather"
+              },
+              "From": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "To": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "From",
+              "To"
+            ]
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "shuffle"
+              },
+              "Depot": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Depot"
+            ]
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "place"
+              },
+              "Rank": {
+                "enum": [
+                  "Ace",
+                  "Two",
+                  "Three",
+                  "Four",
+                  "Five",
+                  "Six",
+                  "Seven",
+                  "Eight",
+                  "Nine",
+                  "Ten",
+                  "Jack",
+                  "Queen",
+                  "King"
+                ]
+              },
+              "Suit": {
+                "enum": [
+                  "Clubs",
+                  "Diamonds",
+                  "Hearts",
+                  "Spades"
+                ]
+              },
+              "To": {
+                "type": "string"
+              },
+              "Joker": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "Rank",
+              "Suit",
+              "To"
+            ]
+          }
+        ]
+      }
+    },
+    "RedealRules": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/properties/DealRules/items"
+      }
+    },
+    "RedealWhen": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "kind"
+      ],
+      "anyOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "allCardsIn"
+            },
+            "Depots": {
+              "type": "object",
+              "properties": {
+                "OfType": {
+                  "enum": [
+                    "Stock",
+                    "Waste",
+                    "Foundation",
+                    "Tableau",
+                    "Cell",
+                    "Reserve",
+                    "Layout",
+                    null
+                  ]
+                },
+                "Names": {
+                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                }
+              }
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "allCardsFaceUp"
+            }
+          }
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "depotsEmpty"
+            },
+            "Depots": {
+              "type": "object",
+              "properties": {
+                "OfType": {
+                  "enum": [
+                    "Stock",
+                    "Waste",
+                    "Foundation",
+                    "Tableau",
+                    "Cell",
+                    "Reserve",
+                    "Layout",
+                    null
+                  ]
+                },
+                "Names": {
+                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                }
+              }
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "depotsNonEmpty"
+            },
+            "Depots": {
+              "type": "object",
+              "properties": {
+                "OfType": {
+                  "enum": [
+                    "Stock",
+                    "Waste",
+                    "Foundation",
+                    "Tableau",
+                    "Cell",
+                    "Reserve",
+                    "Layout",
+                    null
+                  ]
+                },
+                "Names": {
+                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                }
+              }
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "seatCleared"
+            },
+            "Depots": {
+              "type": "object",
+              "properties": {
+                "OfType": {
+                  "enum": [
+                    "Stock",
+                    "Waste",
+                    "Foundation",
+                    "Tableau",
+                    "Cell",
+                    "Reserve",
+                    "Layout",
+                    null
+                  ]
+                },
+                "Names": {
+                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                }
+              }
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "allOf"
+            },
+            "Of": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind"
+                ],
+                "anyOf": [
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "allCardsIn"
+                      },
+                      "Depots": {
+                        "$ref": "#/properties/RedealWhen/anyOf/0/properties/Depots"
+                      }
+                    },
+                    "required": [
+                      "Depots"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "allCardsFaceUp"
+                      }
+                    }
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "depotsEmpty"
+                      },
+                      "Depots": {
+                        "$ref": "#/properties/RedealWhen/anyOf/2/properties/Depots"
+                      }
+                    },
+                    "required": [
+                      "Depots"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "depotsNonEmpty"
+                      },
+                      "Depots": {
+                        "$ref": "#/properties/RedealWhen/anyOf/3/properties/Depots"
+                      }
+                    },
+                    "required": [
+                      "Depots"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "seatCleared"
+                      },
+                      "Depots": {
+                        "$ref": "#/properties/RedealWhen/anyOf/4/properties/Depots"
+                      }
+                    },
+                    "required": [
+                      "Depots"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "allOf"
+                      },
+                      "Of": {
+                        "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of"
+                      }
+                    },
+                    "required": [
+                      "Of"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "const": "anyOf"
+                      },
+                      "Of": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of/items"
+                        }
+                      }
+                    },
+                    "required": [
+                      "Of"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "Of"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "anyOf"
+            },
+            "Of": {
+              "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of/items/anyOf/6/properties/Of"
+            }
+          },
+          "required": [
+            "Of"
+          ]
+        }
+      ]
+    },
+    "DepotOnly": {
+      "type": "boolean"
+    },
+    "CompoundMoves": {
+      "enum": [
+        "Free",
+        "Staged"
+      ]
+    },
+    "Anchor": {
+      "enum": [
+        "TopCenter",
+        "TopLeft"
+      ]
+    },
+    "FanOffsetFaceDown": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "FanOffsetFaceUp": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "WinCondition": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "kind"
+      ],
+      "anyOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "allCardsIn"
+            },
+            "Depots": {
+              "$ref": "#/properties/RedealWhen/anyOf/0/properties/Depots"
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "allCardsFaceUp"
+            }
+          }
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "depotsEmpty"
+            },
+            "Depots": {
+              "$ref": "#/properties/RedealWhen/anyOf/2/properties/Depots"
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "depotsNonEmpty"
+            },
+            "Depots": {
+              "$ref": "#/properties/RedealWhen/anyOf/3/properties/Depots"
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "seatCleared"
+            },
+            "Depots": {
+              "$ref": "#/properties/RedealWhen/anyOf/4/properties/Depots"
+            }
+          },
+          "required": [
+            "Depots"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "allOf"
+            },
+            "Of": {
+              "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of"
+            }
+          },
+          "required": [
+            "Of"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "anyOf"
+            },
+            "Of": {
+              "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of/items/anyOf/6/properties/Of"
+            }
+          },
+          "required": [
+            "Of"
+          ]
+        }
+      ]
+    },
+    "LossCondition": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "kind"
+      ],
+      "anyOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "noLegalMoves"
+            }
+          }
+        }
+      ]
+    },
+    "Seats": {
+      "type": "integer"
+    },
+    "SeatRange": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Min": {
+          "type": "integer"
+        },
+        "Max": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Min",
+        "Max"
+      ]
+    },
+    "TableCenter": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Col": {
+          "type": "number"
+        },
+        "Row": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "Col",
+        "Row"
+      ]
+    },
+    "Score": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Basis": {
+          "enum": [
+            "CardsWon",
+            "CardsHeld"
+          ]
+        },
+        "Depots": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "OfType": {
+              "enum": [
+                "Stock",
+                "Waste",
+                "Foundation",
+                "Tableau",
+                "Cell",
+                "Reserve",
+                "Layout",
+                null
+              ]
+            },
+            "Names": {
+              "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+            }
+          }
+        },
+        "CountedDepots": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "OfType": {
+              "enum": [
+                "Stock",
+                "Waste",
+                "Foundation",
+                "Tableau",
+                "Cell",
+                "Reserve",
+                "Layout",
+                null
+              ]
+            },
+            "Names": {
+              "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+            }
+          }
+        },
+        "HighIsBetter": {
+          "type": "boolean"
+        },
+        "Ranked": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "Basis"
+      ]
+    },
+    "TurnPolicy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "End": {
+          "enum": [
+            "AnyMove",
+            "Explicit",
+            "Play"
+          ]
+        },
+        "Effects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Rank": true,
+              "Skip": {
+                "type": "integer"
+              },
+              "Draw": {
+                "type": "integer"
+              },
+              "Reverse": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Tools": {
+      "enum": [
+        "Unset",
+        "None",
+        "Free"
+      ]
+    }
+  },
+  "required": [
+    "Name",
+    "Decks",
+    "Depots"
+  ]
+}
