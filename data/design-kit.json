@@ -1,25 +1,25 @@
 {
   "schemaUrl": "https://cardz.roderic.dev/designs/schema.json",
-  "starters": [
+  "games": [
     {
-      "name": "My Klondike",
-      "file": "klondike.cardz",
-      "blurb": "A stock that deals and recycles, foundations built up by suit, and columns that turn up their next card."
+      "name": "Baker's Game",
+      "file": "bakers-game.cardz",
+      "note": "FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit."
     },
     {
-      "name": "My FreeCell",
-      "file": "freecell.cardz",
-      "blurb": "Every card dealt face up, free cells that hold one card each, and moves sized by the space you have."
+      "name": "Double Klondike",
+      "file": "double-klondike.cardz",
+      "note": "Klondike's stock, waste and turn-up columns stretched over two decks: eight repeated foundations and a nine-column diagonal deal."
     },
     {
-      "name": "My Spider (1 Suit)",
-      "file": "spider-1-suit.cardz",
-      "blurb": "A stock that deals a whole row, runs that move together, and finished runs that bank themselves."
+      "name": "Putt Putt with Jokers",
+      "file": "putt-putt-with-jokers.cardz",
+      "note": "Golf's one foundation with ranks that wrap from King to Ace, and Jokers that are wild both ways: a Joker plays on anything, and anything plays on a Joker."
     },
     {
-      "name": "My Golf",
-      "file": "golf.cardz",
-      "blurb": "One foundation built up or down, columns that give up only their top card, and a loss when no move is left."
+      "name": "Spiderette",
+      "file": "spiderette.cardz",
+      "note": "Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck."
     }
   ]
 }

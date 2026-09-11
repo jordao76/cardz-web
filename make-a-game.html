@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Write your own solitaire as a Cardz design file, by hand or with an AI assistant, and play it in Cardz. Starter games, a JSON Schema, and the full rules reference.">
+  <meta name="description" content="Write your own solitaire as a Cardz design file, by hand or with an AI assistant, and play it in Cardz. Complete games to start from, a JSON Schema, and the full rules reference.">
   <meta name="theme-color" content="#100f14">
   <title>Make your own game — Cardz</title>
   <link rel="icon" href="assets/cardz-logo.png">
@@ -31,24 +31,16 @@
       <section class="format-section" aria-labelledby="how-title">
         <h2 id="how-title">How it works</h2>
         <ol class="format-steps">
-          <li><h3>Start from a game</h3><p>Download a starter game below and change it, or write one from scratch with the reference at the end of this page.</p></li>
+          <li><h3>Start from a game</h3><p>Download one of the <a href="extra-games.html">extra games</a> and change it, or write one from scratch with the reference at the end of this page.</p></li>
           <li><h3>Save it as .cardz</h3><p>A design is plain JSON text. Give the file a <code>.cardz</code> extension so Cardz knows it is a game.</p></li>
           <li><h3>Open it in Cardz</h3><p>Double-click the file, or choose Import… in Your games. Cardz checks it first, and if anything is wrong it tells you what and where.</p></li>
         </ol>
         <p class="format-note">Designs are played solo, and like everything else in Cardz they stay on your computer.</p>
       </section>
 
-      <section class="format-section" id="starters" aria-labelledby="starters-title">
-        <h2 id="starters-title">Starter games</h2>
-        <p>Each one is a built-in game written out in full, so you can see how its rules are put together. Rename it and make it yours.</p>
-        <ul class="starter-list">
-          <!-- build:starters -->
-          <li><a href="designs/klondike.cardz" download>My Klondike</a><span>A stock that deals and recycles, foundations built up by suit, and columns that turn up their next card.</span></li>
-          <li><a href="designs/freecell.cardz" download>My FreeCell</a><span>Every card dealt face up, free cells that hold one card each, and moves sized by the space you have.</span></li>
-          <li><a href="designs/spider-1-suit.cardz" download>My Spider (1 Suit)</a><span>A stock that deals a whole row, runs that move together, and finished runs that bank themselves.</span></li>
-          <li><a href="designs/golf.cardz" download>My Golf</a><span>One foundation built up or down, columns that give up only their top card, and a loss when no move is left.</span></li>
-<!-- /build:starters -->
-        </ul>
+      <section class="format-section" id="start-from-a-game" aria-labelledby="start-title">
+        <h2 id="start-title">Start from a game</h2>
+        <p>Every one of the <a href="extra-games.html">extra games</a> is a complete design file. Download one and play it as it is, then open it in a text editor to see how its rules are put together, and change it into a game of your own.</p>
         <p>Editing by hand? Put <code>"$schema": "https://cardz.roderic.dev/designs/schema.json"</code> at the top of your file, and editors such as Visual Studio Code will complete field names and flag mistakes as you type. <a href="designs/schema.json">View the schema</a>.</p>
       </section>
 

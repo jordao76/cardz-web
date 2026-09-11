@@ -1,0 +1,485 @@
+{
+  "$schema": "https://cardz.roderic.dev/designs/schema.json",
+  "Name": "Double Klondike",
+  "Description": "**Goal:** build all eight foundations up from Ace to King, each in a single suit.\n\n- Two decks are shuffled together, so every card appears **twice** and each suit has two foundations.\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste one card at a time; recycle the waste back to the stock when it runs out.",
+  "Decks": [
+    {
+      "Count": 2
+    }
+  ],
+  "Depots": [
+    {
+      "Type": "Stock",
+      "FanDirection": "None",
+      "Col": 0,
+      "Row": 0,
+      "Name": "stock",
+      "EjectRule": {
+        "Gate": "Locked"
+      },
+      "LandFace": "Down",
+      "Draw": {
+        "To": "waste",
+        "Recycle": true
+      }
+    },
+    {
+      "Type": "Waste",
+      "FanDirection": "None",
+      "Col": 1,
+      "Row": 0,
+      "Name": "waste",
+      "AcceptRule": {
+        "RejectsAll": true
+      },
+      "EjectRule": {
+        "Gate": "TopOnly"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 2,
+      "Row": 0,
+      "Name": "found-1",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 3,
+      "Row": 0,
+      "Name": "found-2",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 4,
+      "Row": 0,
+      "Name": "found-3",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 5,
+      "Row": 0,
+      "Name": "found-4",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 6,
+      "Row": 0,
+      "Name": "found-5",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 7,
+      "Row": 0,
+      "Name": "found-6",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 8,
+      "Row": 0,
+      "Name": "found-7",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Foundation",
+      "FanDirection": "None",
+      "Col": 9,
+      "Row": 0,
+      "Name": "found-8",
+      "AcceptRule": {
+        "Seed": "Ace",
+        "Build": {},
+        "Suit": "Same"
+      },
+      "EjectRule": {
+        "Gate": "Locked"
+      }
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 0,
+      "Row": 1,
+      "Name": "tab-1",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 1,
+      "Row": 1,
+      "Name": "tab-2",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 2,
+      "Row": 1,
+      "Name": "tab-3",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 3,
+      "Row": 1,
+      "Name": "tab-4",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 4,
+      "Row": 1,
+      "Name": "tab-5",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 5,
+      "Row": 1,
+      "Name": "tab-6",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 6,
+      "Row": 1,
+      "Name": "tab-7",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 7,
+      "Row": 1,
+      "Name": "tab-8",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    },
+    {
+      "Type": "Tableau",
+      "FanDirection": "Down",
+      "Col": 8,
+      "Row": 1,
+      "Name": "tab-9",
+      "AcceptRule": {
+        "Seed": "King",
+        "Build": {
+          "Direction": "Down"
+        },
+        "Suit": "AlternateColor"
+      },
+      "EjectRule": {
+        "Gate": "FaceUp"
+      },
+      "AutoFlipTop": true
+    }
+  ],
+  "DealRules": [
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-1"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-2",
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7",
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-2"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7",
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-3"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7",
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-4"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-5",
+        "tab-6",
+        "tab-7",
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-5"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-6",
+        "tab-7",
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-6"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-7",
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-7"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-8",
+        "tab-9"
+      ],
+      "FaceDown": 1,
+      "RoundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-8"
+      ],
+      "FaceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-9"
+      ],
+      "FaceDown": 1
+    },
+    {
+      "kind": "dealGroup",
+      "To": [
+        "tab-9"
+      ],
+      "FaceUp": 1
+    }
+  ],
+  "DepotOnly": true,
+  "WinCondition": {
+    "kind": "allCardsIn",
+    "Depots": {
+      "OfType": "Foundation"
+    }
+  }
+}

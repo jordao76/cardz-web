@@ -1,7 +1,7 @@
 {
   "$schema": "https://cardz.roderic.dev/designs/schema.json",
-  "Name": "My FreeCell",
-  "Description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7).\n- You move strictly **one card at a time**. A run already in alternating-colour order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**. Free a cell or clear a column to move a longer run.\n- Each of the four **free cells** holds a single card — use them as temporary parking.",
+  "Name": "Baker's Game",
+  "Description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
   "Decks": [
     {}
   ],
@@ -128,7 +128,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -144,7 +144,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -160,7 +160,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -176,7 +176,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -192,7 +192,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -208,7 +208,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -224,7 +224,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"
@@ -240,7 +240,7 @@
         "Build": {
           "Direction": "Down"
         },
-        "Suit": "AlternateColor"
+        "Suit": "Same"
       },
       "EjectRule": {
         "Gate": "FaceUp"

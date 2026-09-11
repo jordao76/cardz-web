@@ -5,6 +5,34 @@
 .roster-list > a:hover small { color: #5f5852; }
 .roster-list > a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
 .roster-list small { display: block; margin-top: .35rem; color: var(--muted); font: 500 .62rem "DM Sans", sans-serif; }
+.roster-note { margin: -.6rem 0 1.4rem; max-width: 640px; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+/* auto-fit: a short list of extras would otherwise leave empty cells painted in
+   the hairline colour the 1px gap shows through. Two classes, so it outranks the
+   breakpoint rules that set .roster-list's column count. */
+.roster-list.roster-extras { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.roster-note a { color: var(--red); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Extra games: a generated collection page, light like the game pages it links to. */
+.extras-page { background: #eee3d1; color: var(--ink); }
+.extras-main { padding: 40px clamp(24px, 6vw, 90px) 0; }
+.extras-head { max-width: 780px; padding: 60px 0 60px; }
+.extras-head h1 { margin: 0 0 1.5rem; font: 600 clamp(3rem, 6.5vw, 5.6rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
+.extras-head h1 em { color: #8c6232; }
+.extras-head .lede { color: #5f5852; line-height: 1.85; max-width: 640px; }
+.extras-head .lede a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.extras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 1.4rem; }
+.extra-card { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); padding: 1.6rem 1.8rem 1.8rem; }
+.extra-board { display: block; margin: 0 0 1.4rem; padding: .9rem; background: rgba(238, 227, 209, .55); border: 1px solid var(--line); }
+.extra-board svg { display: block; width: 100%; height: auto; max-height: 220px; }
+.extra-card .eyebrow { margin-bottom: .8rem; }
+.extra-card h2 { margin: 0 0 .5rem; font: 600 1.9rem "Playfair Display", serif; }
+.extra-card h2 a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.extra-facts { margin: 0 0 1rem; color: var(--muted); font: 600 .62rem "DM Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.extra-note { flex: 1; margin: 0 0 1.4rem; color: #5f5852; font-size: .9rem; line-height: 1.75; }
+.extra-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; }
+.extra-actions .feature-link { margin-top: 0; }
+.extras-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 1.6rem; padding: 70px 0 110px; }
+.extras-cta > small { color: var(--muted); font-size: .8rem; }
 .roster-list b { display: inline-block; margin-left: .5rem; vertical-align: .16em; padding: .2rem .42rem; border: 1px solid var(--gold); color: #795915; font: 600 .55rem/1 "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .sandbox-button { margin-top: 1.2rem; }
 /* Borrows the arrow from the Sandbox button without the red fill, which at a
@@ -133,7 +161,9 @@ img.demo-card.c2 { border: 0; }
 .game-variants summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .game-variants .game-rules { padding: 0 0 1.2rem; }
 .game-cta { margin-top: 3rem; padding: 2.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
-.game-cta small { color: var(--muted); font-size: .75rem; }
+/* Direct child only: the button's own <small> label ("Play it in", "Download")
+   matched this too, and went muted grey on the red button. */
+.game-cta > small { color: var(--muted); font-size: .75rem; }
 .game-more { margin-top: 2.8rem; }
 .game-more > div { display: flex; flex-wrap: wrap; gap: .55rem 1rem; }
 .game-more a { color: var(--muted); font-size: .85rem; border-bottom: 1px solid transparent; }
@@ -159,7 +189,7 @@ img.demo-card.c2 { border: 0; }
 .decks-cta { padding: 90px 0 110px; }
 
 .policy-body { background: #eee3d1; }
-.policy-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header { position: static; background: #100f14; }
+.policy-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header, .extras-page .site-header { position: static; background: #100f14; }
 .policy-main { min-height: calc(100vh - 180px); padding: 90px 24px 120px; }
 .policy-shell { width: min(760px, 100%); margin: auto; }
 .policy-shell h1 { margin: 0 0 1rem; font: 600 clamp(3.5rem, 8vw, 6.5rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
@@ -194,10 +224,6 @@ img.demo-card.c2 { border: 0; }
 .format-steps h3 { margin: .8rem 0 .6rem; font: 600 1.35rem "Playfair Display", serif; color: var(--ink); }
 .format-steps p { margin: 0; font-size: .92rem; }
 .format-note { margin: 2rem 0 0; font-size: .9rem; }
-.starter-list { list-style: none; padding: 0; margin: 1.4rem 0 1.6rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.starter-list li { background: var(--paper); padding: 1.2rem 1.3rem; }
-.starter-list a { font: 600 1.15rem "Playfair Display", serif; color: var(--ink); }
-.starter-list span { display: block; margin-top: .35rem; font-size: .82rem; line-height: 1.6; color: var(--muted); }
 .format-prompt { margin: 1.4rem 0; padding: 1.1rem 1.4rem; background: var(--paper); border-left: 2px solid var(--gold); }
 .format-prompt p { margin: 0; font: italic 600 1.1rem/1.6 "Playfair Display", serif; color: var(--ink); }
 .ref-toc ol { margin: 1.4rem 0 0; padding: 1.2rem 1.4rem 1.2rem 2.6rem; background: var(--paper); border: 1px solid var(--line); columns: 2; column-gap: 2.5rem; }
@@ -218,7 +244,7 @@ img.demo-card.c2 { border: 0; }
 .ref-table th { background: var(--paper2); color: var(--ink); font-weight: 600; }
 .ref-table tr:last-child td { border-bottom: 0; }
 .ref-table td:first-child { min-width: 9rem; }
-@media (max-width: 800px) { .format-steps, .starter-list { grid-template-columns: 1fr; gap: 1px; } .format-steps { gap: 1.2rem; } .ref-toc ol { columns: 1; } }
+@media (max-width: 800px) { .format-steps { grid-template-columns: 1fr; gap: 1px; } .format-steps { gap: 1.2rem; } .ref-toc ol { columns: 1; } }
 
 /* The nav dims every link to .72, so the page you are on had no way to show
    itself — aria-current was reaching screen readers and nobody else. */

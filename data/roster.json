@@ -20,6 +20,10 @@
     { "slug": "canfield", "tagline": "Foundations can start anywhere" },
     { "slug": "clock", "tagline": "Beat the fourth King" },
     { "slug": "la-belle-lucie", "tagline": "Eighteen fans, two redeals" },
-    { "slug": "crazy-quilt", "tagline": "Unpick the weave" }
+    { "slug": "crazy-quilt", "tagline": "Unpick the weave" },
+    { "slug": "double-klondike", "tagline": "Two decks, nine columns" },
+    { "slug": "putt-putt-with-jokers", "tagline": "Round the corner, Jokers wild" },
+    { "slug": "bakers-game", "tagline": "FreeCell's stricter ancestor" },
+    { "slug": "spiderette", "tagline": "Spider on a single deck" }
   ]
 }

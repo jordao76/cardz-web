@@ -97,7 +97,7 @@ import rather than being picked up.
 ## Make a game is half generated
 
 `make-a-game.html` is hand-written around three marked regions that `build.mjs`
-fills: the starter-game links, the reference's table of contents, and the
+fills: the reference's table of contents, and the
 reference itself, rendered from `data/rule-vocabulary.md`. That file is the app
 repo's `docs/rule-vocabulary.md` byte for byte — the same document Cardz serves to
 AI agents — so the page cannot describe a design format the app does not read.
@@ -109,10 +109,18 @@ The kit comes from the app repo, on its own cadence like `games.json`:
 ..\cardz-win\scripts\export-design-kit.ps1
 ```
 
-It writes `data/rule-vocabulary.md`, `data/design-kit.json` (the starter list),
+It writes `data/rule-vocabulary.md`, `data/design-kit.json` (the extra games list),
 `designs/schema.json` (a JSON Schema generated from the design types, which a
-design file can name in `"$schema"`), and `designs/*.cardz` — starter games cut
-from built-ins, each checked to import before it is written.
+design file can name in `"$schema"`), and `designs/*.cardz`: the extra games,
+each checked to import before it is written.
+
+Extra games are solitaires that are not built into Cardz, kept in cardz-win's
+`extras/` folder. The same games reach `data/games.json` with `"inApp": false`, so
+they get game pages like the rest, with a download button in place of the Store
+link, a list of their own under Extra games on the home page, and a generated
+collection page, `extra-games.html`, that Make a game points to. The build fails
+if a page would offer a design file the kit did not write, so run both exports
+after an extra changes.
 
 See `docs/website-plan.md` in the app repo for why it is built this way and
 what comes next (headless board renders, localized pages). Its "Refreshing the
