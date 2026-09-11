@@ -44,7 +44,8 @@ img.demo-card.c2 { border: 0; }
 .sandbox-intro h2 { margin: 0; font: 600 clamp(3rem, 5vw, 5.5rem)/.95 "Playfair Display", serif; }
 .sandbox-intro p { color: var(--muted); line-height: 1.85; max-width: 650px; }
 .mode-demo { padding: 45px clamp(24px, 9vw, 150px); background: #eee3d1; color: var(--ink); display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); align-items: center; gap: 3rem; }
-.mode-demo h2 { margin: 0; font: 600 clamp(2rem, 3vw, 3rem)/1.1 "Playfair Display", serif; }
+.mode-demo h3 { margin: 0; font: 600 clamp(2rem, 3vw, 3rem)/1.1 "Playfair Display", serif; }
+.mode-demo .mode-top { margin-bottom: .6rem; }
 .mode-demo-copy p:not(.eyebrow) { line-height: 1.8; color: #655b54; }
 .mode-demo-film { margin: 0; min-width: 0; }
 .keep-layout { background: var(--paper); }
@@ -64,16 +65,35 @@ img.demo-card.c2 { border: 0; }
 .demo-toggle:hover { background: var(--paper); }
 .demo-toggle:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
 @media (max-width: 900px) { .mode-demo { grid-template-columns: 1fr; gap: 1rem; } }
-.modes-section { padding: 60px clamp(24px, 9vw, 150px) 120px; background: #eee3d1; color: var(--ink); }
-.modes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.mode-card { background: var(--paper); padding: 2rem; min-height: 235px; }
-.mode-top { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.4rem; }
+/* Every mode appears once on the Sandbox page: as a clip row (.mode-demo) when
+   its effect only exists in motion, otherwise as a text card. They are grouped
+   under the four questions the intro asks. */
+.mode-basics { list-style: none; margin: 0; padding: 10px clamp(24px, 9vw, 150px) 70px; background: #eee3d1; color: var(--ink); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.mode-basics li { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+.mode-basics h3 { margin: 0 0 .6rem; font: 600 1.35rem "Playfair Display", serif; }
+.mode-basics p { margin: 0; color: #655b54; line-height: 1.8; font-size: .92rem; }
+.mode-group { padding-block: 70px 45px; background: #eee3d1; color: var(--ink); border-top: 1px solid var(--line); }
+.mode-group-head { padding-inline: clamp(24px, 9vw, 150px); }
+.mode-group-head h2 { margin: 0; font: 600 clamp(2.6rem, 4.5vw, 4.2rem)/1 "Playfair Display", serif; letter-spacing: -.03em; }
+.mode-group-head p:not(.eyebrow) { max-width: 600px; margin: 1rem 0 0; color: #655b54; line-height: 1.8; }
+/* auto-fit rather than a fixed count: a group with one text card would otherwise
+   leave empty cells painted in the hairline colour the 1px gap shows through. */
+.modes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 20px clamp(24px, 9vw, 150px) 0; }
+.mode-card { background: var(--paper); padding: 1.8rem 2rem; }
+.mode-top { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; }
 .mode-key { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--gold); color: #795915; font: 600 .8rem "DM Sans", sans-serif; }
 .mode-card h3 { margin: 0; font: 600 1.45rem "Playfair Display", serif; }
-.mode-card p { color: var(--muted); line-height: 1.7; font-size: .86rem; }
-.mode-card.featured { background: var(--indigo); color: var(--paper); }
-.mode-card.featured p { color: #bec6d2; }
-.mode-note { margin: 3rem auto 0; max-width: 800px; text-align: center; color: var(--muted); line-height: 1.8; }
+.mode-card p { margin: 0; color: var(--muted); line-height: 1.7; font-size: .9rem; }
+/* The two columns share their rows through subgrid, so a heading that wraps to
+   two lines in one column ("What a double-tap does") still starts both card
+   grids at the same height. */
+.mode-group-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto; column-gap: 3rem; row-gap: 0; padding-inline: clamp(24px, 9vw, 150px); padding-bottom: 110px; }
+.mode-group-pair > div { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+.mode-group-pair .mode-group-head { padding-inline: 0; }
+.mode-group-pair .modes-grid { margin-inline: 0; }
+.mode-group-note { margin: 1rem 0 0; color: #655b54; font-size: .88rem; line-height: 1.7; }
+.keep-layout .mode-demo { padding: 0 0 70px; background: none; }
+@media (max-width: 900px) { .mode-basics, .mode-group-pair { grid-template-columns: 1fr; } .mode-group-pair { row-gap: 3rem; } }
 .sandbox-cta { text-align: center; padding: 100px 24px; background: #151116; }
 .sandbox-cta h2 { margin: 0 0 2rem; font: 600 clamp(3rem, 6vw, 6rem)/.95 "Playfair Display", serif; }
 
@@ -211,5 +231,5 @@ img.demo-card.c2 { border: 0; }
    query has to come later to win where both match. */
 @media (max-width: 1200px) { .roster-list { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 1000px) { .roster-list { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 900px) { .roster-list { grid-template-columns: repeat(2, 1fr); } .sandbox-hero,.sandbox-intro { grid-template-columns: 1fr; } .modes-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 560px) { .roster-list,.modes-grid { grid-template-columns: 1fr; } .policy-main { padding-top: 60px; } .sandbox-hero { padding-top: 110px; } .sandbox-deck { height: 260px; transform: scale(.8); } }
+@media (max-width: 900px) { .roster-list { grid-template-columns: repeat(2, 1fr); } .sandbox-hero,.sandbox-intro { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .roster-list { grid-template-columns: 1fr; } .policy-main { padding-top: 60px; } .sandbox-hero { padding-top: 110px; } .sandbox-deck { height: 260px; transform: scale(.8); } }

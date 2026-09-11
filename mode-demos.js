@@ -4,7 +4,7 @@ const demos = [...document.querySelectorAll('.mode-demo video')].map((video) => 
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'demo-toggle';
-  video.id = `${video.closest('section').id}-video`;
+  video.id = `${video.closest('.mode-demo').id}-video`;
   button.setAttribute('aria-controls', video.id);
   video.after(button);
   video.controls = false;
