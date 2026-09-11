@@ -58,9 +58,14 @@ art on disk, and the hybrids, whose art carries no rank index because the app
 draws that on top — are rendered by the app itself first:
 
 ```powershell
-winapp run <build output> --detach --args "--export-decks=<dir>"
-node ..\cardz-win\scripts\build-deck-gallery.mjs --rendered <dir>
+# from cardz-win
+.\scripts\run.ps1 -ExportDecks dist\deck-export
+node .\scripts\build-deck-gallery.mjs --rendered dist\deck-export
 ```
+
+`-ExportDecks` builds and launches the app, which draws the cards, writes them
+and exits without opening a window. The script waits for that and lists what was
+written.
 
 The same script also cuts the single cards in `assets/cards/`, which decorate the
 home page's hero and sandbox sections. Those used to be CSS rectangles with a
@@ -77,6 +82,17 @@ node ..\cardz-win\scripts\build-ornament-band.mjs
 Each is a run of that band beside its own mirror image, so the tile's two edges
 are identical and `repeat-x` shows no seam. Only Felt House and Valhalla qualify;
 the script's header says why the other decks do not.
+
+`assets/screenshots/*.webp`, the home page's gallery, are eight of the Store
+captures in cardz-win's `docs/screenshots/store/`, converted without cropping.
+This one runs from this repo and needs Pillow:
+
+```powershell
+python scripts\import-screenshots.py
+```
+
+It names its eight sources by filename, so a renamed Store capture fails the
+import rather than being picked up.
 
 ## Make a game is half generated
 
@@ -99,7 +115,9 @@ design file can name in `"$schema"`), and `designs/*.cardz` — starter games cu
 from built-ins, each checked to import before it is written.
 
 See `docs/website-plan.md` in the app repo for why it is built this way and
-what comes next (board diagrams, a decks gallery, localized pages).
+what comes next (headless board renders, localized pages). Its "Refreshing the
+site" section lists every export in one table: what each writes, what it needs,
+and when to run it.
 
 ## Deploy
 
