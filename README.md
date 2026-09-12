@@ -83,17 +83,21 @@ Each is a run of that band beside its own mirror image, so the tile's two edges
 are identical and `repeat-x` shows no seam. Only Felt House and Valhalla qualify;
 the script's header says why the other decks do not.
 
-`assets/screenshots/*.webp`, the home page's gallery, are eight of the captures
-in cardz-win's `docs/screenshots/store/`, converted without cropping. The first
-ten there are the Store set; captures numbered past ten are this site's alone.
-This one runs from this repo and needs Pillow:
+`assets/screenshots/*.webp` are captures from cardz-win's
+`docs/screenshots/store/`, converted without cropping. The first ten there are the
+Store set; captures numbered past ten are this site's alone. A game's capture is
+named once, as `capture` in `data/roster.json` (the file, and the deck it shows):
+the import converts it, and `build.mjs` puts it at the top of the game's page and
+on its card in the games index. The home page's tiles and Sandbox shot are picked
+by hand. The import runs from this repo and needs Pillow:
 
 ```powershell
 python scripts\import-screenshots.py
 ```
 
-It names its eight sources by filename, so a renamed Store capture fails the
-import rather than being picked up.
+It names its sources by filename, so a renamed capture fails the import rather
+than being picked up. cardz-win's `docs/screenshots/store/shot-list.md` lists
+every capture, taken and planned.
 
 ## Make a game is half generated
 
@@ -118,10 +122,10 @@ each checked to import before it is written.
 Extra games are solitaires that are not built into Cardz, kept in cardz-win's
 `extras/` folder. The same games reach `data/games.json` with `"inApp": false`, so
 they get game pages like the rest, with a download button in place of the Store
-link, a list of their own under Extra games on the home page, and a generated
-collection page, `extra-games.html`, that Make a game points to. The build fails
-if a page would offer a design file the kit did not write, so run both exports
-after an extra changes.
+link, and the same card as any other game in the games index, `games/index.html`,
+under Extra games (`games/#extras`, where Make a game points). The build fails if
+a page would offer a design file the kit did not write, so run both exports after
+an extra changes.
 
 See `docs/website-plan.md` in the app repo for why it is built this way and
 what comes next (headless board renders, localized pages). Its "Refreshing the

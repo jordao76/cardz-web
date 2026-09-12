@@ -1,39 +1,36 @@
-.full-roster { margin-top: 70px; padding-top: 38px; border-top: 1px solid var(--line); }
-.roster-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.roster-list > a { display: block; background: var(--paper); padding: 1.3rem; font: 600 1.05rem "Playfair Display", serif; transition: background .25s ease, color .25s ease; }
-.roster-list > a:hover { background: var(--paper2); }
-.roster-list > a:hover small { color: #5f5852; }
-.roster-list > a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
-.roster-list small { display: block; margin-top: .35rem; color: var(--muted); font: 500 .62rem "DM Sans", sans-serif; }
-.roster-note { margin: -.6rem 0 1.4rem; max-width: 640px; color: var(--muted); font-size: .88rem; line-height: 1.7; }
-/* auto-fit: a short list of extras would otherwise leave empty cells painted in
-   the hairline colour the 1px gap shows through. Two classes, so it outranks the
-   breakpoint rules that set .roster-list's column count. */
-.roster-list.roster-extras { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.roster-note a { color: var(--red); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-
-/* Extra games: a generated collection page, light like the game pages it links to. */
-.extras-page { background: #eee3d1; color: var(--ink); }
-.extras-main { padding: 40px clamp(24px, 6vw, 90px) 0; }
-.extras-head { max-width: 780px; padding: 60px 0 60px; }
-.extras-head h1 { margin: 0 0 1.5rem; font: 600 clamp(3rem, 6.5vw, 5.6rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
-.extras-head h1 em { color: #8c6232; }
-.extras-head .lede { color: #5f5852; line-height: 1.85; max-width: 640px; }
-.extras-head .lede a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
-.extras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 1.4rem; }
-.extra-card { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); padding: 1.6rem 1.8rem 1.8rem; }
-.extra-board { display: block; margin: 0 0 1.4rem; padding: .9rem; background: rgba(238, 227, 209, .55); border: 1px solid var(--line); }
-.extra-board svg { display: block; width: 100%; height: auto; max-height: 220px; }
-.extra-card .eyebrow { margin-bottom: .8rem; }
-.extra-card h2 { margin: 0 0 .5rem; font: 600 1.9rem "Playfair Display", serif; }
-.extra-card h2 a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
-.extra-facts { margin: 0 0 1rem; color: var(--muted); font: 600 .62rem "DM Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
-.extra-note { flex: 1; margin: 0 0 1.4rem; color: #5f5852; font-size: .9rem; line-height: 1.75; }
-.extra-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; }
-.extra-actions .feature-link { margin-top: 0; }
-.extras-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 1.6rem; padding: 70px 0 110px; }
-.extras-cta > small { color: var(--muted); font-size: .8rem; }
-.roster-list b { display: inline-block; margin-left: .5rem; vertical-align: .16em; padding: .2rem .42rem; border: 1px solid var(--gold); color: #795915; font: 600 .55rem/1 "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+/* Games: the generated index of every game page, light like the pages it links
+   to. Built-in games and extras share one card, so a game reads the same either way. */
+.games-page { background: #eee3d1; color: var(--ink); }
+.games-main { padding: 40px clamp(24px, 6vw, 90px) 0; }
+.games-head { max-width: 780px; padding: 60px 0 30px; }
+.games-head h1 { margin: 0 0 1.5rem; font: 600 clamp(3rem, 6.5vw, 5.6rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
+.games-head h1 em { color: #8c6232; }
+.games-head .lede { color: #5f5852; line-height: 1.85; max-width: 640px; }
+.games-section { padding-top: 50px; scroll-margin-top: 1.5rem; }
+.games-section-head { max-width: 680px; margin-bottom: 1.8rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.games-section-head h2 { margin: 0 0 .8rem; font: 600 clamp(2.2rem, 4vw, 3.2rem)/1 "Playfair Display", serif; letter-spacing: -.03em; }
+.games-section-head p { margin: 0 0 .8rem; color: #5f5852; line-height: 1.8; }
+.games-section-head a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+/* Bordered cards rather than a hairline grid, and auto-fill rather than auto-fit:
+   a short last row keeps the same card width and leaves no lit empty cell. */
+.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 1.4rem; }
+.game-card { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); padding: 1.3rem 1.4rem 1.5rem; }
+/* One 16:9 frame for a screenshot and a drawn board alike, so cards line up
+   whichever a game has. */
+.game-card-art { display: block; aspect-ratio: 16 / 9; margin: 0 0 1.2rem; padding: .8rem; background: rgba(238, 227, 209, .55); border: 1px solid var(--line); overflow: hidden; }
+.game-card-art svg { display: block; width: 100%; height: 100%; }
+.game-card-shot { padding: 0; background: #17151a; }
+.game-card-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.game-card .eyebrow { margin-bottom: .7rem; }
+.game-card h3 { margin: 0 0 .45rem; font: 600 1.6rem "Playfair Display", serif; }
+.game-card h3 a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.game-card h3 b { display: inline-block; margin-left: .5rem; vertical-align: .3em; padding: .2rem .42rem; border: 1px solid var(--gold); color: #795915; font: 600 .55rem/1 "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.game-card-facts { margin: 0 0 1rem; color: var(--muted); font: 600 .62rem "DM Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.game-card-note { margin: 0 0 1.2rem; color: #5f5852; font-size: .9rem; line-height: 1.75; }
+.game-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: auto; }
+.game-card-actions .feature-link { margin-top: 0; }
+.games-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 1.6rem; padding: 70px 0 110px; }
+.games-cta > small { color: var(--muted); font-size: .8rem; }
 .sandbox-button { margin-top: 1.2rem; }
 /* Borrows the arrow from the Sandbox button without the red fill, which at a
    fifth of the page width would outshout the two Store CTAs. Red rather than
@@ -43,6 +40,8 @@
 .feature-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 .feature-link:hover span { transform: translateX(4px); }
 .feature-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+/* The home page's way on to the games index, under its hand-picked tiles. */
+.games-link { margin-top: 2.6rem; }
 
 /* The hero and sandbox decoration are real cards now, not CSS rectangles with a
    glyph in them. These strip the drawn card's fills, borders and inner glyph
@@ -164,7 +163,11 @@ img.demo-card.c2 { border: 0; }
 /* Direct child only: the button's own <small> label ("Play it in", "Download")
    matched this too, and went muted grey on the red button. */
 .game-cta > small { color: var(--muted); font-size: .75rem; }
+.game-capture { margin: 2.4rem 0 0; }
+.game-capture img { display: block; width: 100%; height: auto; border-radius: 4px; background: #17151a; box-shadow: 0 15px 40px #241b1426; }
+.game-capture figcaption { margin-top: .8rem; color: var(--muted); font: 600 .6rem "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: .14em; }
 .game-more { margin-top: 2.8rem; }
+.game-more > div + .eyebrow { margin-top: 1.6rem; }
 .game-more > div { display: flex; flex-wrap: wrap; gap: .55rem 1rem; }
 .game-more a { color: var(--muted); font-size: .85rem; border-bottom: 1px solid transparent; }
 .game-more a:hover { color: var(--ink); border-bottom-color: var(--gold); }
@@ -189,7 +192,7 @@ img.demo-card.c2 { border: 0; }
 .decks-cta { padding: 90px 0 110px; }
 
 .policy-body { background: #eee3d1; }
-.policy-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header, .extras-page .site-header { position: static; background: #100f14; }
+.policy-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header, .games-page .site-header { position: static; background: #100f14; }
 .policy-main { min-height: calc(100vh - 180px); padding: 90px 24px 120px; }
 .policy-shell { width: min(760px, 100%); margin: auto; }
 .policy-shell h1 { margin: 0 0 1rem; font: 600 clamp(3.5rem, 8vw, 6.5rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
@@ -250,12 +253,5 @@ img.demo-card.c2 { border: 0; }
    itself — aria-current was reaching screen readers and nobody else. */
 .site-header nav a[aria-current] { opacity: 1; color: var(--gold); }
 
-/* The roster went straight from five columns to two at 900px, so every width
-   between there and a wide desktop kept five: at 1045px that is a 172px cell,
-   and "Beleaguered Castle" does not fit one. These two steps ramp it down.
-   They precede the 900px rule deliberately — equal specificity, so the narrower
-   query has to come later to win where both match. */
-@media (max-width: 1200px) { .roster-list { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 1000px) { .roster-list { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 900px) { .roster-list { grid-template-columns: repeat(2, 1fr); } .sandbox-hero,.sandbox-intro { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .roster-list { grid-template-columns: 1fr; } .policy-main { padding-top: 60px; } .sandbox-hero { padding-top: 110px; } .sandbox-deck { height: 260px; transform: scale(.8); } }
+@media (max-width: 900px) { .sandbox-hero,.sandbox-intro { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .policy-main { padding-top: 60px; } .sandbox-hero { padding-top: 110px; } .sandbox-deck { height: 260px; transform: scale(.8); } }

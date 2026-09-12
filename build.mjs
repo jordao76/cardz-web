@@ -1,4 +1,4 @@
-// Generates the game pages and the index's roster from data/games.json, which
+// Generates the game pages and their index from data/games.json, which
 // cardz-win's scripts/export-games.ps1 projects out of the app's own catalog,
 // and the generated half of make-a-game.html from the design kit, which
 // cardz-win's scripts/export-design-kit.ps1 exports. See cardz-win
@@ -6,9 +6,9 @@
 //
 //   node build.mjs
 //
-// Everything else on the site stays hand-written. This only owns games/<slug>/,
-// decks.html, extra-games.html, and the marked regions in index.html and make-a-game.html, so a
-// redesign can move freely around it.
+// Everything else on the site stays hand-written. This only owns games/ (every
+// game page and the index of them), decks.html, and the marked regions in
+// make-a-game.html, so a redesign can move freely around it.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -53,7 +53,7 @@ if (pages.size)
   );
 
 // An extra game is offered here as a design file and is not built into the app
-// (cardz-win docs/website-plan.md §11), so it is listed apart from the collection.
+// (cardz-win docs/website-plan.md §11), so it is grouped under Extra games.
 const isExtra = (page) => page.variants[0].inApp === false;
 
 // ---------------------------------------------------------------- markdown
@@ -272,8 +272,8 @@ function summarize(page) {
 // ---------------------------------------------------------------- templates
 
 // Marks the nav item you are looking at. Game pages pass nothing deliberately:
-// none of the six links is the current page, and putting it on Games would tell
-// a screen reader that the index's #games anchor is the page it is already on.
+// a game page sits under Games but is not the games index, and aria-current on
+// Games would tell a screen reader that it was.
 const mark = (current, slug) => (current === slug ? ` aria-current="page"` : "");
 
 function chrome(depth) {
@@ -298,7 +298,7 @@ function chrome(depth) {
     header: (current) => `  <header class="site-header">
     <a class="brand" href="${up}index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
     <nav aria-label="Main navigation">
-      <a href="${up}index.html">Home</a><a href="${up}index.html#games">Games</a><a href="${up}decks.html"${mark(current, "decks")}>Decks</a><a href="${up}sandbox.html"${mark(current, "sandbox")}>Sandbox</a><a href="${up}make-a-game.html"${mark(current, "make-a-game")}>Make a game</a><a href="${up}privacy.html"${mark(current, "privacy")}>Privacy</a>
+      <a href="${up}index.html">Home</a><a href="${up}games/"${mark(current, "games")}>Games</a><a href="${up}decks.html"${mark(current, "decks")}>Decks</a><a href="${up}sandbox.html"${mark(current, "sandbox")}>Sandbox</a><a href="${up}make-a-game.html"${mark(current, "make-a-game")}>Make a game</a><a href="${up}privacy.html"${mark(current, "privacy")}>Privacy</a>
     </nav>
     <a class="button button-small" href="${STORE}">Get Cardz</a>
   </header>`,
@@ -351,6 +351,42 @@ function board(game) {
       </figure>`;
 }
 
+/**
+ * A game's screenshot, when roster.json names one. The importer writes both
+ * sizes, so a capture named there without its images fails the build rather
+ * than shipping a broken picture.
+ */
+function captureImage(page, up, sizes, loading) {
+  if (!page.capture) return "";
+  const base = `assets/screenshots/${page.slug}`;
+  for (const width of [960, 1600])
+    if (!existsSync(join(root, `${base}-${width}.webp`)))
+      throw new Error(
+        `data/roster.json names a capture for ${page.name}, but ${base}-${width}.webp is missing. ` +
+          `Run scripts/import-screenshots.py.`
+      );
+  return `<img src="${up}${base}-960.webp" srcset="${up}${base}-960.webp 960w, ${up}${base}-1600.webp 1600w" sizes="${sizes}" alt="${escape(page.name)} in Cardz, played with the ${escape(page.capture.deck)} deck" width="1600" height="900" loading="${loading}">`;
+}
+
+/** The screenshot leads a game page, ahead of the drawn board. */
+function captureFigure(page, up) {
+  const image = captureImage(page, up, "(max-width: 808px) calc(100vw - 48px), 760px", "eager");
+  if (!image) return "";
+  return `      <figure class="game-capture">
+        ${image}
+        <figcaption>${escape(page.capture.deck)} deck</figcaption>
+      </figure>
+`;
+}
+
+/** One group of links in a game page's "more" navigation, or nothing. */
+function moreGroup(title, pages, up) {
+  if (!pages.length) return "";
+  return `        <p class="eyebrow"><span></span> ${title}</p>
+        <div>${pages.map((other) => `<a href="${up}games/${other.slug}/">${escape(other.name)}</a>`).join("")}</div>
+`;
+}
+
 function gamePage(page, all) {
   const { up, head, header, footer } = chrome(2);
   const primary = page.variants[0];
@@ -391,17 +427,13 @@ ${page.variants
 ${header()}
   <main id="main" class="game-main">
     <article class="game-shell">
-      ${
-        extra
-          ? `<a class="back-link" href="${up}extra-games.html"><span aria-hidden="true">←</span> All extra games</a>`
-          : `<a class="back-link" href="${up}index.html#games"><span aria-hidden="true">←</span> All games</a>`
-      }
+      <a class="back-link" href="${up}games/${extra ? "#extras" : ""}"><span aria-hidden="true">←</span> ${extra ? "Extra games" : "Games"}</a>
       <p class="eyebrow"><span></span> ${escape(page.tagline)}</p>
       <h1>${escape(page.name)}</h1>
       <div class="game-facts">
         <span>${deckLine(primary)}</span>${extra ? `\n        <span>Extra game · download</span>` : ""}${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
-${board(primary)}
+${captureFigure(page, up)}${board(primary)}
       <div class="game-rules${ledeClass(primary.rules ?? "")}">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
@@ -415,11 +447,7 @@ ${
       </div>`
 }
       <nav class="game-more" aria-label="Other games">
-        <p class="eyebrow"><span></span> More solitaire</p>
-        <div>${others
-          .map((other) => `<a href="${up}games/${other.slug}/">${escape(other.name)}</a>`)
-          .join("")}</div>
-      </nav>
+${moreGroup("More solitaire", others.filter((other) => !isExtra(other)), up)}${moreGroup("Extra games", others.filter(isExtra), up)}      </nav>
     </article>
   </main>
 ${footer}
@@ -479,63 +507,89 @@ ${footer}
 `;
 }
 
-// ---------------------------------------------------------------- extra games
+// ---------------------------------------------------------------- games index
 
 /**
- * The extra games collection: complete solitaires that are not built into Cardz,
- * each offered as a design file. An entry joins the two exports, games.json for
- * the game's page and the design kit for its file and what the file shows, and
+ * Every game page, from one card: the games built into Cardz, then the extras,
+ * which are offered as design files (cardz-win docs/website-plan.md §11). A card
+ * shows the game's screenshot when roster.json names one and its drawn board
+ * otherwise. An extra's card adds what its file shows and a download; that joins
+ * the two exports, games.json for the page and the design kit for the file, and
  * the build fails where they disagree. Order is roster.json's.
  */
-function extraGamesPage(extras) {
-  const { head, header, footer } = chrome(0);
+function gamesPage(all) {
+  const { up, head, header, footer } = chrome(1);
   if (!Array.isArray(designKit.games))
     throw new Error("data/design-kit.json has no games list. Run cardz-win's scripts/export-design-kit.ps1.");
 
-  const cards = extras
-    .map((page) => {
-      const game = page.variants[0];
-      const kit = designKit.games.find((entry) => `designs/${entry.file}` === game.download);
-      if (!kit || !existsSync(join(root, game.download)))
-        throw new Error(
-          `${game.name} offers ${game.download}, which the design kit did not write. ` +
-            `Run cardz-win's scripts/export-design-kit.ps1.`
-        );
-      const diagram = boardDiagram(game, games.layout);
-      return `        <article class="extra-card">
-          <a class="extra-board" href="games/${page.slug}/" tabindex="-1" aria-hidden="true">${diagram ? diagram.svg : ""}</a>
+  const card = (page) => {
+    const game = page.variants[0];
+    const extra = isExtra(page);
+    const kit = extra ? designKit.games.find((entry) => `designs/${entry.file}` === game.download) : null;
+    if (extra && (!kit || !existsSync(join(root, game.download))))
+      throw new Error(
+        `${game.name} offers ${game.download}, which the design kit did not write. ` +
+          `Run cardz-win's scripts/export-design-kit.ps1.`
+      );
+    const shot = captureImage(page, up, "(max-width: 700px) calc(100vw - 48px), 460px", "lazy");
+    const diagram = shot ? null : boardDiagram(game, games.layout);
+    const facts = page.capture ? `${deckLine(game)} · ${escape(page.capture.deck)} deck` : deckLine(game);
+    return `        <article class="game-card">
+          <a class="game-card-art${shot ? " game-card-shot" : ""}" href="${page.slug}/" tabindex="-1" aria-hidden="true">${shot || (diagram ? diagram.svg : "")}</a>
           <p class="eyebrow"><span></span> ${escape(page.tagline)}</p>
-          <h2><a href="games/${page.slug}/">${escape(page.name)}</a></h2>
-          <p class="extra-facts">${deckLine(game)}</p>
-          <p class="extra-note">${escape(kit.note)}</p>
-          <div class="extra-actions">
-            <a class="button button-small" href="${game.download}" download>Download</a>
-            <a class="feature-link" href="games/${page.slug}/">How to play <span aria-hidden="true">→</span></a>
+          <h3><a href="${page.slug}/">${escape(page.name)}</a>${page.new ? " <b>New</b>" : ""}</h3>
+          <p class="game-card-facts">${facts}</p>${
+            extra
+              ? `
+          <p class="game-card-note">${escape(kit.note)}</p>`
+              : ""
+          }
+          <div class="game-card-actions">${
+            extra
+              ? `
+            <a class="button button-small" href="${up}${game.download}" download>Download</a>`
+              : ""
+          }
+            <a class="feature-link" href="${page.slug}/">How to play <span aria-hidden="true">→</span></a>
           </div>
         </article>`;
-    })
-    .join("\n");
+  };
 
   return `${head(
-    "Extra games — Cardz",
-    "Complete solitaire games that aren't built into Cardz. Download one, double-click it, and it joins Your games. Each is also a design file you can open and change."
+    "Solitaire games — how to play | Cardz",
+    "Solitaire games to play in Cardz, each with its rules and its board, and extra games to download and add to Your games."
   )}
-<body class="extras-page">
+<body class="games-page">
   <a class="skip-link" href="#main">Skip to content</a>
-${header("extra-games")}
-  <main id="main" class="extras-main">
-    <header class="extras-head">
-      <p class="eyebrow"><span></span> ${extras.length} extra games</p>
-      <h1>More to play.<br><em>Not in the box.</em></h1>
-      <p class="lede">Complete solitaires that aren't built into Cardz. Download one and double-click the file: it joins Your games and plays like any other game there.</p>
-      <p class="lede">Each one is also a design file. Open it in a text editor to see how its rules are put together, or change it into a game of your own — <a href="make-a-game.html">Make a game</a> explains how.</p>
+${header("games")}
+  <main id="main" class="games-main">
+    <header class="games-head">
+      <p class="eyebrow"><span></span> Games</p>
+      <h1>Choose a game.<br><em>Learn how it plays.</em></h1>
+      <p class="lede">Each game has a page of its own, with its rules and its board. The games in Cardz are there as soon as you install it; the extra games are a download away.</p>
     </header>
-    <section class="extras-grid" aria-label="Extra games">
-${cards}
+    <section class="games-section" aria-labelledby="in-cardz-title">
+      <div class="games-section-head">
+        <h2 id="in-cardz-title">In Cardz</h2>
+        <p>Built into Cardz and ready to play.</p>
+      </div>
+      <div class="games-grid">
+${all.filter((page) => !isExtra(page)).map(card).join("\n")}
+      </div>
     </section>
-    <section class="extras-cta">
+    <section class="games-section" id="extras" aria-labelledby="extras-title">
+      <div class="games-section-head">
+        <h2 id="extras-title">Extra games</h2>
+        <p>Games that aren't built into Cardz. Download one and double-click the file: it joins Your games and plays like any other game there.</p>
+        <p>Each one is also a design file. Open it in a text editor to see how its rules are put together, or change it into a game of your own — <a href="${up}make-a-game.html">Make a game</a> explains how.</p>
+      </div>
+      <div class="games-grid">
+${all.filter(isExtra).map(card).join("\n")}
+      </div>
+    </section>
+    <section class="games-cta">
       <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Get it on the</small>Microsoft Store</span></a>
-      <small>You need Cardz for Windows to play them.</small>
+      <small>No ads, no accounts, fully offline.</small>
     </section>
   </main>
 ${footer}
@@ -551,18 +605,6 @@ function tocMarkup(toc) {
 }
 
 // ---------------------------------------------------------------- regions
-
-function rosterMarkup(all) {
-  return all
-    .map((page) => {
-      const badge = page.new ? "<b>New</b>" : "";
-      const cls = page.new ? ' class="is-new"' : "";
-      return `          <a href="games/${page.slug}/"${cls}>${escape(page.name)} ${badge}<small>${escape(
-        page.tagline
-      )}</small></a>`;
-    })
-    .join("\n");
-}
 
 function replaceRegion(html, name, body, file) {
   const open = `<!-- build:${name} -->`;
@@ -593,13 +635,8 @@ for (const page of ordered) {
   writeFileSync(join(dir, "index.html"), gamePage(page, ordered), "utf8");
 }
 
+writeFileSync(join(outDir, "index.html"), gamesPage(ordered), "utf8");
 writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
-writeFileSync(join(root, "extra-games.html"), extraGamesPage(ordered.filter(isExtra)), "utf8");
-
-rewrite("index.html", {
-  roster: rosterMarkup(ordered.filter((page) => !isExtra(page))),
-  extras: rosterMarkup(ordered.filter(isExtra)),
-});
 
 const rendered = referenceMarkdown(reference);
 rewrite("make-a-game.html", {
@@ -610,6 +647,6 @@ rewrite("make-a-game.html", {
 console.log(
   `${ordered.length} pages → games/  (${games.games.filter((g) => !g.sandbox).length} games, ${ordered.filter(isExtra).length} of them extras, ${games.culture})\n` +
     `decks.html  (${decks.decks.length} decks)\n` +
-    `extra-games.html  (${ordered.filter(isExtra).length} games)\n` +
+    `games/index.html  (${ordered.length} cards, ${ordered.filter((page) => page.capture).length} with a screenshot)\n` +
     `make-a-game.html  (${rendered.toc.length} reference sections)`
 );
