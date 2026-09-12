@@ -337,14 +337,16 @@ function extraCta(game, up) {
 /**
  * The board, to scale, from the depot coordinates — no screenshot involved, so
  * it cannot fall behind the game the way a photograph of one deal does.
- * A wide board (Crazy Quilt) gets to run wider than the reading column.
+ * A wide board (Crazy Quilt) gets to run wider than the reading column, unless
+ * a screenshot leads the page: then the board stays as wide as the screenshot.
  */
-function board(game) {
+function board(game, underCapture) {
   const diagram = boardDiagram(game, games.layout);
   if (!diagram) return "";
   // A long board earns room past the reading column; a squarish one (Clock's
   // face, Beleaguered Castle's column) would otherwise tower over the page.
-  const shape = diagram.ratio > 1.6 ? " game-board-wide" : diagram.ratio < 1.2 ? " game-board-tall" : "";
+  const wide = diagram.ratio > 1.6 && !underCapture;
+  const shape = wide ? " game-board-wide" : diagram.ratio < 1.2 ? " game-board-tall" : "";
   return `      <figure class="game-board${shape}">
         ${diagram.svg}
         <figcaption><span class="game-board-legend">${diagram.legend}</span></figcaption>
@@ -433,7 +435,7 @@ ${header()}
       <div class="game-facts">
         <span>${deckLine(primary)}</span>${extra ? `\n        <span>Extra game · download</span>` : ""}${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
-${captureFigure(page, up)}${board(primary)}
+${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
       <div class="game-rules${ledeClass(primary.rules ?? "")}">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>

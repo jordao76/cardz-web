@@ -138,6 +138,11 @@ img.demo-card.c2 { border: 0; }
    gutters so the breakout can never be the thing that overflows. */
 .game-board-wide { --bleed: min(1120px, calc(100vw - 48px)); width: var(--bleed); margin-left: calc((100% - var(--bleed)) / 2); margin-right: calc((100% - var(--bleed)) / 2); }
 .game-board-tall svg { max-width: 430px; margin: 0 auto; }
+/* On a phone the column already is the screen, so a wide board has nowhere to
+   run: 100vw counts a scrollbar the column does not, and the breakout came out
+   wider than the text and the screenshot above it. Less of the width goes to
+   padding, too. 808px is the 760px column plus its two 24px gutters. */
+@media (max-width: 808px) { .game-board-wide { width: auto; margin-left: 0; margin-right: 0; } .game-board { padding: 1rem 1rem .9rem; } }
 .game-board figcaption { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .game-board-legend { display: flex; flex-wrap: wrap; gap: .55rem 1.3rem; color: var(--muted); font: 600 .6rem "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: .14em; }
 .game-board-legend span { display: inline-flex; align-items: center; gap: .5rem; }
