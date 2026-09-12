@@ -415,5 +415,6 @@
     "Depots": {
       "OfType": "Foundation"
     }
-  }
+  },
+  "Tools": "None"
 }
