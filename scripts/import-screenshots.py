@@ -6,7 +6,7 @@ root = Path(__file__).resolve().parents[1]
 source = root.parent / "cardz-win/docs/screenshots/store"
 captures = {
     "01-klondike-felthouse.png": "klondike",
-    "06-freecell-deepfield.png": "freecell",
+    "11-freecell-deepfield.png": "freecell",
     "08-yukon-filigree.png": "yukon",
     "10-sandbox-monosolid.png": "sandbox-monosolid",
     "02-labellelucie-olympus.png": "la-belle-lucie",

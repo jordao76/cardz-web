@@ -83,8 +83,9 @@ Each is a run of that band beside its own mirror image, so the tile's two edges
 are identical and `repeat-x` shows no seam. Only Felt House and Valhalla qualify;
 the script's header says why the other decks do not.
 
-`assets/screenshots/*.webp`, the home page's gallery, are eight of the Store
-captures in cardz-win's `docs/screenshots/store/`, converted without cropping.
+`assets/screenshots/*.webp`, the home page's gallery, are eight of the captures
+in cardz-win's `docs/screenshots/store/`, converted without cropping. The first
+ten there are the Store set; captures numbered past ten are this site's alone.
 This one runs from this repo and needs Pillow:
 
 ```powershell
