@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-11T21:47:13Z",
+  "generated": "2026-09-13T20:39:26Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -17,6 +17,8 @@
       "rules": "A free-form table with no rules. One deck starts in the stock — deal it out and arrange the cards however you like. You make the rules — it's all about having fun.",
       "inApp": true,
       "variant": {
+        "of": "sandbox",
+        "name": "Sandbox",
         "selections": [
           {
             "id": "decks",
@@ -58,6 +60,8 @@
       "rules": "A free-form table with no rules, dealt from two decks across two stocks. Arrange the cards however you like — you make the rules and play just for fun.",
       "inApp": true,
       "variant": {
+        "of": "sandbox",
+        "name": "Sandbox",
         "selections": [
           {
             "id": "decks",
@@ -106,6 +110,8 @@
       "rules": "A free-form table with no rules. One deck starts in the stock — deal it out and arrange the cards however you like. You make the rules — it's all about having fun.",
       "inApp": true,
       "variant": {
+        "of": "sandbox",
+        "name": "Sandbox",
         "selections": [
           {
             "id": "decks",
@@ -147,6 +153,8 @@
       "rules": "A free-form table with no rules, dealt from two decks across two stocks. Arrange the cards however you like — you make the rules and play just for fun.",
       "inApp": true,
       "variant": {
+        "of": "sandbox",
+        "name": "Sandbox",
         "selections": [
           {
             "id": "decks",
@@ -195,6 +203,8 @@
       "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste; recycle the waste back to the stock when it runs out.",
       "inApp": true,
       "variant": {
+        "of": "klondike",
+        "name": "Klondike",
         "axis": "Draw",
         "label": "1",
         "selections": [
@@ -316,6 +326,8 @@
       "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste **three cards at a time**; only the top card of the waste is in play. Recycle the waste back to the stock when it runs out.",
       "inApp": true,
       "variant": {
+        "of": "klondike",
+        "name": "Klondike",
         "axis": "Draw",
         "label": "3",
         "selections": [
@@ -566,6 +578,8 @@
       "rules": "**Goal:** assemble eight complete King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit**. Spider has 1, 2, or 4-suit variations; this table enforces the **1-suit variation** (suits are interchangeable, so any descending run can be moved together).\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**.\n- A **complete King-to-Ace run** (all 13 cards) leaves for a foundation **on its own** the moment you finish it — there is nothing to drag.",
       "inApp": true,
       "variant": {
+        "of": "spider",
+        "name": "Spider",
         "axis": "Suits",
         "label": "1",
         "selections": [
@@ -729,6 +743,8 @@
       "rules": "**Goal:** assemble eight complete **same-suit** King-to-Ace runs and move them to the foundations. This is the classic, hardest four-suit Spider.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher, regardless of suit.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**.\n- A **complete King-to-Ace run in a single suit** (all 13 cards) leaves for a foundation **on its own** the moment you finish it — there is nothing to drag.",
       "inApp": true,
       "variant": {
+        "of": "spider",
+        "name": "Spider",
         "axis": "Suits",
         "label": "4",
         "selections": [
@@ -1799,7 +1815,7 @@
       "slug": "la-belle-lucie",
       "name": "La Belle Lucie",
       "sandbox": false,
-      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The board is **eighteen fans**. Build them **down in the same suit** (e.g. a ♥6 on a ♥7), **one card at a time** — only the exposed end card of a fan can move.\n- An **emptied fan stays empty**: once a fan is cleared, nothing can be placed back into it.\n- **Stuck? Tap the stock** to gather every fan, shuffle, and re-deal into threes. (Tradition allows two such redeals.)\n- **Merci:** to free a card buried in a fan, turn on **FISH** (press **F**) and drag that card out — it will play wherever it legally lands. By tradition, once per game.",
+      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The board is **eighteen fans**. Build them **down in the same suit** (e.g. a ♥6 on a ♥7), **one card at a time** — only the exposed end card of a fan can move.\n- An **emptied fan stays empty**: once a fan is cleared, nothing can be placed back into it.\n- **Stuck? Tap the stock** to gather every fan, shuffle, and re-deal into threes. You may re-deal **twice per game**.\n- **Merci:** to free a card buried in a fan, turn on **FISH** (press **F**) and drag that card out — it will play wherever it legally lands. By tradition, once per game.",
       "inApp": true,
       "decks": {
         "packs": 1,
@@ -2071,7 +2087,7 @@
       "slug": "crazy-quilt",
       "name": "Crazy Quilt",
       "sandbox": false,
-      "rules": "**Goal:** build all eight foundations to move every card home — four built **up in suit from Ace to King**, four built **down in suit from King to Ace** (two decks, so each suit fills one up-pile and one down-pile).\n\n- The foundations **start seeded** with an Ace and a King of each suit.\n- The **quilt** is 64 cards woven in a lattice. A quilt card is **available** when **either of its short ends** is clear — i.e. one of the two neighbours it points at is gone (cards on the rim start free).\n- Play any available quilt card, or the **waste** top, onto a foundation.\n- You may also lay an available quilt card on the **waste** if it is one rank **up or down** (any suit, and Ace/King wrap) — this chains, and is the main way to dig the weave open. Waste cards then only advance to foundations.\n- Draw from the **stock** to the waste; recycle the waste when it runs out.",
+      "rules": "**Goal:** build all eight foundations to move every card home — four built **up in suit from Ace to King**, four built **down in suit from King to Ace** (two decks, so each suit fills one up-pile and one down-pile).\n\n- The foundations **start seeded** with an Ace and a King of each suit.\n- The **quilt** is 64 cards woven in a lattice. A quilt card is **available** when **either of its short ends** is clear — i.e. one of the two neighbours it points at is gone (cards on the rim start free).\n- Play any available quilt card, or the **waste** top, onto a foundation.\n- You may also lay an available quilt card on the **waste** if it is one rank **up or down** (any suit, and Ace/King wrap) — this chains, and is the main way to dig the weave open. Waste cards then only advance to foundations.\n- Draw from the **stock** to the waste; you may recycle the waste **once per game** when the stock runs out.",
       "inApp": true,
       "decks": {
         "packs": 2,

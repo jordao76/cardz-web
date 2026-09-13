@@ -28,12 +28,17 @@ const designKit = JSON.parse(readFileSync(join(root, "data/design-kit.json"), "u
 const reference = readFileSync(join(root, "data/rule-vocabulary.md"), "utf8");
 
 // Variants of one game share a page: two near-identical pages would compete
-// with each other for the same search, and neither would deserve to win.
+// with each other for the same search, and neither would deserve to win. What
+// makes them variants is being bindings of one template (`variant.of`), not
+// sharing a `family` — a family is a free grouping of related but separate
+// games (a Spiderette is a Spider), and merging on it would bury a whole game
+// inside another game's page.
 const pages = new Map();
 for (const game of games.games) {
   if (game.sandbox) continue; // Sandbox has its own hand-written page.
-  const key = game.family ? slug(game.family) : game.slug;
-  if (!pages.has(key)) pages.set(key, { slug: key, name: game.family ?? game.name, variants: [] });
+  const key = game.variant?.of ? slug(game.variant.of) : game.slug;
+  if (!pages.has(key))
+    pages.set(key, { slug: key, name: game.variant?.name ?? game.name, variants: [] });
   pages.get(key).variants.push(game);
 }
 
