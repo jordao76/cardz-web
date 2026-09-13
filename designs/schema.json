@@ -5,71 +5,71 @@
   "description": "A solitaire for Cardz, written as data. The reference is https://cardz.roderic.dev/make-a-game.html",
   "type": "object",
   "properties": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Family": {
+    "family": {
       "type": [
         "string",
         "null"
       ]
     },
-    "Description": {
+    "description": {
       "type": [
         "string",
         "null"
       ]
     },
-    "VariantAxis": {
+    "variantAxis": {
       "type": [
         "string",
         "null"
       ]
     },
-    "VariantLabel": {
+    "variantLabel": {
       "type": [
         "string",
         "null"
       ]
     },
-    "VariantSelections": {
+    "variantSelections": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "ParameterId": {
+          "parameterId": {
             "type": "string"
           },
-          "AxisLabel": {
+          "axisLabel": {
             "type": "string"
           },
-          "Value": {
+          "value": {
             "type": "string"
           },
-          "OptionLabel": {
+          "optionLabel": {
             "type": "string"
           }
         },
         "required": [
-          "ParameterId",
-          "AxisLabel",
-          "Value",
-          "OptionLabel"
+          "parameterId",
+          "axisLabel",
+          "value",
+          "optionLabel"
         ]
       }
     },
-    "Draft": {
+    "draft": {
       "type": "boolean"
     },
-    "NoTemplate": {
+    "noTemplate": {
       "type": "boolean"
     },
-    "Decks": {
+    "decks": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "Suits": {
+          "suits": {
             "type": [
               "array",
               "null"
@@ -84,7 +84,7 @@
             },
             "default": null
           },
-          "Ranks": {
+          "ranks": {
             "type": [
               "array",
               "null"
@@ -108,23 +108,23 @@
             },
             "default": null
           },
-          "Count": {
+          "count": {
             "type": "integer",
             "default": 1
           },
-          "Jokers": {
+          "jokers": {
             "type": "integer",
             "default": 0
           }
         }
       }
     },
-    "Depots": {
+    "depots": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "Type": {
+          "type": {
             "enum": [
               "Stock",
               "Waste",
@@ -135,7 +135,7 @@
               "Layout"
             ]
           },
-          "FanDirection": {
+          "fanDirection": {
             "enum": [
               "None",
               "Down",
@@ -145,65 +145,65 @@
               "Radial"
             ]
           },
-          "FanWindow": {
+          "fanWindow": {
             "type": [
               "integer",
               "null"
             ]
           },
-          "Col": {
+          "col": {
             "type": [
               "number",
               "null"
             ]
           },
-          "Row": {
+          "row": {
             "type": [
               "number",
               "null"
             ]
           },
-          "X": {
+          "x": {
             "type": [
               "number",
               "null"
             ]
           },
-          "Y": {
+          "y": {
             "type": [
               "number",
               "null"
             ]
           },
-          "Name": {
+          "name": {
             "type": [
               "string",
               "null"
             ]
           },
-          "AcceptRule": {
+          "acceptRule": {
             "type": [
               "object",
               "null",
               "string"
             ],
             "properties": {
-              "RejectsAll": {
+              "rejectsAll": {
                 "type": "boolean"
               },
-              "EmptyOnly": {
+              "emptyOnly": {
                 "type": "boolean"
               },
-              "Single": {
+              "single": {
                 "type": "boolean"
               },
-              "MinCount": {
+              "minCount": {
                 "type": [
                   "integer",
                   "null"
                 ]
               },
-              "Seed": {
+              "seed": {
                 "enum": [
                   "Ace",
                   "Two",
@@ -221,13 +221,13 @@
                   null
                 ]
               },
-              "SeedNone": {
+              "seedNone": {
                 "type": "boolean"
               },
-              "SeedFromDeal": {
+              "seedFromDeal": {
                 "type": "boolean"
               },
-              "RankIs": {
+              "rankIs": {
                 "enum": [
                   "Ace",
                   "Two",
@@ -245,28 +245,28 @@
                   null
                 ]
               },
-              "Build": {
+              "build": {
                 "type": [
                   "object",
                   "null"
                 ],
                 "properties": {
-                  "Direction": {
+                  "direction": {
                     "enum": [
                       "Up",
                       "Down",
                       "Either"
                     ]
                   },
-                  "Step": {
+                  "step": {
                     "type": "integer",
                     "default": 1
                   },
-                  "Wrap": {
+                  "wrap": {
                     "type": "boolean",
                     "default": false
                   },
-                  "Sum": {
+                  "sum": {
                     "type": [
                       "integer",
                       "null"
@@ -275,20 +275,20 @@
                   }
                 },
                 "required": [
-                  "Direction"
+                  "direction"
                 ]
               },
-              "Suit": {
+              "suit": {
                 "enum": [
                   "Any",
                   "Same",
                   "AlternateColor"
                 ]
               },
-              "Follow": {
+              "follow": {
                 "type": "boolean"
               },
-              "WildRank": {
+              "wildRank": {
                 "enum": [
                   "Ace",
                   "Two",
@@ -306,8 +306,8 @@
                   null
                 ]
               },
-              "WildDeclares": true,
-              "DeclaredSuit": {
+              "wildDeclares": true,
+              "declaredSuit": {
                 "enum": [
                   "Clubs",
                   "Diamonds",
@@ -316,10 +316,10 @@
                   null
                 ]
               },
-              "WildJoker": {
+              "wildJoker": {
                 "type": "boolean"
               },
-              "AcceptFrom": {
+              "acceptFrom": {
                 "type": [
                   "object",
                   "null",
@@ -327,7 +327,7 @@
                   "array"
                 ],
                 "properties": {
-                  "OfType": {
+                  "ofType": {
                     "enum": [
                       "Stock",
                       "Waste",
@@ -339,7 +339,7 @@
                       null
                     ]
                   },
-                  "Names": {
+                  "names": {
                     "type": [
                       "array",
                       "null"
@@ -353,19 +353,19 @@
                   "type": "string"
                 }
               },
-              "AllowFaceDown": {
+              "allowFaceDown": {
                 "type": "boolean"
               }
             }
           },
-          "EjectRule": {
+          "ejectRule": {
             "type": [
               "object",
               "null",
               "string"
             ],
             "properties": {
-              "Gate": {
+              "gate": {
                 "enum": [
                   "Any",
                   "Locked",
@@ -373,14 +373,14 @@
                   "TopOnly"
                 ]
               },
-              "Unit": {
+              "unit": {
                 "type": [
                   "object",
                   "null",
                   "string"
                 ],
                 "properties": {
-                  "Kind": {
+                  "kind": {
                     "enum": [
                       "Single",
                       "Any",
@@ -388,28 +388,28 @@
                     ],
                     "default": "Any"
                   },
-                  "Build": {
+                  "build": {
                     "type": [
                       "object",
                       "null"
                     ],
                     "properties": {
-                      "Direction": {
+                      "direction": {
                         "enum": [
                           "Up",
                           "Down",
                           "Either"
                         ]
                       },
-                      "Step": {
+                      "step": {
                         "type": "integer",
                         "default": 1
                       },
-                      "Wrap": {
+                      "wrap": {
                         "type": "boolean",
                         "default": false
                       },
-                      "Sum": {
+                      "sum": {
                         "type": [
                           "integer",
                           "null"
@@ -418,11 +418,11 @@
                       }
                     },
                     "required": [
-                      "Direction"
+                      "direction"
                     ],
                     "default": null
                   },
-                  "Suit": {
+                  "suit": {
                     "enum": [
                       "Any",
                       "Same",
@@ -432,42 +432,42 @@
                   }
                 }
               },
-              "Loose": {
+              "loose": {
                 "type": "boolean"
               }
             }
           },
-          "LandFace": {
+          "landFace": {
             "enum": [
               "Up",
               "Down",
               null
             ]
           },
-          "AutoFlipTop": {
+          "autoFlipTop": {
             "type": [
               "boolean",
               "null"
             ]
           },
-          "Draw": {
+          "draw": {
             "type": [
               "object",
               "null"
             ],
             "properties": {
-              "To": {
+              "to": {
                 "type": "string"
               },
-              "Count": {
+              "count": {
                 "type": "integer",
                 "default": 1
               },
-              "Recycle": {
+              "recycle": {
                 "type": "boolean",
                 "default": false
               },
-              "MaxRecycles": {
+              "maxRecycles": {
                 "type": [
                   "integer",
                   "null"
@@ -475,34 +475,34 @@
               }
             },
             "required": [
-              "To"
+              "to"
             ]
           },
-          "Angle": {
+          "angle": {
             "type": "number"
           },
-          "OffTable": {
+          "offTable": {
             "type": "boolean"
           },
-          "FanOffsetFaceDown": {
+          "fanOffsetFaceDown": {
             "type": [
               "number",
               "null"
             ]
           },
-          "FanOffsetFaceUp": {
+          "fanOffsetFaceUp": {
             "type": [
               "number",
               "null"
             ]
           },
-          "LandUnder": {
+          "landUnder": {
             "type": "boolean"
           },
-          "LooseOrder": {
+          "looseOrder": {
             "type": "boolean"
           },
-          "UncoveredBy": {
+          "uncoveredBy": {
             "type": [
               "array",
               "null",
@@ -512,13 +512,13 @@
               "type": "string"
             }
           },
-          "UncoveredByAny": {
+          "uncoveredByAny": {
             "type": "boolean"
           },
-          "AutoFlipUncovered": {
+          "autoFlipUncovered": {
             "type": "boolean"
           },
-          "AutoSend": {
+          "autoSend": {
             "type": [
               "object",
               "null",
@@ -526,7 +526,7 @@
               "array"
             ],
             "properties": {
-              "OfType": {
+              "ofType": {
                 "enum": [
                   "Stock",
                   "Waste",
@@ -538,15 +538,15 @@
                   null
                 ]
               },
-              "Names": {
-                "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+              "names": {
+                "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
               }
             },
             "items": {
               "type": "string"
             }
           },
-          "AutoRefill": {
+          "autoRefill": {
             "type": [
               "object",
               "null",
@@ -554,7 +554,7 @@
               "array"
             ],
             "properties": {
-              "OfType": {
+              "ofType": {
                 "enum": [
                   "Stock",
                   "Waste",
@@ -566,41 +566,42 @@
                   null
                 ]
               },
-              "Names": {
-                "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+              "names": {
+                "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
               }
             },
             "items": {
               "type": "string"
             }
           },
-          "Owner": {
+          "owner": {
             "type": [
               "integer",
               "null"
             ]
           },
-          "Visibility": {
+          "visibility": {
             "enum": [
               "All",
               "Owner"
             ]
           },
-          "PerSeat": {
+          "perSeat": {
             "type": "boolean"
           },
-          "Repeat": {
+          "repeat": {
             "type": "integer",
             "minimum": 1,
-            "description": "Stamp out this many copies of the depot, one grid column apart, their names suffixed -1 to -N. Needs Col/Row placement."
+            "maximum": 256,
+            "description": "Stamp out this many copies of the depot, one grid column apart, their names suffixed -1 to -N. Needs col/row placement."
           }
         },
         "required": [
-          "Type"
+          "type"
         ]
       }
     },
-    "DealRules": {
+    "dealRules": {
       "type": [
         "array",
         "null"
@@ -616,16 +617,16 @@
               "kind": {
                 "const": "move"
               },
-              "From": {
+              "from": {
                 "type": "string"
               },
-              "To": {
+              "to": {
                 "type": "string"
               }
             },
             "required": [
-              "From",
-              "To"
+              "from",
+              "to"
             ]
           },
           {
@@ -633,12 +634,12 @@
               "kind": {
                 "const": "flipTop"
               },
-              "Depot": {
+              "depot": {
                 "type": "string"
               }
             },
             "required": [
-              "Depot"
+              "depot"
             ]
           },
           {
@@ -646,7 +647,7 @@
               "kind": {
                 "const": "dealGroup"
               },
-              "To": {
+              "to": {
                 "type": [
                   "array",
                   "string"
@@ -655,16 +656,16 @@
                   "type": "string"
                 }
               },
-              "FaceDown": {
+              "faceDown": {
                 "type": "integer"
               },
-              "FaceUp": {
+              "faceUp": {
                 "type": "integer"
               },
-              "RoundRobin": {
+              "roundRobin": {
                 "type": "boolean"
               },
-              "From": {
+              "from": {
                 "type": [
                   "string",
                   "null"
@@ -672,7 +673,7 @@
               }
             },
             "required": [
-              "To"
+              "to"
             ]
           },
           {
@@ -680,19 +681,19 @@
               "kind": {
                 "const": "gather"
               },
-              "From": {
+              "from": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "To": {
+              "to": {
                 "type": "string"
               }
             },
             "required": [
-              "From",
-              "To"
+              "from",
+              "to"
             ]
           },
           {
@@ -700,12 +701,12 @@
               "kind": {
                 "const": "shuffle"
               },
-              "Depot": {
+              "depot": {
                 "type": "string"
               }
             },
             "required": [
-              "Depot"
+              "depot"
             ]
           },
           {
@@ -713,7 +714,7 @@
               "kind": {
                 "const": "place"
               },
-              "Rank": {
+              "rank": {
                 "enum": [
                   "Ace",
                   "Two",
@@ -730,7 +731,7 @@
                   "King"
                 ]
               },
-              "Suit": {
+              "suit": {
                 "enum": [
                   "Clubs",
                   "Diamonds",
@@ -738,32 +739,32 @@
                   "Spades"
                 ]
               },
-              "To": {
+              "to": {
                 "type": "string"
               },
-              "Joker": {
+              "joker": {
                 "type": "boolean"
               }
             },
             "required": [
-              "Rank",
-              "Suit",
-              "To"
+              "rank",
+              "suit",
+              "to"
             ]
           }
         ]
       }
     },
-    "RedealRules": {
+    "redealRules": {
       "type": [
         "array",
         "null"
       ],
       "items": {
-        "$ref": "#/properties/DealRules/items"
+        "$ref": "#/properties/dealRules/items"
       }
     },
-    "RedealWhen": {
+    "redealWhen": {
       "type": [
         "object",
         "null"
@@ -777,14 +778,14 @@
             "kind": {
               "const": "allCardsIn"
             },
-            "Depots": {
+            "depots": {
               "type": [
                 "object",
                 "string",
                 "array"
               ],
               "properties": {
-                "OfType": {
+                "ofType": {
                   "enum": [
                     "Stock",
                     "Waste",
@@ -796,8 +797,8 @@
                     null
                   ]
                 },
-                "Names": {
-                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                "names": {
+                  "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
                 }
               },
               "items": {
@@ -806,7 +807,7 @@
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -821,14 +822,14 @@
             "kind": {
               "const": "depotsEmpty"
             },
-            "Depots": {
+            "depots": {
               "type": [
                 "object",
                 "string",
                 "array"
               ],
               "properties": {
-                "OfType": {
+                "ofType": {
                   "enum": [
                     "Stock",
                     "Waste",
@@ -840,8 +841,8 @@
                     null
                   ]
                 },
-                "Names": {
-                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                "names": {
+                  "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
                 }
               },
               "items": {
@@ -850,7 +851,7 @@
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -858,14 +859,14 @@
             "kind": {
               "const": "depotsNonEmpty"
             },
-            "Depots": {
+            "depots": {
               "type": [
                 "object",
                 "string",
                 "array"
               ],
               "properties": {
-                "OfType": {
+                "ofType": {
                   "enum": [
                     "Stock",
                     "Waste",
@@ -877,8 +878,8 @@
                     null
                   ]
                 },
-                "Names": {
-                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                "names": {
+                  "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
                 }
               },
               "items": {
@@ -887,7 +888,7 @@
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -895,14 +896,14 @@
             "kind": {
               "const": "seatCleared"
             },
-            "Depots": {
+            "depots": {
               "type": [
                 "object",
                 "string",
                 "array"
               ],
               "properties": {
-                "OfType": {
+                "ofType": {
                   "enum": [
                     "Stock",
                     "Waste",
@@ -914,8 +915,8 @@
                     null
                   ]
                 },
-                "Names": {
-                  "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+                "names": {
+                  "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
                 }
               },
               "items": {
@@ -924,7 +925,7 @@
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -932,7 +933,7 @@
             "kind": {
               "const": "allOf"
             },
-            "Of": {
+            "of": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -945,12 +946,12 @@
                       "kind": {
                         "const": "allCardsIn"
                       },
-                      "Depots": {
-                        "$ref": "#/properties/RedealWhen/anyOf/0/properties/Depots"
+                      "depots": {
+                        "$ref": "#/properties/redealWhen/anyOf/0/properties/depots"
                       }
                     },
                     "required": [
-                      "Depots"
+                      "depots"
                     ]
                   },
                   {
@@ -965,12 +966,12 @@
                       "kind": {
                         "const": "depotsEmpty"
                       },
-                      "Depots": {
-                        "$ref": "#/properties/RedealWhen/anyOf/2/properties/Depots"
+                      "depots": {
+                        "$ref": "#/properties/redealWhen/anyOf/2/properties/depots"
                       }
                     },
                     "required": [
-                      "Depots"
+                      "depots"
                     ]
                   },
                   {
@@ -978,12 +979,12 @@
                       "kind": {
                         "const": "depotsNonEmpty"
                       },
-                      "Depots": {
-                        "$ref": "#/properties/RedealWhen/anyOf/3/properties/Depots"
+                      "depots": {
+                        "$ref": "#/properties/redealWhen/anyOf/3/properties/depots"
                       }
                     },
                     "required": [
-                      "Depots"
+                      "depots"
                     ]
                   },
                   {
@@ -991,12 +992,12 @@
                       "kind": {
                         "const": "seatCleared"
                       },
-                      "Depots": {
-                        "$ref": "#/properties/RedealWhen/anyOf/4/properties/Depots"
+                      "depots": {
+                        "$ref": "#/properties/redealWhen/anyOf/4/properties/depots"
                       }
                     },
                     "required": [
-                      "Depots"
+                      "depots"
                     ]
                   },
                   {
@@ -1004,12 +1005,12 @@
                       "kind": {
                         "const": "allOf"
                       },
-                      "Of": {
-                        "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of"
+                      "of": {
+                        "$ref": "#/properties/redealWhen/anyOf/5/properties/of"
                       }
                     },
                     "required": [
-                      "Of"
+                      "of"
                     ]
                   },
                   {
@@ -1017,15 +1018,15 @@
                       "kind": {
                         "const": "anyOf"
                       },
-                      "Of": {
+                      "of": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of/items"
+                          "$ref": "#/properties/redealWhen/anyOf/5/properties/of/items"
                         }
                       }
                     },
                     "required": [
-                      "Of"
+                      "of"
                     ]
                   }
                 ]
@@ -1033,7 +1034,7 @@
             }
           },
           "required": [
-            "Of"
+            "of"
           ]
         },
         {
@@ -1041,50 +1042,50 @@
             "kind": {
               "const": "anyOf"
             },
-            "Of": {
-              "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of/items/anyOf/6/properties/Of"
+            "of": {
+              "$ref": "#/properties/redealWhen/anyOf/5/properties/of/items/anyOf/6/properties/of"
             }
           },
           "required": [
-            "Of"
+            "of"
           ]
         }
       ]
     },
-    "MaxRedeals": {
+    "maxRedeals": {
       "type": [
         "integer",
         "null"
       ]
     },
-    "DepotOnly": {
+    "depotOnly": {
       "type": "boolean"
     },
-    "CompoundMoves": {
+    "compoundMoves": {
       "enum": [
         "Free",
         "Staged"
       ]
     },
-    "Anchor": {
+    "anchor": {
       "enum": [
         "TopCenter",
         "TopLeft"
       ]
     },
-    "FanOffsetFaceDown": {
+    "fanOffsetFaceDown": {
       "type": [
         "number",
         "null"
       ]
     },
-    "FanOffsetFaceUp": {
+    "fanOffsetFaceUp": {
       "type": [
         "number",
         "null"
       ]
     },
-    "WinCondition": {
+    "winCondition": {
       "type": [
         "object",
         "null"
@@ -1098,12 +1099,12 @@
             "kind": {
               "const": "allCardsIn"
             },
-            "Depots": {
-              "$ref": "#/properties/RedealWhen/anyOf/0/properties/Depots"
+            "depots": {
+              "$ref": "#/properties/redealWhen/anyOf/0/properties/depots"
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -1118,12 +1119,12 @@
             "kind": {
               "const": "depotsEmpty"
             },
-            "Depots": {
-              "$ref": "#/properties/RedealWhen/anyOf/2/properties/Depots"
+            "depots": {
+              "$ref": "#/properties/redealWhen/anyOf/2/properties/depots"
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -1131,12 +1132,12 @@
             "kind": {
               "const": "depotsNonEmpty"
             },
-            "Depots": {
-              "$ref": "#/properties/RedealWhen/anyOf/3/properties/Depots"
+            "depots": {
+              "$ref": "#/properties/redealWhen/anyOf/3/properties/depots"
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -1144,12 +1145,12 @@
             "kind": {
               "const": "seatCleared"
             },
-            "Depots": {
-              "$ref": "#/properties/RedealWhen/anyOf/4/properties/Depots"
+            "depots": {
+              "$ref": "#/properties/redealWhen/anyOf/4/properties/depots"
             }
           },
           "required": [
-            "Depots"
+            "depots"
           ]
         },
         {
@@ -1157,12 +1158,12 @@
             "kind": {
               "const": "allOf"
             },
-            "Of": {
-              "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of"
+            "of": {
+              "$ref": "#/properties/redealWhen/anyOf/5/properties/of"
             }
           },
           "required": [
-            "Of"
+            "of"
           ]
         },
         {
@@ -1170,17 +1171,17 @@
             "kind": {
               "const": "anyOf"
             },
-            "Of": {
-              "$ref": "#/properties/RedealWhen/anyOf/5/properties/Of/items/anyOf/6/properties/Of"
+            "of": {
+              "$ref": "#/properties/redealWhen/anyOf/5/properties/of/items/anyOf/6/properties/of"
             }
           },
           "required": [
-            "Of"
+            "of"
           ]
         }
       ]
     },
-    "LossCondition": {
+    "lossCondition": {
       "type": [
         "object",
         "null"
@@ -1198,58 +1199,58 @@
         }
       ]
     },
-    "Seats": {
+    "seats": {
       "type": "integer"
     },
-    "SeatRange": {
+    "seatRange": {
       "type": [
         "object",
         "null"
       ],
       "properties": {
-        "Min": {
+        "min": {
           "type": "integer"
         },
-        "Max": {
+        "max": {
           "type": "integer"
         }
       },
       "required": [
-        "Min",
-        "Max"
+        "min",
+        "max"
       ]
     },
-    "TableCenter": {
+    "tableCenter": {
       "type": [
         "object",
         "null"
       ],
       "properties": {
-        "Col": {
+        "col": {
           "type": "number"
         },
-        "Row": {
+        "row": {
           "type": "number"
         }
       },
       "required": [
-        "Col",
-        "Row"
+        "col",
+        "row"
       ]
     },
-    "Score": {
+    "score": {
       "type": [
         "object",
         "null"
       ],
       "properties": {
-        "Basis": {
+        "basis": {
           "enum": [
             "CardsWon",
             "CardsHeld"
           ]
         },
-        "Depots": {
+        "depots": {
           "type": [
             "object",
             "null",
@@ -1257,7 +1258,7 @@
             "array"
           ],
           "properties": {
-            "OfType": {
+            "ofType": {
               "enum": [
                 "Stock",
                 "Waste",
@@ -1269,15 +1270,15 @@
                 null
               ]
             },
-            "Names": {
-              "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+            "names": {
+              "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
             }
           },
           "items": {
             "type": "string"
           }
         },
-        "CountedDepots": {
+        "countedDepots": {
           "type": [
             "object",
             "null",
@@ -1285,7 +1286,7 @@
             "array"
           ],
           "properties": {
-            "OfType": {
+            "ofType": {
               "enum": [
                 "Stock",
                 "Waste",
@@ -1297,51 +1298,51 @@
                 null
               ]
             },
-            "Names": {
-              "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
+            "names": {
+              "$ref": "#/properties/depots/items/properties/acceptRule/properties/acceptFrom/properties/names"
             }
           },
           "items": {
             "type": "string"
           }
         },
-        "HighIsBetter": {
+        "highIsBetter": {
           "type": "boolean"
         },
-        "Ranked": {
+        "ranked": {
           "type": "boolean"
         }
       },
       "required": [
-        "Basis"
+        "basis"
       ]
     },
-    "TurnPolicy": {
+    "turnPolicy": {
       "type": [
         "object",
         "null"
       ],
       "properties": {
-        "End": {
+        "end": {
           "enum": [
             "AnyMove",
             "Explicit",
             "Play"
           ]
         },
-        "Effects": {
+        "effects": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "Rank": true,
-              "Skip": {
+              "rank": true,
+              "skip": {
                 "type": "integer"
               },
-              "Draw": {
+              "draw": {
                 "type": "integer"
               },
-              "Reverse": {
+              "reverse": {
                 "type": "boolean"
               }
             }
@@ -1349,21 +1350,21 @@
         }
       }
     },
-    "Tools": {
+    "tools": {
       "enum": [
         "Unset",
         "None",
         "Free"
       ]
     },
-    "Rules": {
+    "rules": {
       "type": "object",
       "description": "Rules used more than once, each under a name a depot takes as \"$name\" in either of its rule slots. Read only: the game Cardz stores has them written out."
     }
   },
   "required": [
-    "Name",
-    "Decks",
-    "Depots"
+    "name",
+    "decks",
+    "depots"
   ]
 }

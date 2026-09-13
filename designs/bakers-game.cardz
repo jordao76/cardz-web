@@ -1,256 +1,256 @@
 {
   "$schema": "https://cardz.roderic.dev/designs/schema.json",
-  "Name": "Baker's Game",
-  "Description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
-  "Decks": [
+  "name": "Baker's Game",
+  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
+  "decks": [
     {}
   ],
-  "Depots": [
+  "depots": [
     {
-      "Type": "Cell",
-      "FanDirection": "None",
-      "Col": 0,
-      "Row": 0,
-      "Name": "cell-1",
-      "AcceptRule": {
-        "EmptyOnly": true,
-        "Single": true
+      "type": "Cell",
+      "fanDirection": "None",
+      "col": 0,
+      "row": 0,
+      "name": "cell-1",
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true
       }
     },
     {
-      "Type": "Cell",
-      "FanDirection": "None",
-      "Col": 1,
-      "Row": 0,
-      "Name": "cell-2",
-      "AcceptRule": {
-        "EmptyOnly": true,
-        "Single": true
+      "type": "Cell",
+      "fanDirection": "None",
+      "col": 1,
+      "row": 0,
+      "name": "cell-2",
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true
       }
     },
     {
-      "Type": "Cell",
-      "FanDirection": "None",
-      "Col": 2,
-      "Row": 0,
-      "Name": "cell-3",
-      "AcceptRule": {
-        "EmptyOnly": true,
-        "Single": true
+      "type": "Cell",
+      "fanDirection": "None",
+      "col": 2,
+      "row": 0,
+      "name": "cell-3",
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true
       }
     },
     {
-      "Type": "Cell",
-      "FanDirection": "None",
-      "Col": 3,
-      "Row": 0,
-      "Name": "cell-4",
-      "AcceptRule": {
-        "EmptyOnly": true,
-        "Single": true
+      "type": "Cell",
+      "fanDirection": "None",
+      "col": 3,
+      "row": 0,
+      "name": "cell-4",
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true
       }
     },
     {
-      "Type": "Foundation",
-      "FanDirection": "None",
-      "Col": 4,
-      "Row": 0,
-      "Name": "found-1",
-      "AcceptRule": {
-        "Seed": "Ace",
-        "Build": {},
-        "Suit": "Same"
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 4,
+      "row": 0,
+      "name": "found-1",
+      "acceptRule": {
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "Locked"
+      "ejectRule": {
+        "gate": "Locked"
       }
     },
     {
-      "Type": "Foundation",
-      "FanDirection": "None",
-      "Col": 5,
-      "Row": 0,
-      "Name": "found-2",
-      "AcceptRule": {
-        "Seed": "Ace",
-        "Build": {},
-        "Suit": "Same"
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 5,
+      "row": 0,
+      "name": "found-2",
+      "acceptRule": {
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "Locked"
+      "ejectRule": {
+        "gate": "Locked"
       }
     },
     {
-      "Type": "Foundation",
-      "FanDirection": "None",
-      "Col": 6,
-      "Row": 0,
-      "Name": "found-3",
-      "AcceptRule": {
-        "Seed": "Ace",
-        "Build": {},
-        "Suit": "Same"
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 6,
+      "row": 0,
+      "name": "found-3",
+      "acceptRule": {
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "Locked"
+      "ejectRule": {
+        "gate": "Locked"
       }
     },
     {
-      "Type": "Foundation",
-      "FanDirection": "None",
-      "Col": 7,
-      "Row": 0,
-      "Name": "found-4",
-      "AcceptRule": {
-        "Seed": "Ace",
-        "Build": {},
-        "Suit": "Same"
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 7,
+      "row": 0,
+      "name": "found-4",
+      "acceptRule": {
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "Locked"
+      "ejectRule": {
+        "gate": "Locked"
       }
     },
     {
-      "Type": "Stock",
-      "FanDirection": "None",
-      "Col": -1,
-      "Row": -1,
-      "Name": "stock",
-      "OffTable": true
+      "type": "Stock",
+      "fanDirection": "None",
+      "col": -1,
+      "row": -1,
+      "name": "stock",
+      "offTable": true
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 0,
-      "Row": 1,
-      "Name": "tab-1",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 0,
+      "row": 1,
+      "name": "tab-1",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 1,
-      "Row": 1,
-      "Name": "tab-2",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 1,
+      "row": 1,
+      "name": "tab-2",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 2,
-      "Row": 1,
-      "Name": "tab-3",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 2,
+      "row": 1,
+      "name": "tab-3",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 3,
-      "Row": 1,
-      "Name": "tab-4",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 3,
+      "row": 1,
+      "name": "tab-4",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 4,
-      "Row": 1,
-      "Name": "tab-5",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 4,
+      "row": 1,
+      "name": "tab-5",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 5,
-      "Row": 1,
-      "Name": "tab-6",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 5,
+      "row": 1,
+      "name": "tab-6",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 6,
-      "Row": 1,
-      "Name": "tab-7",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 6,
+      "row": 1,
+      "name": "tab-7",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     },
     {
-      "Type": "Tableau",
-      "FanDirection": "Down",
-      "Col": 7,
-      "Row": 1,
-      "Name": "tab-8",
-      "AcceptRule": {
-        "Build": {
-          "Direction": "Down"
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 7,
+      "row": 1,
+      "name": "tab-8",
+      "acceptRule": {
+        "build": {
+          "direction": "Down"
         },
-        "Suit": "Same"
+        "suit": "Same"
       },
-      "EjectRule": {
-        "Gate": "FaceUp"
+      "ejectRule": {
+        "gate": "FaceUp"
       }
     }
   ],
-  "DealRules": [
+  "dealRules": [
     {
       "kind": "dealGroup",
-      "To": [
+      "to": [
         "tab-1",
         "tab-2",
         "tab-3",
@@ -260,28 +260,28 @@
         "tab-7",
         "tab-8"
       ],
-      "FaceUp": 6,
-      "RoundRobin": true
+      "faceUp": 6,
+      "roundRobin": true
     },
     {
       "kind": "dealGroup",
-      "To": [
+      "to": [
         "tab-1",
         "tab-2",
         "tab-3",
         "tab-4"
       ],
-      "FaceUp": 1,
-      "RoundRobin": true
+      "faceUp": 1,
+      "roundRobin": true
     }
   ],
-  "DepotOnly": true,
-  "CompoundMoves": "Staged",
-  "WinCondition": {
+  "depotOnly": true,
+  "compoundMoves": "Staged",
+  "winCondition": {
     "kind": "allCardsIn",
-    "Depots": {
-      "OfType": "Foundation"
+    "depots": {
+      "ofType": "Foundation"
     }
   },
-  "Tools": "None"
+  "tools": "None"
 }
