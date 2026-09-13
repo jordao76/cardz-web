@@ -184,7 +184,8 @@
           "AcceptRule": {
             "type": [
               "object",
-              "null"
+              "null",
+              "string"
             ],
             "properties": {
               "RejectsAll": {
@@ -321,7 +322,9 @@
               "AcceptFrom": {
                 "type": [
                   "object",
-                  "null"
+                  "null",
+                  "string",
+                  "array"
                 ],
                 "properties": {
                   "OfType": {
@@ -345,6 +348,9 @@
                       "type": "string"
                     }
                   }
+                },
+                "items": {
+                  "type": "string"
                 }
               },
               "AllowFaceDown": {
@@ -355,7 +361,8 @@
           "EjectRule": {
             "type": [
               "object",
-              "null"
+              "null",
+              "string"
             ],
             "properties": {
               "Gate": {
@@ -369,7 +376,8 @@
               "Unit": {
                 "type": [
                   "object",
-                  "null"
+                  "null",
+                  "string"
                 ],
                 "properties": {
                   "Kind": {
@@ -458,6 +466,12 @@
               "Recycle": {
                 "type": "boolean",
                 "default": false
+              },
+              "MaxRecycles": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
               }
             },
             "required": [
@@ -491,7 +505,8 @@
           "UncoveredBy": {
             "type": [
               "array",
-              "null"
+              "null",
+              "string"
             ],
             "items": {
               "type": "string"
@@ -506,7 +521,9 @@
           "AutoSend": {
             "type": [
               "object",
-              "null"
+              "null",
+              "string",
+              "array"
             ],
             "properties": {
               "OfType": {
@@ -524,12 +541,17 @@
               "Names": {
                 "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
               }
+            },
+            "items": {
+              "type": "string"
             }
           },
           "AutoRefill": {
             "type": [
               "object",
-              "null"
+              "null",
+              "string",
+              "array"
             ],
             "properties": {
               "OfType": {
@@ -547,6 +569,9 @@
               "Names": {
                 "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
               }
+            },
+            "items": {
+              "type": "string"
             }
           },
           "Owner": {
@@ -563,11 +588,15 @@
           },
           "PerSeat": {
             "type": "boolean"
+          },
+          "Repeat": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Stamp out this many copies of the depot, one grid column apart, their names suffixed -1 to -N. Needs Col/Row placement."
           }
         },
         "required": [
-          "Type",
-          "FanDirection"
+          "Type"
         ]
       }
     },
@@ -618,7 +647,10 @@
                 "const": "dealGroup"
               },
               "To": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "string"
+                ],
                 "items": {
                   "type": "string"
                 }
@@ -746,7 +778,11 @@
               "const": "allCardsIn"
             },
             "Depots": {
-              "type": "object",
+              "type": [
+                "object",
+                "string",
+                "array"
+              ],
               "properties": {
                 "OfType": {
                   "enum": [
@@ -763,6 +799,9 @@
                 "Names": {
                   "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
                 }
+              },
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -783,7 +822,11 @@
               "const": "depotsEmpty"
             },
             "Depots": {
-              "type": "object",
+              "type": [
+                "object",
+                "string",
+                "array"
+              ],
               "properties": {
                 "OfType": {
                   "enum": [
@@ -800,6 +843,9 @@
                 "Names": {
                   "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
                 }
+              },
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -813,7 +859,11 @@
               "const": "depotsNonEmpty"
             },
             "Depots": {
-              "type": "object",
+              "type": [
+                "object",
+                "string",
+                "array"
+              ],
               "properties": {
                 "OfType": {
                   "enum": [
@@ -830,6 +880,9 @@
                 "Names": {
                   "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
                 }
+              },
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -843,7 +896,11 @@
               "const": "seatCleared"
             },
             "Depots": {
-              "type": "object",
+              "type": [
+                "object",
+                "string",
+                "array"
+              ],
               "properties": {
                 "OfType": {
                   "enum": [
@@ -860,6 +917,9 @@
                 "Names": {
                   "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
                 }
+              },
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -989,6 +1049,12 @@
             "Of"
           ]
         }
+      ]
+    },
+    "MaxRedeals": {
+      "type": [
+        "integer",
+        "null"
       ]
     },
     "DepotOnly": {
@@ -1186,7 +1252,9 @@
         "Depots": {
           "type": [
             "object",
-            "null"
+            "null",
+            "string",
+            "array"
           ],
           "properties": {
             "OfType": {
@@ -1204,12 +1272,17 @@
             "Names": {
               "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
             }
+          },
+          "items": {
+            "type": "string"
           }
         },
         "CountedDepots": {
           "type": [
             "object",
-            "null"
+            "null",
+            "string",
+            "array"
           ],
           "properties": {
             "OfType": {
@@ -1227,6 +1300,9 @@
             "Names": {
               "$ref": "#/properties/Depots/items/properties/AcceptRule/properties/AcceptFrom/properties/Names"
             }
+          },
+          "items": {
+            "type": "string"
           }
         },
         "HighIsBetter": {
@@ -1279,6 +1355,10 @@
         "None",
         "Free"
       ]
+    },
+    "Rules": {
+      "type": "object",
+      "description": "Rules used more than once, each under a name a depot takes as \"$name\" in either of its rule slots. Read only: the game Cardz stores has them written out."
     }
   },
   "required": [
