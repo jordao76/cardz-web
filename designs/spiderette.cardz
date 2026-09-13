@@ -1,6 +1,7 @@
 {
   "$schema": "https://cardz.roderic.dev/designs/schema.json",
   "name": "Spiderette",
+  "family": "Spider",
   "description": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.",
   "decks": [
     {}

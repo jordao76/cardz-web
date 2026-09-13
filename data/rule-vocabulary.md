@@ -381,9 +381,9 @@ disables that action, but does not by itself declare a loss.
 - **`anchor`**: how the camera seats the board when it's smaller than the view — `TopCenter` (default: hangs from the top, centred horizontally) vs `TopLeft` (free-form boards built outward from a corner). Presentation only; no effect on rules.
 - **`fanOffsetFaceUp` / `fanOffsetFaceDown`** (`double?`): board-wide fan-step defaults, inherited by any depot that doesn't override them.
 - **`description`** (`string?`): player-facing rules prose, Markdown, shown with the game. Never interpreted by the rules, but it is where a game's *conventions* are explained (see *Conventions the rules leave to the player*).
-- **`family`** (`string?`): a plain grouping key clustering variants of one game (`"Klondike"`, `"Spider"`). Identity, not prose — never localised.
+- **`family`** (`string?`): a plain grouping key saying which games are relatives, chosen freely by whoever writes them — a Putt Putt can call itself a `"Golf"`, a two-deck Klondike a `"Klondike"`. Identity, not prose: an exact-string match, never localised. It says nothing about how a game is built, and games sharing one are still separate games.
 - **`tools`** — whether the game offers the table modes (the tool island and its keys). `Free` offers them: a table where gathering, fishing and taking several cards at once *is* the game. `None` withholds them — no chips, no keys, no help rows advertising either — for a game whose own rules are meant to be the whole interaction. `Unset` (the default) offers every mode. Switch the rules off and the modes come back, since there is nothing left for the game to defer to.
-- `variantAxis` / `variantLabel` / `variantSelections` appear on built-ins that pick a variant from a choice (Klondike's draw count). They are catalog presentation only; drop them from a design you write.
+- `variantOf` / `variantName` / `variantAxis` / `variantLabel` / `variantSelections` appear on built-ins that pick a variant from a choice (Klondike's draw count): which set of choices the game came from, what that set is called, and which choice this one made. They are catalog presentation only; drop them from a design you write.
 
 ---
 

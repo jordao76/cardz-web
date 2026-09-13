@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-13T20:39:26Z",
+  "generated": "2026-09-13T22:18:30Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -444,6 +444,7 @@
     {
       "slug": "freecell",
       "name": "FreeCell",
+      "family": "FreeCell",
       "sandbox": false,
       "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7).\n- You move strictly **one card at a time**. A run already in alternating-colour order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**. Free a cell or clear a column to move a longer run.\n- Each of the four **free cells** holds a single card — use them as temporary parking.",
       "inApp": true,
@@ -1615,6 +1616,7 @@
     {
       "slug": "golf",
       "name": "Golf",
+      "family": "Golf",
       "sandbox": false,
       "rules": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- There is **no wrap**: only a Queen plays on a King, and only a 2 plays on an Ace.\n- Stuck with no legal move and an empty stock? The game is **lost**.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).",
       "inApp": true,
@@ -3646,6 +3648,7 @@
     {
       "slug": "bakers-game",
       "name": "Baker's Game",
+      "family": "FreeCell",
       "sandbox": false,
       "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
       "inApp": false,
@@ -3776,6 +3779,7 @@
     {
       "slug": "double-klondike",
       "name": "Double Klondike",
+      "family": "Klondike",
       "sandbox": false,
       "rules": "**Goal:** build all eight foundations up from Ace to King, each in a single suit.\n\n- Two decks are shuffled together, so every card appears **twice** and each suit has two foundations.\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste one card at a time; recycle the waste back to the stock when it runs out.",
       "inApp": false,
@@ -3927,6 +3931,7 @@
     {
       "slug": "putt-putt-with-jokers",
       "name": "Putt Putt with Jokers",
+      "family": "Golf",
       "sandbox": false,
       "rules": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- Rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- The two **Jokers are wild**: a Joker plays on any card, and any card plays on a Joker.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).\n- Stuck with no legal move and an empty stock? The game is **lost**.",
       "inApp": false,
@@ -4008,6 +4013,7 @@
     {
       "slug": "spiderette",
       "name": "Spiderette",
+      "family": "Spider",
       "sandbox": false,
       "rules": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.",
       "inApp": false,

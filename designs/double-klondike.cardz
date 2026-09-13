@@ -1,6 +1,7 @@
 {
   "$schema": "https://cardz.roderic.dev/designs/schema.json",
   "name": "Double Klondike",
+  "family": "Klondike",
   "description": "**Goal:** build all eight foundations up from Ace to King, each in a single suit.\n\n- Two decks are shuffled together, so every card appears **twice** and each suit has two foundations.\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste one card at a time; recycle the waste back to the stock when it runs out.",
   "decks": [
     {

@@ -1,6 +1,7 @@
 {
   "$schema": "https://cardz.roderic.dev/designs/schema.json",
   "name": "Putt Putt with Jokers",
+  "family": "Golf",
   "description": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- Rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- The two **Jokers are wild**: a Joker plays on any card, and any card plays on a Joker.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).\n- Stuck with no legal move and an empty stock? The game is **lost**.",
   "decks": [
     {

@@ -14,6 +14,18 @@
         "null"
       ]
     },
+    "variantOf": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "variantName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "description": {
       "type": [
         "string",
