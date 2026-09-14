@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-13T22:18:30Z",
+  "generated": "2026-09-14T00:15:32Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -3010,6 +3010,7 @@
     {
       "slug": "eight-off",
       "name": "Eight Off",
+      "family": "FreeCell",
       "sandbox": false,
       "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (a 6 of spades on a 7 of spades).\n- Eight **free cells** hold one card each — four of them start with a card from the deal.\n- Only a **King** may start an empty column.\n- A descending same-suit run can be dragged as a group, but only as far as free cells and empty columns could relay it by hand: **(1 + free cells) × 2 for each empty column**.",
       "inApp": true,
@@ -3167,6 +3168,7 @@
     {
       "slug": "seahaven-towers",
       "name": "Seahaven Towers",
+      "family": "FreeCell",
       "sandbox": false,
       "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Ten columns of five cards build **down in the same suit** (a 6 of spades on a 7 of spades).\n- Four **free cells** hold one card each — two of them start with a card from the deal.\n- Only a **King** may start an empty column, so freeing your Kings is the opening problem.\n- A descending same-suit run can be dragged as a group, but only as far as free cells and empty columns could relay it by hand: **(1 + free cells) × 2 for each empty column**.",
       "inApp": true,
