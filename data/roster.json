@@ -24,6 +24,9 @@
     { "slug": "double-klondike", "tagline": "Two decks, nine columns" },
     { "slug": "putt-putt-with-jokers", "tagline": "Round the corner, Jokers wild" },
     { "slug": "bakers-game", "tagline": "FreeCell's stricter ancestor" },
-    { "slug": "spiderette", "tagline": "Spider on a single deck" }
+    { "slug": "spiderette", "tagline": "Spider on a single deck" },
+    { "slug": "russian-solitaire", "tagline": "Yukon, one suit at a time" },
+    { "slug": "simple-simon", "tagline": "Four perfect runs, every card in sight" },
+    { "slug": "australian-patience", "tagline": "Loose groups, strict suits, one pass" }
   ]
 }

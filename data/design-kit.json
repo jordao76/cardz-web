@@ -2,6 +2,11 @@
   "schemaUrl": "https://cardz.roderic.dev/designs/schema.json",
   "games": [
     {
+      "name": "Australian Patience",
+      "file": "australian-patience.cardz",
+      "note": "Yukon-style group moves and same-suit columns, paired with a draw-one stock that cannot recycle its waste."
+    },
+    {
       "name": "Baker's Game",
       "file": "bakers-game.cardz",
       "note": "FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit."
@@ -15,6 +20,16 @@
       "name": "Putt Putt with Jokers",
       "file": "putt-putt-with-jokers.cardz",
       "note": "Golf's one foundation with ranks that wrap from King to Ace, and Jokers that are wild both ways: a Joker plays on anything, and anything plays on a Joker."
+    },
+    {
+      "name": "Russian Solitaire",
+      "file": "russian-solitaire.cardz",
+      "note": "Yukon's diagonal deal and unrestricted face-up group moves, with columns that build in the same suit."
+    },
+    {
+      "name": "Simple Simon",
+      "file": "simple-simon.cardz",
+      "note": "Spider's same-suit group moves and self-banking runs, with all 52 cards dealt face up and no stock to draw from."
     },
     {
       "name": "Spiderette",

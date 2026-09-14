@@ -1,0 +1,350 @@
+{
+  "$schema": "https://cardz.roderic.dev/designs/schema.json",
+  "name": "Russian Solitaire",
+  "family": "Yukon",
+  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**.\n- Any **face-up** card can be picked up together with everything on top of it, regardless of order — only the bottom card of the group needs to fit the target.\n- Uncovering a face-down card flips it; an empty column takes a **King** (or a group headed by one).",
+  "decks": [
+    {}
+  ],
+  "depots": [
+    {
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 3,
+      "row": 0,
+      "name": "found-1",
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "Locked"
+      }
+    },
+    {
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 4,
+      "row": 0,
+      "name": "found-2",
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "Locked"
+      }
+    },
+    {
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 5,
+      "row": 0,
+      "name": "found-3",
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "Locked"
+      }
+    },
+    {
+      "type": "Foundation",
+      "fanDirection": "None",
+      "col": 6,
+      "row": 0,
+      "name": "found-4",
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": {},
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "Locked"
+      }
+    },
+    {
+      "type": "Stock",
+      "fanDirection": "None",
+      "col": -1,
+      "row": -1,
+      "name": "stock",
+      "offTable": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 0,
+      "row": 1,
+      "name": "tab-1",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 1,
+      "row": 1,
+      "name": "tab-2",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 2,
+      "row": 1,
+      "name": "tab-3",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 3,
+      "row": 1,
+      "name": "tab-4",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 4,
+      "row": 1,
+      "name": "tab-5",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 5,
+      "row": 1,
+      "name": "tab-6",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    },
+    {
+      "type": "Tableau",
+      "fanDirection": "Down",
+      "col": 6,
+      "row": 1,
+      "name": "tab-7",
+      "acceptRule": {
+        "seed": "King",
+        "build": {
+          "direction": "Down"
+        },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": {}
+      },
+      "autoFlipTop": true
+    }
+  ],
+  "dealRules": [
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-1"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-2",
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7"
+      ],
+      "faceDown": 1,
+      "roundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-2"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7"
+      ],
+      "faceDown": 1,
+      "roundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-3"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7"
+      ],
+      "faceDown": 1,
+      "roundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-4"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-5",
+        "tab-6",
+        "tab-7"
+      ],
+      "faceDown": 1,
+      "roundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-5"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-6",
+        "tab-7"
+      ],
+      "faceDown": 1,
+      "roundRobin": true
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-6"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-7"
+      ],
+      "faceDown": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-7"
+      ],
+      "faceUp": 1
+    },
+    {
+      "kind": "dealGroup",
+      "to": [
+        "tab-2",
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7"
+      ],
+      "faceUp": 4,
+      "roundRobin": true
+    }
+  ],
+  "depotOnly": true,
+  "winCondition": {
+    "kind": "allCardsIn",
+    "depots": {
+      "ofType": "Foundation"
+    }
+  },
+  "tools": "None"
+}
