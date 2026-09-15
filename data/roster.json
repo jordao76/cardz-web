@@ -23,10 +23,10 @@
     { "slug": "crazy-quilt", "tagline": "Unpick the weave", "capture": { "file": "07-crazyquilt-valhalla.png", "deck": "Valhalla" } },
     { "slug": "double-klondike", "tagline": "Two decks, nine columns", "capture": { "file": "23-doubleklondike-valhalla.png", "deck": "Valhalla" } },
     { "slug": "putt-putt-with-jokers", "tagline": "Round the corner, Jokers wild", "capture": { "file": "24-puttputt-jokers-dread.png", "deck": "Dread" } },
-    { "slug": "bakers-game", "tagline": "FreeCell's stricter ancestor" },
-    { "slug": "spiderette", "tagline": "Spider on a single deck" },
-    { "slug": "russian-solitaire", "tagline": "Yukon, one suit at a time" },
-    { "slug": "simple-simon", "tagline": "Four perfect runs, every card in sight" },
-    { "slug": "australian-patience", "tagline": "Loose groups, strict suits, one pass" }
+    { "slug": "bakers-game", "tagline": "FreeCell's stricter ancestor", "capture": { "file": "25-bakersgame-herbarium.png", "deck": "Herbarium" } },
+    { "slug": "spiderette", "tagline": "Spider on a single deck", "capture": { "file": "26-spiderette-ornamental.png", "deck": "Ornamental" } },
+    { "slug": "russian-solitaire", "tagline": "Yukon, one suit at a time", "capture": { "file": "27-russiansolitaire-felthouse.png", "deck": "Felt House" } },
+    { "slug": "simple-simon", "tagline": "Four perfect runs, every card in sight", "capture": { "file": "28-simplesimon-neon.png", "deck": "Neon" } },
+    { "slug": "australian-patience", "tagline": "Loose groups, strict suits, one pass", "capture": { "file": "29-australianpatience-olympus.png", "deck": "Olympus" } }
   ]
 }
