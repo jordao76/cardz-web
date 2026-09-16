@@ -284,7 +284,7 @@ re-deal and declare a `draw` — one tap, one meaning.
 | `dealGroup` | `to[]`, `faceDown`, `faceUp`, `roundRobin`, `from` | the workhorse: deal N face-down then M face-up cards to one or more depots. `roundRobin: true` deals one per depot per pass; otherwise each depot is completed before the next. A single target may be written as the bare name. `from` defaults to the first stock depot. A group stops as soon as the stock is empty, so a count larger than the cards available simply deals what there is. |
 | `move` | `from`, `to` | move one card, keeping its current face — the primitive a recorded deal is made of |
 | `flipTop` | `depot` | turn that depot's top card face-up in place (one-way) |
-| `place` | `rank`, `suit`, `to`, `joker` | pull a **named** card out of the stock wherever it sits and land it face-up (Crazy Quilt's pre-seeded foundations). In a multi-deck game only the first matching copy is pulled. `"joker": true` places any joker instead. |
+| `place` | `rank`, `suit`, `to`, `joker` | pull a **named** card out of the stock wherever it sits and land it face-up (Crazy Quilt's pre-seeded foundations). In a multi-deck game only the first matching copy is pulled. `rank` and `suit` are both required, since a card has no default; `"joker": true` places any joker instead, and names neither. |
 | `gather` | `from[]`, `to` | sweep every card off each source depot back onto one target, face-down — the inverse of a deal |
 | `shuffle` | `depot` | randomly permute that depot's cards in place; pairs with `gather` so a regathered stock is unpredictable |
 

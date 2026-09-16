@@ -2,167 +2,26 @@
   "name": "Putt Putt with Jokers",
   "family": "Golf",
   "description": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- Rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- The two **Jokers are wild**: a Joker plays on any card, and any card plays on a Joker.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).\n- Stuck with no legal move and an empty stock? The game is **lost**.",
-  "decks": [
-    {
-      "jokers": 2
-    }
-  ],
+  "decks": [{ "jokers": 2 }],
   "depots": [
-    {
-      "type": "Stock",
-      "fanDirection": "None",
-      "col": 5,
-      "row": 0,
-      "name": "stock",
+    { "type": "Stock", "col": 5, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked", "draw": { "to": "foundation" } },
+    { "type": "Foundation", "col": 6, "row": 0, "name": "foundation",
       "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "Locked"
-      },
-      "draw": {
-        "to": "foundation"
-      }
-    },
-    {
-      "type": "Foundation",
-      "fanDirection": "None",
-      "col": 6,
-      "row": 0,
-      "name": "foundation",
-      "acceptRule": {
-        "build": {
-          "direction": "Either",
-          "wrap": true
-        },
+        "build": { "direction": "Either", "wrap": true },
         "wildDeclares": "free",
         "wildJoker": true
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 0,
-      "row": 1,
-      "name": "tab-1",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 1,
-      "row": 1,
-      "name": "tab-2",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 2,
-      "row": 1,
-      "name": "tab-3",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 3,
-      "row": 1,
-      "name": "tab-4",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 4,
-      "row": 1,
-      "name": "tab-5",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 5,
-      "row": 1,
-      "name": "tab-6",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 6,
-      "row": 1,
-      "name": "tab-7",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "TopOnly"
-      }
-    }
+      } },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7, "acceptRule": "none",
+      "ejectRule": "topOnly" }
   ],
   "dealRules": [
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-1",
-        "tab-2",
-        "tab-3",
-        "tab-4",
-        "tab-5",
-        "tab-6",
-        "tab-7"
-      ],
-      "faceUp": 5,
-      "roundRobin": true
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "foundation"
-      ],
-      "faceUp": 1
-    }
+    { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
+      "faceUp": 5, "roundRobin": true },
+    { "kind": "dealGroup", "to": "foundation", "faceUp": 1 }
   ],
   "depotOnly": true,
-  "winCondition": {
-    "kind": "depotsEmpty",
-    "depots": {
-      "ofType": "Tableau"
-    }
-  },
-  "lossCondition": {
-    "kind": "noLegalMoves"
-  },
+  "winCondition": { "kind": "depotsEmpty", "depots": "Tableau" },
+  "lossCondition": { "kind": "noLegalMoves" },
   "tools": "None"
 }

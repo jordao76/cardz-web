@@ -2,419 +2,50 @@
   "name": "Spiderette",
   "family": "Spider",
   "description": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.",
-  "decks": [
-    {}
-  ],
+  "decks": [{}],
   "depots": [
-    {
-      "type": "Stock",
-      "fanDirection": "None",
-      "col": 0,
-      "row": 0,
-      "name": "stock",
-      "acceptRule": {
-        "rejectsAll": true
-      },
-      "ejectRule": {
-        "gate": "Locked"
-      }
-    },
-    {
-      "type": "Foundation",
-      "fanDirection": "None",
-      "col": 3,
-      "row": 0,
-      "name": "found-1",
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3, "row": 0, "name": "found", "repeat": 4,
       "acceptRule": {
         "emptyOnly": true,
         "minCount": 13,
         "seed": "King",
-        "build": {
-          "direction": "Down"
-        }
+        "build": { "direction": "Down" }
       },
-      "ejectRule": {
-        "gate": "Locked"
-      }
-    },
-    {
-      "type": "Foundation",
-      "fanDirection": "None",
-      "col": 4,
-      "row": 0,
-      "name": "found-2",
-      "acceptRule": {
-        "emptyOnly": true,
-        "minCount": 13,
-        "seed": "King",
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "Locked"
-      }
-    },
-    {
-      "type": "Foundation",
-      "fanDirection": "None",
-      "col": 5,
-      "row": 0,
-      "name": "found-3",
-      "acceptRule": {
-        "emptyOnly": true,
-        "minCount": 13,
-        "seed": "King",
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "Locked"
-      }
-    },
-    {
-      "type": "Foundation",
-      "fanDirection": "None",
-      "col": 6,
-      "row": 0,
-      "name": "found-4",
-      "acceptRule": {
-        "emptyOnly": true,
-        "minCount": 13,
-        "seed": "King",
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "Locked"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 0,
-      "row": 1,
-      "name": "tab-1",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7,
+      "acceptRule": { "build": { "direction": "Down" } },
       "ejectRule": {
         "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
+        "unit": { "kind": "Run", "build": { "direction": "Down" }, "suit": "Same" }
       },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 1,
-      "row": 1,
-      "name": "tab-2",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
-      },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 2,
-      "row": 1,
-      "name": "tab-3",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
-      },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 3,
-      "row": 1,
-      "name": "tab-4",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
-      },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 4,
-      "row": 1,
-      "name": "tab-5",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
-      },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 5,
-      "row": 1,
-      "name": "tab-6",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
-      },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    },
-    {
-      "type": "Tableau",
-      "fanDirection": "Down",
-      "col": 6,
-      "row": 1,
-      "name": "tab-7",
-      "acceptRule": {
-        "build": {
-          "direction": "Down"
-        }
-      },
-      "ejectRule": {
-        "gate": "FaceUp",
-        "unit": {
-          "kind": "Run",
-          "build": {
-            "direction": "Down"
-          },
-          "suit": "Same"
-        }
-      },
-      "autoFlipTop": true,
-      "autoSend": {
-        "ofType": "Foundation"
-      }
-    }
+      "autoFlipTop": true, "autoSend": "Foundation" }
   ],
   "dealRules": [
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-1"
-      ],
-      "faceUp": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-2",
-        "tab-3",
-        "tab-4",
-        "tab-5",
-        "tab-6",
-        "tab-7"
-      ],
-      "faceDown": 1,
-      "roundRobin": true
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-2"
-      ],
-      "faceUp": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-3",
-        "tab-4",
-        "tab-5",
-        "tab-6",
-        "tab-7"
-      ],
-      "faceDown": 1,
-      "roundRobin": true
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-3"
-      ],
-      "faceUp": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-4",
-        "tab-5",
-        "tab-6",
-        "tab-7"
-      ],
-      "faceDown": 1,
-      "roundRobin": true
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-4"
-      ],
-      "faceUp": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-5",
-        "tab-6",
-        "tab-7"
-      ],
-      "faceDown": 1,
-      "roundRobin": true
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-5"
-      ],
-      "faceUp": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-6",
-        "tab-7"
-      ],
-      "faceDown": 1,
-      "roundRobin": true
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-6"
-      ],
-      "faceUp": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-7"
-      ],
-      "faceDown": 1
-    },
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-7"
-      ],
-      "faceUp": 1
-    }
+    { "kind": "dealGroup", "to": "tab-1", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
+      "faceDown": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-2", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-3", "tab-4", "tab-5", "tab-6", "tab-7"], "faceDown": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-3", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-4", "tab-5", "tab-6", "tab-7"], "faceDown": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-4", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-5", "tab-6", "tab-7"], "faceDown": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-5", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-6", "tab-7"], "faceDown": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-6", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "tab-7", "faceDown": 1 },
+    { "kind": "dealGroup", "to": "tab-7", "faceUp": 1 }
   ],
   "redealRules": [
-    {
-      "kind": "dealGroup",
-      "to": [
-        "tab-1",
-        "tab-2",
-        "tab-3",
-        "tab-4",
-        "tab-5",
-        "tab-6",
-        "tab-7"
-      ],
-      "faceUp": 1,
-      "roundRobin": true
-    }
+    { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
+      "faceUp": 1, "roundRobin": true }
   ],
-  "redealWhen": {
-    "kind": "depotsNonEmpty",
-    "depots": {
-      "ofType": "Tableau"
-    }
-  },
+  "redealWhen": { "kind": "depotsNonEmpty", "depots": "Tableau" },
   "depotOnly": true,
-  "winCondition": {
-    "kind": "allCardsIn",
-    "depots": {
-      "ofType": "Foundation"
-    }
-  },
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "tools": "None"
 }
