@@ -62,15 +62,14 @@ High-level guidelines on the expected JSON elements.
   is the spelling Cardz writes, and the preferred one.
 - **Enum values are capitalised**: `"Tableau"`,
   `"Foundation"`, `"Down"`, `"AlternateColor"`, `"Spades"`, `"Ace"`, `"Ten"`,
-  `"King"`. These are matched case-insensitively (`"tableau"` works), but
-  abbreviations are not: `"S"`, `"A"`, `"10"` all fail. Prefer the capitalised form.
+  `"King"`, spelled out in full. They are matched case-insensitively (`"tableau"` works),
+  but the capitalised form is preferred.
 - **Unions carry a `"kind"` discriminator** — deal steps
   (`"dealGroup"`, `"move"`, `"flipTop"`, `"place"`, `"gather"`, `"shuffle"`) and
   win/loss predicates (`"allCardsIn"`, `"noLegalMoves"`, …):
   `{ "kind": "allCardsIn", "depots": { "ofType": "Foundation" } }`.
 - **Optional properties may be omitted** and take the default
-  named in the tables below. Use `null` only for nullable fields; it is not a substitute
-  for an omitted number, boolean or enum.
+  named in the tables below.
 - A handful of fields take a **shorthand** as well — see the *Shorthands* section below.
 
 ---
@@ -116,7 +115,7 @@ Each *pack* can have the following elements:
 A recipe's card total is `(suits × ranks + jokers) × count`. A game's whole
 composition may deal at most **208 cards** (four standard decks). Examples:
 
-- **Standard**: leave `decks` out, or write `"decks": [ {} ]` → 52. Two full decks: `[ { "count": 2 } ]` → 104. An empty list, `"decks": []`, deals no cards and is refused.
+- **Standard**: leave `decks` out, or write `"decks": [ {} ]` → 52. Two full decks: `[ { "count": 2 } ]` → 104.
 - **Spider 1-suit**: `[ { "suits": ["Spades"], "count": 8 } ]` → 104 spades.
 - **Spider 2-suit**: `[ { "suits": ["Spades","Hearts"], "count": 4 } ]`.
 - **Stripped 32-card** (7–Ace): `"ranks": ["Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"]`.
@@ -192,7 +191,7 @@ up a multi-card drop frees the card above it too.
 ### Eject rules — pickup policy
 
 Two sub-parts: `gate` (which single item may be grabbed) + `unit` (what leaves
-together). A refused pickup is silently ignored.
+together).
 
 - **`gate`**: `Any` (default), `Locked` (foundations), `FaceUp`, `TopOnly` (Golf — forbids grabbing a face-up run as a group). A rule that is only a gate is that gate's name: `"ejectRule": "locked"`.
 - **`unit`** — an object `{ "kind": …, "build": …, "suit": … }`, or just the kind's name for the two that need nothing else (`"single"`, `"any"`):
@@ -212,11 +211,8 @@ pair it with `"ejectRule": { "gate": "Locked" }` so cards leave only through the
 - `recycle` — tapping when empty pulls the whole `to` pile back, order reversed and face-down (Klondike's ↺); false = single pass (Forty Thieves, Golf, Tri Peaks)
 - `maxRecycles` (`int?`) — maximum waste-to-stock recycles after the opening
   deal. Omitted or `null` = unlimited; `0` = none; `1` = one recycle, or two
-  passes through the stock. Must be non-negative. `recycle: true` is still
-  required. The limit belongs to this stock, not to other stocks on the board.
-  A finite recycle uses the stock tap; cards cannot be dragged back into that
-  stock while rules are on. Ordinary draws, including a short final draw, do
-  not consume the allowance.
+  passes through the stock. It works with `recycle: true`, belongs to this
+  stock alone, and counts only recycles.
 
 ### Auto-move — the board plays for itself
 
@@ -265,7 +261,7 @@ from each other will pass a card back and forth until the cascade limit stops th
   - `wrap`: K↔A modular cycle (Tri Peaks waste, Canfield foundations)
   - `sum` (matcher mode): incoming + anchor pip values (A=1 … K=13) must total N — ignores direction/step/wrap; collapses the matched run face-down. Pyramid is `"sum": 13`; generalizes to Monte Carlo / Fourteen Out.
 - **`SuitConstraint`**: `Any` (default), `Same`, `AlternateColor`
-- **`DepotPattern`**: match by `ofType` (a category) **or** `names[]` (explicit, exactly-matched list) — set exactly one. Used by `acceptFrom`, `autoSend`, `autoRefill`, and win/loss conditions. Since it is always one or the other, it may be written as just that one: `"Foundation"` is the category, `["reserve"]` the list. A pattern that sets both, sets neither, or matches nothing on the board is refused; where an older game has both, `ofType` is what plays.
+- **`DepotPattern`**: match by `ofType` (a category) **or** `names[]` (explicit, exactly-matched list) — set exactly one. Used by `acceptFrom`, `autoSend`, `autoRefill`, and win/loss conditions. Since it is always one or the other, it may be written as just that one: `"Foundation"` is the category, `["reserve"]` the list.
 
 ---
 
@@ -275,8 +271,7 @@ from each other will pass a card back and forth until the cascade limit stops th
 stock. Omit it and every card simply starts in the stock. `redealRules` is a second
 sequence the player fires from a stock tap during play (Spider's deal, La Belle
 Lucie's regather-and-redeal); it replays against the live stock each time and tails
-off on its own once the stock can't fill it. A depot may not both source the
-re-deal and declare a `draw` — one tap, one meaning.
+off on its own once the stock can't fill it.
 
 | `kind` | Fields | Meaning |
 |---|---|---|
@@ -293,16 +288,14 @@ the stock deals). Null means unconditional.
 
 `maxRedeals` (`int?`, at the top level) limits how many times `redealRules`
 may run after the opening deal. Omitted or `null` = unlimited; `0` = none;
-`2` = two additional deals. Must be non-negative. One successful batch uses
+`2` = two additional deals. One successful batch uses
 one allowance, whether it deals a row or gathers, shuffles and redistributes
 the board; a short final batch also counts. All trigger stocks share this one
-allowance. A refused tap consumes nothing. The limit and
+allowance. The limit and
 `redealWhen` must both permit the action.
 
 Both limits are restored by undo/redo and preserved when saving and resuming
-a game. A new game resets them. Older saves without counters start with no
-recorded uses; previous uses cannot be reconstructed. Exhausting an allowance
-disables that action, but does not by itself declare a loss.
+a game. A new game resets them. Exhausting an allowance disables that action.
 
 ### Games that use limited passes
 
@@ -358,8 +351,7 @@ Also `repeat` to create many depots; and `rules` to create reusable rules:
 
 **`repeat`** on a depot creates that many copies of it. Names take a 1-based suffix on
 the stem — `"name": "column", "repeat": 7` gives `column-1` … `column-7` — and each copy
-sits one grid column right of the last, so a row of columns or foundations can be created with a single entry. It only works with `col`/`row` placement (a
-repeat measured in pixels would stack every copy on the same spot).
+sits one grid column right of the last, so a row of columns or foundations can be created with a single entry. It steps along `col`/`row` placement.
 
 **`rules`**, at the top level, names a rule that can be reused:
 
