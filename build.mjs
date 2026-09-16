@@ -483,7 +483,7 @@ function gamePage(page, all) {
     ? `
       <div class="game-variants">
         <h2>Variants</h2>
-        <p>The rules above are ${escape(primary.name)}. Here is how the rest of the family differs.</p>
+        <p>The rules above are ${escape(primary.name)}. Here is how the other variants differ.</p>
 ${page.variants
   .slice(1)
   .map(

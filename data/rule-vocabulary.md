@@ -18,7 +18,7 @@ A file holds the game in one of two formats:
 - **An exported game** — what Cardz writes when you export one:
   `{ "schemaVersion": 1, "setup": { …the game… } }`.
 
-The following example shows a small but complete game — a four-column Klondike variant.
+The following example shows a small but complete game — a four-column relative of Klondike.
 In the next sections, you'll learn about the syntax elements of a game file.
 
 ```json
@@ -91,7 +91,7 @@ Optional properties:
 - **`anchor`**: how the camera seats the board — `TopCenter` (default) vs `TopLeft`. Presentation only; no effect on rules.
 - **`fanOffsetFaceUp` / `fanOffsetFaceDown`** (`double?`): board-wide fan-step defaults for face up and face down cards, inherited by any depot that doesn't override them.
 - **`description`** (`string?`): player-facing game description, in Markdown, shown with the game. Prose only, not interpreted by the rules.
-- **`family`** (`string?`): a grouping key that relates games — Putt Putt is in the `"Golf"` family, two-deck Klondike in the `"Klondike"` family. An exact-string key, not prose; it says nothing about how a game is built.
+- **`family`** (`string?`): a grouping key that relates games — Putt Putt is in the `"Golf"` family, Double Klondike in the `"Klondike"` family. An exact-string key, not prose; it says nothing about how a game is built.
 - **`tools`** — whether the game offers the table modes (the tool island and its keys). `Free` offers them; `None` withholds them — no chips, no keys, no help rows advertising either — for a game whose own rules are meant to be the whole interaction. `Unset` (the default) offers every mode. The modes come back when rules are off.
 - **`dealRules`**/**`redealRules`**/**`redealWhen`**/**`maxRedeals`**: deal and redeal definitions, see the corresponding sections below.
 - **`winCondition`**/**`lossCondition`**: see the **Win & loss conditions** section below.
@@ -299,10 +299,10 @@ a game. A new game resets them. Exhausting an allowance disables that action.
 
 ### Games that use limited passes
 
-| Game or variant | Encoding | Effect |
+| Game | Encoding | Effect |
 |---|---|---|
 | La Belle Lucie | `maxRedeals: 2` | two gather/shuffle/re-deal rescues |
-| Crazy Quilt | draw `recycle: true, maxRecycles: 1` | one waste recycle; set `2` for a more generous variant |
+| Crazy Quilt | draw `recycle: true, maxRecycles: 1` | one waste recycle; set `2` for a more generous game |
 | Limited-pass Klondike, Canfield or Double Klondike | draw `recycle: true, maxRecycles: N` | N additional passes; the built-in games leave it unlimited |
 | Spider, Spiderette, Scorpion | no extra limit needed | the stock runs out naturally; a game may still cap its row-deal batches with `maxRedeals` |
 
