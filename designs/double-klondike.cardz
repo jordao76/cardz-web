@@ -9,7 +9,8 @@
     { "type": "Waste", "col": 1, "row": 0, "name": "waste", "acceptRule": "none",
       "ejectRule": "topOnly" },
     { "type": "Foundation", "col": 2, "row": 0, "name": "found", "repeat": 8,
-      "acceptRule": { "seed": "Ace", "build": {}, "suit": "Same" }, "ejectRule": "locked" },
+      "acceptRule": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "Same" },
+      "ejectRule": "locked" },
     { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 9,
       "acceptRule": { "seed": "King", "build": { "direction": "Down" }, "suit": "AlternateColor" },
       "ejectRule": "faceUp", "autoFlipTop": true }

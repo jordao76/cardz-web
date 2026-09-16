@@ -261,7 +261,7 @@ from each other will pass a card back and forth until the cascade limit stops th
 ### Shared sub-vocabularies
 
 - **`BuildRule`** = `direction` + `step` + `wrap`, **or** `sum`:
-  - `direction`: `Up` (default) / `Down` / `Either`
+  - `direction`: `Up` / `Down` / `Either`, required, since a build has no default direction (a `sum` needs none)
   - `step`: 0–12 (1 = classic adjacent build; 0 = rank-equal pairing games)
   - `wrap`: K↔A modular cycle (Tri Peaks waste, Canfield foundations)
   - `sum` (matcher mode): incoming + anchor pip values (A=1 … K=13) must total N — ignores direction/step/wrap; collapses the matched run face-down. Pyramid is `"sum": 13`; generalizes to Monte Carlo / Fourteen Out.
