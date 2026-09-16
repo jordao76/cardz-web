@@ -2,7 +2,6 @@
   "name": "Eight Off",
   "family": "FreeCell",
   "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (a 6 of spades on a 7 of spades).\n- Eight **free cells** hold one card each — four of them start with a card from the deal.\n- Only a **King** may start an empty column.\n- A descending same-suit run can be dragged as a group, but only as far as free cells and empty columns could relay it by hand: **(1 + free cells) × 2 for each empty column**.",
-  "decks": [{}],
   "depots": [
     { "type": "Cell", "col": 0, "row": 0, "name": "cell", "repeat": 8,
       "acceptRule": { "emptyOnly": true, "single": true } },

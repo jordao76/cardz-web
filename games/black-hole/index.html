@@ -44,12 +44,11 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>55 lines</small></summary>
+        <summary>Read its design file <small>54 lines</small></summary>
         <p>One foundation seeded with the Ace of Spades that takes a card up or down with wrap, and seventeen fans that give up only their top card. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Black Hole&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** play all fifty-one fan cards into the black hole.\n\n- The **Ace of Spades** starts in the hole. Play the **exposed end card** of any fan onto it if that card is one rank **up or down** from the hole's top card.\n- **Suit does not matter**, and rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- Cards never leave the hole, and a fan is never a drop target — every move is one-way.\n- There is no stock and no redeal. When no fan's end card fits, the game is **lost**.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">6</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;hole&quot;</span>,
       <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Either&quot;</span>, <span class="j-key">&quot;wrap&quot;</span>: <span class="j-lit">true</span> } }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },

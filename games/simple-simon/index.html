@@ -45,13 +45,12 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>39 lines</small></summary>
+        <summary>Read its design file <small>38 lines</small></summary>
         <p>Spider's same-suit group moves and self-banking runs, with all 52 cards dealt face up and no stock to draw from. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Simple Simon&quot;</span>,
   <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Spider&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** assemble four same-suit runs from King to Ace. Completed runs move to the foundations automatically.\n\n- All 52 cards start **face up** in ten columns. There is **no stock or redeal**.\n- Build columns **down in any suit**, without wrapping from Ace to King.\n- Move one card, or a **same-suit descending sequence** as a group. Mixed-suit groups cannot move together.\n- Any card or valid sequence may fill an empty column.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;offTable&quot;</span>: <span class="j-lit">true</span> },
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,

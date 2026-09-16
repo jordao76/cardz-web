@@ -2,7 +2,6 @@
   "name": "Golf",
   "family": "Golf",
   "description": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- There is **no wrap**: only a Queen plays on a King, and only a 2 plays on an Ace.\n- Stuck with no legal move and an empty stock? The game is **lost**.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).",
-  "decks": [{}],
   "depots": [
     { "type": "Stock", "col": 5, "row": 0, "name": "stock", "acceptRule": "none",
       "ejectRule": "locked", "draw": { "to": "foundation" } },

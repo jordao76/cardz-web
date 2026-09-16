@@ -44,13 +44,12 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>23 lines</small></summary>
+        <summary>Read its design file <small>22 lines</small></summary>
         <p>One foundation that takes a card a rank up or down, a stock that draws straight onto it, and a loss when no move is left. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Golf&quot;</span>,
   <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Golf&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- There is **no wrap**: only a Queen plays on a King, and only a 2 plays on an Ace.\n- Stuck with no legal move and an empty stock? The game is **lost**.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
       <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;foundation&quot;</span> } },

@@ -45,13 +45,12 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>51 lines</small></summary>
+        <summary>Read its design file <small>50 lines</small></summary>
         <p>Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Spiderette&quot;</span>,
   <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Spider&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
       <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },

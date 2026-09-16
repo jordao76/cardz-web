@@ -14,7 +14,7 @@ double-click it, or choose **Import…** in *Your games* — and Cardz adds it t
 
 A file holds the game in one of two formats:
 
-- **The game itself** — an object with `name`, `decks` and `depots` at the top.
+- **The game itself** — an object with `name` and `depots` at the top.
 - **An exported game** — what Cardz writes when you export one:
   `{ "schemaVersion": 1, "setup": { …the game… } }`.
 
@@ -25,7 +25,6 @@ In the next sections, you'll learn about the syntax elements of a game file.
 {
   "name": "Pocket Patience",
   "description": "Build each suit up from Ace on the foundations. Columns build down in alternating colours, and only a King fills an empty column.",
-  "decks": [ {} ],
   "depotOnly": true,
   "rules": {
     "foundation": { "seed": "Ace", "build": { "direction": "Up", "step": 1 }, "suit": "Same" },
@@ -55,7 +54,7 @@ In the next sections, you'll learn about the syntax elements of a game file.
 
 High-level guidelines on the expected JSON elements.
 
-- **Required properties**: `name`, `decks`, `depots` at the top level, and `type`
+- **Required properties**: `name` and `depots` at the top level, and `type`
   on every depot.
 - **Property names are camelCase**:
   `"name"`, `"decks"`, `"depots"`, `"acceptRule"`, `"minCount"`. They are matched
@@ -83,11 +82,11 @@ The properties of the game object itself.
 Required properties:
 
 - **`name`**: the name of the game.
-- **`decks`**: the set of cards for the game, see the **Deck Composition** section below.
 - **`depots`**: the places in the board that hold cards, see the **Depot**-related sections below.
 
 Optional properties:
 
+- **`decks`**: the set of cards for the game, see the **Deck Composition** section below. Omitted, the game is dealt one standard 52-card deck.
 - **`depotOnly`** (bool): card drops that don't land on a depot bounce back (no parking between depots). Ruled games should generally set it. Switched off when rules are off.
 - **`compoundMoves`**: `Free` (default — any valid run moves as a unit: Klondike / Spider / Yukon) vs `Staged` (FreeCell-family limit `(1 + freeCells) × 2^(emptyColumns)`).
 - **`anchor`**: how the camera seats the board — `TopCenter` (default) vs `TopLeft`. Presentation only; no effect on rules.
@@ -117,7 +116,7 @@ Each *pack* can have the following elements:
 A recipe's card total is `(suits × ranks + jokers) × count`. A game's whole
 composition may deal at most **208 cards** (four standard decks). Examples:
 
-- **Standard**: `"decks": [ {} ]` → 52. Two full decks: `[ { "count": 2 } ]` → 104.
+- **Standard**: leave `decks` out, or write `"decks": [ {} ]` → 52. Two full decks: `[ { "count": 2 } ]` → 104. An empty list, `"decks": []`, deals no cards and is refused.
 - **Spider 1-suit**: `[ { "suits": ["Spades"], "count": 8 } ]` → 104 spades.
 - **Spider 2-suit**: `[ { "suits": ["Spades","Hearts"], "count": 4 } ]`.
 - **Stripped 32-card** (7–Ace): `"ranks": ["Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"]`.

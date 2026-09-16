@@ -44,12 +44,11 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>33 lines</small></summary>
+        <summary>Read its design file <small>32 lines</small></summary>
         <p>Foundations whose starting rank is set by the deal and wrap from King to Ace, and a reserve that refills an emptied column by itself. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Canfield&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up in suit from the dealt base rank, wrapping past King back to Ace.\n\n- The **first foundation card is dealt** — its rank sets the base for all four foundations. Build each one **up in the same suit**, wrapping King→Ace as needed.\n- Tableau columns build **down in alternating colour** and also **wrap** (a King may go on an Ace). Move a single card or a valid run.\n- The **reserve** of 13 cards feeds its top card into play; uncovering the next card turns it up.\n- Draw **three at a time** from the stock to the waste; recycle the waste as often as you like.\n- **Empty a column and the reserve refills it** at once. Once the reserve is spent, an empty column is yours to fill with any card or run.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>,
       <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;recycle&quot;</span>: <span class="j-lit">true</span> } },

@@ -44,12 +44,11 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>33 lines</small></summary>
+        <summary>Read its design file <small>32 lines</small></summary>
         <p>Four foundations that count up by one, two, three and four, each seeded with a named card, and waste piles that take cards only from the stock. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Calculation&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** move every card to the four foundations. Suit does not matter.\n\n- The foundations start with **Ace, 2, 3, and 4**. They advance by **1, 2, 3, and 4 ranks** respectively, wrapping after King.\n- The sequences all end at King: A-2-3...; 2-4-6...; 3-6-9...; and 4-8-Q....\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and cards cannot move between holding piles. Plan carefully: there is no redeal.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
       <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span> },

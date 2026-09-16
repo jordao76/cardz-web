@@ -1,7 +1,6 @@
 {
   "name": "Bisley",
   "description": "**Goal:** move every card to eight foundations. Each suit is built from both ends at once: **up from Ace** and **down from King**. The two foundations may meet at any rank.\n\n- All 48 non-Aces start face-up in thirteen columns.\n- Tableau cards build **one rank up or down in the same suit**.\n- Move only one exposed card at a time. An empty column stays empty for the rest of the game.\n- A released King starts its matching downward foundation; choose carefully which end of a suit receives each available card.",
-  "decks": [{}],
   "depots": [
     { "type": "Foundation", "col": 0, "row": 0, "name": "ace", "repeat": 4,
       "acceptRule": {

@@ -1,7 +1,6 @@
 {
   "name": "La Belle Lucie",
   "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The board is **eighteen fans**. Build them **down in the same suit** (e.g. a ♥6 on a ♥7), **one card at a time** — only the exposed end card of a fan can move.\n- An **emptied fan stays empty**: once a fan is cleared, nothing can be placed back into it.\n- **Stuck? Tap the stock** to gather every fan, shuffle, and re-deal into threes. You may re-deal **twice per game**.\n- **Merci:** to free a card buried in a fan, turn on **FISH** (press **F**) and drag that card out — it will play wherever it legally lands. By tradition, once per game.",
-  "decks": [{}],
   "rules": {
     "tableau": {
       "single": true,

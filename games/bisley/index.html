@@ -44,12 +44,11 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>46 lines</small></summary>
+        <summary>Read its design file <small>45 lines</small></summary>
         <p>Aces placed before the deal, King foundations that build down to meet them, and columns that build up or down in suit. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Bisley&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** move every card to eight foundations. Each suit is built from both ends at once: **up from Ace** and **down from King**. The two foundations may meet at any rank.\n\n- All 48 non-Aces start face-up in thirteen columns.\n- Tableau cards build **one rank up or down in the same suit**.\n- Move only one exposed card at a time. An empty column stays empty for the rest of the game.\n- A released King starts its matching downward foundation; choose carefully which end of a suit receives each available card.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;ace&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
       <span class="j-key">&quot;acceptRule&quot;</span>: {

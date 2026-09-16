@@ -44,12 +44,11 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>48 lines</small></summary>
+        <summary>Read its design file <small>47 lines</small></summary>
         <p>Aces placed on the foundations before the deal, and eight columns that fan out to the left and right and move one card at a time. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Beleaguered Castle&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up in suit from Ace to King.\n\n- The four Aces begin in the centre, with eight six-card tableau wings around them. Every tableau card is face-up.\n- Tableau piles build **down by rank regardless of suit**.\n- Move only one exposed card at a time. Any single card may fill an empty tableau pile.\n- There is no stock, waste, reserve, or free cell: success comes from creating and preserving empty spaces.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;rules&quot;</span>: {
     <span class="j-key">&quot;foundation&quot;</span>: { <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> },
     <span class="j-key">&quot;tableau&quot;</span>: { <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> } }

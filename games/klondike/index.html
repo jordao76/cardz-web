@@ -56,13 +56,12 @@
         </details>
       </div>
       <details class="game-source">
-        <summary>Read its design file <small>39 lines</small></summary>
+        <summary>Read its design file <small>38 lines</small></summary>
         <p>The classic layout: a stock that draws one card and recycles its waste, four foundations, and seven columns dealt diagonally one step at a time. This is Klondike; the other variants change a line or two. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Klondike&quot;</span>,
   <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Klondike&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste; recycle the waste back to the stock when it runs out.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>,
       <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;recycle&quot;</span>: <span class="j-lit">true</span> } },

@@ -44,12 +44,11 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>33 lines</small></summary>
+        <summary>Read its design file <small>32 lines</small></summary>
         <p>Columns that lift any face-up group, in order or not, and a stock of three cards that deals once, onto the first three columns. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Scorpion&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**.\n- Any **face-up** card can be picked up together with everything on top of it, **regardless of order** — only the bottom card of the group has to fit the target. That is how you dig out a buried card.\n- Uncovering a face-down card flips it. An empty column takes a **King**, or a group headed by one.\n- Three cards are held back: **tap the stock** once when you are stuck to deal them onto the first three columns.&quot;</span>,
-  <span class="j-key">&quot;decks&quot;</span>: [{}],
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
       <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },

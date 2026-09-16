@@ -1,7 +1,6 @@
 {
   "name": "Black Hole",
   "description": "**Goal:** play all fifty-one fan cards into the black hole.\n\n- The **Ace of Spades** starts in the hole. Play the **exposed end card** of any fan onto it if that card is one rank **up or down** from the hole's top card.\n- **Suit does not matter**, and rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- Cards never leave the hole, and a fan is never a drop target — every move is one-way.\n- There is no stock and no redeal. When no fan's end card fits, the game is **lost**.",
-  "decks": [{}],
   "depots": [
     { "type": "Foundation", "col": 6, "row": 0, "name": "hole",
       "acceptRule": { "build": { "direction": "Either", "wrap": true } }, "ejectRule": "locked" },

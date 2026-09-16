@@ -1,7 +1,6 @@
 {
   "name": "Flower Garden",
   "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The **bouquet** across the top is a spread of sixteen cards, and **any** of them may be played — reach into the middle, not just the end.\n- The six **flower beds** build **down in any suit**, **one card at a time**.\n- An emptied bed may be filled by any single card.\n- Nothing is hidden and there is no stock: every card is face-up from the start, so the whole game is a puzzle you can see.",
-  "decks": [{}],
   "depots": [
     { "type": "Reserve", "fanDirection": "Right", "col": 0, "row": 0, "name": "bouquet",
       "acceptRule": "none", "ejectRule": { "unit": "single" }, "looseOrder": true },

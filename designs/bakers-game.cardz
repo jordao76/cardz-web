@@ -2,7 +2,6 @@
   "name": "Baker's Game",
   "family": "FreeCell",
   "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
-  "decks": [{}],
   "depots": [
     { "type": "Cell", "col": 0, "row": 0, "name": "cell", "repeat": 4,
       "acceptRule": { "emptyOnly": true, "single": true } },

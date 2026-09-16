@@ -1,7 +1,6 @@
 {
   "name": "Canfield",
   "description": "**Goal:** build all four foundations up in suit from the dealt base rank, wrapping past King back to Ace.\n\n- The **first foundation card is dealt** — its rank sets the base for all four foundations. Build each one **up in the same suit**, wrapping King→Ace as needed.\n- Tableau columns build **down in alternating colour** and also **wrap** (a King may go on an Ace). Move a single card or a valid run.\n- The **reserve** of 13 cards feeds its top card into play; uncovering the next card turns it up.\n- Draw **three at a time** from the stock to the waste; recycle the waste as often as you like.\n- **Empty a column and the reserve refills it** at once. Once the reserve is spent, an empty column is yours to fill with any card or run.",
-  "decks": [{}],
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "ejectRule": "locked",
       "landFace": "Down", "draw": { "to": "waste", "count": 3, "recycle": true } },

@@ -1,7 +1,6 @@
 {
   "name": "Calculation",
   "description": "**Goal:** move every card to the four foundations. Suit does not matter.\n\n- The foundations start with **Ace, 2, 3, and 4**. They advance by **1, 2, 3, and 4 ranks** respectively, wrapping after King.\n- The sequences all end at King: A-2-3...; 2-4-6...; 3-6-9...; and 4-8-Q....\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and cards cannot move between holding piles. Plan carefully: there is no redeal.",
-  "decks": [{}],
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
       "ejectRule": "faceUp", "autoFlipTop": true },
