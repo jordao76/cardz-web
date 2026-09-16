@@ -631,9 +631,6 @@ function rewrite(file, regions) {
 
 // ---------------------------------------------------------------- run
 
-if (!existsSync(join(root, "designs/schema.json")))
-  throw new Error("designs/schema.json is missing. Run cardz-win's scripts/export-design-kit.ps1.");
-
 const outDir = join(root, "games");
 if (existsSync(outDir)) rmSync(outDir, { recursive: true });
 for (const page of ordered) {

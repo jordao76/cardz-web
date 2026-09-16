@@ -114,10 +114,8 @@ The kit comes from the app repo, on its own cadence like `games.json`:
 ..\cardz-win\scripts\export-design-kit.ps1
 ```
 
-It writes `data/rule-vocabulary.md`, `data/design-kit.json` (the extra games list),
-`designs/schema.json` (a JSON Schema generated from the design types, which a
-design file can name in `"$schema"`), and `designs/*.cardz`: the extra games,
-each checked to import before it is written.
+It writes `data/rule-vocabulary.md`, `data/design-kit.json` (the extra games list)
+and `designs/*.cardz`: the extra games, each checked to import before it is written.
 
 Extra games are solitaires that are not built into Cardz, kept in cardz-win's
 `extras/` folder. The same games reach `data/games.json` with `"inApp": false`, so

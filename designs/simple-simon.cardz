@@ -1,5 +1,4 @@
 {
-  "$schema": "https://cardz.roderic.dev/designs/schema.json",
   "name": "Simple Simon",
   "family": "Spider",
   "description": "**Goal:** assemble four same-suit runs from King to Ace. Completed runs move to the foundations automatically.\n\n- All 52 cards start **face up** in ten columns. There is **no stock or redeal**.\n- Build columns **down in any suit**, without wrapping from Ace to King.\n- Move one card, or a **same-suit descending sequence** as a group. Mixed-suit groups cannot move together.\n- Any card or valid sequence may fill an empty column.",

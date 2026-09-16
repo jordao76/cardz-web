@@ -1,5 +1,4 @@
 {
-  "$schema": "https://cardz.roderic.dev/designs/schema.json",
   "name": "Australian Patience",
   "family": "Yukon",
   "description": "**Goal:** build the four suit foundations from Ace to King.\n\n- Start with seven columns of four face-up cards. Columns build **down in the same suit**.\n- Move any face-up card with all cards covering it, even if they are out of order. Only the bottom card of the group must fit.\n- Only a **King**, alone or with its covering cards, can fill an empty column.\n- Tap the stock to turn **one card** onto the waste. Only the top waste card is playable.\n- There is **one pass through the stock**: the waste cannot be recycled.",
