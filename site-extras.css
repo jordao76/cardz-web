@@ -164,6 +164,15 @@ img.demo-card.c2 { border: 0; }
 .game-variants summary { cursor: pointer; padding: 1.1rem 0; font: 600 1.15rem "Playfair Display", serif; }
 .game-variants summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .game-variants .game-rules { padding: 0 0 1.2rem; }
+/* A game's design file, folded under the rules. The code block is the reference's own,
+   so a file reads the same on a game page as the examples do on Make a game. */
+.game-source { margin-top: 1.5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.game-source summary { cursor: pointer; padding: 1.1rem 0; font: 600 1.15rem "Playfair Display", serif; }
+.game-source summary small { margin-left: .6rem; color: var(--muted); font: 600 .6rem "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: .14em; }
+.game-source summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.game-source p { margin: 0 0 1rem; color: #5f5852; line-height: 1.8; font-size: .9rem; }
+.game-source p a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: .2em; }
+.game-source pre { margin: 0 0 1.4rem; }
 .game-cta { margin-top: 3rem; padding: 2.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
 /* Direct child only: the button's own <small> label ("Play it in", "Download")
    matched this too, and went muted grey on the red button. */
@@ -244,8 +253,13 @@ img.demo-card.c2 { border: 0; }
 .reference ul { margin: 0 0 1.2rem; padding-left: 1.2rem; }
 .reference li { margin-bottom: .5rem; }
 .reference li::marker { color: var(--gold); }
-.reference pre { margin: 1.2rem 0 1.6rem; overflow-x: auto; padding: 1.2rem 1.3rem; background: #17151a; color: #e9dfcd; border-radius: 4px; font-size: .78rem; line-height: 1.6; }
-.reference pre code { background: none; padding: 0; color: inherit; font-size: inherit; overflow-wrap: normal; }
+.reference pre, .game-source pre { overflow-x: auto; padding: 1.2rem 1.3rem; background: #17151a; color: #e9dfcd; border-radius: 4px; font-size: .78rem; line-height: 1.6; }
+.reference pre { margin: 1.2rem 0 1.6rem; }
+.reference pre code, .game-source pre code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: none; padding: 0; color: inherit; font-size: inherit; overflow-wrap: normal; }
+/* JSON on the dark block: keys in the site's gold, strings warm, numbers and literals cool. */
+.j-key { color: #d8a84e; }
+.j-str { color: #e3b9a3; }
+.j-num, .j-lit { color: #9fb8dc; }
 .ref-table { margin: 1.2rem 0 1.6rem; overflow-x: auto; border: 1px solid var(--line); background: rgba(243, 236, 219, .6); }
 .ref-table table { width: 100%; border-collapse: collapse; font-size: .84rem; }
 .ref-table th, .ref-table td { padding: .7rem .8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); line-height: 1.65; color: #5f5852; }

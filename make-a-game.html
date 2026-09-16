@@ -41,6 +41,7 @@
       <section class="format-section" id="start-from-a-game" aria-labelledby="start-title">
         <h2 id="start-title">Start from a game</h2>
         <p>Every one of the <a href="games/#extras">extra games</a> is a complete design file. Download one and play it as it is, then open it in a text editor to see how its rules are put together, and change it into a game of your own.</p>
+        <p>Most of the <a href="games/">games built into Cardz</a> show their design file too: open <em>Read its design file</em> on a game's page to see how Klondike, FreeCell or Spider is written.</p>
       </section>
 
       <section class="format-section" id="ai" aria-labelledby="ai-title">
@@ -79,29 +80,29 @@
 <ul><li><strong>The game itself</strong> — an object with <code>name</code>, <code>decks</code> and <code>depots</code> at the top.</li><li><strong>An exported game</strong> — what Cardz writes when you export one: <code>{ &quot;schemaVersion&quot;: 1, &quot;setup&quot;: { …the game… } }</code>.</li></ul>
 <p>The following example shows a small but complete game — a four-column Klondike variant. In the next sections, you'll learn about the syntax elements of a game file.</p>
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;Pocket Patience&quot;,
-  &quot;description&quot;: &quot;Build each suit up from Ace on the foundations. Columns build down in alternating colours, and only a King fills an empty column.&quot;,
-  &quot;decks&quot;: [ {} ],
-  &quot;depotOnly&quot;: true,
-  &quot;rules&quot;: {
-    &quot;foundation&quot;: { &quot;seed&quot;: &quot;Ace&quot;, &quot;build&quot;: { &quot;direction&quot;: &quot;Up&quot;, &quot;step&quot;: 1 }, &quot;suit&quot;: &quot;Same&quot; },
-    &quot;column&quot;: { &quot;seed&quot;: &quot;King&quot;, &quot;build&quot;: { &quot;direction&quot;: &quot;Down&quot;, &quot;step&quot;: 1 }, &quot;suit&quot;: &quot;AlternateColor&quot; }
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Pocket Patience&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;Build each suit up from Ace on the foundations. Columns build down in alternating colours, and only a King fills an empty column.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [ {} ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;rules&quot;</span>: {
+    <span class="j-key">&quot;foundation&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span>, <span class="j-key">&quot;step&quot;</span>: <span class="j-num">1</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> },
+    <span class="j-key">&quot;column&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;step&quot;</span>: <span class="j-num">1</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;AlternateColor&quot;</span> }
   },
-  &quot;depots&quot;: [
-    { &quot;name&quot;: &quot;stock&quot;, &quot;type&quot;: &quot;Stock&quot;, &quot;col&quot;: 0, &quot;row&quot;: 0,
-      &quot;draw&quot;: { &quot;to&quot;: &quot;waste&quot;, &quot;count&quot;: 1, &quot;recycle&quot;: true },
-      &quot;landFace&quot;: &quot;Down&quot;, &quot;ejectRule&quot;: &quot;locked&quot; },
-    { &quot;name&quot;: &quot;waste&quot;, &quot;type&quot;: &quot;Waste&quot;, &quot;col&quot;: 1, &quot;row&quot;: 0,
-      &quot;acceptRule&quot;: &quot;none&quot;, &quot;ejectRule&quot;: &quot;topOnly&quot; },
-    { &quot;name&quot;: &quot;foundation&quot;, &quot;type&quot;: &quot;Foundation&quot;, &quot;col&quot;: 3, &quot;row&quot;: 0, &quot;repeat&quot;: 4,
-      &quot;acceptRule&quot;: &quot;$foundation&quot;, &quot;ejectRule&quot;: &quot;locked&quot; },
-    { &quot;name&quot;: &quot;column&quot;, &quot;type&quot;: &quot;Tableau&quot;, &quot;col&quot;: 0, &quot;row&quot;: 1, &quot;repeat&quot;: 4, &quot;autoFlipTop&quot;: true,
-      &quot;acceptRule&quot;: &quot;$column&quot;, &quot;ejectRule&quot;: &quot;faceUp&quot; }
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>,
+      <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;recycle&quot;</span>: <span class="j-lit">true</span> },
+      <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Waste&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;foundation&quot;</span>, <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$foundation&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;column&quot;</span>, <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$column&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span> }
   ],
-  &quot;dealRules&quot;: [
-    { &quot;kind&quot;: &quot;dealGroup&quot;, &quot;to&quot;: [&quot;column-1&quot;, &quot;column-2&quot;, &quot;column-3&quot;, &quot;column-4&quot;], &quot;faceDown&quot;: 2, &quot;faceUp&quot;: 1 }
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;column-1&quot;</span>, <span class="j-str">&quot;column-2&quot;</span>, <span class="j-str">&quot;column-3&quot;</span>, <span class="j-str">&quot;column-4&quot;</span>], <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> }
   ],
-  &quot;winCondition&quot;: { &quot;kind&quot;: &quot;allCardsIn&quot;, &quot;depots&quot;: &quot;Foundation&quot; }
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> }
 }</code></pre>
 <h3 id="the-canonical-json-format">The canonical JSON format</h3>
 <p>High-level guidelines on the expected JSON elements.</p>

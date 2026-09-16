@@ -44,6 +44,37 @@
           <ul><li>Tableau columns build <strong>down in the same suit</strong> (e.g. a 6 of spades on a 7 of spades).</li><li>You move strictly <strong>one card at a time</strong>. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: <strong>(1 + free cells) × 2 for each empty column</strong>.</li><li>Each of the four <strong>free cells</strong> holds a single card — use them as temporary parking.</li><li>Any card may start an empty column.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>27 lines</small></summary>
+        <p>FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Baker's Game&quot;</span>,
+  <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;FreeCell&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{}],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Cell&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;cell&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;emptyOnly&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span> } },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;offTable&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">8</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>,
+      <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>, <span class="j-str">&quot;tab-8&quot;</span>], <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">6</span>,
+      <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>], <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span>,
+      <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;compoundMoves&quot;</span>: <span class="j-str">&quot;Staged&quot;</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="../../designs/bakers-game.cardz" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>bakers-game.cardz</span></a>
         <small>Not built into Cardz. Double-click the file to add it to Your games, and <a href="https://apps.microsoft.com/detail/9N96G6H34XCT">get Cardz for Windows</a> first if you need it.</small>

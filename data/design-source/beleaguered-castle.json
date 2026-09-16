@@ -1,0 +1,48 @@
+{
+  "name": "Beleaguered Castle",
+  "description": "**Goal:** build all four foundations up in suit from Ace to King.\n\n- The four Aces begin in the centre, with eight six-card tableau wings around them. Every tableau card is face-up.\n- Tableau piles build **down by rank regardless of suit**.\n- Move only one exposed card at a time. Any single card may fill an empty tableau pile.\n- There is no stock, waste, reserve, or free cell: success comes from creating and preserving empty spaces.",
+  "decks": [{}],
+  "rules": {
+    "foundation": { "single": true, "seed": "Ace", "build": { "direction": "Up" }, "suit": "Same" },
+    "tableau": { "single": true, "build": { "direction": "Down" } }
+  },
+  "depots": [
+    { "type": "Foundation", "col": 4, "row": 0, "name": "found-1", "acceptRule": "$foundation",
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 1, "name": "found-2", "acceptRule": "$foundation",
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 2, "name": "found-3", "acceptRule": "$foundation",
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 3, "name": "found-4", "acceptRule": "$foundation",
+      "ejectRule": "locked" },
+    { "type": "Tableau", "fanDirection": "Left", "col": 3, "row": 0, "name": "left-1",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Left", "col": 3, "row": 1, "name": "left-2",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Left", "col": 3, "row": 2, "name": "left-3",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Left", "col": 3, "row": 3, "name": "left-4",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Right", "col": 5, "row": 0, "name": "right-1",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Right", "col": 5, "row": 1, "name": "right-2",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Right", "col": 5, "row": 2, "name": "right-3",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "Right", "col": 5, "row": 3, "name": "right-4",
+      "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "found-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "found-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "found-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "found-4" },
+    { "kind": "dealGroup",
+      "to": ["left-1", "right-1", "left-2", "right-2", "left-3", "right-3", "left-4", "right-4"],
+      "faceUp": 6, "roundRobin": true }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "tools": "None"
+}

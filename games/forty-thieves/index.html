@@ -43,6 +43,35 @@
           <ul><li>Tableau columns build <strong>down in the same suit</strong>, <strong>one card at a time</strong> (no group moves).</li><li>Any single card may start an empty column.</li><li>Draw from the <strong>stock</strong> to the waste one card at a time; there is no recycling.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>25 lines</small></summary>
+        <p>Two decks, eight foundations, and ten same-suit columns that move one card at a time, fed by a stock that never recycles. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Forty Thieves&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all eight foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**, **one card at a time** (no group moves).\n- Any single card may start an empty column.\n- Draw from the **stock** to the waste one card at a time; there is no recycling.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{ <span class="j-key">&quot;count&quot;</span>: <span class="j-num">2</span> }],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span> } },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Waste&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">8</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">10</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>,
+      <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>, <span class="j-str">&quot;tab-8&quot;</span>, <span class="j-str">&quot;tab-9&quot;</span>,
+        <span class="j-str">&quot;tab-10&quot;</span>],
+      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Play it in</small>Cardz for Windows</span></a>
         <small>No ads, no accounts, fully offline.</small>

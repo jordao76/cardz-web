@@ -1,0 +1,25 @@
+{
+  "name": "Forty Thieves",
+  "description": "**Goal:** build all eight foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**, **one card at a time** (no group moves).\n- Any single card may start an empty column.\n- Draw from the **stock** to the waste one card at a time; there is no recycling.",
+  "decks": [{ "count": 2 }],
+  "depots": [
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked", "draw": { "to": "waste" } },
+    { "type": "Waste", "col": 1, "row": 0, "name": "waste", "acceptRule": "none" },
+    { "type": "Foundation", "col": 3, "row": 0, "name": "found", "repeat": 8,
+      "acceptRule": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "Same" },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 10,
+      "acceptRule": { "single": true, "build": { "direction": "Down" }, "suit": "Same" },
+      "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup",
+      "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7", "tab-8", "tab-9",
+        "tab-10"],
+      "faceUp": 4, "roundRobin": true }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "tools": "None"
+}

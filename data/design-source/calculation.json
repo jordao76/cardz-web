@@ -1,0 +1,33 @@
+{
+  "name": "Calculation",
+  "description": "**Goal:** move every card to the four foundations. Suit does not matter.\n\n- The foundations start with **Ace, 2, 3, and 4**. They advance by **1, 2, 3, and 4 ranks** respectively, wrapping after King.\n- The sequences all end at King: A-2-3...; 2-4-6...; 3-6-9...; and 4-8-Q....\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and cards cannot move between holding piles. Plan carefully: there is no redeal.",
+  "decks": [{}],
+  "depots": [
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "faceUp", "autoFlipTop": true },
+    { "type": "Foundation", "col": 2, "row": 0, "name": "by-1",
+      "acceptRule": { "seed": "Ace", "build": { "direction": "Up", "wrap": true } },
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3, "row": 0, "name": "by-2",
+      "acceptRule": { "seed": "Two", "build": { "direction": "Up", "step": 2, "wrap": true } },
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 0, "name": "by-3",
+      "acceptRule": { "seed": "Three", "build": { "direction": "Up", "step": 3, "wrap": true } },
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 5, "row": 0, "name": "by-4",
+      "acceptRule": { "seed": "Four", "build": { "direction": "Up", "step": 4, "wrap": true } },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 2, "row": 1, "name": "hold", "repeat": 4,
+      "acceptRule": { "acceptFrom": ["stock"] }, "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "by-1" },
+    { "kind": "place", "rank": "Two", "suit": "Hearts", "to": "by-2" },
+    { "kind": "place", "rank": "Three", "suit": "Diamonds", "to": "by-3" },
+    { "kind": "place", "rank": "Four", "suit": "Clubs", "to": "by-4" },
+    { "kind": "flipTop", "depot": "stock" }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "tools": "None"
+}

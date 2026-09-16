@@ -43,6 +43,43 @@
           <ul><li>The <strong>first foundation card is dealt</strong> — its rank sets the base for all four foundations. Build each one <strong>up in the same suit</strong>, wrapping King→Ace as needed.</li><li>Tableau columns build <strong>down in alternating colour</strong> and also <strong>wrap</strong> (a King may go on an Ace). Move a single card or a valid run.</li><li>The <strong>reserve</strong> of 13 cards feeds its top card into play; uncovering the next card turns it up.</li><li>Draw <strong>three at a time</strong> from the stock to the waste; recycle the waste as often as you like.</li><li><strong>Empty a column and the reserve refills it</strong> at once. Once the reserve is spent, an empty column is yours to fill with any card or run.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>33 lines</small></summary>
+        <p>Foundations whose starting rank is set by the deal and wrap from King to Ace, and a reserve that refills an emptied column by itself. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Canfield&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up in suit from the dealt base rank, wrapping past King back to Ace.\n\n- The **first foundation card is dealt** — its rank sets the base for all four foundations. Build each one **up in the same suit**, wrapping King→Ace as needed.\n- Tableau columns build **down in alternating colour** and also **wrap** (a King may go on an Ace). Move a single card or a valid run.\n- The **reserve** of 13 cards feeds its top card into play; uncovering the next card turns it up.\n- Draw **three at a time** from the stock to the waste; recycle the waste as often as you like.\n- **Empty a column and the reserve refills it** at once. Once the reserve is spent, an empty column is yours to fill with any card or run.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{}],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>,
+      <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;recycle&quot;</span>: <span class="j-lit">true</span> } },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Waste&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;Right&quot;</span>, <span class="j-key">&quot;fanWindow&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>,
+      <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;seedFromDeal&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span>, <span class="j-key">&quot;wrap&quot;</span>: <span class="j-lit">true</span> },
+        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>
+      },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Reserve&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;reserve&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;wrap&quot;</span>: <span class="j-lit">true</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;AlternateColor&quot;</span> },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;autoRefill&quot;</span>: [<span class="j-str">&quot;reserve&quot;</span>] }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;reserve&quot;</span>, <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">12</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;reserve&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;found-1&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>], <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span>,
+      <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Play it in</small>Cardz for Windows</span></a>
         <small>No ads, no accounts, fully offline.</small>

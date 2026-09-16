@@ -44,6 +44,61 @@
           <ul><li>Tableau columns build <strong>down in any suit</strong> — a card lands on any card one rank higher.</li><li>Cards move as a group only when they form a <strong>same-suit descending run</strong>; otherwise you move <strong>one card at a time</strong>.</li><li>Only <strong>face-up</strong> cards can be picked up; uncovering a face-down card flips it.</li><li>Any card may start an empty column.</li><li>When you're stuck, <strong>tap the stock</strong> to deal one card onto every column — allowed only when <strong>no column is empty</strong>. Its last three cards go to the first three columns.</li><li>A <strong>complete King-to-Ace run in a single suit</strong> leaves for a foundation <strong>on its own</strong> the moment you finish it.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>51 lines</small></summary>
+        <p>Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Spiderette&quot;</span>,
+  <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Spider&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{}],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;emptyOnly&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;minCount&quot;</span>: <span class="j-num">13</span>,
+        <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;King&quot;</span>,
+        <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> }
+      },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">7</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> } },
+      <span class="j-key">&quot;ejectRule&quot;</span>: {
+        <span class="j-key">&quot;gate&quot;</span>: <span class="j-str">&quot;FaceUp&quot;</span>,
+        <span class="j-key">&quot;unit&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;Run&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> }
+      },
+      <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;autoSend&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-1&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>],
+      <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>], <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">1</span>,
+      <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>], <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">1</span>,
+      <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>], <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>], <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-7&quot;</span>, <span class="j-key">&quot;faceDown&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;tab-7&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> }
+  ],
+  <span class="j-key">&quot;redealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>],
+      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> }
+  ],
+  <span class="j-key">&quot;redealWhen&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;depotsNonEmpty&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span> },
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="../../designs/spiderette.cardz" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>spiderette.cardz</span></a>
         <small>Not built into Cardz. Double-click the file to add it to Your games, and <a href="https://apps.microsoft.com/detail/9N96G6H34XCT">get Cardz for Windows</a> first if you need it.</small>

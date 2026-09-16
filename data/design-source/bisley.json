@@ -1,0 +1,46 @@
+{
+  "name": "Bisley",
+  "description": "**Goal:** move every card to eight foundations. Each suit is built from both ends at once: **up from Ace** and **down from King**. The two foundations may meet at any rank.\n\n- All 48 non-Aces start face-up in thirteen columns.\n- Tableau cards build **one rank up or down in the same suit**.\n- Move only one exposed card at a time. An empty column stays empty for the rest of the game.\n- A released King starts its matching downward foundation; choose carefully which end of a suit receives each available card.",
+  "decks": [{}],
+  "depots": [
+    { "type": "Foundation", "col": 0, "row": 0, "name": "ace", "repeat": 4,
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": { "direction": "Up" },
+        "suit": "Same"
+      },
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 9, "row": 0, "name": "king", "repeat": 4,
+      "acceptRule": {
+        "single": true,
+        "seed": "King",
+        "build": { "direction": "Down" },
+        "suit": "Same"
+      },
+      "ejectRule": "locked" },
+    { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 13,
+      "acceptRule": {
+        "single": true,
+        "seedNone": true,
+        "build": { "direction": "Either" },
+        "suit": "Same"
+      },
+      "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "ace-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "ace-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "ace-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "ace-4" },
+    { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4"], "faceUp": 3,
+      "roundRobin": true },
+    { "kind": "dealGroup",
+      "to": ["tab-5", "tab-6", "tab-7", "tab-8", "tab-9", "tab-10", "tab-11", "tab-12", "tab-13"],
+      "faceUp": 4, "roundRobin": true }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "tools": "None"
+}

@@ -44,6 +44,40 @@
           <ul><li>Start with seven columns of four face-up cards. Columns build <strong>down in the same suit</strong>.</li><li>Move any face-up card with all cards covering it, even if they are out of order. Only the bottom card of the group must fit.</li><li>Only a <strong>King</strong>, alone or with its covering cards, can fill an empty column.</li><li>Tap the stock to turn <strong>one card</strong> onto the waste. Only the top waste card is playable.</li><li>There is <strong>one pass through the stock</strong>: the waste cannot be recycled.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>30 lines</small></summary>
+        <p>Yukon-style group moves and same-suit columns, paired with a draw-one stock that cannot recycle its waste. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Australian Patience&quot;</span>,
+  <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Yukon&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build the four suit foundations from Ace to King.\n\n- Start with seven columns of four face-up cards. Columns build **down in the same suit**.\n- Move any face-up card with all cards covering it, even if they are out of order. Only the bottom card of the group must fit.\n- Only a **King**, alone or with its covering cards, can fill an empty column.\n- Tap the stock to turn **one card** onto the waste. Only the top waste card is playable.\n- There is **one pass through the stock**: the waste cannot be recycled.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{}],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>,
+      <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span> } },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Waste&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>,
+        <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span> },
+        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>
+      },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">7</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> }, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span> },
+      <span class="j-key">&quot;ejectRule&quot;</span>: { <span class="j-key">&quot;gate&quot;</span>: <span class="j-str">&quot;FaceUp&quot;</span>, <span class="j-key">&quot;unit&quot;</span>: <span class="j-str">&quot;any&quot;</span> }, <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>],
+      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="../../designs/australian-patience.cardz" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>australian-patience.cardz</span></a>
         <small>Not built into Cardz. Double-click the file to add it to Your games, and <a href="https://apps.microsoft.com/detail/9N96G6H34XCT">get Cardz for Windows</a> first if you need it.</small>

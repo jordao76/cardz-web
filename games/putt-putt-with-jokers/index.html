@@ -44,6 +44,37 @@
           <ul><li>Play the <strong>top card</strong> of any column onto the foundation if it is one rank <strong>up or down</strong> from the foundation's top card (no suit restriction).</li><li>Rank <strong>wraps</strong>: an Ace and a King are adjacent, so either can follow the other.</li><li>The two <strong>Jokers are wild</strong>: a Joker plays on any card, and any card plays on a Joker.</li><li>Draw the <strong>stock</strong> onto the foundation to keep going (one pass only — no recycling).</li><li>Stuck with no legal move and an empty stock? The game is <strong>lost</strong>.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>27 lines</small></summary>
+        <p>Golf's one foundation with ranks that wrap from King to Ace, and wild Jokers. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Putt Putt with Jokers&quot;</span>,
+  <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Golf&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- Rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- The two **Jokers are wild**: a Joker plays on any card, and any card plays on a Joker.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).\n- Stuck with no legal move and an empty stock? The game is **lost**.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{ <span class="j-key">&quot;jokers&quot;</span>: <span class="j-num">2</span> }],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;foundation&quot;</span> } },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">6</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;foundation&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Either&quot;</span>, <span class="j-key">&quot;wrap&quot;</span>: <span class="j-lit">true</span> },
+        <span class="j-key">&quot;wildDeclares&quot;</span>: <span class="j-str">&quot;free&quot;</span>,
+        <span class="j-key">&quot;wildJoker&quot;</span>: <span class="j-lit">true</span>
+      } },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">7</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;tab-1&quot;</span>, <span class="j-str">&quot;tab-2&quot;</span>, <span class="j-str">&quot;tab-3&quot;</span>, <span class="j-str">&quot;tab-4&quot;</span>, <span class="j-str">&quot;tab-5&quot;</span>, <span class="j-str">&quot;tab-6&quot;</span>, <span class="j-str">&quot;tab-7&quot;</span>],
+      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">5</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;foundation&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;depotsEmpty&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span> },
+  <span class="j-key">&quot;lossCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;noLegalMoves&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="../../designs/putt-putt-with-jokers.cardz" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>putt-putt-with-jokers.cardz</span></a>
         <small>Not built into Cardz. Double-click the file to add it to Your games, and <a href="https://apps.microsoft.com/detail/9N96G6H34XCT">get Cardz for Windows</a> first if you need it.</small>

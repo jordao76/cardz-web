@@ -43,6 +43,38 @@
           <ul><li>The <strong>bouquet</strong> across the top is a spread of sixteen cards, and <strong>any</strong> of them may be played — reach into the middle, not just the end.</li><li>The six <strong>flower beds</strong> build <strong>down in any suit</strong>, <strong>one card at a time</strong>.</li><li>An emptied bed may be filled by any single card.</li><li>Nothing is hidden and there is no stock: every card is face-up from the start, so the whole game is a puzzle you can see.</li></ul>
       </div>
 
+      <details class="game-source">
+        <summary>Read its design file <small>28 lines</small></summary>
+        <p>A bouquet of sixteen cards that play in any order, and six beds that build down regardless of suit. Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Flower Garden&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The **bouquet** across the top is a spread of sixteen cards, and **any** of them may be played — reach into the middle, not just the end.\n- The six **flower beds** build **down in any suit**, **one card at a time**.\n- An emptied bed may be filled by any single card.\n- Nothing is hidden and there is no stock: every card is face-up from the start, so the whole game is a puzzle you can see.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{}],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Reserve&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;Right&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;bouquet&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: { <span class="j-key">&quot;unit&quot;</span>: <span class="j-str">&quot;single&quot;</span> }, <span class="j-key">&quot;looseOrder&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">6.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>,
+        <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span> },
+        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>
+      },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;offTable&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;bed&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">6</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> } }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;bed-1&quot;</span>, <span class="j-str">&quot;bed-2&quot;</span>, <span class="j-str">&quot;bed-3&quot;</span>, <span class="j-str">&quot;bed-4&quot;</span>, <span class="j-str">&quot;bed-5&quot;</span>, <span class="j-str">&quot;bed-6&quot;</span>],
+      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">6</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;bouquet&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">16</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
       <div class="game-cta">
         <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Play it in</small>Cardz for Windows</span></a>
         <small>No ads, no accounts, fully offline.</small>

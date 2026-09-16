@@ -1,0 +1,28 @@
+{
+  "name": "Seahaven Towers",
+  "family": "FreeCell",
+  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Ten columns of five cards build **down in the same suit** (a 6 of spades on a 7 of spades).\n- Four **free cells** hold one card each — two of them start with a card from the deal.\n- Only a **King** may start an empty column, so freeing your Kings is the opening problem.\n- A descending same-suit run can be dragged as a group, but only as far as free cells and empty columns could relay it by hand: **(1 + free cells) × 2 for each empty column**.",
+  "decks": [{}],
+  "depots": [
+    { "type": "Cell", "col": 0, "row": 0, "name": "cell", "repeat": 4,
+      "acceptRule": { "emptyOnly": true, "single": true } },
+    { "type": "Foundation", "col": 6, "row": 0, "name": "found", "repeat": 4,
+      "acceptRule": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "Same" },
+      "ejectRule": "locked" },
+    { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 10,
+      "acceptRule": { "seed": "King", "build": { "direction": "Down" }, "suit": "Same" },
+      "ejectRule": "faceUp" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup",
+      "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7", "tab-8", "tab-9",
+        "tab-10"],
+      "faceUp": 5, "roundRobin": true },
+    { "kind": "dealGroup", "to": ["cell-1", "cell-2"], "faceUp": 1, "roundRobin": true }
+  ],
+  "depotOnly": true,
+  "compoundMoves": "Staged",
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "tools": "None"
+}

@@ -35,5 +35,103 @@
       "file": "spiderette.cardz",
       "note": "Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck."
     }
+  ],
+  "builtIns": [
+    {
+      "name": "Klondike",
+      "page": "klondike",
+      "source": "data/design-source/klondike.json",
+      "note": "The classic layout: a stock that draws one card and recycles its waste, four foundations, and seven columns dealt diagonally one step at a time."
+    },
+    {
+      "name": "FreeCell",
+      "page": "freecell",
+      "source": "data/design-source/freecell.json",
+      "note": "Four free cells that hold one card each, alternating-colour columns, and staged moves that limit how many cards a run may carry."
+    },
+    {
+      "name": "Spider (1 Suit)",
+      "page": "spider",
+      "source": "data/design-source/spider.json",
+      "note": "Eight foundations that take only a finished King-to-Ace run, columns that lift descending runs, and a stock that deals a row while no column is empty."
+    },
+    {
+      "name": "Yukon",
+      "page": "yukon",
+      "source": "data/design-source/yukon.json",
+      "note": "Columns that build in alternating colours but lift any face-up group, in order or not, over a diagonal deal of hidden cards."
+    },
+    {
+      "name": "Forty Thieves",
+      "page": "forty-thieves",
+      "source": "data/design-source/forty-thieves.json",
+      "note": "Two decks, eight foundations, and ten same-suit columns that move one card at a time, fed by a stock that never recycles."
+    },
+    {
+      "name": "Golf",
+      "page": "golf",
+      "source": "data/design-source/golf.json",
+      "note": "One foundation that takes a card a rank up or down, a stock that draws straight onto it, and a loss when no move is left."
+    },
+    {
+      "name": "La Belle Lucie",
+      "page": "la-belle-lucie",
+      "source": "data/design-source/la-belle-lucie.json",
+      "note": "Eighteen fans that give up only their top card, one named rule shared by all of them, and two redeals that gather, shuffle and deal again."
+    },
+    {
+      "name": "Canfield",
+      "page": "canfield",
+      "source": "data/design-source/canfield.json",
+      "note": "Foundations whose starting rank is set by the deal and wrap from King to Ace, and a reserve that refills an emptied column by itself."
+    },
+    {
+      "name": "Beleaguered Castle",
+      "page": "beleaguered-castle",
+      "source": "data/design-source/beleaguered-castle.json",
+      "note": "Aces placed on the foundations before the deal, and eight columns that fan out to the left and right and move one card at a time."
+    },
+    {
+      "name": "Bisley",
+      "page": "bisley",
+      "source": "data/design-source/bisley.json",
+      "note": "Aces placed before the deal, King foundations that build down to meet them, and columns that build up or down in suit."
+    },
+    {
+      "name": "Calculation",
+      "page": "calculation",
+      "source": "data/design-source/calculation.json",
+      "note": "Four foundations that count up by one, two, three and four, each seeded with a named card, and waste piles that take cards only from the stock."
+    },
+    {
+      "name": "Eight Off",
+      "page": "eight-off",
+      "source": "data/design-source/eight-off.json",
+      "note": "FreeCell with eight cells, same-suit columns, and a rule that only a King may start an empty column."
+    },
+    {
+      "name": "Seahaven Towers",
+      "page": "seahaven-towers",
+      "source": "data/design-source/seahaven-towers.json",
+      "note": "Ten same-suit columns that only a King may start, four cells, and staged moves over a deal that leaves two cards in the cells."
+    },
+    {
+      "name": "Black Hole",
+      "page": "black-hole",
+      "source": "data/design-source/black-hole.json",
+      "note": "One foundation seeded with the Ace of Spades that takes a card up or down with wrap, and seventeen fans that give up only their top card."
+    },
+    {
+      "name": "Scorpion",
+      "page": "scorpion",
+      "source": "data/design-source/scorpion.json",
+      "note": "Columns that lift any face-up group, in order or not, and a stock of three cards that deals once, onto the first three columns."
+    },
+    {
+      "name": "Flower Garden",
+      "page": "flower-garden",
+      "source": "data/design-source/flower-garden.json",
+      "note": "A bouquet of sixteen cards that play in any order, and six beds that build down regardless of suit."
+    }
   ]
 }

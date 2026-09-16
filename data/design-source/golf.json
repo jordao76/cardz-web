@@ -1,0 +1,23 @@
+{
+  "name": "Golf",
+  "family": "Golf",
+  "description": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- There is **no wrap**: only a Queen plays on a King, and only a 2 plays on an Ace.\n- Stuck with no legal move and an empty stock? The game is **lost**.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).",
+  "decks": [{}],
+  "depots": [
+    { "type": "Stock", "col": 5, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked", "draw": { "to": "foundation" } },
+    { "type": "Foundation", "col": 6, "row": 0, "name": "foundation",
+      "acceptRule": { "build": { "direction": "Either" } } },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7, "acceptRule": "none",
+      "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
+      "faceUp": 5, "roundRobin": true },
+    { "kind": "dealGroup", "to": "foundation", "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "depotsEmpty", "depots": "Tableau" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "tools": "None"
+}

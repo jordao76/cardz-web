@@ -61,6 +61,19 @@ if (pages.size)
 // (cardz-win docs/website-plan.md §11), so it is grouped under Extra games.
 const isExtra = (page) => page.variants[0].inApp === false;
 
+// A built-in game's page shows its design file (cardz-win docs/website-plan.md §12).
+// Which games qualify is the export's decision, so the build only checks that each
+// file it names lands on a page that exists and is on disk.
+if (!Array.isArray(designKit.builtIns))
+  throw new Error("data/design-kit.json has no builtIns list. Run cardz-win's scripts/export-design-kit.ps1.");
+for (const entry of designKit.builtIns) {
+  const page = ordered.find((candidate) => candidate.slug === entry.page);
+  if (!page || isExtra(page))
+    throw new Error(`data/design-kit.json shows a design file on '${entry.page}', which is no built-in game's page.`);
+  if (!existsSync(join(root, entry.source)))
+    throw new Error(`data/design-kit.json names ${entry.source}, which is not on disk. Run cardz-win's scripts/export-design-kit.ps1.`);
+}
+
 // ---------------------------------------------------------------- markdown
 
 // The rules corpus is a closed set of constructs: paragraphs, "- " bullets,
@@ -106,6 +119,25 @@ function escape(text) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+/**
+ * JSON, escaped for HTML, with its keys, strings, numbers and literals in spans the
+ * stylesheet colours. Only ever given a design file or a reference example, so it
+ * tokenises rather than parses: whatever is not a token is punctuation and space.
+ */
+function highlightJson(text) {
+  const token = /("(?:[^"\\]|\\.)*")(\s*:)?|\b(true|false|null)\b|-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/g;
+  let out = "";
+  let last = 0;
+  for (const match of text.matchAll(token)) {
+    out += escape(text.slice(last, match.index));
+    const [whole, string, colon, literal] = match;
+    if (string) out += `<span class="${colon ? "j-key" : "j-str"}">${escape(string)}</span>${colon ?? ""}`;
+    else out += `<span class="${literal ? "j-lit" : "j-num"}">${escape(whole)}</span>`;
+    last = match.index + whole.length;
+  }
+  return out + escape(text.slice(last));
 }
 
 function slug(name) {
@@ -159,7 +191,8 @@ function referenceMarkdown(source) {
       if (i === lines.length) throw new Error("The design reference has an unclosed code fence");
       i++;
       const cls = language ? ` class="language-${escape(language)}"` : "";
-      html.push(`<pre><code${cls}>${escape(body.join("\n"))}</code></pre>`);
+      const code = language === "json" ? highlightJson(body.join("\n")) : escape(body.join("\n"));
+      html.push(`<pre><code${cls}>${code}</code></pre>`);
       continue;
     }
 
@@ -340,6 +373,43 @@ function extraCta(game, up) {
 }
 
 /**
+ * The game's design file, folded away under the rules: the text a person would write to
+ * make this game in Cardz (cardz-win docs/website-plan.md §12). A built-in's comes from
+ * the design kit's builtIns list, and shows the binding a grouped page leads with; an
+ * extra's is the very file its download button offers. A built-in the export did not
+ * write a file for shows none.
+ */
+function designSource(page, up) {
+  const extra = isExtra(page);
+  const primary = page.variants[0];
+  let path, note, lead;
+  if (extra) {
+    path = primary.download;
+    note = designKit.games.find((entry) => `designs/${entry.file}` === path)?.note;
+    lead = "This is the file the download button gives you.";
+  } else {
+    const entry = designKit.builtIns.find((candidate) => candidate.page === page.slug);
+    if (!entry) return "";
+    path = entry.source;
+    note = entry.note;
+    lead =
+      page.variants.length > 1
+        ? `This is ${escape(entry.name)}; the other variants change a line or two.`
+        : "Written as a design file, this is the whole game.";
+  }
+  if (!existsSync(join(root, path)))
+    throw new Error(`${page.name} shows ${path}, which is not on disk. Run cardz-win's scripts/export-design-kit.ps1.`);
+  const text = readFileSync(join(root, path), "utf8").replace(/\r\n/g, "\n").trimEnd();
+  const lines = text.split("\n").length;
+  return `      <details class="game-source">
+        <summary>Read its design file <small>${lines} lines</small></summary>
+        <p>${note ? `${escape(note)} ` : ""}${lead} <a href="${up}make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">${highlightJson(text)}</code></pre>
+      </details>
+`;
+}
+
+/**
  * The board, to scale, from the depot coordinates — no screenshot involved, so
  * it cannot fall behind the game the way a photograph of one deal does.
  * A wide board (Crazy Quilt) gets to run wider than the reading column, unless
@@ -445,7 +515,7 @@ ${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
 ${alternates}
-${
+${designSource(page, up)}${
   extra
     ? extraCta(primary, up)
     : `      <div class="game-cta">
@@ -578,7 +648,7 @@ ${header("games")}
     <section class="games-section" aria-labelledby="in-cardz-title">
       <div class="games-section-head">
         <h2 id="in-cardz-title">In Cardz</h2>
-        <p>Built into Cardz and ready to play.</p>
+        <p>Built into Cardz and ready to play. Most of their pages also show the design file each one is made from.</p>
       </div>
       <div class="games-grid">
 ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
