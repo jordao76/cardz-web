@@ -1,0 +1,33 @@
+{
+  "name": "Carpet",
+  "description": "**Goal:** move every card to the four foundations, building **up by suit from Ace to King**.\n\n- Twenty face-up cards form the **carpet**. Any carpet card may move to a foundation.\n- A hole in the carpet may be filled only with the **top waste card**; choosing when and where to fill holes is the heart of the game.\n- Draw the stock one card at a time to the waste. There is **no recycle**.\n- The foundations begin with the four Aces.",
+  "rules": { "tableau": { "emptyOnly": true, "single": true, "acceptFrom": ["waste"] } },
+  "depots": [
+    { "type": "Foundation", "col": 2, "row": 0, "name": "found", "repeat": 4,
+      "acceptRule": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "Same" },
+      "ejectRule": "locked" },
+    { "type": "Stock", "col": 7, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked", "landFace": "Down", "draw": { "to": "waste" } },
+    { "type": "Waste", "col": 8, "row": 0, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "None", "col": 0, "row": 1, "name": "carpet-a",
+      "repeat": 10, "acceptRule": "$tableau", "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "None", "col": 0, "row": 2.15, "name": "carpet-b",
+      "repeat": 10, "acceptRule": "$tableau", "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "found-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "found-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "found-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "found-4" },
+    { "kind": "dealGroup",
+      "to": ["carpet-a-1", "carpet-a-2", "carpet-a-3", "carpet-a-4", "carpet-a-5", "carpet-a-6",
+        "carpet-a-7", "carpet-a-8", "carpet-a-9", "carpet-a-10", "carpet-b-1", "carpet-b-2",
+        "carpet-b-3", "carpet-b-4", "carpet-b-5", "carpet-b-6", "carpet-b-7", "carpet-b-8",
+        "carpet-b-9", "carpet-b-10"],
+      "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "tools": "None"
+}

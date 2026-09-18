@@ -27,6 +27,10 @@
     { "slug": "spiderette", "tagline": "Spider on a single deck", "capture": { "file": "26-spiderette-ornamental.png", "deck": "Ornamental" } },
     { "slug": "russian-solitaire", "tagline": "Yukon, one suit at a time", "capture": { "file": "27-russiansolitaire-felthouse.png", "deck": "Felt House" } },
     { "slug": "simple-simon", "tagline": "Four perfect runs, every card in sight", "capture": { "file": "28-simplesimon-neon.png", "deck": "Neon" } },
-    { "slug": "australian-patience", "tagline": "Loose groups, strict suits, one pass", "capture": { "file": "29-australianpatience-olympus.png", "deck": "Olympus" } }
+    { "slug": "australian-patience", "tagline": "Loose groups, strict suits, one pass", "capture": { "file": "29-australianpatience-olympus.png", "deck": "Olympus" } },
+    { "slug": "aces-and-kings", "tagline": "Build up and down at once" },
+    { "slug": "carpet", "tagline": "Twenty holes, one waste to fill them" },
+    { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight" },
+    { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens" }
   ]
 }

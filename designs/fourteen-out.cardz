@@ -1,0 +1,21 @@
+{
+  "name": "Fourteen Out",
+  "description": "**Goal:** remove all 52 cards in pairs that total **14**.\n\n- All cards are dealt **face up** into twelve columns; the first four columns hold five cards and the other eight hold four.\n- Only the **top card** of each column is available.\n- Drag one available card to the discard, then add its partner: Ace + King, 2 + Queen, 3 + Jack, 4 + 10, 5 + 9, 6 + 8, or 7 + 7.\n- A completed pair turns face down and the next pair may be started.",
+  "depots": [
+    { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true },
+    { "type": "Tableau", "col": 0, "row": 0, "name": "column", "repeat": 12, "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Foundation", "col": 5.5, "row": 2.6, "name": "discard",
+      "acceptRule": { "single": true, "build": { "sum": 14 } }, "ejectRule": "faceUp" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": ["column-1", "column-2", "column-3", "column-4"], "faceUp": 5 },
+    { "kind": "dealGroup",
+      "to": ["column-5", "column-6", "column-7", "column-8", "column-9", "column-10", "column-11",
+        "column-12"],
+      "faceUp": 4 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "depotsEmpty", "depots": "Tableau" },
+  "tools": "None"
+}

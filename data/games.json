@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-14T00:30:33Z",
+  "generated": "2026-09-18T03:11:07Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -3649,6 +3649,129 @@
       }
     },
     {
+      "slug": "aces-and-kings",
+      "name": "Aces and Kings",
+      "sandbox": false,
+      "rules": "**Goal:** move both decks to eight foundations. Four build **up from Ace to King** and four build **down from King to Ace**; suits do not matter.\n\n- Two reserves hold thirteen face-up cards each. Only their top cards are available.\n- Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.\n- Play reserve or feeder cards to either kind of foundation. A foundation top may also move to another compatible foundation.\n- There is no waste and no redeal.",
+      "inApp": false,
+      "download": "designs/aces-and-kings.cardz",
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "up-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "down-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-2",
+            "type": "reserve",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-1",
+            "type": "tableau",
+            "col": 2,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-2",
+            "type": "tableau",
+            "col": 3,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-3",
+            "type": "tableau",
+            "col": 4,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-4",
+            "type": "tableau",
+            "col": 5,
+            "row": 2.25,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "australian-patience",
       "name": "Australian Patience",
       "family": "Yukon",
@@ -3890,6 +4013,206 @@
       }
     },
     {
+      "slug": "carpet",
+      "name": "Carpet",
+      "sandbox": false,
+      "rules": "**Goal:** move every card to the four foundations, building **up by suit from Ace to King**.\n\n- Twenty face-up cards form the **carpet**. Any carpet card may move to a foundation.\n- A hole in the carpet may be filled only with the **top waste card**; choosing when and where to fill holes is the heart of the game.\n- Draw the stock one card at a time to the waste. There is **no recycle**.\n- The foundations begin with the four Aces.",
+      "inApp": false,
+      "download": "designs/carpet.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 8,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-a-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 2.15,
+            "fan": "none"
+          },
+          {
+            "name": "carpet-b-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 2.15,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "double-klondike",
       "name": "Double Klondike",
       "family": "Klondike",
@@ -4037,6 +4360,115 @@
             "col": 8,
             "row": 1,
             "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "fourteen-out",
+      "name": "Fourteen Out",
+      "sandbox": false,
+      "rules": "**Goal:** remove all 52 cards in pairs that total **14**.\n\n- All cards are dealt **face up** into twelve columns; the first four columns hold five cards and the other eight hold four.\n- Only the **top card** of each column is available.\n- Drag one available card to the discard, then add its partner: Ace + King, 2 + Queen, 3 + Jack, 4 + 10, 5 + 9, 6 + 8, or 7 + 7.\n- A completed pair turns face down and the next pair may be started.",
+      "inApp": false,
+      "download": "designs/fourteen-out.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-11",
+            "type": "tableau",
+            "col": 10,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-12",
+            "type": "tableau",
+            "col": 11,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "discard",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 2.6,
+            "fan": "none"
           }
         ]
       }
@@ -4435,6 +4867,143 @@
             "col": 6,
             "row": 1,
             "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "sultan",
+      "name": "Sultan",
+      "sandbox": false,
+      "rules": "**Goal:** surround the **Sultan** (the fixed King of Hearts) with eight completed foundations whose top cards are Queens.\n\n- Seven outer foundations begin with Kings and continue **Ace upward to Queen in suit**. The eighth begins with the Ace of Hearts and builds upward to Queen.\n- Six face-up **divan** cards are available for foundations. A cleared divan space refills automatically from the stock.\n- Draw the stock one card at a time to the waste. The waste may be recycled **twice** (three passes total).\n- The central King of Hearts never moves.",
+      "inApp": false,
+      "download": "designs/sultan.cardz",
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "diamond-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "heart-ace",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "diamond-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "spade-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "sultan",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "spade-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "club-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "heart-king",
+            "type": "foundation",
+            "col": 3,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "club-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "divan-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "divan-2",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "divan-3",
+            "type": "tableau",
+            "col": 0,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "divan-4",
+            "type": "tableau",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "divan-5",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "divan-6",
+            "type": "tableau",
+            "col": 6,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 2.5,
+            "row": 3.35,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 3.5,
+            "row": 3.35,
+            "fan": "none"
           }
         ]
       }

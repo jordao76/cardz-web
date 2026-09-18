@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Goal: move both decks to eight foundations. Four build up from Ace to King and four build down from King to Ace; suits do not matter.">
+  <meta name="theme-color" content="#100f14">
+  <title>Aces and Kings — how to play | Cardz</title>
+  <link rel="icon" href="../../assets/cardz-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../site-extras.css">
+</head>
+<body class="game-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../../index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
+    <nav aria-label="Main navigation">
+      <a href="../../index.html">Home</a><a href="../../games/">Games</a><a href="../../decks.html">Decks</a><a href="../../sandbox.html">Sandbox</a><a href="../../make-a-game.html">Make a game</a><a href="../../privacy.html">Privacy</a>
+    </nav>
+    <a class="button button-small" href="https://apps.microsoft.com/detail/9N96G6H34XCT">Get Cardz</a>
+  </header>
+  <main id="main" class="game-main">
+    <article class="game-shell">
+      <a class="back-link" href="../../games/#extras"><span aria-hidden="true">←</span> Extra games</a>
+      <p class="eyebrow"><span></span> Build up and down at once</p>
+      <h1>Aces and Kings</h1>
+      <div class="game-facts">
+        <span>Two decks</span>
+        <span>Extra game · download</span>
+      </div>
+      <figure class="game-board game-board-wide">
+        <svg viewBox="6 6 840 443.5" role="img" aria-labelledby="board-aces-and-kings-title board-aces-and-kings-desc" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><title id="board-aces-and-kings-title">The Aces and Kings board</title><desc id="board-aces-and-kings-desc">8 foundations, 2 reserves, 1 stock, 4 tableaus. Fanned piles are shown with a trail of cards.</desc><g stroke-width="1.5"><rect x="228" y="20" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="332" y="20" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="436" y="20" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="540" y="20" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="228" y="154" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="332" y="154" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="436" y="154" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="540" y="154" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/><rect x="20" y="20" width="84" height="114" rx="6" fill="#e6d9bd" stroke="#9c8d76"/><rect x="748" y="20" width="84" height="114" rx="6" fill="#e6d9bd" stroke="#9c8d76"/><rect x="20" y="321.5" width="84" height="114" rx="6" fill="#2b3a55" stroke="#1b2740"/><rect x="228" y="321.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="332" y="321.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="436" y="321.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="540" y="321.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/></g></svg>
+        <figcaption><span class="game-board-legend"><span><i style="background:#f6ecd6;border-color:#c39a3f"></i>Foundation</span><span><i style="background:#e6d9bd;border-color:#9c8d76"></i>Reserve</span><span><i style="background:#2b3a55;border-color:#1b2740"></i>Stock</span><span><i style="background:#f3ecdb;border-color:#9c8d76"></i>Tableau</span></span></figcaption>
+      </figure>
+      <div class="game-rules game-rules-primary">
+          <p><strong>Goal:</strong> move both decks to eight foundations. Four build <strong>up from Ace to King</strong> and four build <strong>down from King to Ace</strong>; suits do not matter.</p>
+          <ul><li>Two reserves hold thirteen face-up cards each. Only their top cards are available.</li><li>Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.</li><li>Play reserve or feeder cards to either kind of foundation. A foundation top may also move to another compatible foundation.</li><li>There is no waste and no redeal.</li></ul>
+      </div>
+
+      <details class="game-source">
+        <summary>Read its design file <small>36 lines</small></summary>
+        <p>Two decks placed onto foundations that build in opposite directions, and four single-card spaces the stock refills by itself. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Aces and Kings&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** move both decks to eight foundations. Four build **up from Ace to King** and four build **down from King to Ace**; suits do not matter.\n\n- Two reserves hold thirteen face-up cards each. Only their top cards are available.\n- Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.\n- Play reserve or feeder cards to either kind of foundation. A foundation top may also move to another compatible foundation.\n- There is no waste and no redeal.&quot;</span>,
+  <span class="j-key">&quot;decks&quot;</span>: [{ <span class="j-key">&quot;count&quot;</span>: <span class="j-num">2</span> }],
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;up&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span> } }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;down&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span> } }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Reserve&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;reserve-1&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Reserve&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">7</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;reserve-2&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.25</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;none&quot;</span>,
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span>, <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span> },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.25</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;feeder&quot;</span>,
+      <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;emptyOnly&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;allowFaceDown&quot;</span>: <span class="j-lit">true</span> },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span>, <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Up&quot;</span>, <span class="j-key">&quot;autoRefill&quot;</span>: [<span class="j-str">&quot;stock&quot;</span>] }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Spades&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;up-1&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Hearts&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;up-2&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Diamonds&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;up-3&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;Ace&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Clubs&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;up-4&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Spades&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;down-1&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Hearts&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;down-2&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Diamonds&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;down-3&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;place&quot;</span>, <span class="j-key">&quot;rank&quot;</span>: <span class="j-str">&quot;King&quot;</span>, <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Clubs&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;down-4&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;reserve-1&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">13</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;reserve-2&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">13</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;feeder-1&quot;</span>, <span class="j-str">&quot;feeder-2&quot;</span>, <span class="j-str">&quot;feeder-3&quot;</span>, <span class="j-str">&quot;feeder-4&quot;</span>], <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> }
+  ],
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
+      <div class="game-cta">
+        <a class="button" href="../../designs/aces-and-kings.cardz" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>aces-and-kings.cardz</span></a>
+        <small>Not built into Cardz. Double-click the file to add it to Your games, and <a href="https://apps.microsoft.com/detail/9N96G6H34XCT">get Cardz for Windows</a> first if you need it.</small>
+      </div>
+      <nav class="game-more" aria-label="Other games">
+        <p class="eyebrow"><span></span> More solitaire</p>
+        <div><a href="../../games/klondike/">Klondike</a><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/pyramid/">Pyramid</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a></div>
+        <p class="eyebrow"><span></span> Extra games</p>
+        <div><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt-with-jokers/">Putt Putt with Jokers</a><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a></div>
+      </nav>
+    </article>
+  </main>
+  <footer><a class="brand" href="../../index.html"><span>✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="../../sandbox.html">Sandbox</a><a href="../../privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>
+</body>
+</html>

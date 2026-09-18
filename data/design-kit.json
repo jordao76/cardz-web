@@ -1,6 +1,11 @@
 {
   "games": [
     {
+      "name": "Aces and Kings",
+      "file": "aces-and-kings.cardz",
+      "note": "Two decks placed onto foundations that build in opposite directions, and four single-card spaces the stock refills by itself."
+    },
+    {
       "name": "Australian Patience",
       "file": "australian-patience.cardz",
       "note": "Yukon-style group moves and same-suit columns, paired with a draw-one stock that cannot recycle its waste."
@@ -11,9 +16,19 @@
       "note": "FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit."
     },
     {
+      "name": "Carpet",
+      "file": "carpet.cardz",
+      "note": "Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles."
+    },
+    {
       "name": "Double Klondike",
       "file": "double-klondike.cardz",
       "note": "Klondike's stock, waste and turn-up columns stretched over two decks: eight repeated foundations and a nine-column diagonal deal."
+    },
+    {
+      "name": "Fourteen Out",
+      "file": "fourteen-out.cardz",
+      "note": "A discard that builds by sum, taking pairs that total fourteen, and a win that asks for empty columns rather than full foundations."
     },
     {
       "name": "Putt Putt with Jokers",
@@ -34,6 +49,11 @@
       "name": "Spiderette",
       "file": "spiderette.cardz",
       "note": "Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck."
+    },
+    {
+      "name": "Sultan",
+      "file": "sultan.cardz",
+      "note": "Named foundations laid out as a portrait, a centre card that accepts nothing, Kings that wrap round to Ace, and a stock that recycles twice."
     }
   ],
   "builtIns": [

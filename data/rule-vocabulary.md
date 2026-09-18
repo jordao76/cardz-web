@@ -166,7 +166,7 @@ their own — `"none"` rejects every drop, `"emptyOnly"` takes one only into a v
 | `minCount` (`int?`) | reject piles smaller than N (lower bound; e.g. Spider foundation `minCount: 13`) |
 | `seed` (`Rank?`) | first (base) card must be this rank (Ace / King foundations) |
 | `seedNone` | reject all drops while empty (build-while-occupied, stay-empty-once-cleared) |
-| `seedFromDeal` | seed rank set by the deal, not the author (Canfield); resolved at deal time |
+| `seedFromDeal` | seed rank set by the deal, not the author (Canfield); resolved at deal time from the face-up card the deal lands on one of these depots. A deal that leaves that card face-down settles nothing, and the depots stay closed |
 | `rankIs` (`Rank?`) | **absolute** rank gate — accept only this rank, whatever the depot holds and whether or not it's empty. Every card of an incoming pile must match. Clock Solitaire's hour piles (1 o'clock takes only Aces …) |
 | `build` (`BuildRule?`) | rank relationship to the depot's top card |
 | `suit` (`SuitConstraint`) | suit relationship to the top card |
@@ -175,7 +175,7 @@ their own — `"none"` rejects every drop, `"emptyOnly"` takes one only into a v
 | `wildJoker` (`bool`) | a joker is wild rather than inert: it lands on any top card (rummy/canasta shedding). Same escape hatch as `wildRank`, keyed on the joker |
 | `wildDeclares` (`"none"` / `"suit"` / `"free"`) | what a **wild** card left on top of this depot does to whatever follows it — the complement to `wildRank`, which frees the wild card as the *incoming* card. `"suit"` lets the player who landed it *name* the suit the next card must follow; the call replaces the top card's own suit in the `follow` check, so what stands is "the called suit, or another wild card". `"free"` lets **anything** land on the wild card, no suit named. Default `"none"`: the next card follows the wild card as printed. `true` is accepted as a spelling of `"suit"` |
 | `acceptFrom` (`DepotPattern?`) | only accept drops from matching source depot(s) |
-| `allowFaceDown` | permit face-down drops (ruled depots reject them by default). If any incoming card is face-down, only `rejectsAll`, `acceptFrom`, `single` and `minCount` are checked; all subsequent checks, including `emptyOnly`, seed, rank, suit and build, are bypassed |
+| `allowFaceDown` | permit face-down drops (ruled depots reject them by default). A face-down card is judged on everything but its identity: the checks that ask what the card *is* — `seed`, `rankIs`, `build`, `suit`, `follow` — stand down, while the ones that ask about the pile, its source and the depot — `rejectsAll`, `acceptFrom`, `single`, `minCount`, `emptyOnly`, `seedNone`, an unsettled `seedFromDeal` — hold as always |
 
 The suit a player *calls* on a `wildDeclares: "suit"` depot is not authorable — a
 game declares that the depot asks, never what was answered. The call is made with
