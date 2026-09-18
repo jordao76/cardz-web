@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-18T19:23:23Z",
+  "generated": "2026-09-18T19:58:43Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -4498,85 +4498,96 @@
           {
             "name": "twelve",
             "type": "foundation",
-            "col": 7.5,
-            "row": 0,
+            "x": 691.5,
+            "y": 10,
+            "angleDegrees": 180,
             "fan": "none"
           },
           {
             "name": "one",
             "type": "foundation",
-            "col": 9,
-            "row": 0.375,
+            "x": 816.5,
+            "y": 43.49,
+            "angleDegrees": 210,
             "fan": "none"
           },
           {
             "name": "two",
             "type": "foundation",
-            "col": 10.1,
-            "row": 1.4,
+            "x": 908.01,
+            "y": 135,
+            "angleDegrees": 240,
             "fan": "none"
           },
           {
             "name": "three",
             "type": "foundation",
-            "col": 10.5,
-            "row": 2.8,
+            "x": 941.5,
+            "y": 260,
+            "angleDegrees": 270,
             "fan": "none"
           },
           {
             "name": "four",
             "type": "foundation",
-            "col": 10.1,
-            "row": 4.2,
+            "x": 908.01,
+            "y": 385,
+            "angleDegrees": 300,
             "fan": "none"
           },
           {
             "name": "five",
             "type": "foundation",
-            "col": 9,
-            "row": 5.225,
+            "x": 816.5,
+            "y": 476.51,
+            "angleDegrees": 330,
             "fan": "none"
           },
           {
             "name": "six",
             "type": "foundation",
-            "col": 7.5,
-            "row": 5.6,
+            "x": 691.5,
+            "y": 510,
             "fan": "none"
           },
           {
             "name": "seven",
             "type": "foundation",
-            "col": 6,
-            "row": 5.225,
+            "x": 566.5,
+            "y": 476.51,
+            "angleDegrees": 30,
             "fan": "none"
           },
           {
             "name": "eight",
             "type": "foundation",
-            "col": 4.9,
-            "row": 4.2,
+            "x": 474.99,
+            "y": 385,
+            "angleDegrees": 60,
             "fan": "none"
           },
           {
             "name": "nine",
             "type": "foundation",
-            "col": 4.5,
-            "row": 2.8,
+            "x": 441.5,
+            "y": 260,
+            "angleDegrees": 90,
             "fan": "none"
           },
           {
             "name": "ten",
             "type": "foundation",
-            "col": 4.9,
-            "row": 1.4,
+            "x": 474.99,
+            "y": 135,
+            "angleDegrees": 120,
             "fan": "none"
           },
           {
             "name": "eleven",
             "type": "foundation",
-            "col": 6,
-            "row": 0.375,
+            "x": 566.5,
+            "y": 43.49,
+            "angleDegrees": 150,
             "fan": "none"
           },
           {
@@ -4610,28 +4621,28 @@
           {
             "name": "right-1",
             "type": "tableau",
-            "col": 12,
+            "col": 11.5,
             "row": 0,
             "fan": "down"
           },
           {
             "name": "right-2",
             "type": "tableau",
-            "col": 13,
+            "col": 12.5,
             "row": 0,
             "fan": "down"
           },
           {
             "name": "right-3",
             "type": "tableau",
-            "col": 14,
+            "col": 13.5,
             "row": 0,
             "fan": "down"
           },
           {
             "name": "right-4",
             "type": "tableau",
-            "col": 15,
+            "col": 14.5,
             "row": 0,
             "fan": "down"
           }
