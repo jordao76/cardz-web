@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-18T20:03:38Z",
+  "generated": "2026-09-18T21:22:19Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -4498,152 +4498,152 @@
           {
             "name": "twelve",
             "type": "foundation",
-            "x": 731,
-            "y": 20,
+            "col": 6.837,
+            "row": 0,
             "angleDegrees": 180,
             "fan": "none"
           },
           {
             "name": "one",
             "type": "foundation",
-            "x": 856,
-            "y": 53.49,
+            "col": 8.038,
+            "row": 0.25,
             "angleDegrees": 210,
             "fan": "none"
           },
           {
             "name": "two",
             "type": "foundation",
-            "x": 947.51,
-            "y": 145,
+            "col": 8.918,
+            "row": 0.933,
             "angleDegrees": 240,
             "fan": "none"
           },
           {
             "name": "three",
             "type": "foundation",
-            "x": 981,
-            "y": 270,
+            "col": 9.24,
+            "row": 1.866,
             "angleDegrees": 270,
             "fan": "none"
           },
           {
             "name": "four",
             "type": "foundation",
-            "x": 947.51,
-            "y": 395,
+            "col": 8.918,
+            "row": 2.799,
             "angleDegrees": 300,
             "fan": "none"
           },
           {
             "name": "five",
             "type": "foundation",
-            "x": 856,
-            "y": 486.51,
+            "col": 8.038,
+            "row": 3.481,
             "angleDegrees": 330,
             "fan": "none"
           },
           {
             "name": "six",
             "type": "foundation",
-            "x": 731,
-            "y": 520,
+            "col": 6.837,
+            "row": 3.731,
             "fan": "none"
           },
           {
             "name": "seven",
             "type": "foundation",
-            "x": 606,
-            "y": 486.51,
+            "col": 5.635,
+            "row": 3.481,
             "angleDegrees": 30,
             "fan": "none"
           },
           {
             "name": "eight",
             "type": "foundation",
-            "x": 514.49,
-            "y": 395,
+            "col": 4.755,
+            "row": 2.799,
             "angleDegrees": 60,
             "fan": "none"
           },
           {
             "name": "nine",
             "type": "foundation",
-            "x": 483,
-            "y": 270,
+            "col": 4.452,
+            "row": 1.866,
             "angleDegrees": 90,
             "fan": "none"
           },
           {
             "name": "ten",
             "type": "foundation",
-            "x": 514.49,
-            "y": 145,
+            "col": 4.755,
+            "row": 0.933,
             "angleDegrees": 120,
             "fan": "none"
           },
           {
             "name": "eleven",
             "type": "foundation",
-            "x": 606,
-            "y": 53.49,
+            "col": 5.635,
+            "row": 0.25,
             "angleDegrees": 150,
             "fan": "none"
           },
           {
             "name": "left-1",
             "type": "tableau",
-            "x": 20,
-            "y": 20,
+            "col": 0,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "left-2",
             "type": "tableau",
-            "x": 124,
-            "y": 20,
+            "col": 1,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "left-3",
             "type": "tableau",
-            "x": 228,
-            "y": 20,
+            "col": 2,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "left-4",
             "type": "tableau",
-            "x": 332,
-            "y": 20,
+            "col": 3,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "right-1",
             "type": "tableau",
-            "x": 1130,
-            "y": 20,
+            "col": 10.673,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "right-2",
             "type": "tableau",
-            "x": 1234,
-            "y": 20,
+            "col": 11.673,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "right-3",
             "type": "tableau",
-            "x": 1338,
-            "y": 20,
+            "col": 12.673,
+            "row": 0,
             "fan": "down"
           },
           {
             "name": "right-4",
             "type": "tableau",
-            "x": 1442,
-            "y": 20,
+            "col": 13.673,
+            "row": 0,
             "fan": "down"
           }
         ]
