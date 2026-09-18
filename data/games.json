@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-18T03:41:39Z",
+  "generated": "2026-09-18T17:58:21Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -3652,7 +3652,7 @@
       "slug": "aces-and-kings",
       "name": "Aces and Kings",
       "sandbox": false,
-      "rules": "**Goal:** move both decks to eight foundations. Four build **up from Ace to King** and four build **down from King to Ace**; suits do not matter.\n\n- The foundations start empty: any Ace starts an up foundation and any King a down one.\n- Two reserves hold thirteen face-up cards each. Only their top cards are available.\n- Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.\n- Turn the stock one card at a time to the waste. The top waste card is available. There is **no redeal**.\n- Play reserve, feeder or waste cards to either kind of foundation. A foundation top may also move to another compatible foundation.",
+      "rules": "**Goal:** move both decks to eight foundations. Four build **up from Ace to King** and four build **down from King to Ace**; suits do not matter.\n\n- The foundations start empty: any Ace starts an up foundation and any King a down one.\n- Two reserves hold thirteen face-up cards each, fanned so every card shows. Only their top cards are available.\n- Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.\n- Turn the stock one card at a time to the waste. The top waste card is available. There is **no redeal**.\n- Play reserve, feeder or waste cards to either kind of foundation. A foundation top may also move to another compatible foundation.",
       "inApp": false,
       "download": "designs/aces-and-kings.cardz",
       "decks": {
@@ -3724,27 +3724,27 @@
             "type": "reserve",
             "col": 0,
             "row": 0,
-            "fan": "none"
+            "fan": "down"
           },
           {
             "name": "reserve-2",
             "type": "reserve",
             "col": 7,
             "row": 0,
-            "fan": "none"
+            "fan": "down"
           },
           {
             "name": "stock",
             "type": "stock",
-            "col": 0,
-            "row": 2.25,
+            "col": 3,
+            "row": 3.5,
             "fan": "none"
           },
           {
             "name": "waste",
             "type": "waste",
-            "col": 1,
-            "row": 2.25,
+            "col": 4,
+            "row": 3.5,
             "fan": "none"
           },
           {
