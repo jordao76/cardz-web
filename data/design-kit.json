@@ -31,6 +31,11 @@
       "note": "A discard that builds by sum, taking pairs that total fourteen, and a win that asks for empty columns rather than full foundations."
     },
     {
+      "name": "Grandfather's Clock",
+      "file": "grandfathers-clock.cardz",
+      "note": "Twelve foundations set out in a ring on fractional grid positions, each seeded with a named card and none capped: the next hour's seed is what stops each one."
+    },
+    {
       "name": "Putt Putt with Jokers",
       "file": "putt-putt-with-jokers.cardz",
       "note": "Golf's one foundation with ranks that wrap from King to Ace, and wild Jokers."

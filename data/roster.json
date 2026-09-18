@@ -31,6 +31,7 @@
     { "slug": "aces-and-kings", "tagline": "Build up and down at once" },
     { "slug": "carpet", "tagline": "Twenty holes, one waste to fill them" },
     { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight" },
-    { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens" }
+    { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens" },
+    { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number" }
   ]
 }

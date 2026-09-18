@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-18T17:58:21Z",
+  "generated": "2026-09-18T19:23:23Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -4476,6 +4476,164 @@
             "col": 5.5,
             "row": 2.6,
             "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "grandfathers-clock",
+      "name": "Grandfather's Clock",
+      "sandbox": false,
+      "rules": "**Goal:** complete the clock. Each of its twelve foundations builds **up in suit** until its top card shows the hour it stands at: Jack for eleven, Queen for twelve, Ace for one.\n\n- The twelve starting cards are set out before the deal: 9♣ at twelve o'clock, then clockwise 10♥ J♠ Q♦ K♣ 2♥ 3♠ 4♦ 5♣ 6♥ 7♠ 8♦. Ranks wrap from King to Ace.\n- The other forty cards are dealt **face up** into eight columns of five, four each side of the clock.\n- Columns build **down regardless of suit**. Move one card at a time.\n- Any card may fill an empty column.",
+      "inApp": false,
+      "download": "designs/grandfathers-clock.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "twelve",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "one",
+            "type": "foundation",
+            "col": 9,
+            "row": 0.375,
+            "fan": "none"
+          },
+          {
+            "name": "two",
+            "type": "foundation",
+            "col": 10.1,
+            "row": 1.4,
+            "fan": "none"
+          },
+          {
+            "name": "three",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 2.8,
+            "fan": "none"
+          },
+          {
+            "name": "four",
+            "type": "foundation",
+            "col": 10.1,
+            "row": 4.2,
+            "fan": "none"
+          },
+          {
+            "name": "five",
+            "type": "foundation",
+            "col": 9,
+            "row": 5.225,
+            "fan": "none"
+          },
+          {
+            "name": "six",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 5.6,
+            "fan": "none"
+          },
+          {
+            "name": "seven",
+            "type": "foundation",
+            "col": 6,
+            "row": 5.225,
+            "fan": "none"
+          },
+          {
+            "name": "eight",
+            "type": "foundation",
+            "col": 4.9,
+            "row": 4.2,
+            "fan": "none"
+          },
+          {
+            "name": "nine",
+            "type": "foundation",
+            "col": 4.5,
+            "row": 2.8,
+            "fan": "none"
+          },
+          {
+            "name": "ten",
+            "type": "foundation",
+            "col": 4.9,
+            "row": 1.4,
+            "fan": "none"
+          },
+          {
+            "name": "eleven",
+            "type": "foundation",
+            "col": 6,
+            "row": 0.375,
+            "fan": "none"
+          },
+          {
+            "name": "left-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "left-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "left-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "left-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "right-1",
+            "type": "tableau",
+            "col": 12,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "right-2",
+            "type": "tableau",
+            "col": 13,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "right-3",
+            "type": "tableau",
+            "col": 14,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "right-4",
+            "type": "tableau",
+            "col": 15,
+            "row": 0,
+            "fan": "down"
           }
         ]
       }
