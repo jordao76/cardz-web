@@ -41,7 +41,7 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>21 lines</small></summary>
+        <summary>Read its design file <small>22 lines</small></summary>
         <p>A discard that builds by sum, taking pairs that total fourteen, and a win that asks for empty columns rather than full foundations. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Fourteen Out&quot;</span>,
@@ -54,11 +54,12 @@
       <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;sum&quot;</span>: <span class="j-num">14</span> } }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span> }
   ],
   <span class="j-key">&quot;dealRules&quot;</span>: [
-    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;column-1&quot;</span>, <span class="j-str">&quot;column-2&quot;</span>, <span class="j-str">&quot;column-3&quot;</span>, <span class="j-str">&quot;column-4&quot;</span>], <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">5</span> },
     { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>,
-      <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;column-5&quot;</span>, <span class="j-str">&quot;column-6&quot;</span>, <span class="j-str">&quot;column-7&quot;</span>, <span class="j-str">&quot;column-8&quot;</span>, <span class="j-str">&quot;column-9&quot;</span>, <span class="j-str">&quot;column-10&quot;</span>, <span class="j-str">&quot;column-11&quot;</span>,
-        <span class="j-str">&quot;column-12&quot;</span>],
-      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">4</span> }
+      <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;column-1&quot;</span>, <span class="j-str">&quot;column-2&quot;</span>, <span class="j-str">&quot;column-3&quot;</span>, <span class="j-str">&quot;column-4&quot;</span>, <span class="j-str">&quot;column-5&quot;</span>, <span class="j-str">&quot;column-6&quot;</span>, <span class="j-str">&quot;column-7&quot;</span>,
+        <span class="j-str">&quot;column-8&quot;</span>, <span class="j-str">&quot;column-9&quot;</span>, <span class="j-str">&quot;column-10&quot;</span>, <span class="j-str">&quot;column-11&quot;</span>, <span class="j-str">&quot;column-12&quot;</span>],
+      <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: [<span class="j-str">&quot;column-1&quot;</span>, <span class="j-str">&quot;column-2&quot;</span>, <span class="j-str">&quot;column-3&quot;</span>, <span class="j-str">&quot;column-4&quot;</span>], <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span>,
+      <span class="j-key">&quot;roundRobin&quot;</span>: <span class="j-lit">true</span> }
   ],
   <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
   <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;depotsEmpty&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span> },

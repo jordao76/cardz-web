@@ -9,11 +9,12 @@
       "acceptRule": { "single": true, "build": { "sum": 14 } }, "ejectRule": "faceUp" }
   ],
   "dealRules": [
-    { "kind": "dealGroup", "to": ["column-1", "column-2", "column-3", "column-4"], "faceUp": 5 },
     { "kind": "dealGroup",
-      "to": ["column-5", "column-6", "column-7", "column-8", "column-9", "column-10", "column-11",
-        "column-12"],
-      "faceUp": 4 }
+      "to": ["column-1", "column-2", "column-3", "column-4", "column-5", "column-6", "column-7",
+        "column-8", "column-9", "column-10", "column-11", "column-12"],
+      "faceUp": 4, "roundRobin": true },
+    { "kind": "dealGroup", "to": ["column-1", "column-2", "column-3", "column-4"], "faceUp": 1,
+      "roundRobin": true }
   ],
   "depotOnly": true,
   "winCondition": { "kind": "depotsEmpty", "depots": "Tableau" },
