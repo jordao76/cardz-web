@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-09-19T02:31:38Z",
+  "generated": "2026-09-20T16:50:39Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -5180,6 +5180,95 @@
             "col": 3.5,
             "row": 3.35,
             "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "weathervane",
+      "name": "Weathervane",
+      "family": "Eights",
+      "sandbox": false,
+      "rules": "**Goal:** clear all seven tableau columns onto the vane.\n\n- Play the **top card** of a column, or the top of the **waste**, onto the vane when it matches the vane's top card in **rank or suit**.\n- **Eights are wild.** An eight plays on any card, and when you play one you **name the suit** that must follow it — until it is covered, the vane takes that suit, or another eight.\n- Name a suit you cannot serve and the vane is shut until that suit turns up. An eight is a lifeline; it can be spent badly.\n- Taking a column's face-up card **turns up** the one beneath it.\n- Tap the **stock** to turn one card onto the waste (one pass only — no recycling). Only the top waste card is playable, and the vane's top card changes **only when you play on it**.\n- Nothing to play and an empty stock? The game is **lost**.",
+      "inApp": false,
+      "download": "designs/weathervane.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "vane",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
           }
         ]
       }

@@ -59,6 +59,11 @@
       "name": "Sultan",
       "file": "sultan.cardz",
       "note": "Named foundations laid out as a portrait, a centre card that accepts nothing, Kings that wrap round to Ace, and a stock that recycles twice."
+    },
+    {
+      "name": "Weathervane",
+      "file": "weathervane.cardz",
+      "note": "One pile that takes any card matching its top in rank or suit, wild eights that name the suit which must follow them, and a stock that draws to a waste instead of onto the pile."
     }
   ],
   "builtIns": [

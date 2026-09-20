@@ -32,6 +32,7 @@
     { "slug": "carpet", "tagline": "Twenty holes, one waste to fill them", "capture": { "file": "32-carpet-monosolid.png", "deck": "Monosolid" } },
     { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight", "capture": { "file": "33-fourteenout-deepfield.png", "deck": "Deepfield" } },
     { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens", "capture": { "file": "34-sultan-ornamental.png", "deck": "Ornamental" } },
-    { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number", "capture": { "file": "35-grandfathersclock-herbarium.png", "deck": "Herbarium" } }
+    { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number", "capture": { "file": "35-grandfathersclock-herbarium.png", "deck": "Herbarium" } },
+    { "slug": "weathervane", "tagline": "Play an eight, name the wind" }
   ]
 }
