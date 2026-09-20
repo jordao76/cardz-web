@@ -28,10 +28,10 @@
     { "slug": "russian-solitaire", "tagline": "Yukon, one suit at a time", "capture": { "file": "27-russiansolitaire-felthouse.png", "deck": "Felt House" } },
     { "slug": "simple-simon", "tagline": "Four perfect runs, every card in sight", "capture": { "file": "28-simplesimon-neon.png", "deck": "Neon" } },
     { "slug": "australian-patience", "tagline": "Loose groups, strict suits, one pass", "capture": { "file": "29-australianpatience-olympus.png", "deck": "Olympus" } },
-    { "slug": "aces-and-kings", "tagline": "Build up and down at once" },
-    { "slug": "carpet", "tagline": "Twenty holes, one waste to fill them" },
-    { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight" },
-    { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens" },
-    { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number" }
+    { "slug": "aces-and-kings", "tagline": "Build up and down at once", "capture": { "file": "31-acesandkings-filigree.png", "deck": "Filigree" } },
+    { "slug": "carpet", "tagline": "Twenty holes, one waste to fill them", "capture": { "file": "32-carpet-monosolid.png", "deck": "Monosolid" } },
+    { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight", "capture": { "file": "33-fourteenout-deepfield.png", "deck": "Deepfield" } },
+    { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens", "capture": { "file": "34-sultan-ornamental.png", "deck": "Ornamental" } },
+    { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number", "capture": { "file": "35-grandfathersclock-herbarium.png", "deck": "Herbarium" } }
   ]
 }
