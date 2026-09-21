@@ -1,7 +1,7 @@
 {
   "name": "Weathervane",
   "family": "Eights",
-  "description": "**Goal:** clear all seven tableau columns onto the vane.\n\n- Play the **top card** of a column, or the top of the **waste**, onto the vane when it matches the vane's top card in **rank or suit**.\n- **Eights are wild.** An eight plays on any card, and when you play one you **name the suit** that must follow it — until it is covered, the vane takes that suit, or another eight.\n- Name a suit you cannot serve and the vane is shut until that suit turns up. An eight is a lifeline; it can be spent badly.\n- Taking a column's face-up card **turns up** the one beneath it.\n- Tap the **stock** to turn one card onto the waste (one pass only — no recycling). Only the top waste card is playable, and the vane's top card changes **only when you play on it**.\n- Nothing to play and an empty stock? The game is **lost**.",
+  "description": "**Goal:** clear all seven tableau columns onto the vane.\n\n- Play the **top card** of a column, or the top of the **waste**, onto the vane when it matches the vane's top card in **rank or suit**.\n- **Eights are wild.** An eight plays on any card, and when you play one you **name the suit** that must follow it — until it is covered, the vane takes that suit, or another eight.\n- Name a suit you cannot serve and the vane is shut until that suit turns up.\n- **The eights are your steering.** With only nine cards in the stock there is little left to draw, so spend an eight on a pile an ordinary card would have covered and you may not get another chance to turn the vane.\n- Each column hides **five face-down cards** under its face-up one; taking the face-up card **turns up** the next.\n- Tap the **stock** to turn one of its nine cards onto the waste (one pass only — no recycling). Only the top waste card is playable, and the vane's top card changes **only when you play on it**.\n- Nothing to play and an empty stock? The game is **lost**.",
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
       "ejectRule": "locked", "draw": { "to": "waste" } },
@@ -15,7 +15,7 @@
   ],
   "dealRules": [
     { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
-      "faceDown": 3, "roundRobin": true },
+      "faceDown": 5, "roundRobin": true },
     { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
       "faceUp": 1, "roundRobin": true },
     { "kind": "dealGroup", "to": "vane", "faceUp": 1 }
