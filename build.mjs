@@ -464,6 +464,17 @@ function moreGroup(title, pages, up) {
 `;
 }
 
+/**
+ * A Cardz original is a game invented for Cardz rather than one handed down at the
+ * card table, so its page says so before anything else about the board. roster.json
+ * marks it, since the claim is the site's voice and not a preset's.
+ */
+function originMark(page) {
+  if (!page.original) return "";
+  return `      <p class="game-origin"><b>Cardz original</b> A new solitaire, invented for Cardz rather than handed down at the card table.</p>
+`;
+}
+
 function gamePage(page, all) {
   const { up, head, header, footer } = chrome(2);
   const primary = page.variants[0];
@@ -510,7 +521,7 @@ ${header()}
       <div class="game-facts">
         <span>${deckLine(primary)}</span>${extra ? `\n        <span>Extra game · download</span>` : ""}${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
-${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
+${originMark(page)}${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
       <div class="game-rules${ledeClass(primary.rules ?? "")}">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
@@ -614,7 +625,7 @@ function gamesPage(all) {
     return `        <article class="game-card">
           <a class="game-card-art${shot ? " game-card-shot" : ""}" href="${page.slug}/" tabindex="-1" aria-hidden="true">${shot || (diagram ? diagram.svg : "")}</a>
           <p class="eyebrow"><span></span> ${escape(page.tagline)}</p>
-          <h3><a href="${page.slug}/">${escape(page.name)}</a>${page.new ? " <b>New</b>" : ""}</h3>
+          <h3><a href="${page.slug}/">${escape(page.name)}</a>${page.new ? " <b>New</b>" : ""}${page.original ? ` <b class="original-badge">Cardz original</b>` : ""}</h3>
           <p class="game-card-facts">${facts}</p>${
             extra
               ? `

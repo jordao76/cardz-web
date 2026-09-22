@@ -44,7 +44,8 @@ like — it is deliberately not tied to a Store release:
 ```
 
 `data/roster.json` is the editorial half: display order, the website-voice
-taglines, and which games wear a *New* badge. The build **fails** if
+taglines, which games wear a *New* badge, and which are *Cardz originals* —
+invented for Cardz rather than handed down, marked on their card and their page. The build **fails** if
 `games.json` contains a game `roster.json` never mentions, so a new release
 cannot quietly go missing from the site.
 
