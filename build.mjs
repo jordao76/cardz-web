@@ -25,6 +25,11 @@ const roster = JSON.parse(readFileSync(join(root, "data/roster.json"), "utf8"));
 const decks = JSON.parse(readFileSync(join(root, "data/decks.json"), "utf8"));
 const deckArt = JSON.parse(readFileSync(join(root, "assets/decks/manifest.json"), "utf8"));
 const designKit = JSON.parse(readFileSync(join(root, "data/design-kit.json"), "utf8"));
+// The extra decks the gallery offers as .cardzdeck downloads, written by cardz-win's
+// scripts/export-deck-packs.ps1. Absent until that has run once: no deck downloads.
+const deckDownloads = existsSync(join(root, "data/deck-downloads.json"))
+  ? JSON.parse(readFileSync(join(root, "data/deck-downloads.json"), "utf8"))
+  : { decks: [] };
 const reference = readFileSync(join(root, "data/rule-vocabulary.md"), "utf8");
 
 // Variants of one game share a page: two near-identical pages would compete
@@ -546,8 +551,35 @@ ${footer}
 
 // ---------------------------------------------------------------- decks
 
+/**
+ * An extra deck is not in the app, so its card carries the file and how to add it.
+ * The file must exist, and every download must belong to a deck the gallery shows:
+ * the downloads and the gallery copy come from two places, and either one alone
+ * would offer a file nobody can see or show a deck nobody can get.
+ */
+function deckDownload(deck) {
+  const download = deckDownloads.decks.find((entry) => entry.slug === deck.slug);
+  if (!download) return "";
+  if (!existsSync(join(root, download.file)))
+    throw new Error(
+      `data/deck-downloads.json offers ${download.file} for ${deck.name}, which is not on disk. ` +
+        `Run cardz-win's scripts/export-deck-packs.ps1.`
+    );
+  return `
+          <div class="deck-download">
+            <a class="button button-small" href="${download.file}" download>Download</a>
+            <small>Not built into Cardz. Double-click the file, or open Your decks at the end of the Theme picker and Import it.</small>
+          </div>`;
+}
+
 function deckPage() {
   const { head, header, footer } = chrome(0);
+  const orphans = deckDownloads.decks.filter((entry) => !decks.decks.some((deck) => deck.slug === entry.slug));
+  if (orphans.length)
+    throw new Error(
+      `data/deck-downloads.json offers ${orphans.map((entry) => `'${entry.slug}'`).join(", ")}, ` +
+        `which data/decks.json does not list. Add its copy there.`
+    );
   const cards = decks.decks
     .map((deck) => {
       const art = deckArt[deck.slug];
@@ -561,7 +593,7 @@ function deckPage() {
           <img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy"
                alt="Three cards from the ${escape(deck.name)} deck: the back, the King of Spades, and the Ace of Hearts">
           <h2>${escape(deck.name)}</h2>
-          <p>${escape(deck.blurb)}</p>${credit}
+          <p>${escape(deck.blurb)}</p>${credit}${deckDownload(deck)}
         </article>`;
     })
     .join("\n");

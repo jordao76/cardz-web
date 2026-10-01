@@ -204,6 +204,9 @@ img.demo-card.c2 { border: 0; }
 .deck-card h2 { margin: 0 0 .7rem; font: 600 1.7rem "Playfair Display", serif; }
 .deck-card p { margin: 0; color: #a9a094; font-size: .85rem; line-height: 1.8; }
 .deck-credit { margin-top: .9rem !important; padding-top: .9rem; border-top: 1px solid rgba(216, 168, 78, .16); color: #837a6f !important; font-size: .72rem !important; }
+/* An extra deck's download: not in the app, so the card carries the file. */
+.deck-download { display: flex; align-items: center; gap: 1rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid rgba(216, 168, 78, .16); }
+.deck-download small { color: #837a6f; font-size: .72rem; line-height: 1.6; }
 .decks-note { padding: 70px 0 0; }
 .decks-note p { max-width: 640px; margin: 0; color: #a9a094; line-height: 1.85; border-left: 2px solid var(--gold); padding-left: 1.4rem; }
 .decks-cta { padding: 90px 0 110px; }
