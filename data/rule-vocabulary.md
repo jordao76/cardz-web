@@ -166,27 +166,50 @@ their own — `"none"` rejects every drop, `"emptyOnly"` takes one only into a v
 | `minCount` (`int?`) | reject piles smaller than N (lower bound; e.g. Spider foundation `minCount: 13`) |
 | `seed` (`Rank?`) | first (base) card must be this rank (Ace / King foundations) |
 | `seedNone` | reject all drops while empty (build-while-occupied, stay-empty-once-cleared) |
-| `seedFromDeal` | seed rank set by the deal, not the author (Canfield); resolved at deal time |
+| `seedFromDeal` | seed rank set by the deal, not the author (Canfield); resolved at deal time from the face-up card the deal lands on one of these depots. A deal that leaves that card face-down settles nothing, and the depots stay closed |
 | `rankIs` (`Rank?`) | **absolute** rank gate — accept only this rank, whatever the depot holds and whether or not it's empty. Every card of an incoming pile must match. Clock Solitaire's hour piles (1 o'clock takes only Aces …) |
 | `build` (`BuildRule?`) | rank relationship to the depot's top card |
 | `suit` (`SuitConstraint`) | suit relationship to the top card |
 | `follow` (`bool`) | incoming card must match the top card's rank **or** suit — the shedding-family follow rule; the one disjunction `build`+`suit` (which compose as AND) can't spell. No effect while empty |
-| `wildRank` (`Rank?`) | a card of this rank is wild: it lands on any top card, ignoring `follow`/`build`/`suit` and `rankIs`. Pile-shape, source, face and empty-pile seed gates still apply |
+| `wildRank` (`Rank?`) | a card of this rank is wild: it lands on any top card, ignoring `follow`/`build`/`suit` and `rankIs`. Pile-shape, source, face and empty-pile seed gates still apply, except that a `"transparent"` depot reads a wild card on its empty pile as the seed (below) |
 | `wildJoker` (`bool`) | a joker is wild rather than inert: it lands on any top card (rummy/canasta shedding). Same escape hatch as `wildRank`, keyed on the joker |
-| `wildDeclares` (`"none"` / `"suit"` / `"free"`) | what a **wild** card left on top of this depot does to whatever follows it — the complement to `wildRank`, which frees the wild card as the *incoming* card. `"suit"` lets the player who landed it *name* the suit the next card must follow; the call replaces the top card's own suit in the `follow` check, so what stands is "the called suit, or another wild card". `"free"` lets **anything** land on the wild card, no suit named. Default `"none"`: the next card follows the wild card as printed. `true` is accepted as a spelling of `"suit"` |
+| `wildDeclares` (`"none"` / `"suit"` / `"free"` / `"transparent"`) | what a **wild** card left on top of this depot does to whatever follows it — the complement to `wildRank`, which frees the wild card as the *incoming* card. `"suit"` lets the player who landed it *name* the suit the next card must follow; the call replaces the top card's own suit in the `follow` check, so what stands is "the called suit, or another wild card". `"free"` lets **anything** land on the wild card, no suit named. `"transparent"` keeps the pile asking exactly what it asked before, reading the wild card as the card that would have satisfied it (below). Default `"none"`: the next card follows the wild card as printed. `true` is accepted as a spelling of `"suit"` |
 | `acceptFrom` (`DepotPattern?`) | only accept drops from matching source depot(s) |
-| `allowFaceDown` | permit face-down drops (ruled depots reject them by default). If any incoming card is face-down, only `rejectsAll`, `acceptFrom`, `single` and `minCount` are checked; all subsequent checks, including `emptyOnly`, seed, rank, suit and build, are bypassed |
+| `allowFaceDown` | permit face-down drops (ruled depots reject them by default). A face-down card is judged on everything but its identity: the checks that ask what the card *is* — `seed`, `rankIs`, `build`, `suit`, `follow` — stand down, while the ones that ask about the pile, its source and the depot — `rejectsAll`, `acceptFrom`, `single`, `minCount`, `emptyOnly`, `seedNone`, an unsettled `seedFromDeal` — hold as always |
 
 The suit a player *calls* on a `wildDeclares: "suit"` depot is not authorable — a
 game declares that the depot asks, never what was answered. The call is made with
 the move that plays the wild card, stands only while that card is the depot's top
 card, and is shown on the depot. `"free"` takes no call.
 
-Pick `"free"` for a depot whose wild card is a **joker**. A joker carries neither
-rank nor suit, so nothing can relate to it: under the other two modes a joker
-landing on a `follow` depot walls the pile off until another joker is played.
-`"free"` also reaches the internal pairs of an arriving run, so a wild card partway
-up a multi-card drop frees the card above it too.
+A depot whose wild card is a **joker** wants `"free"` or `"transparent"`. A joker
+carries neither rank nor suit, so nothing can relate to it, and under `"none"` a
+joker landing on a `follow` depot walls the pile off until another joker is
+played. The two answer that differently, and the game decides which it means:
+
+- `"free"` **opens** the pile — anything lands on the wild card. *Putt Putt with
+  Jokers* says so in its own rules: a Joker plays on any card, and any card plays
+  on a Joker.
+- `"transparent"` **preserves the demand** — the wild card is not what the next
+  card relates to. The incoming card is judged against the topmost *natural* card
+  instead, with the wild cards above it read as the cards they stand in for:
+  `build` advances the natural's rank one step per wild card, in the direction it
+  names and wrapping when it wraps, and `suit` carries the natural's suit along,
+  `"AlternateColor"` flipping colour once per wild card. A joker on the 9♥ of a
+  Klondike column therefore stands for a black 8, and a red 7 follows it. A depot
+  with no `build` has no step to advance by, so the demand simply stands: on a
+  `follow` pile the card after a joker still matches the natural card underneath.
+  An empty pile's demand is its `seed`, so a wild card on an empty pile stands for
+  the seed rank, and the wild cards above it advance from there. A seed names no
+  suit, so the first natural card on top settles it: a joker on an empty Klondike
+  foundation is an Ace, any 2 follows it, and from that 2 on the pile builds in
+  the 2's suit. A pile of nothing but wild cards on a depot with no `seed`, or one
+  whose next card down is face-down, has no demand left to preserve, and takes
+  only another wild card.
+
+Both reach the internal pairs of an arriving run, so a wild card partway up a
+multi-card drop governs the card above it exactly as it governs the card that
+lands on the depot. Neither takes a call.
 
 ### Eject rules — pickup policy
 
