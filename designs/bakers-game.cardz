@@ -22,5 +22,6 @@
   "depotOnly": true,
   "compoundMoves": "Staged",
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
   "tools": "None"
 }

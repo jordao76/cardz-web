@@ -45,7 +45,7 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>33 lines</small></summary>
+        <summary>Read its design file <small>34 lines</small></summary>
         <p>Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Carpet&quot;</span>,
@@ -78,6 +78,7 @@
   ],
   <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
   <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;lossCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;noLegalMoves&quot;</span> },
   <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
 }</code></pre>
       </details>

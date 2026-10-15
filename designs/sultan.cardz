@@ -59,5 +59,6 @@
   ],
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
   "tools": "None"
 }

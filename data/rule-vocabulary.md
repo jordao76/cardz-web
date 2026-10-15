@@ -346,7 +346,7 @@ Declarative board-state predicates evaluated after each committed move. The
 
 **`lossCondition`**:
 
-- `noLegalMoves` — only sound for `depotOnly` single-top-card games: the foundation/clear games (Golf, Tri Peaks, Black Hole) and the `landUnder` reveal games (Clock — a productive self-play, tucking a pile's matching top under to turn up the next, counts as a move). Opt-in; unsound for multi-card-run games.
+- `noLegalMoves` — the game is lost when nothing is left to do: no card can move anywhere (every run a source lets go of counts, and so does reaching into a spread) and no stock, recycle, redeal or recall tap is live. A finite stock (`maxRecycles`, or no `recycle`) is what lets the taps run out. Needs `depotOnly` — with free placement a card can always move. A `landUnder` self-play counts only when it turns up a new card (Clock), so tucking a matching top under already-revealed cards cannot keep a dead game alive. Opt-in. It looks only at the board in front of the player, so it suits games whose lost boards run out of moves: typically no move can be undone and the stock runs out, or a card has so few places to go (building in suit, emptied columns staying empty) that it has nowhere to shuttle. Where cards readily shuttle between piles or the stock recycles without limit, a hopeless board often still has a move, and the loss would be called only now and then — those games leave it off.
 
 ---
 

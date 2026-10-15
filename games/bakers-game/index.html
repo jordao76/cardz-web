@@ -45,7 +45,7 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>26 lines</small></summary>
+        <summary>Read its design file <small>27 lines</small></summary>
         <p>FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Baker's Game&quot;</span>,
@@ -71,6 +71,7 @@
   <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
   <span class="j-key">&quot;compoundMoves&quot;</span>: <span class="j-str">&quot;Staged&quot;</span>,
   <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;lossCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;noLegalMoves&quot;</span> },
   <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
 }</code></pre>
       </details>
