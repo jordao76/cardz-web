@@ -61,6 +61,16 @@
       "slug": "monosolid",
       "name": "Monosolid",
       "blurb": "Paper-cut shapes in two inks against a dark ink table. Type as image, tally pips, and courts cut down to a crown, an orb, and a blade."
+    },
+    {
+      "slug": "jet-set",
+      "name": "Jet Set",
+      "blurb": "Mid-century air travel in the style of a sunlit airline poster. The courts are the crew — a captain with his cap and pocket watch, a stewardess fanning out tickets, a ground crewman with his marshalling wand — and each ace is a plane tracing its suit across the sky. The jokers are two passengers flying standby, the backs are route maps in navy and orange, and the table is speckled terrazzo."
+    },
+    {
+      "slug": "mono",
+      "name": "Mono",
+      "blurb": "Two inks, signal orange and black, on bone-white stock. Every card wears its rank huge: the number cards keep count in tally bars, the courts stand on a black band, and the aces flood the whole card in their colour. A star for each joker, and a pale stone table with the toolbar and settings in bone and black to match."
     }
   ],
   "note": "Cardz also ships a High-contrast deck, following the OS settings; and a Colourblind deck — blue hearts and diamonds against black spades and clubs."

@@ -1,0 +1,21 @@
+{
+  "_comment": "Written by cardz-win's scripts/export-deck-packs.ps1 from its extras/decks/: the decks the gallery offers as .cardzdeck downloads, which the app does not ship. Each slug is a deck in data/decks.json; build.mjs refuses one that is not. Do not edit by hand.",
+  "decks": [
+    {
+      "slug": "jet-set",
+      "name": "Jet Set",
+      "author": "Cardz",
+      "version": "1.0.0",
+      "file": "decks/jet-set.cardzdeck",
+      "bytes": 3254856
+    },
+    {
+      "slug": "mono",
+      "name": "Mono",
+      "author": "Cardz",
+      "version": "1.0.0",
+      "file": "decks/mono.cardzdeck",
+      "bytes": 155157
+    }
+  ]
+}

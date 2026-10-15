@@ -58,5 +58,15 @@
     "file": "neon.webp",
     "width": 595,
     "height": 384
+  },
+  "jet-set": {
+    "file": "jet-set.webp",
+    "width": 595,
+    "height": 384
+  },
+  "mono": {
+    "file": "mono.webp",
+    "width": 595,
+    "height": 384
   }
 }
