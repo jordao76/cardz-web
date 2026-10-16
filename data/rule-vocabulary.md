@@ -135,6 +135,7 @@ The top level `depots` element is a list of depots. Each depot's geometry and ho
 | `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Layout` | depot category; drives defaults + win-pattern matching. Every game must have at least one `Stock`, where the deck is initially placed. `Layout` marks a rule-free landing spot placed in Sandbox, not for ruled games. |
 | `fanDirection` | `None`, `Down`, `Up`, `Left`, `Right`, `Radial` | `None` = squared pile; `Radial` = held-hand arc (La Belle Lucie / poker hand). Default depends on the type: `Down` for a `Tableau`, `None` for every other type. |
 | `fanWindow` | `int?` | fan only the top N, the rest stays squared at base (ignored by `Radial`, which arcs the whole depot) |
+| `fanAnchor` | `Base`, `Center`, `Top` | which card of the fan sits on the depot's spot. `Base` grows the fan away from the bottom card; `Center` grows it both ways from the middle; `Top` keeps the top card on the spot and grows the fan back behind it, so the card to play never moves. Default: `Base` for a straight fan, `Center` for `Radial`. |
 | placement | `col`/`row` (grid, fractional) or `x`/`y` (px), `angle` (**radians**) | px wins over grid |
 | `name` | `string?` | stable id; required for any depot referred to by a deal step, `draw`, `uncoveredBy`, or a `names[]` pattern. Must be unique. |
 | `landFace` | `Up`, `Down` | face every arriving card takes on a successful drop; null keeps the face it arrived with |
@@ -195,7 +196,8 @@ played. The two answer that differently, and the game decides which it means:
   instead, with the wild cards above it read as the cards they stand in for:
   `build` advances the natural's rank one step per wild card, in the direction it
   names and wrapping when it wraps, and `suit` carries the natural's suit along,
-  `"AlternateColor"` flipping colour once per wild card. A joker on the 9♥ of a
+  `"AlternateColor"` flipping colour once per wild card and `"SameColor"` keeping
+  it. A joker on the 9♥ of a
   Klondike column therefore stands for a black 8, and a red 7 follows it. A depot
   with no `build` has no step to advance by, so the demand simply stands: on a
   `follow` pile the card after a joker still matches the natural card underneath.
@@ -283,7 +285,7 @@ from each other will pass a card back and forth until the cascade limit stops th
   - `step`: 0–12 (1 = classic adjacent build; 0 = rank-equal pairing games)
   - `wrap`: K↔A modular cycle (Tri Peaks waste, Canfield foundations)
   - `sum` (matcher mode): incoming + anchor pip values (A=1 … K=13) must total N — ignores direction/step/wrap; collapses the matched run face-down. Pyramid is `"sum": 13`; generalizes to Monte Carlo / Fourteen Out.
-- **`SuitConstraint`**: `Any` (default), `Same`, `AlternateColor`
+- **`SuitConstraint`**: `Any` (default), `Same` (the top card's suit), `AlternateColor` (red on black, black on red), `SameColor` (red on red, black on black — Puss in the Corner's foundations)
 - **`DepotPattern`**: match by `ofType` (a category) **or** `names[]` (explicit, exactly-matched list) — set exactly one. Used by `acceptFrom`, `autoSend`, `autoRefill`, and win/loss conditions. Since it is always one or the other, it may be written as just that one: `"Foundation"` is the category, `["reserve"]` the list.
 
 ---
@@ -302,7 +304,7 @@ off on its own once the stock can't fill it.
 | `move` | `from`, `to` | move one card, keeping its current face — the primitive a recorded deal is made of |
 | `flipTop` | `depot` | turn that depot's top card face-up in place (one-way) |
 | `place` | `rank`, `suit`, `to`, `joker` | pull a **named** card out of the stock wherever it sits and land it face-up (Crazy Quilt's pre-seeded foundations). In a multi-deck game only the first matching copy is pulled. `rank` and `suit` are both required, since a card has no default; `"joker": true` places any joker instead, and names neither. |
-| `gather` | `from[]`, `to` | sweep every card off each source depot back onto one target, face-down — the inverse of a deal |
+| `gather` | `from[]`, `to` | sweep every card off each source depot back onto one target, face-down — the inverse of a deal. A gather into a stock is fired from that stock once it is empty, as a recycle is, so a re-deal that only picks the piles back up (`gather` then `flipTop`) needs no `redealWhen` to wait for the stock to run out |
 | `shuffle` | `depot` | randomly permute that depot's cards in place; pairs with `gather` so a regathered stock is unpredictable |
 
 `redealWhen` guards the re-deal with the same `BoardPredicate` vocabulary the win

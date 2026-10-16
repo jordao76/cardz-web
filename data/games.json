@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-10-15T17:41:14Z",
+  "generated": "2026-10-16T20:58:11Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -4645,6 +4645,91 @@
             "col": 13.673,
             "row": 0,
             "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "puss-in-the-corner",
+      "name": "Puss in the Corner",
+      "sandbox": false,
+      "rules": "**Goal:** move every card to the four foundations.\n\n- The foundations start with the four **Aces** and build **up by colour** to King: red on red, black on black, whatever the suit.\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and only for a foundation.\n- When the stock runs out, tap it **once** to pick the holding piles up in order as a new stock.",
+      "inApp": false,
+      "download": "designs/puss-in-the-corner.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 3,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 4,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "hold-1",
+            "type": "tableau",
+            "col": 2.1,
+            "row": 0.41,
+            "angleDegrees": 45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-2",
+            "type": "tableau",
+            "col": 4.9,
+            "row": 0.41,
+            "angleDegrees": -45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-3",
+            "type": "tableau",
+            "col": 2.1,
+            "row": 2.59,
+            "angleDegrees": -45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-4",
+            "type": "tableau",
+            "col": 4.9,
+            "row": 2.59,
+            "angleDegrees": 45,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.5,
+            "row": 0,
+            "fan": "none"
           }
         ]
       }

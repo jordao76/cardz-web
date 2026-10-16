@@ -36,6 +36,11 @@
       "note": "Twelve foundations placed at fractional grid positions and turned to face the middle of a clock, each seeded with a named card and none capped: the next hour's seed is what stops each one."
     },
     {
+      "name": "Puss in the Corner",
+      "file": "puss-in-the-corner.cardz",
+      "note": "Foundations that build by colour instead of suit, holding piles only the stock can feed, and one redeal that gathers the piles back in order without dealing anything out."
+    },
+    {
       "name": "Putt Putt with Jokers",
       "file": "putt-putt-with-jokers.cardz",
       "note": "Golf's one foundation with ranks that wrap from King to Ace, and wild Jokers."

@@ -1,0 +1,48 @@
+{
+  "name": "Puss in the Corner",
+  "description": "**Goal:** move every card to the four foundations.\n\n- The foundations start with the four **Aces** and build **up by colour** to King: red on red, black on black, whatever the suit.\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and only for a foundation.\n- When the stock runs out, tap it **once** to pick the holding piles up in order as a new stock.",
+  "rules": {
+    "foundation": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "SameColor" },
+    "tableau": { "acceptFrom": ["stock"] }
+  },
+  "depots": [
+    { "type": "Foundation", "col": 3, "row": 1, "name": "foundation-1",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 1, "name": "foundation-2",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3, "row": 2, "name": "foundation-3",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 2, "name": "foundation-4",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Tableau", "fanWindow": 8, "fanAnchor": "Center", "col": 2.1, "row": 0.41,
+      "name": "hold-1", "acceptRule": "$tableau", "ejectRule": "topOnly",
+      "angle": 0.7853981633974483, "fanOffsetFaceUp": 27 },
+    { "type": "Tableau", "fanWindow": 8, "fanAnchor": "Center", "col": 4.9, "row": 0.41,
+      "name": "hold-2", "acceptRule": "$tableau", "ejectRule": "topOnly",
+      "angle": -0.7853981633974483, "fanOffsetFaceUp": 27 },
+    { "type": "Tableau", "fanWindow": 8, "fanAnchor": "Center", "col": 2.1, "row": 2.59,
+      "name": "hold-3", "acceptRule": "$tableau", "ejectRule": "topOnly",
+      "angle": -0.7853981633974483, "fanOffsetFaceUp": 27 },
+    { "type": "Tableau", "fanWindow": 8, "fanAnchor": "Center", "col": 4.9, "row": 2.59,
+      "name": "hold-4", "acceptRule": "$tableau", "ejectRule": "topOnly",
+      "angle": 0.7853981633974483, "fanOffsetFaceUp": 27 },
+    { "type": "Stock", "col": 0.5, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "faceUp", "autoFlipTop": true }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "foundation-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "foundation-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "foundation-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "foundation-4" },
+    { "kind": "flipTop", "depot": "stock" }
+  ],
+  "redealRules": [
+    { "kind": "gather", "from": ["hold-1", "hold-2", "hold-3", "hold-4"], "to": "stock" },
+    { "kind": "flipTop", "depot": "stock" }
+  ],
+  "maxRedeals": 1,
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "tools": "None"
+}
