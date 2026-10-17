@@ -24,7 +24,7 @@ when the page stops reflecting what is on disk.
 
 import functools
 import sys
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 
@@ -52,7 +52,10 @@ def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 4173
     directory = sys.argv[2] if len(sys.argv) > 2 else str(Path(__file__).resolve().parent)
     handler = functools.partial(NoCacheHandler, directory=directory)
-    server = HTTPServer(("0.0.0.0", port), handler)
+    # Threaded, so one browser holding a connection open (a phone on the LAN
+    # does) cannot stall every request behind it.
+    server = ThreadingHTTPServer(("0.0.0.0", port), handler)
+    server.daemon_threads = True
     print(f"serving {directory} on http://localhost:{port} — caching disabled", flush=True)
     try:
         server.serve_forever()
