@@ -182,10 +182,7 @@ so does an eject `Run` unit (below).
 
 ### `ejectRule` — what may leave
 
-`ejectRule` decides what the player may pick up from this depot. Where those cards may
-land is decided by the receiving depot's `acceptRule`.
-
-It has two parts:
+`ejectRule` decides what the player may pick up from this depot. It has two parts:
 
 - **`gate`**: which card may be picked up. `Any` (default): any card. `FaceUp`: any
   face-up card. `TopOnly`: only the top card. `Locked`: nothing. A rule that is only a
