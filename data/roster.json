@@ -34,6 +34,6 @@
     { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight", "capture": { "file": "33-fourteenout-deepfield.png", "deck": "Deepfield" } },
     { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens", "capture": { "file": "34-sultan-ornamental.png", "deck": "Ornamental" } },
     { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number", "capture": { "file": "35-grandfathersclock-herbarium.png", "deck": "Herbarium" } },
-    { "slug": "puss-in-the-corner", "tagline": "Red on red, black on black", "new": true }
+    { "slug": "puss-in-the-corner", "tagline": "Red on red, black on black", "new": true, "capture": { "file": "37-pussinthecorner-frightnight.png", "deck": "Fright Night" } }
   ]
 }
