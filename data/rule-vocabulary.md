@@ -182,24 +182,28 @@ so does an eject `Run` unit (below).
 
 ### `ejectRule` — what may leave
 
-`ejectRule` has two parts: `gate` decides which card may be picked up, `unit` what
-leaves with it.
+`ejectRule` decides what the player may pick up from this depot. Where those cards may
+land is decided by the receiving depot's `acceptRule`.
 
-- **`gate`**: `Any` (default) any card; `FaceUp` any face-up card; `TopOnly` only the top
-  card; `Locked` nothing. A rule that is only a gate may be written as its name:
-  `"any"`, `"faceUp"`, `"topOnly"`, `"locked"`.
-- **`unit`**: without one, the picked card leaves with everything above it and the target
-  checks the whole group. With one, the source decides what travels together and the
-  target checks only the group's bottom card:
-  - `Single`: only the picked card leaves; the cards above it stay.
-  - `Any`: any group, in any order.
-  - `Run`: a group that follows `build` and, optionally, `suit`.
+It has two parts:
+
+- **`gate`**: which card may be picked up. `Any` (default): any card. `FaceUp`: any
+  face-up card. `TopOnly`: only the top card. `Locked`: nothing. A rule that is only a
+  gate may be written as its name: `"any"`, `"faceUp"`, `"topOnly"`, `"locked"`.
+- **`unit`**: which cards leave with it.
+  - Omitted: the picked card and every card above it. The receiving depot's
+    `acceptRule` checks the whole group, each card against the one beneath it.
+  - `Single`: only the picked card; the cards above it stay.
+  - `Any`: the picked card and every card above it, in any order.
+  - `Run`: the picked card and every card above it, if they follow the unit's own
+    `build` and, optionally, `suit`.
 
   Write it `{ "kind": "Run", "build": …, "suit": … }`. `"single"` and `"any"` may be
   written bare, and `{}` means `Any`.
 
-Because the target then checks only the bottom card, a foundation fed by an `Any` unit
-should set `single: true`.
+A declared `unit` vouches for the group, so the receiving depot's `acceptRule` checks
+only the group's bottom card. A foundation fed by an `Any` unit should therefore set
+`single: true`, or it will take an unordered pile.
 
 ### `draw` — tapping a stock
 
@@ -256,8 +260,11 @@ the cap.
 
 ## Win & loss conditions
 
-Both are optional; without one, Cardz doesn't detect that outcome. They are checked
-after each move, and `depots` takes a depot pattern.
+`winCondition` and `lossCondition` describe the board that ends the game. Cardz checks
+them after each move and declares a win or a loss as soon as one holds. Both are
+optional: leave one out and the game never ends that way.
+
+Fields named `depots` take a depot pattern.
 
 **`winCondition`**:
 
