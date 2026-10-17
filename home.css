@@ -24,6 +24,11 @@
 .home-page .sandbox h2 { font-size: clamp(3rem, 5vw, 5rem); }
 .home-page .sandbox-copy > p:nth-of-type(2) { margin: 1.5rem 0; }
 .home-page .sandbox ul { margin-top: 1.5rem; }
+.home-page .sandbox-copy .keep-link { margin-left: 1.2rem; }
+.make-callout { display: block; max-width: 550px; margin-top: 2.2rem; padding: 1.1rem 1.3rem; border: 1px solid rgba(216, 168, 78, .3); border-radius: 4px; color: #b6ada2; font-size: .88rem; line-height: 1.7; }
+.make-callout > span { display: block; margin-bottom: .2rem; font: italic 600 1.3rem "Playfair Display", serif; color: var(--paper); }
+.make-callout b { font-weight: 500; color: var(--gold); text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
+.make-callout:hover { border-color: var(--gold); }
 .home-page .section { padding-left: clamp(24px, 5vw, 80px); padding-right: clamp(24px, 5vw, 80px); }
 .table-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
 .table-tile { display: block; min-width: 0; border-bottom: 1px solid var(--line); padding-bottom: 1.4rem; }
