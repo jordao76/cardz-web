@@ -1,25 +1,17 @@
 # Rule & Composition Vocabulary
 
-The complete reference for a Cardz **game file**: a game written as data — its
-cards, its board, its rules, its deal and its goal. Every built-in game is written in
-exactly this vocabulary, so anything a built-in does, an externally designed game can do. This is a map
-of *what can be expressed*: nothing is hardcoded per game.
+Reference for Cardz `.cardz` game files: cards, board layout, rules, deals, and goals.
 
 ---
 
 ## Game files
 
-A Cardz game file is a JSON file, saved with the `.cardz` extension. Open one in Cardz —
-double-click it, or choose **Import…** in *Your games* — and Cardz adds it to *Your games*.
+A `.cardz` file is JSON. Double-click it, or use **Import…** in *Your games*, to add it
+to Cardz. It holds either the game object itself or the export wrapper
+`{ "schemaVersion": 1, "setup": { … } }`.
 
-A file holds the game in one of two formats:
-
-- **The game itself** — an object with `name` and `depots` at the top.
-- **An exported game** — what Cardz writes when you export one:
-  `{ "schemaVersion": 1, "setup": { …the game… } }`.
-
-The following example shows a small but complete game — a four-column relative of Klondike.
-In the next sections, you'll learn about the syntax elements of a game file.
+This complete four-column Klondike variant uses most of the vocabulary; each part is
+explained below.
 
 ```json
 {
@@ -50,377 +42,278 @@ In the next sections, you'll learn about the syntax elements of a game file.
 
 ---
 
-## The canonical JSON format
+## JSON format
 
-High-level guidelines on the expected JSON elements.
-
-- **Required properties**: `name` and `depots` at the top level, and `type`
-  on every depot.
-- **Property names are camelCase**:
-  `"name"`, `"decks"`, `"depots"`, `"acceptRule"`, `"minCount"`. They are matched
-  case-insensitively, so a game written in PascalCase still loads — but camelCase
-  is the spelling Cardz writes, and the preferred one.
-- **Enum values are capitalised**: `"Tableau"`,
-  `"Foundation"`, `"Down"`, `"AlternateColor"`, `"Spades"`, `"Ace"`, `"Ten"`,
-  `"King"`, spelled out in full. They are matched case-insensitively (`"tableau"` works),
-  but the capitalised form is preferred.
-- **Unions carry a `"kind"` discriminator** — deal steps
-  (`"dealGroup"`, `"move"`, `"flipTop"`, `"place"`, `"gather"`, `"shuffle"`) and
-  win/loss predicates (`"allCardsIn"`, `"noLegalMoves"`, …):
-  `{ "kind": "allCardsIn", "depots": { "ofType": "Foundation" } }`.
-- **Optional properties may be omitted** and take the default
-  named in the tables below.
-- A handful of fields take a **shorthand** as well — see the *Shorthands* section below.
+- Property names are camelCase; enum values are capitalized and spelled out
+  (`"Tableau"`, `"AlternateColor"`, `"King"`). Both are read case-insensitively, but
+  Cardz writes these forms.
+- Deal steps and win/loss conditions name their variant in `kind` (both explained below).
+- Omitted properties take the defaults listed below.
+- Some fields accept a short form, noted with the field. Cardz exports the full form.
 
 ---
 
 ## Top-level properties
 
-The properties of the game object itself.
+| Field | Type | Default | Meaning |
+|---|---|---|---|
+| `name` | string | required | the game's name |
+| `description` | string | — | player-facing rules in Markdown; not read by the engine |
+| `family` | string | — | exact-string grouping key, e.g. `"Klondike"` |
+| `decks` | list of packs | one 52-card deck | the cards; see **Deck composition** below |
+| `depots` | list of depots | required | the places that hold cards; see **Depots** below |
+| `rules` | object | — | named rules that depots share; see **Depot rules** below |
+| `dealRules`, `redealRules`, `redealWhen`, `maxRedeals` | | | the deal and redeals; see **Deal steps** below |
+| `winCondition`, `lossCondition` | | | see **Win & loss conditions** below |
+| `depotOnly` | bool | `false` | a card dropped on open table, not on a depot, bounces back. Usually on for ruled games. |
+| `compoundMoves` | `Free`, `Staged` | `Free` | `Free` moves any valid run as a unit; `Staged` limits runs to `(1 + free cells) × 2^(empty columns)`, as in FreeCell |
+| `tools` | `Unset`, `Free`, `None` | `Unset` | `None` hides the table modes, the free-handling tools (Fish, Grab, Order, Spread…) |
+| `anchor` | `TopCenter`, `TopLeft` | `TopCenter` | where the board sits when it is smaller than the window |
+| `fanOffsetFaceUp`, `fanOffsetFaceDown` | number | built-in | fan step in px for face-up / face-down cards; depots may override it |
 
-Required properties:
-
-- **`name`**: the name of the game.
-- **`depots`**: the places in the board that hold cards, see the **Depot**-related sections below.
-
-Optional properties:
-
-- **`decks`**: the set of cards for the game, see the **Deck Composition** section below. Omitted, the game is dealt one standard 52-card deck.
-- **`depotOnly`** (bool): card drops that don't land on a depot bounce back (no parking between depots). Ruled games should generally set it. Switched off when rules are off.
-- **`compoundMoves`**: `Free` (default — any valid run moves as a unit: Klondike / Spider / Yukon) vs `Staged` (FreeCell-family limit `(1 + freeCells) × 2^(emptyColumns)`).
-- **`anchor`**: how the camera seats the board — `TopCenter` (default) vs `TopLeft`. Presentation only; no effect on rules.
-- **`fanOffsetFaceUp` / `fanOffsetFaceDown`** (`double?`): board-wide fan-step defaults for face up and face down cards, inherited by any depot that doesn't override them.
-- **`description`** (`string?`): player-facing game description, in Markdown, shown with the game. Prose only, not interpreted by the rules.
-- **`family`** (`string?`): a grouping key that relates games — Putt Putt is in the `"Golf"` family, Double Klondike in the `"Klondike"` family. An exact-string key, not prose; it says nothing about how a game is built.
-- **`tools`** — whether the game offers the table modes (the tool island and its keys). `Free` offers them; `None` withholds them — no chips, no keys, no help rows advertising either — for a game whose own rules are meant to be the whole interaction. `Unset` (the default) offers every mode. The modes come back when rules are off.
-- **`dealRules`**/**`redealRules`**/**`redealWhen`**/**`maxRedeals`**: deal and redeal definitions, see the corresponding sections below.
-- **`winCondition`**/**`lossCondition`**: see the **Win & loss conditions** section below.
-- **`rules`**: reusable rules, see the **Shorthands** section below.
+Players can switch a game's rules off: every depot then accepts and releases cards
+freely, `depotOnly` stops applying, and the table modes return.
 
 ---
 
 ## Deck composition
 
-The top level element `decks` defines the **deck composition**, encoding the full set of cards a game is comprised of. It is a list of *deck recipes*, or *packs*; the final deal pile is made from every pack expanded, concatenated, and then shuffled.
-
-Each *pack* can have the following elements:
+`decks` is a list of packs. Cardz expands each pack, combines them, then shuffles.
 
 | Field | Type | Default | Notes |
 |---|---|---|---|
-| `suits` | `["Clubs","Diamonds","Hearts","Spades"]` | all four | narrow for single-/two-suit packs |
-| `ranks` | `["Ace","Two"…"Ten","Jack","Queen","King"]` | Ace–King | drop entries for stripped decks (no courts, no aces, 32-cards) |
-| `count` | `int` | `1` | identical copies of this pack |
-| `jokers` | `int` | `0` | jokers per copy. A joker has no rank or suit, so no ruled depot accepts one unless its accept rule says `wildJoker` |
+| `suits` | `["Clubs","Diamonds","Hearts","Spades"]` | all four | narrow for single- or two-suit packs |
+| `ranks` | `["Ace","Two"…"Ten","Jack","Queen","King"]` | Ace–King | drop entries for stripped decks |
+| `count` | integer | `1` | identical copies of this pack |
+| `jokers` | integer | `0` | jokers per copy. A joker has no rank or suit, so ruled depots refuse it unless they set `wildJoker` (see **`acceptRule`** below). |
 
-A recipe's card total is `(suits × ranks + jokers) × count`. A game's whole
-composition may deal at most **208 cards** (four standard decks). Examples:
+A pack holds `(suits × ranks + jokers) × count` cards; a game holds at most **208**.
 
-- **Standard**: leave `decks` out, or write `"decks": [ {} ]` → 52. Two full decks: `[ { "count": 2 } ]` → 104.
+- **Standard**: leave `decks` out, or write `[ {} ]` → 52. Two decks: `[ { "count": 2 } ]` → 104.
 - **Spider 1-suit**: `[ { "suits": ["Spades"], "count": 8 } ]` → 104 spades.
 - **Spider 2-suit**: `[ { "suits": ["Spades","Hearts"], "count": 4 } ]`.
 - **Stripped 32-card** (7–Ace): `"ranks": ["Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"]`.
 
-Card backs come in two styles; copies alternate them by parity.
+Copies alternate between two card-back styles.
 
 ---
 
-## Depots — topology & placement
+## Depots
 
-The **depots** are the places in the board where cards can be parked. Think tableaus, foundations, waste, discard, cells, etc.
+`depots` is a list of depot objects: the places that hold cards.
 
-The top level `depots` element is a list of depots. Each depot's geometry and how cards are structured by it are controlled by the following properties:
-
-| Axis | Values | Notes |
+| Field | Values | Notes |
 |---|---|---|
-| `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Layout` | depot category; drives defaults + win-pattern matching. Every game must have at least one `Stock`, where the deck is initially placed. `Layout` marks a rule-free landing spot placed in Sandbox, not for ruled games. |
-| `fanDirection` | `None`, `Down`, `Up`, `Left`, `Right`, `Radial` | `None` = squared pile; `Radial` = held-hand arc (La Belle Lucie / poker hand). Default depends on the type: `Down` for a `Tableau`, `None` for every other type. |
-| `fanWindow` | `int?` | fan only the top N, the rest stays squared at base (ignored by `Radial`, which arcs the whole depot) |
-| `fanAnchor` | `Base`, `Center`, `Top` | which card of the fan sits on the depot's spot. `Base` grows the fan away from the bottom card; `Center` grows it both ways from the middle; `Top` keeps the top card on the spot and grows the fan back behind it, so the card to play never moves. Default: `Base` for a straight fan, `Center` for `Radial`. |
-| placement | `col`/`row` (grid, fractional) or `x`/`y` (px), `angle` (**radians**) | px wins over grid |
-| `name` | `string?` | stable id; required for any depot referred to by a deal step, `draw`, `uncoveredBy`, or a `names[]` pattern. Must be unique. |
-| `landFace` | `Up`, `Down` | face every arriving card takes on a successful drop; null keeps the face it arrived with |
-| `fanOffsetFaceUp` / `fanOffsetFaceDown` | `double?` | fans have default offsets for face up and face down cards; these properties allow overriding them (in px) |
-| flags | `offTable`, `landUnder`, `autoFlipTop`, `autoFlipUncovered`, `uncoveredBy[]`, `uncoveredByAny` | phantom deal-source stock (outside the viewport); tuck-under drop; reveal-on-removal; reveal-when-siblings-empty (Tri Peaks). `uncoveredBy` lists depots that must empty before this depot's top card lifts: all of them by default (Tri Peaks peaks), or — with `uncoveredByAny: true` — any one of them (Crazy Quilt's woven cells, free when either short end is exposed) |
-| `looseOrder` | `bool` | the order of the cards is a player preference, not game state, so a plain drag **sorts along the fan** and lifts only once it leaves it. True for a held hand and for a fanned reserve any card is playable from (Flower Garden's bouquet) |
+| `name` | string | unique id other fields use to refer to this depot |
+| `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Layout` | required. Every game needs a `Stock`; the deck starts there. `Layout` is a rule-free spot for unruled tables. |
+| placement | `col`/`row` (grid, fractional) or `x`/`y` (px); `angle` (radians) | `x`/`y` win over `col`/`row` |
+| `repeat` | integer | create N copies, named with 1-based suffixes (`column-1` … `column-7`), each one grid column right of the last |
+| `offTable` | bool | keep the depot off the visible table, e.g. a stock that only deals |
+| `fanDirection` | `None`, `Down`, `Up`, `Left`, `Right`, `Radial` | `None` is a squared pile; `Radial` is a held-hand arc. Default `Down` for a `Tableau`, `None` otherwise. |
+| `fanWindow` | integer | fan only the top N cards; ignored by `Radial` |
+| `fanAnchor` | `Base`, `Center`, `Top` | which fan card stays on the depot's spot: bottom, middle or top. Default `Base`, or `Center` for `Radial`. |
+| `fanOffsetFaceUp`, `fanOffsetFaceDown` | number | this depot's fan step in px; defaults to the top-level value |
+| `looseOrder` | bool | a drag reorders cards along the fan, and a pickup takes only the selected card. For hands and fanned reserves. |
 
 ---
 
-## Depot — rules
+## Depot patterns
 
-Two halves: **Accept** (can a drop land here?) and **Eject** (can cards be picked
-up from here?). Plus two per-depot actions — a **Draw** the player taps, and the
-**Auto-move** reflexes the depot performs itself. Turning a game's rules off in
-Cardz switches every per-depot rule off at once, so every depot accepts and releases
-cards freely.
+Some fields name a set of depots: `acceptFrom`, `autoSend`, `autoRefill`, and the
+`depots` of win/loss conditions (all below). A pattern is either `{ "ofType": "Foundation" }`
+(every depot of that type) or `{ "names": ["reserve"] }` (the named depots); set exactly
+one. Either may be written bare: `"Foundation"` or `["reserve"]`.
 
-### Accept rules — drop policy
+---
 
-Composable flags; the default (`"acceptRule": null`, or `"any"`) is fully free-form. All
-declared checks must pass together (AND). The two commonest whole rules have names of
-their own — `"none"` rejects every drop, `"emptyOnly"` takes one only into a vacancy.
+## Depot rules
 
-| Field | Meaning |
-|---|---|
-| `rejectsAll` | never a drop target — deal-only depots (Klondike's waste, Golf's tableau) |
-| `emptyOnly` | accept only into a vacancy (single-card holder slots) |
-| `single` | reject piles larger than one card |
-| `minCount` (`int?`) | reject piles smaller than N (lower bound; e.g. Spider foundation `minCount: 13`) |
-| `seed` (`Rank?`) | first (base) card must be this rank (Ace / King foundations) |
-| `seedNone` | reject all drops while empty (build-while-occupied, stay-empty-once-cleared) |
-| `seedFromDeal` | seed rank set by the deal, not the author (Canfield); resolved at deal time from the face-up card the deal lands on one of these depots. A deal that leaves that card face-down settles nothing, and the depots stay closed |
-| `rankIs` (`Rank?`) | **absolute** rank gate — accept only this rank, whatever the depot holds and whether or not it's empty. Every card of an incoming pile must match. Clock Solitaire's hour piles (1 o'clock takes only Aces …) |
-| `build` (`BuildRule?`) | rank relationship to the depot's top card |
-| `suit` (`SuitConstraint`) | suit relationship to the top card |
-| `follow` (`bool`) | incoming card must match the top card's rank **or** suit — the shedding-family follow rule; the one disjunction `build`+`suit` (which compose as AND) can't spell. No effect while empty |
-| `wildRank` (`Rank?`) | a card of this rank is wild: it lands on any top card, ignoring `follow`/`build`/`suit` and `rankIs`. Pile-shape, source, face and empty-pile seed gates still apply, except that a `"transparent"` depot reads a wild card on its empty pile as the seed (below) |
-| `wildJoker` (`bool`) | a joker is wild rather than inert: it lands on any top card (rummy/canasta shedding). Same escape hatch as `wildRank`, keyed on the joker |
-| `wildDeclares` (`"none"` / `"suit"` / `"free"` / `"transparent"`) | what a **wild** card left on top of this depot does to whatever follows it — the complement to `wildRank`, which frees the wild card as the *incoming* card. `"suit"` lets the player who landed it *name* the suit the next card must follow; the call replaces the top card's own suit in the `follow` check, so what stands is "the called suit, or another wild card". `"free"` lets **anything** land on the wild card, no suit named. `"transparent"` keeps the pile asking exactly what it asked before, reading the wild card as the card that would have satisfied it (below). Default `"none"`: the next card follows the wild card as printed. `true` is accepted as a spelling of `"suit"` |
-| `acceptFrom` (`DepotPattern?`) | only accept drops from matching source depot(s) |
-| `allowFaceDown` | permit face-down drops (ruled depots reject them by default). A face-down card is judged on everything but its identity: the checks that ask what the card *is* — `seed`, `rankIs`, `build`, `suit`, `follow` — stand down, while the ones that ask about the pile, its source and the depot — `rejectsAll`, `acceptFrom`, `single`, `minCount`, `emptyOnly`, `seedNone`, an unsettled `seedFromDeal` — hold as always |
+Besides its layout, a depot says how it handles cards, what may land on it
+(`acceptRule`), what may leave it (`ejectRule`), what a tap does (`draw`) and what moves
+by itself (`autoSend`, `autoRefill`). An `acceptRule` or `ejectRule` may be written
+`"$name"` to use a rule from the top-level `rules`.
 
-The suit a player *calls* on a `wildDeclares: "suit"` depot is not authorable — a
-game declares that the depot asks, never what was answered. The call is made with
-the move that plays the wild card, stands only while that card is the depot's top
-card, and is shown on the depot. `"free"` takes no call.
+### Card handling
 
-A depot whose wild card is a **joker** wants `"free"` or `"transparent"`. A joker
-carries neither rank nor suit, so nothing can relate to it, and under `"none"` a
-joker landing on a `follow` depot walls the pile off until another joker is
-played. The two answer that differently, and the game decides which it means:
+| Field | Values | Meaning |
+|---|---|---|
+| `landFace` | `Up`, `Down` | dropped cards land this side up; omit to keep their face |
+| `landUnder` | bool | dropped cards go beneath the pile |
+| `autoFlipTop` | bool | turn the new top card face-up after a card leaves |
+| `uncoveredBy` | list of names | the top card can't be picked up until these depots are empty; a single name may be a string |
+| `uncoveredByAny` | bool | one listed depot being empty is enough |
+| `autoFlipUncovered` | bool | turn the top card face-up once `uncoveredBy` frees it |
 
-- `"free"` **opens** the pile — anything lands on the wild card. *Putt Putt with
-  Jokers* says so in its own rules: a Joker plays on any card, and any card plays
-  on a Joker.
-- `"transparent"` **preserves the demand** — the wild card is not what the next
-  card relates to. The incoming card is judged against the topmost *natural* card
-  instead, with the wild cards above it read as the cards they stand in for:
-  `build` advances the natural's rank one step per wild card, in the direction it
-  names and wrapping when it wraps, and `suit` carries the natural's suit along,
-  `"AlternateColor"` flipping colour once per wild card and `"SameColor"` keeping
-  it. A joker on the 9♥ of a
-  Klondike column therefore stands for a black 8, and a red 7 follows it. A depot
-  with no `build` has no step to advance by, so the demand simply stands: on a
-  `follow` pile the card after a joker still matches the natural card underneath.
-  An empty pile's demand is its `seed`, so a wild card on an empty pile stands for
-  the seed rank, and the wild cards above it advance from there. A seed names no
-  suit, so the first natural card on top settles it: a joker on an empty Klondike
-  foundation is an Ace, any 2 follows it, and from that 2 on the pile builds in
-  the 2's suit. A pile of nothing but wild cards on a depot with no `seed`, or one
-  whose next card down is face-down, has no demand left to preserve, and takes
-  only another wild card.
+### `acceptRule` — what may land
 
-Both reach the internal pairs of an arriving run, so a wild card partway up a
-multi-card drop governs the card above it exactly as it governs the card that
-lands on the depot. Neither takes a call.
-
-### Eject rules — pickup policy
-
-Two sub-parts: `gate` (which single item may be grabbed) + `unit` (what leaves
-together).
-
-- **`gate`**: `Any` (default), `Locked` (foundations), `FaceUp`, `TopOnly` (Golf — forbids grabbing a face-up run as a group). A rule that is only a gate is that gate's name: `"ejectRule": "locked"`.
-- **`unit`** — an object `{ "kind": …, "build": …, "suit": … }`, or just the kind's name for the two that need nothing else (`"single"`, `"any"`):
-  - `Single` — cards leave **one at a time**: grabbing any card takes exactly that card, its pile-mates above stay put (a *hand*, where any card may be played alone)
-  - `Any` — any group regardless of internal order (Yukon). `"unit": {}` means this, since `Any` is `kind`'s default
-  - `Run` — with `build` (and optionally `suit`), a group must form that run (Spider's descending run; the 4-suit variant adds `"suit": "Same"`)
-- Declaring a `unit` moves internal-order responsibility to the *source* depot; the receiving depot then judges only the group's bottom card.
-
-### Draw — tap the stock
-
-A draw is a *deal*, not a player move, so the target's accept rule is never
-consulted. Declaring a draw also stops the depot being offered as a drop target;
-pair it with `"ejectRule": { "gate": "Locked" }` so cards leave only through the tap.
-
-- `to` — target depot the drawn cards land on (face-up)
-- `count` — cards moved per tap (Klondike Draw-3 is `"count": 3`); a short stock draws whatever remains
-- `recycle` — tapping when empty pulls the whole `to` pile back, order reversed and face-down (Klondike's ↺); false = single pass (Forty Thieves, Golf, Tri Peaks)
-- `maxRecycles` (`int?`) — maximum waste-to-stock recycles after the opening
-  deal. Omitted or `null` = unlimited; `0` = none; `1` = one recycle, or two
-  passes through the stock. It works with `recycle: true`, belongs to this
-  stock alone, and counts only recycles.
-
-### Auto-move — the board plays for itself
-
-Two fields, duals of each other, each a `DepotPattern`:
+`acceptRule` is `"any"` or omitted (no restriction), `"none"` (reject all drops),
+`"emptyOnly"` (only into an empty depot), or an object with the fields below, all of
+which must pass. Fields shown without a type are `true`/`false`.
 
 | Field | Meaning |
 |---|---|
-| `autoSend` | **push** — my top group leaves for the first matching depot that accepts it. Spider's completed King-to-Ace run banks itself: `"autoSend": { "ofType": "Foundation" }` |
-| `autoRefill` | **pull** — while I am *empty*, I take the top card of the first matching depot that will release it. Canfield's cleared column: `"autoRefill": { "names": ["reserve"] }` |
+| `rejectsAll` | never a drop target |
+| `emptyOnly` | accept only into an empty depot |
+| `single` | reject piles of more than one card |
+| `minCount` (integer) | reject piles smaller than N, e.g. `13` for a Spider foundation |
+| `acceptFrom` (depot pattern) | accept only from matching depots |
+| `seed` (rank) | a drop onto an empty depot must start with this rank |
+| `seedNone` | reject drops while empty |
+| `seedFromDeal` | the deal sets the seed: the face-up card it leaves on a `seedFromDeal` depot seeds them all. If none is face-up, they reject drops while empty. |
+| `rankIs` (rank) | accept only this rank, empty or not; every card of a dropped pile must match |
+| `build` | rank relation to the top card; see **Build and suit rules** below |
+| `suit` | suit relation to the top card; see **Build and suit rules** below |
+| `follow` | match the top card's rank **or** suit; no effect while empty |
+| `wildRank` (rank) | this rank lands on any top card, ignoring `rankIs`, `build`, `suit` and `follow`; other checks still apply |
+| `wildJoker` | jokers are wild, like `wildRank` |
+| `wildDeclares` | what may follow a wild card left on top: `none` (default) follows it as printed, so only another wild follows a joker; `suit` follows a suit the player calls; `free` takes any card; `transparent` reads the wild as the card the pile needed. `true` means `"suit"`. |
+| `allowFaceDown` | accept face-down drops; they skip the checks on what the card is (`seed`, `rankIs`, `build`, `suit`, `follow`) |
 
-Neither declares **any rule of its own**, and that is the whole game. What may lift
-is the source's own `ejectRule`; what may land is the target's own `acceptRule`. So a
-reflex can only ever perform a move you could have made by hand — it changes *who*
-makes the move, never which moves are legal. Spider's tableau needs no extra rule
-data: its eject unit already means "a descending run" and its foundation already
-means "thirteen cards, King first, into a vacancy", so the only group that can
-satisfy both is a finished run.
+### Build and suit rules
 
-They fire whenever a card lands anywhere — a drag, a stock **draw**, a **re-deal**
-(Spider's stock tap deals a row that can itself drop the finishing Ace) — and
-`autoRefill` also answers a vacancy that was already waiting. Only the *opening* deal
-is exempt, and undo never re-fires them.
+`build` and `suit` compare a card with the one it lands on. `acceptRule` uses them, and
+so does an eject `Run` unit (below).
 
-- **`autoSend` offers the largest group first**: the whole depot, then each shorter
-  top-anchored group. A target that wants a run gets the run, not its top card.
-- **`autoRefill` moves exactly one card.** A depot that wants a run moved into it is
-  asking for the push half.
-- **A source that runs dry just stops answering**, so the vacancy quietly becomes
-  yours to fill — no rule has to say "and once the reserve is gone, fill it yourself".
-- **They cascade.** A send that empties a column is exactly what a refill answers to,
-  and the board settles before you see it.
-- **One undo covers all of it.** The reflexes belong to the action that provoked
-  them, so a single undo takes back the lot.
-- Turning the rules off suspends them with everything else.
+- **`build`**: `direction` is `Up`, `Down` or `Either`, required unless you use `sum`.
+  `step` is 0–12, default 1 (0 matches equal ranks). `wrap` builds through
+  King↔Ace. Instead of a direction, `sum: N` accepts a card whose pip value (Ace = 1 …
+  King = 13) totals N with the top card, then turns the pair face-down.
+- **`suit`**: `Any` (default), `Same`, `AlternateColor` or `SameColor`.
 
-Point `autoSend` at a depot that accepts freely and it will strip the source bare, so
-it belongs on a source/target pair whose rules already pin down exactly one group —
-which is what a foundation's `seed` + `minCount` do. Two depots that `autoRefill`
-from each other will pass a card back and forth until the cascade limit stops them.
+### `ejectRule` — what may leave
 
-### Shared sub-vocabularies
+`ejectRule` has two parts: `gate` decides which card may be picked up, `unit` what
+leaves with it.
 
-- **`BuildRule`** = `direction` + `step` + `wrap`, **or** `sum`:
-  - `direction`: `Up` / `Down` / `Either`, required, since a build has no default direction (a `sum` needs none)
-  - `step`: 0–12 (1 = classic adjacent build; 0 = rank-equal pairing games)
-  - `wrap`: K↔A modular cycle (Tri Peaks waste, Canfield foundations)
-  - `sum` (matcher mode): incoming + anchor pip values (A=1 … K=13) must total N — ignores direction/step/wrap; collapses the matched run face-down. Pyramid is `"sum": 13`; generalizes to Monte Carlo / Fourteen Out.
-- **`SuitConstraint`**: `Any` (default), `Same` (the top card's suit), `AlternateColor` (red on black, black on red), `SameColor` (red on red, black on black — Puss in the Corner's foundations)
-- **`DepotPattern`**: match by `ofType` (a category) **or** `names[]` (explicit, exactly-matched list) — set exactly one. Used by `acceptFrom`, `autoSend`, `autoRefill`, and win/loss conditions. Since it is always one or the other, it may be written as just that one: `"Foundation"` is the category, `["reserve"]` the list.
+- **`gate`**: `Any` (default) any card; `FaceUp` any face-up card; `TopOnly` only the top
+  card; `Locked` nothing. A rule that is only a gate may be written as its name:
+  `"any"`, `"faceUp"`, `"topOnly"`, `"locked"`.
+- **`unit`**: without one, the picked card leaves with everything above it and the target
+  checks the whole group. With one, the source decides what travels together and the
+  target checks only the group's bottom card:
+  - `Single`: only the picked card leaves; the cards above it stay.
+  - `Any`: any group, in any order.
+  - `Run`: a group that follows `build` and, optionally, `suit`.
+
+  Write it `{ "kind": "Run", "build": …, "suit": … }`. `"single"` and `"any"` may be
+  written bare, and `{}` means `Any`.
+
+Because the target then checks only the bottom card, a foundation fed by an `Any` unit
+should set `single: true`.
+
+### `draw` — tapping a stock
+
+`draw` makes a depot a stock the player taps. Drawn cards skip the target's
+`acceptRule`. A depot with `draw` takes no drops; make its eject `"locked"` so cards
+leave only by tapping.
+
+- `to`: the depot drawn cards land on, face-up.
+- `count`: cards per tap, default 1; a short stock draws what is left.
+- `recycle`: tapping the empty stock brings the whole `to` pile back, reversed and face-down.
+- `maxRecycles`: how many recycles are allowed; omitted means unlimited, `0` none.
+
+### `autoSend` and `autoRefill` — automatic moves
+
+Both take a depot pattern. An automatic move is one you could make by hand: the source's
+`ejectRule` decides what lifts, the target's `acceptRule` what lands.
+
+- `autoSend`: move this depot's largest legal top group to the first matching depot that
+  accepts it.
+- `autoRefill`: while this depot is empty, move one card into it from the first matching
+  depot that releases one.
+
+They run whenever cards land, including draws and redeals (below), and cascade until the
+board settles; one undo takes back the lot. The opening deal does not trigger them.
+
+Give the target a strict rule: `autoSend` onto a depot that accepts anything empties its
+source, and two depots refilling from each other loop until the cascade limit.
 
 ---
 
 ## Deal steps
 
-`dealRules` is the opening deal: an ordered list of steps run against the shuffled
-stock. Omit it and every card simply starts in the stock. `redealRules` is a second
-sequence the player fires from a stock tap during play (Spider's deal, La Belle
-Lucie's regather-and-redeal); it replays against the live stock each time and tails
-off on its own once the stock can't fill it.
+`dealRules` is the opening deal: a list of steps run in order. Without it, every card
+starts in the stock. `redealRules` is a second list the player runs during play by
+tapping the stock it deals from; each run deals from what is left there.
 
 | `kind` | Fields | Meaning |
 |---|---|---|
-| `dealGroup` | `to[]`, `faceDown`, `faceUp`, `roundRobin`, `from` | the workhorse: deal N face-down then M face-up cards to one or more depots. `roundRobin: true` deals one per depot per pass; otherwise each depot is completed before the next. A single target may be written as the bare name. `from` defaults to the first stock depot. A group stops as soon as the stock is empty, so a count larger than the cards available simply deals what there is. |
-| `move` | `from`, `to` | move one card, keeping its current face — the primitive a recorded deal is made of |
-| `flipTop` | `depot` | turn that depot's top card face-up in place (one-way) |
-| `place` | `rank`, `suit`, `to`, `joker` | pull a **named** card out of the stock wherever it sits and land it face-up (Crazy Quilt's pre-seeded foundations). In a multi-deck game only the first matching copy is pulled. `rank` and `suit` are both required, since a card has no default; `"joker": true` places any joker instead, and names neither. |
-| `gather` | `from[]`, `to` | sweep every card off each source depot back onto one target, face-down — the inverse of a deal. A gather into a stock is fired from that stock once it is empty, as a recycle is, so a re-deal that only picks the piles back up (`gather` then `flipTop`) needs no `redealWhen` to wait for the stock to run out |
-| `shuffle` | `depot` | randomly permute that depot's cards in place; pairs with `gather` so a regathered stock is unpredictable |
+| `dealGroup` | `to`, `faceDown`, `faceUp`, `roundRobin`, `from` | deal `faceDown` then `faceUp` cards to each `to` depot. `roundRobin: true` deals one per depot per pass; otherwise each depot is filled before the next. `to` may be a single name; `from` defaults to the first stock. Stops when the stock runs out. |
+| `move` | `from`, `to` | move one card, keeping its face |
+| `flipTop` | `depot` | turn the depot's top card face-up |
+| `place` | `rank`, `suit`, `to`, `joker` | pull the first matching card out of the stock and place it face-up. Needs `rank` and `suit`, or `joker: true`. |
+| `gather` | `from`, `to` | move every card from the `from` depots onto `to`, face-down. A redeal that gathers into a stock is tapped from that stock once it is empty, like a recycle. |
+| `shuffle` | `depot` | randomly reorder the depot's cards |
 
-`redealWhen` guards the re-deal with the same `BoardPredicate` vocabulary the win
-conditions use (Spider: `depotsNonEmpty` over the tableau — no column empty when
-the stock deals). Null means unconditional.
+`redealWhen` is a condition that must hold for a redeal to run, written like
+`winCondition` (see **Win & loss conditions** below).
 
-`maxRedeals` (`int?`, at the top level) limits how many times `redealRules`
-may run after the opening deal. Omitted or `null` = unlimited; `0` = none;
-`2` = two additional deals. One successful batch uses
-one allowance, whether it deals a row or gathers, shuffles and redistributes
-the board; a short final batch also counts. All trigger stocks share this one
-allowance. The limit and
-`redealWhen` must both permit the action.
-
-Both limits are restored by undo/redo and preserved when saving and resuming
-a game. A new game resets them. Exhausting an allowance disables that action.
-
-### Games that use limited passes
-
-| Game | Encoding | Effect |
-|---|---|---|
-| La Belle Lucie | `maxRedeals: 2` | two gather/shuffle/re-deal rescues |
-| Crazy Quilt | draw `recycle: true, maxRecycles: 1` | one waste recycle; set `2` for a more generous game |
-| Limited-pass Klondike, Canfield or Double Klondike | draw `recycle: true, maxRecycles: N` | N additional passes; the built-in games leave it unlimited |
-| Spider, Spiderette, Scorpion | no extra limit needed | the stock runs out naturally; a game may still cap its row-deal batches with `maxRedeals` |
+`maxRedeals` caps the redeals after the opening deal: omitted means unlimited, `0` none.
+Every run counts once, even a short one, and all the stocks a redeal deals from share
+the cap.
 
 ---
 
 ## Win & loss conditions
 
-Declarative board-state predicates evaluated after each committed move. The
-*presence* of a condition activates detection for that game.
+Both are optional; without one, Cardz doesn't detect that outcome. They are checked
+after each move, and `depots` takes a depot pattern.
 
-**`winCondition`** — a composable `BoardPredicate`:
+**`winCondition`**:
 
-- `allCardsIn` (`depots`) — every card on the table sits on a matched depot
-- `allCardsFaceUp` — every card on the table is face-up (a "reveal everything" win; turns on face state, not position; takes no pattern). Clock Solitaire's goal.
-- `depotsEmpty` (`depots`) — every matched depot is empty
-- `depotsNonEmpty` (`depots`) — every matched depot holds ≥1 card (a guard, not usually a win on its own; also backs `redealWhen`)
-- `allOf` / `anyOf` (`of[]`) — conjunction / disjunction
+- `allCardsIn` (`depots`): every card is on a matching depot.
+- `allCardsFaceUp`: every card is face-up.
+- `depotsEmpty` (`depots`): every matching depot is empty.
+- `depotsNonEmpty` (`depots`): every matching depot has a card; mostly for `redealWhen`.
+- `allOf` / `anyOf` (`of`): all / any of the listed conditions.
 
 **`lossCondition`**:
 
-- `noLegalMoves` — the game is lost when nothing is left to do: no card can move anywhere (every run a source lets go of counts, and so does reaching into a spread) and no stock, recycle, redeal or recall tap is live. A finite stock (`maxRecycles`, or no `recycle`) is what lets the taps run out. Needs `depotOnly` — with free placement a card can always move. A `landUnder` self-play counts only when it turns up a new card (Clock), so tucking a matching top under already-revealed cards cannot keep a dead game alive. Opt-in. It looks only at the board in front of the player, so it suits games whose lost boards run out of moves: typically no move can be undone and the stock runs out, or a card has so few places to go (building in suit, emptied columns staying empty) that it has nowhere to shuttle. Where cards readily shuttle between piles or the stock recycles without limit, a hopeless board often still has a move, and the loss would be called only now and then — those games leave it off.
-
----
-
-## Shorthands
-
-The following spellings are accepted as shorthands for the corresponding long forms.
-
-| Where | Shorthand | Means |
-|---|---|---|
-| a depot's `fanDirection` | *omitted* | the default for its `type` — `"Down"` for `Tableau`, `"None"` for all others |
-| `acceptRule` | `"any"` | `{}` — the free-form default |
-| | `"none"` | `{ "rejectsAll": true }` |
-| | `"emptyOnly"` | `{ "emptyOnly": true }` |
-| `ejectRule` | `"any"` | `{}` |
-| | `"locked"` | `{ "gate": "Locked" }` |
-| | `"faceUp"` | `{ "gate": "FaceUp" }` |
-| | `"topOnly"` | `{ "gate": "TopOnly" }` |
-| an eject rule's `unit` | `"single"` | `{ "kind": "Single" }` |
-| | `"any"` | `{ "kind": "Any" }` |
-| any depot pattern | `"Foundation"` | `{ "ofType": "Foundation" }` — a bare depot type |
-| | `["reserve"]` | `{ "names": ["reserve"] }` — a bare list of names |
-| a `dealGroup`'s `to`, a depot's `uncoveredBy` | `"column-1"` | `["column-1"]` |
-
-Also `repeat` to create many depots; and `rules` to create reusable rules:
-
-**`repeat`** on a depot creates that many copies of it. Names take a 1-based suffix on
-the stem — `"name": "column", "repeat": 7` gives `column-1` … `column-7` — and each copy
-sits one grid column right of the last, so a row of columns or foundations can be created with a single entry. It steps along `col`/`row` placement.
-
-**`rules`**, at the top level, names a rule that can be reused:
-
-```
-"rules": {
-  "column": { "seed": "King", "build": { "direction": "Down", "step": 1 }, "suit": "AlternateColor" }
-},
-"depots": [
-  { "name": "column", "type": "Tableau", "col": 0, "row": 1, "repeat": 7, "acceptRule": "$column" }
-]
-```
-
-A name works for either type of rule — `acceptRule` or `ejectRule`.
-
-Cardz stores and exports the long form, so a file imported in shorthand comes back expanded.
+- `noLegalMoves`: no card can move and no tap does anything. Needs `depotOnly`. A
+  `landUnder` move counts only if it reveals a card. Suits games that really run out of
+  moves; with unlimited recycles or easy shuttling it rarely fires.
 
 ---
 
 ## Conventions the rules leave to the player
 
-Some games carry once-per-game courtesies and setup rituals the vocabulary has no
-field for. Rather than grow a bespoke field per game, hand the move to the player as
-a convention and say so in the game's `description`: La Belle Lucie's *merci* is the
-Fish table mode used once by custom, and Baker's Dozen's "sink the Kings before
-play" is Order applied to each King. Nothing enforces either — that is the point. The
-rules decide what is *legal*; a convention decides what is *done*.
-
-The table modes that make such moves possible are offered by default unless its
-`tools` says `None`, and always come back when the rules are switched off.
+Some setup rituals and courtesies have no rule field, such as La Belle Lucie's *merci*
+or sinking the Kings in Baker's Dozen. Describe them in `description` and leave the move
+to the player and the table modes.
 
 ---
 
-## Canonical encodings (the vocabulary in practice)
+## Canonical encodings
 
-- **Klondike foundation**: `seed: Ace, build: { direction: Up, step: 1 }, suit: Same`, eject `gate: Locked`
-- **Klondike stock**: `draw: { to: "waste", count: 1, recycle: true }`, `landFace: Down`, eject `gate: Locked`; the waste is `rejectsAll` with eject `gate: TopOnly` — draws bypass accept rules, so nothing else may land there by hand
-- **FreeCell cell**: `emptyOnly, single`; setup `compoundMoves: Staged`. Its stock is `offTable` — a phantom deal source that takes up no table space
-- **Spider deck**: one recipe, `suits: ["Spades"], count: 8` (genuine single-suit, 104 cards); the 4-suit variant is a full pack with `count: 2`
-- **Spider foundation**: `emptyOnly, seed: King, build: { direction: Down, step: 1 }, minCount: 13`; tableau eject `unit: { kind: Run, build: { direction: Down, step: 1 } }` — the 4-suit variant adds `suit: Same`, so only descending same-suit runs move together; mixed-suit sequences must be broken into legal groups or single cards. The tableau also carries `autoSend: { ofType: "Foundation" }`, and those two rules are what make it fire on a finished run and nothing else
-- **Golf**: the shared foundation takes `build: { direction: Either, step: 1 }`; the tableau columns are `rejectsAll` with eject `gate: TopOnly`; the stock draws onto the foundation with no recycle; `lossCondition: noLegalMoves`
-- **Pyramid**: slots are `rejectsAll` + eject `gate: FaceUp` + `uncoveredBy` naming the two cards that cover them; the *discard* foundation is `single` + `build: { sum: 13 }`, which is what pairs cards to thirteen; the waste accepts only `acceptFrom: { names: ["stock"] }`
-- **Crazy Quilt cell**: deal-only single-card slot (`rejectsAll`, eject `gate: FaceUp`), `uncoveredBy` naming its two short-end neighbours + `uncoveredByAny: true` so it frees when either is gone; foundations split `seed: Ace, build: Up` and `seed: King, build: Down`, both `suit: Same`, over two decks
-- **Clock Solitaire**: each hour pile is `rankIs` its hour + `landUnder: true` + a face-down fan offset of 1 — deliver the card, and the pile's next card turns up on top of it; win `allCardsFaceUp`, loss `noLegalMoves`
-- **Yukon**: eject `unit: {}` (any group moves regardless of internal order)
-- **A foundation under an `Any`-unit source** (Yukon, Scorpion, Flower Garden): add `single: true` to the usual `seed: Ace, build: Up, suit: Same`. A source that declares an eject unit has vouched for the group's internal order, so the target stops checking it — meaning a foundation that accepted groups would take a King buried under twelve unrelated cards as a "complete run". Taking one card at a time closes that off
-- **The hand** (Flower Garden's bouquet): eject `unit: { kind: Single }` with the default `Any` gate — reach into the middle of a spread and take just that card, leaving its neighbours in place. Pair with `rejectsAll` for a reserve that only ever empties
-- **Canfield foundation**: `seedFromDeal: true, build: { direction: Up, step: 1, wrap: true }, suit: Same`, eject `gate: Locked` — the deal fixes the base rank for all four, and the build wraps K↔A to reach every card. Its tableau adds `autoRefill: { names: ["reserve"] }`, which is the whole of the "an emptied column refills from the reserve" rule: the reserve's `FaceUp` eject releases the card, the column's seedless accept takes it, and an exhausted reserve needs no rule to hand the vacancy back to the player
+Common patterns, with JSON quotes left out:
+
+- **Klondike**: each tableau column accepts
+  `{ seed: King, build: { direction: Down }, suit: AlternateColor }`, ejects `faceUp`,
+  and sets `autoFlipTop: true`.
+- **FreeCell**: cells accept `{ emptyOnly: true, single: true }`; `compoundMoves: Staged`;
+  the stock is `offTable`.
+- **Spider**: decks `[{ suits: [Spades], count: 8 }]`. Foundations accept
+  `{ emptyOnly: true, seed: King, build: { direction: Down }, minCount: 13 }`. The tableau
+  ejects `{ gate: FaceUp, unit: { kind: Run, build: { direction: Down } } }` with
+  `autoSend: Foundation`. Four-suit Spider uses `[{ count: 2 }]` and adds `suit: Same` to
+  the unit.
+- **Golf**: the tableau accepts `none` and ejects `topOnly`; the foundation accepts
+  `{ build: { direction: Either } }`; the stock has `draw: { to: foundation }` without
+  `recycle`; loss `noLegalMoves`.
+- **Pyramid**: each slot accepts `none`, ejects `faceUp`, and is `uncoveredBy` the two cards
+  covering it; the discard accepts `{ single: true, build: { sum: 13 } }`; the waste
+  accepts `{ acceptFrom: [stock] }`.
+- **Crazy Quilt**: cells accept `none`, eject `faceUp`, and are `uncoveredBy` both
+  short-end neighbours with `uncoveredByAny: true`; foundations accept
+  `{ seed: Ace, build: { direction: Up }, suit: Same }` or
+  `{ seed: King, build: { direction: Down }, suit: Same }`, over two decks; the stock
+  draws with `recycle: true, maxRecycles: 1`.
+- **Clock**: each hour pile accepts `{ rankIs: <its hour> }` and sets `landUnder: true`;
+  win `allCardsFaceUp`, loss `noLegalMoves`.
+- **Yukon**: the tableau ejects `{ gate: FaceUp, unit: any }`; foundations add
+  `single: true`.
+- **Flower Garden**: the bouquet accepts `none`, ejects `{ unit: single }`, and sets
+  `looseOrder: true`.
+- **Canfield**: foundations accept
+  `{ seedFromDeal: true, build: { direction: Up, wrap: true }, suit: Same }` and eject
+  `locked`; the tableau sets `autoRefill: [reserve]`.
