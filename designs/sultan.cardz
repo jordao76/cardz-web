@@ -1,6 +1,7 @@
 {
   "name": "Sultan",
-  "description": "**Goal:** surround the **Sultan** (the fixed King of Hearts) with eight completed foundations whose top cards are Queens.\n\n- Seven outer foundations begin with Kings and continue **Ace upward to Queen in suit**. The eighth begins with the Ace of Hearts and builds upward to Queen.\n- Six face-up **divan** cards are available for foundations. A cleared divan space refills automatically from the stock.\n- Draw the stock one card at a time to the waste. The waste may be recycled **twice** (three passes total).\n- The central King of Hearts never moves.",
+  "aliases": ["Sultan of Turkey", "Emperor of Germany"],
+  "description": "**Goal:** surround the **Sultan** (the fixed King of Hearts) with eight completed foundations whose top cards are Queens.\n\n- Seven outer foundations begin with Kings and continue **Ace upward to Queen in suit**. The eighth begins with the Ace of Hearts and builds upward to Queen.\n- Six face-up **divan** cards are available for foundations. A cleared divan space refills automatically from the stock.\n- Draw the stock one card at a time to the waste. The waste may be recycled **twice** (three passes total).\n- The central King of Hearts never moves.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
   "decks": [{ "count": 2 }],
   "rules": {
     "foundation": { "seed": "King", "build": { "direction": "Up", "wrap": true }, "suit": "Same" },
@@ -54,11 +55,11 @@
     { "kind": "place", "rank": "King", "suit": "Clubs", "to": "club-1" },
     { "kind": "place", "rank": "King", "suit": "Hearts", "to": "heart-king" },
     { "kind": "place", "rank": "King", "suit": "Clubs", "to": "club-2" },
-    { "kind": "dealGroup", "to": ["divan-1", "divan-2", "divan-3", "divan-4", "divan-5", "divan-6"],
-      "faceUp": 1 }
+    { "kind": "dealGroup", "to": "divan", "faceUp": 1 }
   ],
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
   "tools": "None"
 }

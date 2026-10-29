@@ -28,7 +28,7 @@
   "dealRules": [
     { "kind": "dealGroup", "to": "reserve-1", "faceUp": 13 },
     { "kind": "dealGroup", "to": "reserve-2", "faceUp": 13 },
-    { "kind": "dealGroup", "to": ["feeder-1", "feeder-2", "feeder-3", "feeder-4"], "faceUp": 1 }
+    { "kind": "dealGroup", "to": "feeder", "faceUp": 1 }
   ],
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },

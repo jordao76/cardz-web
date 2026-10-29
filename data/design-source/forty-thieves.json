@@ -1,5 +1,7 @@
 {
   "name": "Forty Thieves",
+  "family": "Forty Thieves",
+  "aliases": ["Napoleon at St Helena", "Big Forty"],
   "description": "**Goal:** build all eight foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**, **one card at a time** (no group moves).\n- Any single card may start an empty column.\n- Draw from the **stock** to the waste one card at a time; there is no recycling.",
   "decks": [{ "count": 2 }],
   "depots": [
@@ -13,12 +15,7 @@
       "acceptRule": { "single": true, "build": { "direction": "Down" }, "suit": "Same" },
       "ejectRule": "topOnly" }
   ],
-  "dealRules": [
-    { "kind": "dealGroup",
-      "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7", "tab-8", "tab-9",
-        "tab-10"],
-      "faceUp": 4, "roundRobin": true }
-  ],
+  "dealRules": [{ "kind": "dealGroup", "to": "tab", "faceUp": 4, "roundRobin": true }],
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "tools": "None"

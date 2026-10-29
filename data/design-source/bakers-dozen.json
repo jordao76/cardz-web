@@ -1,0 +1,22 @@
+{
+  "name": "Baker's Dozen",
+  "family": "Baker's Dozen",
+  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Thirteen columns of four, all face-up. Columns build **down in any suit**, **one card at a time**.\n- An **emptied column stays empty** — nothing may be placed back into it. There is no stock and no redeal.\n- **Sink the Kings first.** A King outranks every card and an empty column takes nothing, so a King can never move, and whatever sits under one is stuck for good. By tradition you begin by sliding each King to the bottom of its own column: arm **ORDER** (press **D**) and drag it down. This is a convention you apply yourself, not a rule — skip it for a much harder game.",
+  "depots": [
+    { "type": "Foundation", "col": 4.5, "row": 0, "name": "found", "repeat": 4,
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": { "direction": "Up" },
+        "suit": "Same"
+      },
+      "ejectRule": "locked" },
+    { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 13,
+      "acceptRule": { "single": true, "seedNone": true, "build": { "direction": "Down" } },
+      "ejectRule": "any" }
+  ],
+  "dealRules": [{ "kind": "dealGroup", "to": "tab", "faceUp": 4, "roundRobin": true }],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" }
+}

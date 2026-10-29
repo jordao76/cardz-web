@@ -1,0 +1,35 @@
+{
+  "name": "Monte Carlo",
+  "family": "Pyramid",
+  "aliases": ["Weddings"],
+  "description": "**Goal:** pair off all 52 cards.\n\n- Twenty-five cards are dealt face up in a **five by five grid**.\n- Drop a card onto another of the **same rank** that **touches** it: beside it, above or below, or **diagonally**. The pair goes to the **discard**.\n- **Tap the stock** to consolidate: the remaining cards slide toward the top left, in reading order, to close the gaps, and the empty cells at the end are refilled from the stock.\n- You win when every card has been paired. You lose when no pair touches and there is nothing left to consolidate.\n- Your **score** is the number of cards removed, 52 for a win.",
+  "depots": [
+    { "type": "Tableau", "fanDirection": "None", "col": 0, "row": 0, "name": "cell", "repeat": 25,
+      "perRow": 5,
+      "acceptRule": {
+        "single": true,
+        "when": "adjacent(source, depot) && !empty(depot) && card.rank == top.rank",
+        "reason": "A card pairs with one of its rank that touches it"
+      },
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Stock", "col": 5.5, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked",
+      "actions": [
+        { "name": "consolidate",
+          "when": "any(cell, empty(it) && (!empty(stock) || any(c in cell, index(c) > index(it) && !empty(c))))",
+          "do": [{ "kind": "compact", "group": "cell", "from": "stock" }] }
+      ] },
+    { "type": "Foundation", "col": 5.5, "row": 1.5, "name": "discard", "acceptRule": "none",
+      "ejectRule": "locked" }
+  ],
+  "dealRules": [{ "kind": "dealGroup", "to": "cell", "faceUp": 1 }],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "count(discard)", "keep": "Over" },
+  "planner": true,
+  "tools": "None"
+}

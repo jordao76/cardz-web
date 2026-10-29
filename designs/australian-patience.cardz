@@ -19,10 +19,7 @@
       "acceptRule": { "seed": "King", "build": { "direction": "Down" }, "suit": "Same" },
       "ejectRule": { "gate": "FaceUp", "unit": "any" }, "autoFlipTop": true }
   ],
-  "dealRules": [
-    { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
-      "faceUp": 4, "roundRobin": true }
-  ],
+  "dealRules": [{ "kind": "dealGroup", "to": "tab", "faceUp": 4, "roundRobin": true }],
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "tools": "None"

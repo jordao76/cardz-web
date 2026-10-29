@@ -1,0 +1,30 @@
+{
+  "name": "Putt Putt",
+  "family": "Golf",
+  "description": "**Goal:** clear all seven tableau columns onto the foundation.\n\n- Play the **top card** of any column onto the foundation if it is one rank **up or down** from the foundation's top card (no suit restriction).\n- Rank **wraps**: an Ace and a King are adjacent, so either can follow the other.\n- With **Jokers** on, the two Jokers are **wild**: a Joker plays on any card, and any card plays on a Joker.\n- Draw the **stock** onto the foundation to keep going (one pass only — no recycling).\n- Stuck with no legal move and an empty stock? The game is **lost**.\n- Your **score** is the number of cards left in the tableau, lower is better. Clear the tableau and each card left in the stock takes one off.",
+  "depots": [
+    { "type": "Stock", "col": 5, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked", "draw": { "to": "foundation" } },
+    { "type": "Foundation", "col": 6, "row": 0, "name": "foundation",
+      "acceptRule": {
+        "build": { "direction": "Either", "wrap": true },
+        "wildDeclares": "free",
+        "wildJoker": true
+      } },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7, "acceptRule": "none",
+      "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "tab", "faceUp": 5, "roundRobin": true },
+    { "kind": "dealGroup", "to": "foundation", "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "depotsEmpty", "depots": "Tableau" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": {
+    "value": "sum(Tableau, count(it)) - count(stock, empty(Tableau))",
+    "better": "Low",
+    "keep": "Over"
+  },
+  "tools": "None"
+}

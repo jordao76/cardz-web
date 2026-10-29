@@ -1,5 +1,7 @@
 {
   "name": "La Belle Lucie",
+  "family": "La Belle Lucie",
+  "aliases": ["The Fan", "Midnight Oil"],
   "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The board is **eighteen fans**. Build them **down in the same suit** (e.g. a ♥6 on a ♥7), **one card at a time** — only the exposed end card of a fan can move.\n- An **emptied fan stays empty**: once a fan is cleared, nothing can be placed back into it.\n- **Stuck? Tap the stock** to gather every fan, shuffle, and re-deal into threes. You may re-deal **twice per game**.\n- **Merci:** to free a card buried in a fan, turn on **FISH** (press **F**) and drag that card out — it will play wherever it legally lands. By tradition, once per game.",
   "rules": {
     "tableau": {
@@ -59,10 +61,7 @@
     { "kind": "dealGroup", "to": "fan-18", "faceUp": 1 }
   ],
   "redealRules": [
-    { "kind": "gather",
-      "from": ["fan-1", "fan-2", "fan-3", "fan-4", "fan-5", "fan-6", "fan-7", "fan-8", "fan-9",
-        "fan-10", "fan-11", "fan-12", "fan-13", "fan-14", "fan-15", "fan-16", "fan-17", "fan-18"],
-      "to": "stock" },
+    { "kind": "gather", "from": ["fan"], "to": "stock" },
     { "kind": "shuffle", "depot": "stock" },
     { "kind": "dealGroup",
       "to": ["fan-1", "fan-2", "fan-3", "fan-4", "fan-5", "fan-6", "fan-7", "fan-8", "fan-9",

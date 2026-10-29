@@ -1,0 +1,37 @@
+{
+  "name": "Accordion",
+  "family": "Accordion",
+  "aliases": ["Idle Year", "Tower of Babel", "Methuselah"],
+  "description": "**Goal:** squeeze the whole deck into **one pile**.\n\n- **Tap the stock** to deal its next card face up onto the end of the row. Deal whenever you like.\n- A pile may move onto the pile **directly to its left**, or **three places to its left**, when their top cards match in **rank or suit**. The whole pile moves, never part of it.\n- The row closes up behind a pile that moves.\n- You win when the stock is spent and a single pile is left.\n- Your **score** is the number of piles left, counting each card still in the stock as one; lower is better, 1 for a win.",
+  "depots": [
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked",
+      "actions": [
+        { "name": "deal", "when": "!empty(stock) && any(slot, empty(it))",
+          "do": [
+            { "kind": "flipTop", "depot": "stock" },
+            { "kind": "move", "from": "stock", "to": "first(slot, empty(it))" }
+          ] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 0, "row": 1, "name": "slot", "repeat": 52,
+      "perRow": 13,
+      "acceptRule": {
+        "when": "(source == neighbour(depot, 1) || source == neighbour(depot, 3)) && !empty(depot) && (top(pile).rank == top.rank || top(pile).suit == top.suit)",
+        "reason": "A pile moves onto the pile one or three places to its left, when the top cards match in rank or suit"
+      },
+      "ejectRule": { "unit": "pile" },
+      "triggers": [
+        { "when": "empty(depot) && !empty(neighbour(depot, 1))",
+          "do": [{ "kind": "compact", "group": "slot" }] }
+      ] }
+  ],
+  "dealRules": [
+    { "kind": "move", "from": "stock", "to": "slot-1" },
+    { "kind": "flipTop", "depot": "slot-1" }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "expr", "when": "empty(stock) && count(slot, !empty(it)) == 1" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "count(slot, !empty(it)) + count(stock)", "better": "Low", "keep": "Over" },
+  "tools": "None"
+}

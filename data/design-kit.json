@@ -1,6 +1,11 @@
 {
   "games": [
     {
+      "name": "Accordion",
+      "file": "accordion.cardz",
+      "note": "Fifty-two spaces read as one long row, piles that move only whole and only onto the pile one or three places to their left, a row that closes up by itself, and a stock that deals onto the first empty space."
+    },
+    {
       "name": "Aces and Kings",
       "file": "aces-and-kings.cardz",
       "note": "Empty foundations that build in opposite directions, four single-card spaces the stock refills by itself, and a waste that gets one pass."
@@ -21,14 +26,14 @@
       "note": "Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles."
     },
     {
-      "name": "Double Klondike",
-      "file": "double-klondike.cardz",
-      "note": "Klondike's stock, waste and turn-up columns stretched over two decks: eight repeated foundations and a nine-column diagonal deal."
-    },
-    {
       "name": "Fourteen Out",
       "file": "fourteen-out.cardz",
-      "note": "A discard that builds by sum, taking pairs that total fourteen, and a win that asks for empty columns rather than full foundations."
+      "note": "Rule expressions pair cards: a column's top card drops onto a partner that makes fourteen with it, and the pair leaves by itself. The win asks for empty columns rather than full foundations."
+    },
+    {
+      "name": "Gaps",
+      "file": "gaps.cardz",
+      "note": "Rule expressions read the row: a gap takes the next card up in its left neighbour's suit. Deal steps that act only where their condition holds take the Aces out after the deal and leave one gap after each row's run on a redeal."
     },
     {
       "name": "Grandfather's Clock",
@@ -36,14 +41,14 @@
       "note": "Twelve foundations placed at fractional grid positions and turned to face the middle of a clock, each seeded with a named card and none capped: the next hour's seed is what stops each one."
     },
     {
+      "name": "Monte Carlo",
+      "file": "monte-carlo.cardz",
+      "note": "A five by five grid where a card pairs only with a touching card of its rank, pairs that leave by themselves, and a stock tap that closes the grid up and refills it."
+    },
+    {
       "name": "Puss in the Corner",
       "file": "puss-in-the-corner.cardz",
       "note": "Foundations that build by colour instead of suit, holding piles only the stock can feed, and one redeal that gathers the piles back in order without dealing anything out."
-    },
-    {
-      "name": "Putt Putt with Jokers",
-      "file": "putt-putt-with-jokers.cardz",
-      "note": "Golf's one foundation with ranks that wrap from King to Ace, and wild Jokers."
     },
     {
       "name": "Russian Solitaire",
@@ -64,11 +69,6 @@
       "name": "Sultan",
       "file": "sultan.cardz",
       "note": "Named foundations laid out as a portrait, a centre card that accepts nothing, Kings that wrap round to Ace, and a stock that recycles twice."
-    },
-    {
-      "name": "Weathervane",
-      "file": "weathervane.cardz",
-      "note": "One pile that takes any card matching its top in rank or suit, wild eights that name the suit which must follow them, and a stock that draws to a waste instead of onto the pile."
     }
   ],
   "builtIns": [
@@ -77,6 +77,12 @@
       "page": "klondike",
       "source": "data/design-source/klondike.json",
       "note": "The classic layout: a stock that draws one card and recycles its waste, four foundations, and seven columns dealt diagonally one step at a time."
+    },
+    {
+      "name": "Double Klondike",
+      "page": "double-klondike",
+      "source": "data/design-source/double-klondike.json",
+      "note": "Klondike's stock, waste and turn-up columns stretched over two decks: eight repeated foundations and a nine-column diagonal deal."
     },
     {
       "name": "FreeCell",
@@ -107,6 +113,18 @@
       "page": "golf",
       "source": "data/design-source/golf.json",
       "note": "One foundation that takes a card a rank up or down, a stock that draws straight onto it, and a loss when no move is left."
+    },
+    {
+      "name": "Putt Putt",
+      "page": "putt-putt",
+      "source": "data/design-source/putt-putt.json",
+      "note": "Golf's one foundation with ranks that wrap from King to Ace, and a Jokers toggle that adds two wild cards."
+    },
+    {
+      "name": "Weathervane",
+      "page": "weathervane",
+      "source": "data/design-source/weathervane.json",
+      "note": "One pile that takes any card matching its top in rank or suit, wild eights that name the suit which must follow them, and a stock that draws to a waste instead of onto the pile."
     },
     {
       "name": "La Belle Lucie",
@@ -167,6 +185,12 @@
       "page": "flower-garden",
       "source": "data/design-source/flower-garden.json",
       "note": "A bouquet of sixteen cards that play in any order, and six beds that build down regardless of suit."
+    },
+    {
+      "name": "Baker's Dozen",
+      "page": "bakers-dozen",
+      "source": "data/design-source/bakers-dozen.json",
+      "note": "Thirteen open columns that build down in any suit one card at a time, empty columns that take nothing back, and a King sink left to the player instead of the deal."
     }
   ]
 }

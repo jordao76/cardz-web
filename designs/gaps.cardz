@@ -1,0 +1,47 @@
+{
+  "name": "Gaps",
+  "family": "Gaps",
+  "aliases": ["Montana", "Rangoon", "Spaces", "Addiction"],
+  "description": "**Goal:** order each row from **Two to King** in one suit.\n\n- The Aces are taken away, leaving four gaps.\n- Fill a gap with the card **one higher, in the same suit**, as the card on its left. A gap in the **first column** takes any **Two**.\n- A gap to the right of a King, or of another gap, stays empty.\n- **Stuck?** Tap the stock to redeal, **twice** at most. Each row keeps its run from a Two in the first column; the other cards are shuffled and dealt again, leaving one gap after each run.",
+  "depots": [
+    { "type": "Tableau", "fanDirection": "None", "col": 0, "row": 0, "name": "cell", "repeat": 52,
+      "perRow": 13,
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true,
+        "when": "let c = (index(depot) - 1) % 13; let left = top(neighbour(depot, 0 - 1)); c == 0 && card.rank == Two || c > 0 && card.suit == left.suit && card.value == left.value + 1",
+        "reason": "Play the next card up in the suit on the left"
+      },
+      "ejectRule": "topOnly" },
+    { "type": "Stock", "col": 0, "row": 4, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 1, "row": 4, "name": "aces", "acceptRule": "none",
+      "ejectRule": "locked" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "cell", "faceUp": 1 },
+    { "kind": "gather", "from": ["cell"], "to": "aces", "when": "top(depot).rank == Ace" }
+  ],
+  "redealRules": [
+    { "kind": "gather", "from": ["cell"], "to": "stock",
+      "when": "let c = (index(depot) - 1) % 13; let lead = neighbour(depot, 0 - c); !all(k in cell, index(k) < index(lead) || index(k) > index(depot) || top(k).value == (index(k) - 1) % 13 + 2 && top(k).suit == top(lead).suit)" },
+    { "kind": "shuffle", "depot": "stock" },
+    { "kind": "dealGroup", "to": "cell", "faceUp": 1, "from": "stock",
+      "when": "empty(depot) && (index(depot) - 1) % 13 != 0 && empty(neighbour(depot, 0 - 1))" }
+  ],
+  "maxRedeals": 2,
+  "depotOnly": true,
+  "winCondition": {
+    "kind": "expr",
+    "when": "all(d in cell, (index(d) - 1) % 13 == 12 || top(d).value == (index(d) - 1) % 13 + 2 && top(d).suit == top(neighbour(d, 0 - (index(d) - 1) % 13)).suit)"
+  },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": {
+    "value": "count(d in cell, let c = (index(d) - 1) % 13; let lead = neighbour(d, 0 - c); all(k in cell, index(k) < index(lead) || index(k) > index(d) || top(k).value == (index(k) - 1) % 13 + 2 && top(k).suit == top(lead).suit))",
+    "keep": "Over"
+  },
+  "planner": {
+    "value": "100 * count(d in cell, let c = (index(d) - 1) % 13; let lead = neighbour(d, 0 - c); all(k in cell, index(k) < index(lead) || index(k) > index(d) || top(k).value == (index(k) - 1) % 13 + 2 && top(k).suit == top(lead).suit)) + 10 * sum(d in cell, let c = (index(d) - 1) % 13; let left = top(neighbour(d, 0 - 1)); count(e in d, c == 0 && e.rank == Two || c > 0 && e.suit == left.suit && e.value == left.value + 1) * (15 - top(d).value)) - 5 * count(d in cell, empty(d) && (index(d) - 1) % 13 > 0 && top(neighbour(d, 0 - 1)).rank == King)"
+  },
+  "tools": "None"
+}

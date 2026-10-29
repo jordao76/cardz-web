@@ -13,9 +13,7 @@
       "acceptRule": { "build": { "direction": "Down" }, "suit": "Same" }, "ejectRule": "faceUp" }
   ],
   "dealRules": [
-    { "kind": "dealGroup",
-      "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7", "tab-8"], "faceUp": 6,
-      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab", "faceUp": 6, "roundRobin": true },
     { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4"], "faceUp": 1,
       "roundRobin": true }
   ],

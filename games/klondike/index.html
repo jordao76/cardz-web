@@ -41,7 +41,7 @@
       </figure>
       <div class="game-rules game-rules-primary">
           <p><strong>Goal:</strong> build all four foundations up from Ace to King, each in a single suit.</p>
-          <ul><li>Tableau columns build <strong>down in alternating colour</strong> (e.g. a red 6 on a black 7). Move a single card or a valid run.</li><li>Only <strong>face-up</strong> cards can be picked up; uncovering a face-down card flips it.</li><li>An empty column can be started with a <strong>King</strong> (or a run headed by a King).</li><li>Draw from the <strong>stock</strong> to the waste; recycle the waste back to the stock when it runs out.</li></ul>
+          <ul><li>Tableau columns build <strong>down in alternating colour</strong> (e.g. a red 6 on a black 7). Move a single card or a valid run.</li><li>Only <strong>face-up</strong> cards can be picked up; uncovering a face-down card flips it.</li><li>An empty column can be started with a <strong>King</strong> (or a run headed by a King).</li><li>Draw from the <strong>stock</strong> to the waste; recycle the waste back to the stock when it runs out.</li><li>Your <strong>score</strong>, kept for a win: 10 for each card on the foundations, 5 for each tableau card turned up, and 100 off each time the waste goes back into the stock. It never drops below 0.</li></ul>
       </div>
 
       <div class="game-variants">
@@ -51,17 +51,18 @@
           <summary>Klondike (Draw 3)</summary>
           <div class="game-rules">
           <p><strong>Goal:</strong> build all four foundations up from Ace to King, each in a single suit.</p>
-          <ul><li>Tableau columns build <strong>down in alternating colour</strong> (e.g. a red 6 on a black 7). Move a single card or a valid run.</li><li>Only <strong>face-up</strong> cards can be picked up; uncovering a face-down card flips it.</li><li>An empty column can be started with a <strong>King</strong> (or a run headed by a King).</li><li>Draw from the <strong>stock</strong> to the waste <strong>three cards at a time</strong>; only the top card of the waste is in play. Recycle the waste back to the stock when it runs out.</li></ul>
+          <ul><li>Tableau columns build <strong>down in alternating colour</strong> (e.g. a red 6 on a black 7). Move a single card or a valid run.</li><li>Only <strong>face-up</strong> cards can be picked up; uncovering a face-down card flips it.</li><li>An empty column can be started with a <strong>King</strong> (or a run headed by a King).</li><li>Draw from the <strong>stock</strong> to the waste <strong>three cards at a time</strong>; only the top card of the waste is in play. Recycle the waste back to the stock when it runs out.</li><li>Your <strong>score</strong>, kept for a win: 10 for each card on the foundations, 5 for each tableau card turned up, and 20 off each time the waste goes back into the stock after the third pass. It never drops below 0.</li></ul>
           </div>
         </details>
       </div>
       <details class="game-source">
-        <summary>Read its design file <small>38 lines</small></summary>
+        <summary>Read its design file <small>42 lines</small></summary>
         <p>The classic layout: a stock that draws one card and recycles its waste, four foundations, and seven columns dealt diagonally one step at a time. This is Klondike; the other variants change a line or two. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Klondike&quot;</span>,
   <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Klondike&quot;</span>,
-  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste; recycle the waste back to the stock when it runs out.&quot;</span>,
+  <span class="j-key">&quot;aliases&quot;</span>: [<span class="j-str">&quot;Solitaire&quot;</span>, <span class="j-str">&quot;Patience&quot;</span>],
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- An empty column can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste; recycle the waste back to the stock when it runs out.\n- Your **score**, kept for a win: 10 for each card on the foundations, 5 for each tableau card turned up, and 100 off each time the waste goes back into the stock. It never drops below 0.&quot;</span>,
   <span class="j-key">&quot;depots&quot;</span>: [
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>,
       <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;draw&quot;</span>: { <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;waste&quot;</span>, <span class="j-key">&quot;recycle&quot;</span>: <span class="j-lit">true</span> } },
@@ -94,6 +95,9 @@
   ],
   <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
   <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
+  <span class="j-key">&quot;scoring&quot;</span>: {
+    <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;max(0, 10 * sum(Foundation, count(it)) + 5 * (21 - count(faceDown(Tableau))) - 100 * recycles)&quot;</span>
+  },
   <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
 }</code></pre>
       </details>
@@ -103,9 +107,9 @@
       </div>
       <nav class="game-more" aria-label="Other games">
         <p class="eyebrow"><span></span> More solitaire</p>
-        <div><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/pyramid/">Pyramid</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a></div>
+        <div><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/bakers-dozen/">Baker's Dozen</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/pyramid/">Pyramid</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a><a href="../../games/weathervane/">Weathervane</a><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt/">Putt Putt</a></div>
         <p class="eyebrow"><span></span> Extra games</p>
-        <div><a href="../../games/weathervane/">Weathervane</a><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt-with-jokers/">Putt Putt with Jokers</a><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a></div>
+        <div><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a><a href="../../games/accordion/">Accordion</a><a href="../../games/monte-carlo/">Monte Carlo</a><a href="../../games/gaps/">Gaps</a></div>
       </nav>
     </article>
   </main>

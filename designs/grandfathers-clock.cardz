@@ -54,9 +54,7 @@
     { "kind": "place", "rank": "Six", "suit": "Hearts", "to": "nine" },
     { "kind": "place", "rank": "Seven", "suit": "Spades", "to": "ten" },
     { "kind": "place", "rank": "Eight", "suit": "Diamonds", "to": "eleven" },
-    { "kind": "dealGroup",
-      "to": ["left-1", "left-2", "left-3", "left-4", "right-1", "right-2", "right-3", "right-4"],
-      "faceUp": 5, "roundRobin": true }
+    { "kind": "dealGroup", "to": ["left", "right"], "faceUp": 5, "roundRobin": true }
   ],
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },

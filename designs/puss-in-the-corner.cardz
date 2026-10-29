@@ -1,19 +1,12 @@
 {
   "name": "Puss in the Corner",
-  "description": "**Goal:** move every card to the four foundations.\n\n- The foundations start with the four **Aces** and build **up by colour** to King: red on red, black on black, whatever the suit.\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and only for a foundation.\n- When the stock runs out, tap it **once** to pick the holding piles up in order as a new stock.",
-  "rules": {
-    "foundation": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "SameColor" },
-    "tableau": { "acceptFrom": ["stock"] }
-  },
+  "family": "Calculation",
+  "description": "**Goal:** move every card to the four foundations.\n\n- The foundations start with the four **Aces** and build **up by colour** to King: red on red, black on black, whatever the suit.\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and only for a foundation.\n- When the stock runs out, tap it **once** to pick the holding piles up in order as a new stock.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
+  "rules": { "tableau": { "acceptFrom": ["stock"] } },
   "depots": [
-    { "type": "Foundation", "col": 3, "row": 1, "name": "foundation-1",
-      "acceptRule": "$foundation", "ejectRule": "locked" },
-    { "type": "Foundation", "col": 4, "row": 1, "name": "foundation-2",
-      "acceptRule": "$foundation", "ejectRule": "locked" },
-    { "type": "Foundation", "col": 3, "row": 2, "name": "foundation-3",
-      "acceptRule": "$foundation", "ejectRule": "locked" },
-    { "type": "Foundation", "col": 4, "row": 2, "name": "foundation-4",
-      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3, "row": 1, "name": "foundation", "repeat": 4, "perRow": 2,
+      "acceptRule": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "SameColor" },
+      "ejectRule": "locked" },
     { "type": "Tableau", "fanWindow": 8, "fanAnchor": "Center", "col": 2.1, "row": 0.41,
       "name": "hold-1", "acceptRule": "$tableau", "ejectRule": "topOnly",
       "angle": 0.7853981633974483, "fanOffsetFaceUp": 27 },
@@ -37,12 +30,13 @@
     { "kind": "flipTop", "depot": "stock" }
   ],
   "redealRules": [
-    { "kind": "gather", "from": ["hold-1", "hold-2", "hold-3", "hold-4"], "to": "stock" },
+    { "kind": "gather", "from": ["hold"], "to": "stock" },
     { "kind": "flipTop", "depot": "stock" }
   ],
   "maxRedeals": 1,
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
   "tools": "None"
 }

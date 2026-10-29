@@ -1,7 +1,7 @@
 {
   "name": "Spiderette",
   "family": "Spider",
-  "description": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.",
+  "description": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.\n- Your **score** starts at 500, loses one for every move and gains 100 for each run sent to the foundations.",
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
       "ejectRule": "locked" },
@@ -39,12 +39,10 @@
     { "kind": "dealGroup", "to": "tab-7", "faceDown": 1 },
     { "kind": "dealGroup", "to": "tab-7", "faceUp": 1 }
   ],
-  "redealRules": [
-    { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
-      "faceUp": 1, "roundRobin": true }
-  ],
+  "redealRules": [{ "kind": "dealGroup", "to": "tab", "faceUp": 1, "roundRobin": true }],
   "redealWhen": { "kind": "depotsNonEmpty", "depots": "Tableau" },
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "scoring": { "value": "500 - moves + 100 * count(Foundation, !empty(it))" },
   "tools": "None"
 }

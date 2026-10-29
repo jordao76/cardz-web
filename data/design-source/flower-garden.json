@@ -1,5 +1,7 @@
 {
   "name": "Flower Garden",
+  "family": "La Belle Lucie",
+  "aliases": ["The Garden", "Bouquet"],
   "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- The **bouquet** across the top is a spread of sixteen cards, and **any** of them may be played — reach into the middle, not just the end.\n- The six **flower beds** build **down in any suit**, **one card at a time**.\n- An emptied bed may be filled by any single card.\n- Nothing is hidden and there is no stock: every card is face-up from the start, so the whole game is a puzzle you can see.",
   "depots": [
     { "type": "Reserve", "fanDirection": "Right", "col": 0, "row": 0, "name": "bouquet",
@@ -17,8 +19,7 @@
       "acceptRule": { "single": true, "build": { "direction": "Down" } }, "ejectRule": "topOnly" }
   ],
   "dealRules": [
-    { "kind": "dealGroup", "to": ["bed-1", "bed-2", "bed-3", "bed-4", "bed-5", "bed-6"],
-      "faceUp": 6, "roundRobin": true },
+    { "kind": "dealGroup", "to": "bed", "faceUp": 6, "roundRobin": true },
     { "kind": "dealGroup", "to": "bouquet", "faceUp": 16 }
   ],
   "depotOnly": true,

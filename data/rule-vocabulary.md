@@ -34,7 +34,7 @@ explained below.
       "acceptRule": "$column", "ejectRule": "faceUp" }
   ],
   "dealRules": [
-    { "kind": "dealGroup", "to": ["column-1", "column-2", "column-3", "column-4"], "faceDown": 2, "faceUp": 1 }
+    { "kind": "dealGroup", "to": "column", "faceDown": 2, "faceUp": 1 }
   ],
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" }
 }
@@ -60,11 +60,16 @@ explained below.
 | `name` | string | required | the game's name |
 | `description` | string | — | player-facing rules in Markdown; not read by the engine |
 | `family` | string | — | exact-string grouping key, e.g. `"Klondike"` |
+| `aliases` | list of strings | — | other names the game is known by, e.g. `["Demon", "Demon Patience"]`; found by search, not translated |
 | `decks` | list of packs | one 52-card deck | the cards; see **Deck composition** below |
 | `depots` | list of depots | required | the places that hold cards; see **Depots** below |
 | `rules` | object | — | named rules that depots share; see **Depot rules** below |
 | `dealRules`, `redealRules`, `redealWhen`, `maxRedeals` | | | the deal and redeals; see **Deal steps** below |
 | `winCondition`, `lossCondition` | | | see **Win & loss conditions** below |
+| `values` | object | pip value | what each card is worth to expressions; see **Values and scoring** below |
+| `scoring` | object | — | how a deal is scored; see **Values and scoring** below |
+| `planner` | `true`, `false` or object | by how the game is written | whether Cardz's own player may play the game, and how it values a board; see **Teaching Cardz to play** below |
+| `aids` | object | — | symbols a deck may print on the cards to help play this game; see **Card aids** below |
 | `depotOnly` | bool | `false` | a card dropped on open table, not on a depot, bounces back. Usually on for ruled games. |
 | `compoundMoves` | `Free`, `Staged` | `Free` | `Free` moves any valid run as a unit; `Staged` limits runs to `(1 + free cells) × 2^(empty columns)`, as in FreeCell |
 | `tools` | `Unset`, `Free`, `None` | `Unset` | `None` hides the table modes, the free-handling tools (Fish, Grab, Order, Spread…) |
@@ -86,6 +91,8 @@ freely, `depotOnly` stops applying, and the table modes return.
 | `ranks` | `["Ace","Two"…"Ten","Jack","Queen","King"]` | Ace–King | drop entries for stripped decks |
 | `count` | integer | `1` | identical copies of this pack |
 | `jokers` | integer | `0` | jokers per copy. A joker has no rank or suit, so ruled depots refuse it unless they set `wildJoker` (see **`acceptRule`** below). |
+| `to` | depot name | the stock | the depot this pack is shuffled into. |
+| `back` | `1`, `2` | alternating | the card back every copy of this pack shows |
 
 A pack holds `(suits × ranks + jokers) × count` cards; a game holds at most **208**.
 
@@ -93,8 +100,10 @@ A pack holds `(suits × ranks + jokers) × count` cards; a game holds at most **
 - **Spider 1-suit**: `[ { "suits": ["Spades"], "count": 8 } ]` → 104 spades.
 - **Spider 2-suit**: `[ { "suits": ["Spades","Hearts"], "count": 4 } ]`.
 - **Stripped 32-card** (7–Ace): `"ranks": ["Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"]`.
+- **A separated deck**: `[ { "ranks": ["Jack","Queen","King"], "to": "monsters", "back": 1 }, { "ranks": ["Ace", … ,"Ten"], "back": 1 } ]`
+  puts the court cards on the `monsters` depot and the rest in the stock, each shuffled.
 
-Copies alternate between two card-back styles.
+Copies alternate between two card backs. A pack that sets `back` shows that back on every copy.
 
 ---
 
@@ -105,9 +114,10 @@ Copies alternate between two card-back styles.
 | Field | Values | Notes |
 |---|---|---|
 | `name` | string | unique id other fields use to refer to this depot |
-| `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Layout` | required. Every game needs a `Stock`; the deck starts there. `Layout` is a rule-free spot for unruled tables. |
+| `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Layout` | required. Decks without a `to` start on a `Stock`. `Layout` is a rule-free spot for unruled tables. |
 | placement | `col`/`row` (grid, fractional) or `x`/`y` (px); `angle` (radians) | `x`/`y` win over `col`/`row` |
 | `repeat` | integer | create N copies, named with 1-based suffixes (`column-1` … `column-7`), each one grid column right of the last |
+| `perRow` | integer | with `repeat`, wrap the copies: this many to a row, each row one grid row below the last, numbered in reading order |
 | `offTable` | bool | keep the depot off the visible table, e.g. a stock that only deals |
 | `fanDirection` | `None`, `Down`, `Up`, `Left`, `Right`, `Radial` | `None` is a squared pile; `Radial` is a held-hand arc. Default `Down` for a `Tableau`, `None` otherwise. |
 | `fanWindow` | integer | fan only the top N cards; ignored by `Radial` |
@@ -174,10 +184,9 @@ which must pass. Fields shown without a type are `true`/`false`.
 `build` and `suit` compare a card with the one it lands on. `acceptRule` uses them, and
 so does an eject `Run` unit (below).
 
-- **`build`**: `direction` is `Up`, `Down` or `Either`, required unless you use `sum`.
-  `step` is 0–12, default 1 (0 matches equal ranks). `wrap` builds through
-  King↔Ace. Instead of a direction, `sum: N` accepts a card whose pip value (Ace = 1 …
-  King = 13) totals N with the top card, then turns the pair face-down.
+- **`build`**: `direction` is `Up`, `Down` or `Either`. `step` is 0–12,
+  default 1 (0 matches equal ranks). `wrap` builds through King↔Ace. Cards that pair
+  by a total, as in Pyramid, use an expression instead (see "Rule expressions").
 - **`suit`**: `Any` (default), `Same`, `AlternateColor` or `SameColor`.
 
 ### `ejectRule` — what may leave
@@ -194,9 +203,10 @@ so does an eject `Run` unit (below).
   - `Any`: the picked card and every card above it, in any order.
   - `Run`: the picked card and every card above it, if they follow the unit's own
     `build` and, optionally, `suit`.
+  - `Pile`: the whole pile, whichever card is picked, as in Accordion.
 
-  Write it `{ "kind": "Run", "build": …, "suit": … }`. `"single"` and `"any"` may be
-  written bare, and `{}` means `Any`.
+  Write it `{ "kind": "Run", "build": …, "suit": … }`. `"single"`, `"any"` and `"pile"` may
+  be written bare, and `{}` means `Any`.
 
 A declared `unit` vouches for the group, so the receiving depot's `acceptRule` checks
 only the group's bottom card. A foundation fed by an `Any` unit should therefore set
@@ -239,12 +249,20 @@ tapping the stock it deals from; each run deals from what is left there.
 
 | `kind` | Fields | Meaning |
 |---|---|---|
-| `dealGroup` | `to`, `faceDown`, `faceUp`, `roundRobin`, `from` | deal `faceDown` then `faceUp` cards to each `to` depot. `roundRobin: true` deals one per depot per pass; otherwise each depot is filled before the next. `to` may be a single name; `from` defaults to the first stock. Stops when the stock runs out. |
+| `dealGroup` | `to`, `faceDown`, `faceUp`, `roundRobin`, `from`, `when` | deal `faceDown` then `faceUp` cards to each `to` depot. `roundRobin: true` deals one per depot per pass; otherwise each depot is filled before the next. `to` may be a single name, and the name of a repeated depot (`column`) means all its copies in order; `from` defaults to the first stock. Stops when the stock runs out. |
 | `move` | `from`, `to` | move one card, keeping its face |
 | `flipTop` | `depot` | turn the depot's top card face-up |
 | `place` | `rank`, `suit`, `to`, `joker` | pull the first matching card out of the stock and place it face-up. Needs `rank` and `suit`, or `joker: true`. |
-| `gather` | `from`, `to` | move every card from the `from` depots onto `to`, face-down. A redeal that gathers into a stock is tapped from that stock once it is empty, like a recycle. |
+| `gather` | `from`, `to`, `when` | move every card from the `from` depots onto `to`, face-down; a repeated depot's name in `from` means all its copies. Each pile is turned over. A redeal that gathers into a stock is tapped from that stock once it is empty, like a recycle. |
 | `shuffle` | `depot` | randomly reorder the depot's cards |
+| `compact` | `group`, `from` | in a trigger or action only: close up a repeated depot's gaps. Each copy's pile slides down to the lowest empty copy, keeping its order and faces; with `from`, each copy left empty then takes one card from its top, face-up. `group` is the copies' shared name (`cell` for `cell-1` …). |
+
+A `dealGroup` or a `gather` may add `when`, a rule expression (see **Rule expressions**
+below) that keeps only the depots it holds for: the deal skips the other `to` depots, and
+the gather leaves the other `from` depots where they are. In the expression, `depot` names
+each one in turn, and every depot is judged before the step moves a card. Gaps deals the
+Aces out with one, then takes them away with
+`{ "kind": "gather", "from": ["cell"], "to": "aces", "when": "top(depot).rank == Ace" }`.
 
 `redealWhen` is a condition that must hold for a redeal to run, written like
 `winCondition` (see **Win & loss conditions** below).
@@ -270,12 +288,328 @@ Fields named `depots` take a depot pattern.
 - `depotsEmpty` (`depots`): every matching depot is empty.
 - `depotsNonEmpty` (`depots`): every matching depot has a card; mostly for `redealWhen`.
 - `allOf` / `anyOf` (`of`): all / any of the listed conditions.
+- `expr` (`when`): the rule expression holds; see **Rule expressions** below.
 
 **`lossCondition`**:
 
 - `noLegalMoves`: no card can move and no tap does anything. Needs `depotOnly`. A
   `landUnder` move counts only if it reveals a card. Suits games that really run out of
   moves; with unlimited recycles or easy shuttling it rarely fires.
+- `expr` (`when`): the game is lost as soon as the rule expression holds. Unlike
+  `noLegalMoves` it doesn't need `depotOnly`.
+
+---
+
+## Rule expressions
+
+A rule expression is a condition written as text, which Cardz checks against the board.
+It can only read the board, never change it, and it always gives an answer.
+
+| Where | What it decides | What it can name |
+|---|---|---|
+| `acceptRule.when` | whether a drop lands. Checked after the depot's other accept fields, so it can only narrow what the depot takes. Add `reason` for the message a refused player sees. | `card` (the bottom card of the arriving pile), `pile` (all of it), `depot` (where it would land), `source` (where it came from), `top` (the depot's top card) |
+| `draw.when` | whether tapping the stock does anything, recycles included | the depots |
+| a deal step's `when` | whether a `dealGroup` deals to a depot, or a `gather` takes from it | `depot` (the one tested) |
+| win, loss and `redealWhen` with `"kind": "expr"` | whether the condition holds | the depots |
+
+This game uses some of them:
+
+```json
+{
+  "name": "Climb to Ten",
+  "description": "Draw three cards at a time, and play them all before drawing again. A tower takes a higher card than its top, or a card that makes ten with it. Discard what you can't play. Five discards lose; play out the deck with fewer to win.",
+  "depotOnly": true,
+  "decks": [ { "ranks": ["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"] } ],
+  "depots": [
+    { "name": "stock", "type": "Stock", "col": 0, "row": 0,
+      "draw": { "to": "hand", "count": 3, "when": "empty(hand)" },
+      "landFace": "Down", "acceptRule": "none", "ejectRule": "locked" },
+    { "name": "hand", "type": "Waste", "col": 1, "row": 0, "fanDirection": "Right", "looseOrder": true,
+      "acceptRule": "none", "ejectRule": { "gate": "Any", "unit": "Single" } },
+    { "name": "tower", "type": "Foundation", "col": 0, "row": 1, "repeat": 3,
+      "acceptRule": { "single": true, "acceptFrom": ["hand"],
+        "when": "empty(depot) || card.value > top.value || card.value + top.value == 10",
+        "reason": "Climb higher, or make ten with the top card" },
+      "ejectRule": "locked" },
+    { "name": "discard", "type": "Reserve", "col": 4, "row": 0, "fanDirection": "Down",
+      "acceptRule": { "single": true, "acceptFrom": ["hand"] }, "ejectRule": "locked" }
+  ],
+  "winCondition": { "kind": "expr", "when": "empty(stock) && empty(hand) && count(discard) < 5" },
+  "lossCondition": { "kind": "expr", "when": "count(discard) >= 5" }
+}
+```
+
+### Values
+
+Every part of an expression resolves to a value: a literal number, a word like `Hearts`,
+a depot's name, or what a function returns. Each value is of one kind: numbers can be added,
+cards have properties, lists can be counted. The kinds are:
+
+- **Numbers** (`7`), **conditions** (`true`, `false`), **cards**, **lists of cards**,
+  **depots** and **lists of depots**.
+- **Ranks** (`Ace` … `King`), **suits** (`Clubs` … `Spades`) and **colours** (`Red`,
+  `Black`), written capitalised.
+- A **depot type** (`Tableau`) means every depot of that type. The name of a repeated depot
+  (`tower` for `tower-1` … `tower-3`) means all its copies.
+- **A depot name** means that depot. Names can't contain `-`, so a depot can also be written
+  `depot("tower-2")`.
+- Wherever cards are wanted, a depot stands for the cards on it, bottom first, and a list
+  of depots stands for all their cards.
+
+### Operators
+
+Operators join values into a larger expression, much as in a spreadsheet formula: arithmetic
+for numbers, comparisons for conditions, and `&&`, `||` and `!` combine conditions.
+The whole expression must end up as a condition, except where a number is expected,
+as in a `move`'s `count` or a game's `scoring`.
+
+`||` (or), `&&` (and), `!` (not), `==`, `!=`, `<`, `<=`, `>`, `>=`, `+`, `-`, `*`, `%`, and
+parentheses. `&&` binds tighter than `||`, and `%` binds like `*`. `%` is the remainder, never
+negative for a positive divisor, so `(top.value - card.value) % 13` counts round the corner
+from King to Ace; anything `% 0` is 0. Only numbers and ranks can be ordered, and
+comparisons don't chain. `let name = …; rest` names a part so the rest can use it:
+`let monster = base(depot); monster.value >= 11`.
+
+### Card properties and functions
+
+A card has the properties `rank`, `suit`, `color`, `value` (Ace 1 … King 13, a joker 0,
+unless the game's `values` change it), `faceUp` and `joker`.
+
+There are also the following functions:
+
+| Function | Result |
+|---|---|
+| `count(x)` | how many cards, or how many depots |
+| `count(list, condition)` | how many items satisfy the condition |
+| `all(list, condition)`, `any(list, condition)` | whether every item, or some item, does |
+| `min(a, b)`, `max(a, b)` | the smaller or larger of two numbers |
+| `min(list, expression)`, `max(list, expression)` | the smallest or largest number the expression gives for an item; 0 for none |
+| `empty(x)` | whether there are no cards |
+| `sum(cards)` | the cards' values added up |
+| `sum(list, expression)` | the numbers the expression gives for each item, added up; 0 for none |
+| `value(card)` | the same as `card.value` |
+| `top(cards)`, `bottom(cards)` | the last or first card |
+| `base(cards)` | the first card of the face-up run on top |
+| `above(cards, card)` | the cards after that card |
+| `faceUp(cards)`, `faceDown(cards)` | only the face-up, or only the face-down, cards |
+| `depot("name")` | the depot of that name |
+| `first(list, condition)` | the first item that satisfies the condition, or nothing |
+| `index(depot)` | a copy's number: 3 for `cell-3`, and 0 for a depot that isn't a copy |
+| `neighbour(depot, k)` | the copy `k` places after or before the depot: `neighbour(depot("cell-3"), 1)` is `cell-4` |
+| `adjacent(a, b)` | whether two depots touch on the grid, diagonals included. A depot placed with `x`/`y` touches nothing. |
+| `coveredBy(depot)` | the depots its `uncoveredBy` names, the ones lying over it. |
+| `cameFrom(depot)` | the depot its top card was last moved from. |
+
+The functions that iterate over a list (`count`, `all`, `any`, `first`, `min`, `max`, `sum`)
+work out their second argument once for each item, calling the item `it`. That argument is an
+expression: a condition for `count`, `all`, `any` and `first`, a number for `min`, `max` and
+`sum`. So `sum(column, top(it).value)` adds up the columns' top cards.
+A repeated depot's name lists its copies in order, so `first(cell, empty(it))` is the
+lowest-numbered empty cell.
+To ask about two lists at once, name the items instead: `c in discard` in place of the list.
+`any(c in discard, count(d in discard, d.rank == c.rank) >= 4)` is true once four cards of
+one rank are in the discard.
+
+### What an expression can't see
+
+An expression always gives an answer. Where a value is missing or hidden, it reads as blank
+rather than causing an error. An empty pile or a face-down card never breaks a rule, but it
+may not give the answer you expect, so check for it with `empty` or `faceUp`
+where that matters:
+
+- **No card** is an answer, not an error: `top` of an empty pile is no card. Its `faceUp`
+  and `joker` are false, its `value` is 0, and it has no rank, suit or colour. A comparison
+  with something it lacks is false, and `!=` is true. So `top.suit == Hearts` on an empty
+  depot is simply false.
+- **No depot** is an answer too: `neighbour` past the end of a row, or a `first` that finds
+  nothing. It holds no cards, so it is also `empty`.
+- **Face-down cards are counted but not read**: they have no rank, suit or colour and are
+  worth 0. A rule can't look at the stock's order.
+- **Nothing is remembered**: an expression sees the board as it is now, not what happened
+  earlier.
+
+A game that uses expressions, triggers or actions offers no hints and can't be auto-played.
+The respective buttons are hidden on the UI.
+
+Cardz checks every expression when a game is imported or played from the editor. A misspelt
+name, a property a card doesn't have, or a suit compared with a number are errors, and are
+indicated as such. An expression may be at most 2000 characters long.
+
+---
+
+## Triggers and actions
+
+Expressions decide whether something may happen. **Triggers** and **actions** make things
+happen. Both are a condition and a list of steps, declared on a depot:
+
+- **`triggers`**: `[{ "when": …, "do": [steps] }]`. Whenever cards land anywhere, each
+  trigger whose `when` holds runs its steps, until the board settles. Triggers rest while
+  the rules are off, and don't fire during the opening deal or on undo.
+- **`actions`**: `[{ "name": …, "when": …, "do": [steps] }]`. Tapping the depot performs the
+  first action whose `when` holds (no `when` means always). While an action is available the
+  depot works like a stock: pressing its cards acts instead of picking them up. A draw on the
+  same depot comes first.
+
+The steps are deal steps (see **Deal steps** above). In a step, `@self` names the depot the
+trigger or action is on. Conditions see that depot as `depot`. A step's depot may also be an
+expression, read when the step runs: `neighbour(depot, 1)` is the next copy along, and
+`first(cell, empty(it))` the first empty cell. Two extra step fields that can be used:
+
+- `count` on a `move`: how many top cards move together, keeping their order and faces. It
+  is a number or an expression, read when the step runs.
+- `under` on a `move`: the cards go beneath the target's cards instead of on top. A move
+  from a depot to itself with `under` cycles it.
+
+The following game is played entirely through one depot, the loop. Its two actions take turns:
+`look` turns the top card up, and `travel` uses that card's value as a `count`, cycling that many
+cards to the bottom with `under`. A trigger watches for an Ace on top and moves it to `aces`.
+Moving the Ace away also makes the trigger's `when` false, so it stops firing.
+
+```json
+{
+  "name": "Round the Loop",
+  "description": "Tap the loop to turn its top card up, or to travel: a face-up card sends that many cards from the top of the loop to the bottom. An Ace that comes to the top is taken. Take all four.",
+  "depotOnly": true,
+  "decks": [ { "ranks": ["Ace","Two","Three","Four","Five"], "to": "loop" } ],
+  "depots": [
+    { "name": "loop", "type": "Reserve", "col": 0, "row": 0,
+      "acceptRule": "none", "ejectRule": "locked",
+      "actions": [
+        { "name": "look", "when": "!empty(depot) && !top(depot).faceUp",
+          "do": [ { "kind": "flipTop", "depot": "@self" } ] },
+        { "name": "travel", "when": "!empty(depot) && top(depot).faceUp",
+          "do": [ { "kind": "move", "from": "@self", "to": "@self", "count": "top(depot).value", "under": true } ] }
+      ],
+      "triggers": [
+        { "when": "!empty(depot) && top(depot).faceUp && top(depot).rank == Ace",
+          "do": [ { "kind": "move", "from": "@self", "to": "aces" } ] }
+      ] },
+    { "name": "aces", "type": "Foundation", "col": 2, "row": 0,
+      "acceptRule": "none", "ejectRule": "locked" }
+  ],
+  "winCondition": { "kind": "expr", "when": "count(aces) == 4" }
+}
+```
+
+---
+
+## Values and scoring
+
+**`values`** determines what cards are worth, for when a game counts them differently from their
+pips: `{ "J": 10, "Q": 10, "K": 10, "joker": 10 }`. A rank is written as in a deck
+(`A`, `2` … `10`, `J`, `Q`, `K`) and `joker` is any joker. A rank left out keeps its pip
+value. Every expression in the game reads cards by these values: `card.value`, `sum`.
+
+**`scoring`** gives a solitaire a score: `{ "value": …, "better": …, "keep": … }`.
+
+| Field | Default | Meaning |
+|---|---|---|
+| `value` | required | the score, an expression that gives a number, read on the whole board |
+| `better` | `High` | `High` or `Low`: which way a score is better |
+| `keep` | `Won` | `Won` keeps the score of a won deal only; `Over` keeps a lost deal's too |
+
+A score can also read four facts about the game:
+
+| Name | What it counts |
+|---|---|
+| `moves` | moves made, a deal from the stock included; undoing one doesn't take it back |
+| `undos` | moves undone |
+| `recycles` | times the waste went back into the stock |
+| `redeals` | redeals used |
+
+So Spider's classic score is `500 - moves + 100 * count(Foundation, !empty(it))`: 500 to start, one
+off for every move, and 100 for each completed run on the foundations.
+
+The player sees the score as they play. Depending on `keep`, a deal keeps its score when it ends,
+unless rules were turned off at any time or automatic moves were made. A game with no `winCondition`
+keeps no scores.
+
+The following game uses both. `values` makes court cards worth 10, so `sum` and `card.value` count
+them that way, both in the columns' accept rule and in the score. `scoring` leaves `better`
+and `keep` at their defaults: a higher total is better, and only a won deal keeps its score.
+
+```json
+{
+  "name": "Under Twenty-One",
+  "description": "Tap the stock to turn up a card, then play it to a column or the discard. A column takes a card while its total stays at 21 or under. Court cards are worth 10 and an Ace 1. Play out the deck to win. Your score is the three columns' total, 63 at best.",
+  "depotOnly": true,
+  "depots": [
+    { "name": "stock", "type": "Stock", "col": 0, "row": 0,
+      "draw": { "to": "hand", "count": 1, "when": "empty(hand)" },
+      "landFace": "Down", "acceptRule": "none", "ejectRule": "locked" },
+    { "name": "hand", "type": "Waste", "col": 1, "row": 0,
+      "acceptRule": "none", "ejectRule": { "gate": "Any", "unit": "Single" } },
+    { "name": "column", "type": "Tableau", "col": 0, "row": 1, "repeat": 3,
+      "acceptRule": { "single": true, "acceptFrom": ["hand"],
+        "when": "sum(depot) + card.value <= 21", "reason": "A column holds 21 at most" },
+      "ejectRule": "locked" },
+    { "name": "discard", "type": "Reserve", "col": 4, "row": 0, "fanDirection": "Down",
+      "acceptRule": { "single": true, "acceptFrom": ["hand"] }, "ejectRule": "locked" }
+  ],
+  "values": { "J": 10, "Q": 10, "K": 10 },
+  "winCondition": { "kind": "expr", "when": "empty(stock) && empty(hand)" },
+  "scoring": { "value": "sum(column)" }
+}
+```
+
+---
+
+## Teaching Cardz to play
+
+The Hint, Play best move and Play for me buttons need a player that understands the game. A
+game written in rule expressions, triggers or actions doesn't offer them unless it opts in:
+
+```
+"planner": true
+```
+
+With `true`, Cardz makes its usual choices: it sends cards to the foundations, completes
+pairs, and taps the stock when nothing else helps. Opt in when those choices play your game
+sensibly; Monte Carlo's win about a third of its deals.
+
+`"planner": false` does the opposite: it takes the buttons away from any game, even one
+written without expressions, for a game where Cardz's usual choices would mislead. Leave
+`planner` out for the default: the buttons for a game written in fixed fields, none for one
+that uses expressions, triggers or actions.
+
+A game can also say what it is aiming for:
+
+```
+"planner": { "value": "20 * count(clear) - 15 * count(damage)" }
+```
+
+`value` is a rule expression that gives a number, read on the whole board: higher for a
+board closer to a win. To choose a move, Cardz tries each legal move on a copy of the board
+and takes the one that leaves the highest value. A move that wins comes first, and one that
+loses comes last. If no move raises the value, Cardz falls back on its usual choices, such
+as tapping the stock.
+
+The copy is the board as the player sees it: face-down cards stay hidden, so the planner can't
+see anything a player couldn't. Players never see the value, and it changes no rule. Changing
+it doesn't reset a game's statistics.
+
+The planner looks only one move ahead. A value that rises only when a whole goal is reached
+can't tell the moves that build toward it apart, so reward progress along the way where a
+game has some.
+
+---
+
+## Card aids
+
+A card aid is a symbol or a sign that a deck may prints on a card. The game indicates aids
+that can help the player; a deck that draws an aid then shows it. Players can turn card aids
+off, and the switch appears only when the game and the deck share one.
+
+| Aid | Value | Each card shows |
+|---|---|---|
+| `pairSum` | number | the rank whose value adds up with this card's to the number, if unique |
+
+Pyramid removes pairs that total 13, so it asks for `"aids": { "pairSum": 13 }`: a 10 shows a
+3, and a King shows nothing.
+
+Cards are counted by their pips default values (Ace 1 … King 13) or by the game's `values` if used.
+
+Card aids change no rule, and changing them doesn't reset a game's statistics.
 
 ---
 
@@ -304,9 +638,16 @@ Common patterns, with JSON quotes left out:
 - **Golf**: the tableau accepts `none` and ejects `topOnly`; the foundation accepts
   `{ build: { direction: Either } }`; the stock has `draw: { to: foundation }` without
   `recycle`; loss `noLegalMoves`.
-- **Pyramid**: each slot accepts `none`, ejects `faceUp`, and is `uncoveredBy` the two cards
-  covering it; the discard accepts `{ single: true, build: { sum: 13 } }`; the waste
-  accepts `{ acceptFrom: [stock] }`.
+- **Pyramid**: each slot ejects `faceUp` and is `uncoveredBy` the two cards covering it; it
+  accepts `{ single: true, seed: none, when: "card.value + top.value == 13 && all(c in
+  coveredBy(depot), c != source && empty(c))" }`, and a trigger moves both cards to the
+  discard once it holds two. The stock's face-up top takes a partner the same way; the
+  discard accepts `{ single: true, rankIs: K }` with `landFace: down`; the waste accepts
+  `{ single: true, when: "source == stock || (!empty(depot) && card.value + top.value == 13)" }`,
+  so a stock card is set aside and a pyramid card pairs with its top, and a trigger moves
+  the two to the discard when its top card came from a pyramid slot (`cameFrom`). The redeal gathers the waste back into the spent stock
+  and turns up its top, `maxRedeals: 2`; loss `noLegalMoves`; scoring
+  `{ value: "28 - count(d in Tableau, !empty(d))", keep: Over }`.
 - **Crazy Quilt**: cells accept `none`, eject `faceUp`, and are `uncoveredBy` both
   short-end neighbours with `uncoveredByAny: true`; foundations accept
   `{ seed: Ace, build: { direction: Up }, suit: Same }` or

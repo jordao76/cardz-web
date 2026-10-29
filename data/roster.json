@@ -12,6 +12,7 @@
     { "slug": "beleaguered-castle", "tagline": "Eight open wings, no stock", "capture": { "file": "22-beleaguered-deepfield.png", "deck": "Deepfield" } },
     { "slug": "bisley", "tagline": "Build each suit from both ends", "capture": { "file": "14-bisley-herbarium.png", "deck": "Herbarium" } },
     { "slug": "flower-garden", "tagline": "Reach anywhere in the bouquet", "capture": { "file": "19-flowergarden-olympus.png", "deck": "Olympus" } },
+    { "slug": "bakers-dozen", "tagline": "Thirteen columns, Kings sunk first", "new": true },
     { "slug": "golf", "tagline": "One rank away", "capture": { "file": "16-golf-neon.png", "deck": "Neon" } },
     { "slug": "tri-peaks", "tagline": "Clear all three peaks", "capture": { "file": "09-tripeaks-dread.png", "deck": "Dread" } },
     { "slug": "pyramid", "tagline": "Pairs add up to thirteen", "capture": { "file": "05-pyramid-scarab.png", "deck": "Scarab" } },
@@ -23,7 +24,7 @@
     { "slug": "crazy-quilt", "tagline": "Unpick the weave", "capture": { "file": "07-crazyquilt-valhalla.png", "deck": "Valhalla" } },
     { "slug": "weathervane", "tagline": "Play an eight, name the wind", "original": true, "capture": { "file": "36-weathervane-valhalla.png", "deck": "Valhalla" } },
     { "slug": "double-klondike", "tagline": "Two decks, nine columns", "capture": { "file": "23-doubleklondike-valhalla.png", "deck": "Valhalla" } },
-    { "slug": "putt-putt-with-jokers", "tagline": "Round the corner, Jokers wild", "capture": { "file": "24-puttputt-jokers-dread.png", "deck": "Dread" } },
+    { "slug": "putt-putt", "tagline": "Round the corner, Jokers wild or not", "capture": { "file": "24-puttputt-jokers-dread.png", "deck": "Dread" } },
     { "slug": "bakers-game", "tagline": "FreeCell's stricter ancestor", "capture": { "file": "25-bakersgame-herbarium.png", "deck": "Herbarium" } },
     { "slug": "spiderette", "tagline": "Spider on a single deck", "capture": { "file": "26-spiderette-ornamental.png", "deck": "Ornamental" } },
     { "slug": "russian-solitaire", "tagline": "Yukon, one suit at a time", "capture": { "file": "27-russiansolitaire-felthouse.png", "deck": "Felt House" } },
@@ -34,6 +35,9 @@
     { "slug": "fourteen-out", "tagline": "Pairs that make fourteen, all in sight", "capture": { "file": "33-fourteenout-deepfield.png", "deck": "Deepfield" } },
     { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens", "capture": { "file": "34-sultan-ornamental.png", "deck": "Ornamental" } },
     { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number", "capture": { "file": "35-grandfathersclock-herbarium.png", "deck": "Herbarium" } },
-    { "slug": "puss-in-the-corner", "tagline": "Red on red, black on black", "new": true, "capture": { "file": "37-pussinthecorner-frightnight.png", "deck": "Fright Night" } }
+    { "slug": "puss-in-the-corner", "tagline": "Red on red, black on black", "capture": { "file": "37-pussinthecorner-frightnight.png", "deck": "Fright Night" } },
+    { "slug": "accordion", "tagline": "Squeeze the deck into one pile", "new": true },
+    { "slug": "monte-carlo", "tagline": "Pair off neighbours, close the gaps", "new": true },
+    { "slug": "gaps", "tagline": "Two to King, one suit to a row", "new": true }
   ]
 }
