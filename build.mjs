@@ -494,14 +494,15 @@ function gamePage(page, all) {
     : "";
 
   // The rules above are the default variant's in full; the others differ by a
-  // line or two, so they fold away rather than restate the whole game.
-  const alternates = grouped
+  // line or two, so they fold away rather than restate the whole game. A game
+  // whose one description covers every variant has nothing to fold away.
+  const differing = page.variants.slice(1).filter((v) => v.rules !== primary.rules);
+  const alternates = differing.length
     ? `
       <div class="game-variants">
         <h2>Variants</h2>
         <p>The rules above are ${escape(primary.name)}. Here is how the other variants differ.</p>
-${page.variants
-  .slice(1)
+${differing
   .map(
     (v) => `        <details>
           <summary>${escape(v.name)}</summary>
