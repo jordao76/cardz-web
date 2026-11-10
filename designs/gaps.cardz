@@ -9,7 +9,7 @@
       "acceptRule": {
         "emptyOnly": true,
         "single": true,
-        "when": "let c = (index(depot) - 1) % 13; let left = top(neighbour(depot, 0 - 1)); c == 0 && card.rank == Two || c > 0 && card.suit == left.suit && card.value == left.value + 1",
+        "when": "let left = top(depot.left); depot.column == 0 && card.rank == Two || depot.column > 0 && card.suit == left.suit && card.value == left.value + 1",
         "reason": "Play the next card up in the suit on the left"
       },
       "ejectRule": "topOnly" },
@@ -23,25 +23,26 @@
     { "kind": "gather", "from": ["cell"], "to": "aces", "when": "top(depot).rank == Ace" }
   ],
   "redealRules": [
-    { "kind": "gather", "from": ["cell"], "to": "stock",
-      "when": "let c = (index(depot) - 1) % 13; let lead = neighbour(depot, 0 - c); !all(k in cell, index(k) < index(lead) || index(k) > index(depot) || top(k).value == (index(k) - 1) % 13 + 2 && top(k).suit == top(lead).suit)" },
+    { "kind": "gather", "from": ["cell"], "to": "stock", "when": "!depot.inPlace" },
     { "kind": "shuffle", "depot": "stock" },
     { "kind": "dealGroup", "to": "cell", "faceUp": 1, "from": "stock",
-      "when": "empty(depot) && (index(depot) - 1) % 13 != 0 && empty(neighbour(depot, 0 - 1))" }
+      "when": "empty(depot) && depot.column != 0 && empty(depot.left)" }
   ],
   "maxRedeals": 2,
   "depotOnly": true,
-  "winCondition": {
-    "kind": "expr",
-    "when": "all(d in cell, (index(d) - 1) % 13 == 12 || top(d).value == (index(d) - 1) % 13 + 2 && top(d).suit == top(neighbour(d, 0 - (index(d) - 1) % 13)).suit)"
-  },
+  "winCondition": { "kind": "expr", "when": "all(d in cell, d.column == 12 || d.fits)" },
   "lossCondition": { "kind": "noLegalMoves" },
-  "scoring": {
-    "value": "count(d in cell, let c = (index(d) - 1) % 13; let lead = neighbour(d, 0 - c); all(k in cell, index(k) < index(lead) || index(k) > index(d) || top(k).value == (index(k) - 1) % 13 + 2 && top(k).suit == top(lead).suit))",
-    "keep": "Over"
+  "properties": {
+    "column": "(index(it) - 1) % 13",
+    "left": "neighbour(it, 0 - 1)",
+    "lead": "neighbour(it, 0 - it.column)",
+    "fits": "top(it).value == it.column + 2 && top(it).suit == top(it.lead).suit",
+    "follows": "let left = top(it.left); it.column == 0 && top(it).rank == Two || it.column > 0 && top(it).suit == left.suit && top(it).value == left.value + 1",
+    "inPlace": "all(k in cell, index(k) < index(it.lead) || index(k) > index(it) || k.fits)"
   },
+  "scoring": { "value": "count(d in cell, d.inPlace)", "keep": "Over" },
   "planner": {
-    "value": "100 * count(d in cell, let c = (index(d) - 1) % 13; let lead = neighbour(d, 0 - c); all(k in cell, index(k) < index(lead) || index(k) > index(d) || top(k).value == (index(k) - 1) % 13 + 2 && top(k).suit == top(lead).suit)) + 10 * sum(d in cell, let c = (index(d) - 1) % 13; let left = top(neighbour(d, 0 - 1)); count(e in d, c == 0 && e.rank == Two || c > 0 && e.suit == left.suit && e.value == left.value + 1) * (15 - top(d).value)) - 5 * count(d in cell, empty(d) && (index(d) - 1) % 13 > 0 && top(neighbour(d, 0 - 1)).rank == King)"
+    "value": "100 * count(d in cell, d.inPlace) + 10 * sum(d in cell, count(e in d, d.follows) * (15 - top(d).value)) - 5 * count(d in cell, empty(d) && d.column > 0 && top(d.left).rank == King)"
   },
   "tools": "None"
 }

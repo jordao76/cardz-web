@@ -41,7 +41,7 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>47 lines</small></summary>
+        <summary>Read its design file <small>48 lines</small></summary>
         <p>Rule expressions read the row: a gap takes the next card up in its left neighbour's suit. Deal steps that act only where their condition holds take the Aces out after the deal and leave one gap after each row's run on a redeal. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Gaps&quot;</span>,
@@ -54,7 +54,7 @@
       <span class="j-key">&quot;acceptRule&quot;</span>: {
         <span class="j-key">&quot;emptyOnly&quot;</span>: <span class="j-lit">true</span>,
         <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
-        <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;let c = (index(depot) - 1) % 13; let left = top(neighbour(depot, 0 - 1)); c == 0 &amp;&amp; card.rank == Two || c &gt; 0 &amp;&amp; card.suit == left.suit &amp;&amp; card.value == left.value + 1&quot;</span>,
+        <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;let left = top(depot.left); depot.column == 0 &amp;&amp; card.rank == Two || depot.column &gt; 0 &amp;&amp; card.suit == left.suit &amp;&amp; card.value == left.value + 1&quot;</span>,
         <span class="j-key">&quot;reason&quot;</span>: <span class="j-str">&quot;Play the next card up in the suit on the left&quot;</span>
       },
       <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;topOnly&quot;</span> },
@@ -68,25 +68,26 @@
     { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;gather&quot;</span>, <span class="j-key">&quot;from&quot;</span>: [<span class="j-str">&quot;cell&quot;</span>], <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;aces&quot;</span>, <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;top(depot).rank == Ace&quot;</span> }
   ],
   <span class="j-key">&quot;redealRules&quot;</span>: [
-    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;gather&quot;</span>, <span class="j-key">&quot;from&quot;</span>: [<span class="j-str">&quot;cell&quot;</span>], <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;stock&quot;</span>,
-      <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;let c = (index(depot) - 1) % 13; let lead = neighbour(depot, 0 - c); !all(k in cell, index(k) &lt; index(lead) || index(k) &gt; index(depot) || top(k).value == (index(k) - 1) % 13 + 2 &amp;&amp; top(k).suit == top(lead).suit)&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;gather&quot;</span>, <span class="j-key">&quot;from&quot;</span>: [<span class="j-str">&quot;cell&quot;</span>], <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;!depot.inPlace&quot;</span> },
     { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;shuffle&quot;</span>, <span class="j-key">&quot;depot&quot;</span>: <span class="j-str">&quot;stock&quot;</span> },
     { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;cell&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;stock&quot;</span>,
-      <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;empty(depot) &amp;&amp; (index(depot) - 1) % 13 != 0 &amp;&amp; empty(neighbour(depot, 0 - 1))&quot;</span> }
+      <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;empty(depot) &amp;&amp; depot.column != 0 &amp;&amp; empty(depot.left)&quot;</span> }
   ],
   <span class="j-key">&quot;maxRedeals&quot;</span>: <span class="j-num">2</span>,
   <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
-  <span class="j-key">&quot;winCondition&quot;</span>: {
-    <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;expr&quot;</span>,
-    <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;all(d in cell, (index(d) - 1) % 13 == 12 || top(d).value == (index(d) - 1) % 13 + 2 &amp;&amp; top(d).suit == top(neighbour(d, 0 - (index(d) - 1) % 13)).suit)&quot;</span>
-  },
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;expr&quot;</span>, <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;all(d in cell, d.column == 12 || d.fits)&quot;</span> },
   <span class="j-key">&quot;lossCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;noLegalMoves&quot;</span> },
-  <span class="j-key">&quot;scoring&quot;</span>: {
-    <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;count(d in cell, let c = (index(d) - 1) % 13; let lead = neighbour(d, 0 - c); all(k in cell, index(k) &lt; index(lead) || index(k) &gt; index(d) || top(k).value == (index(k) - 1) % 13 + 2 &amp;&amp; top(k).suit == top(lead).suit))&quot;</span>,
-    <span class="j-key">&quot;keep&quot;</span>: <span class="j-str">&quot;Over&quot;</span>
+  <span class="j-key">&quot;properties&quot;</span>: {
+    <span class="j-key">&quot;column&quot;</span>: <span class="j-str">&quot;(index(it) - 1) % 13&quot;</span>,
+    <span class="j-key">&quot;left&quot;</span>: <span class="j-str">&quot;neighbour(it, 0 - 1)&quot;</span>,
+    <span class="j-key">&quot;lead&quot;</span>: <span class="j-str">&quot;neighbour(it, 0 - it.column)&quot;</span>,
+    <span class="j-key">&quot;fits&quot;</span>: <span class="j-str">&quot;top(it).value == it.column + 2 &amp;&amp; top(it).suit == top(it.lead).suit&quot;</span>,
+    <span class="j-key">&quot;follows&quot;</span>: <span class="j-str">&quot;let left = top(it.left); it.column == 0 &amp;&amp; top(it).rank == Two || it.column &gt; 0 &amp;&amp; top(it).suit == left.suit &amp;&amp; top(it).value == left.value + 1&quot;</span>,
+    <span class="j-key">&quot;inPlace&quot;</span>: <span class="j-str">&quot;all(k in cell, index(k) &lt; index(it.lead) || index(k) &gt; index(it) || k.fits)&quot;</span>
   },
+  <span class="j-key">&quot;scoring&quot;</span>: { <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;count(d in cell, d.inPlace)&quot;</span>, <span class="j-key">&quot;keep&quot;</span>: <span class="j-str">&quot;Over&quot;</span> },
   <span class="j-key">&quot;planner&quot;</span>: {
-    <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;100 * count(d in cell, let c = (index(d) - 1) % 13; let lead = neighbour(d, 0 - c); all(k in cell, index(k) &lt; index(lead) || index(k) &gt; index(d) || top(k).value == (index(k) - 1) % 13 + 2 &amp;&amp; top(k).suit == top(lead).suit)) + 10 * sum(d in cell, let c = (index(d) - 1) % 13; let left = top(neighbour(d, 0 - 1)); count(e in d, c == 0 &amp;&amp; e.rank == Two || c &gt; 0 &amp;&amp; e.suit == left.suit &amp;&amp; e.value == left.value + 1) * (15 - top(d).value)) - 5 * count(d in cell, empty(d) &amp;&amp; (index(d) - 1) % 13 &gt; 0 &amp;&amp; top(neighbour(d, 0 - 1)).rank == King)&quot;</span>
+    <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;100 * count(d in cell, d.inPlace) + 10 * sum(d in cell, count(e in d, d.follows) * (15 - top(d).value)) - 5 * count(d in cell, empty(d) &amp;&amp; d.column &gt; 0 &amp;&amp; top(d.left).rank == King)&quot;</span>
   },
   <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
 }</code></pre>
@@ -99,7 +100,7 @@
         <p class="eyebrow"><span></span> More solitaire</p>
         <div><a href="../../games/klondike/">Klondike</a><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/bakers-dozen/">Baker's Dozen</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/pyramid/">Pyramid</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a><a href="../../games/weathervane/">Weathervane</a><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt/">Putt Putt</a></div>
         <p class="eyebrow"><span></span> Extra games</p>
-        <div><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a><a href="../../games/accordion/">Accordion</a><a href="../../games/monte-carlo/">Monte Carlo</a></div>
+        <div><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a><a href="../../games/accordion/">Accordion</a><a href="../../games/monte-carlo/">Monte Carlo</a><a href="../../games/klondike-with-jokers/">Klondike with Jokers</a><a href="../../games/hemispheres/">Hemispheres</a><a href="../../games/die-schwierige/">Die Schwierige</a></div>
       </nav>
     </article>
   </main>

@@ -1,0 +1,57 @@
+{
+  "name": "Klondike with Jokers",
+  "family": "Klondike",
+  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Play as in Klondike: tableau columns build **down in alternating colour**, an empty column takes a **King**, and the stock deals one card at a time to the waste, as often as you like.\n- The two **Jokers** are wild. In a column a Joker stands for the card the column wanted; on an empty column, a King.\n- A Joker can go on a **foundation**, where it stands for the next card up; on an empty foundation it is an Ace of any suit.\n- When a card a Joker stands for turns up, drop it on the Joker's column or foundation, even with the Joker buried: the card **takes its place** and the Joker goes back where the card came from, ready to play again.\n- You win once all 52 cards are on the foundations; the Jokers can end anywhere.\n- Your **score**, kept for a win: 10 for each card on the foundations (a Joker counts nothing), 5 for each tableau card turned up, and 100 off each time the waste goes back into the stock. It never drops below 0.",
+  "decks": [{ "jokers": 2 }],
+  "depots": [
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "ejectRule": "locked",
+      "landFace": "Down", "draw": { "to": "waste", "recycle": true } },
+    { "type": "Waste", "col": 1, "row": 0, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Foundation", "col": 3, "row": 0, "name": "found", "repeat": 4,
+      "acceptRule": {
+        "seed": "Ace",
+        "build": { "direction": "Up" },
+        "suit": "Same",
+        "wildDeclares": "transparent",
+        "wildJoker": true,
+        "swap": true
+      },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7,
+      "acceptRule": {
+        "seed": "King",
+        "build": { "direction": "Down" },
+        "suit": "AlternateColor",
+        "wildDeclares": "transparent",
+        "wildJoker": true,
+        "swap": true
+      },
+      "ejectRule": "faceUp", "autoFlipTop": true }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "tab-1", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
+      "faceDown": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-2", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-3", "tab-4", "tab-5", "tab-6", "tab-7"], "faceDown": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-3", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-4", "tab-5", "tab-6", "tab-7"], "faceDown": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-4", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-5", "tab-6", "tab-7"], "faceDown": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-5", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["tab-6", "tab-7"], "faceDown": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-6", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "tab-7", "faceDown": 1 },
+    { "kind": "dealGroup", "to": "tab-7", "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "expr", "when": "count(c in faceUp(Foundation), !c.joker) == 52" },
+  "scoring": {
+    "value": "max(0, 10 * count(c in faceUp(Foundation), !c.joker) + 5 * (21 - count(faceDown(Tableau))) - 100 * recycles)"
+  },
+  "planner": true,
+  "tools": "None"
+}

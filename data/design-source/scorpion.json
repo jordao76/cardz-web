@@ -1,21 +1,23 @@
 {
   "name": "Scorpion",
-  "family": "Yukon",
-  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**.\n- Any **face-up** card can be picked up together with everything on top of it, **regardless of order** — only the bottom card of the group has to fit the target. That is how you dig out a buried card.\n- Uncovering a face-down card flips it. An empty column takes a **King**, or a group headed by one.\n- Three cards are held back: **tap the stock** once when you are stuck to deal them onto the first three columns.",
+  "family": "Spider",
+  "description": "**Goal:** assemble four complete King-to-Ace runs in the tableau, each in a single suit.\n\n- Tableau columns build **down in the same suit**.\n- Cards never go to the foundations one at a time. A **complete King-to-Ace run** leaves for a foundation **on its own** the moment you finish it.\n- Any **face-up** card can be picked up together with everything on top of it, **regardless of order** — only the bottom card of the group has to fit the target. That is how you dig out a buried card.\n- Uncovering a face-down card flips it. An empty column takes a **King**, or a group headed by one.\n- Three cards are held back: **tap the stock** once when you are stuck to deal them onto the first three columns.",
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
       "ejectRule": "locked" },
     { "type": "Foundation", "col": 3, "row": 0, "name": "found", "repeat": 4,
       "acceptRule": {
-        "single": true,
-        "seed": "Ace",
-        "build": { "direction": "Up" },
+        "emptyOnly": true,
+        "minCount": 13,
+        "seed": "King",
+        "build": { "direction": "Down" },
         "suit": "Same"
       },
       "ejectRule": "locked" },
     { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7,
       "acceptRule": { "seed": "King", "build": { "direction": "Down" }, "suit": "Same" },
-      "ejectRule": { "gate": "FaceUp", "unit": "any" }, "autoFlipTop": true }
+      "ejectRule": { "gate": "FaceUp", "unit": "any" }, "autoFlipTop": true,
+      "autoSend": "Foundation" }
   ],
   "dealRules": [
     { "kind": "dealGroup", "to": ["tab-1", "tab-2", "tab-3", "tab-4"], "faceDown": 3,

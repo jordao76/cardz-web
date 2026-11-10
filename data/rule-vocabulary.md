@@ -67,6 +67,7 @@ explained below.
 | `dealRules`, `redealRules`, `redealWhen`, `maxRedeals` | | | the deal and redeals; see **Deal steps** below |
 | `winCondition`, `lossCondition` | | | see **Win & loss conditions** below |
 | `values` | object | pip value | what each card is worth to expressions; see **Values and scoring** below |
+| `properties` | object | — | named properties of a depot, used in expressions; see **Depot properties** below |
 | `scoring` | object | — | how a deal is scored; see **Values and scoring** below |
 | `planner` | `true`, `false` or object | by how the game is written | whether Cardz's own player may play the game, and how it values a board; see **Teaching Cardz to play** below |
 | `aids` | object | — | symbols a deck may print on the cards to help play this game; see **Card aids** below |
@@ -165,7 +166,7 @@ which must pass. Fields shown without a type are `true`/`false`.
 | `rejectsAll` | never a drop target |
 | `emptyOnly` | accept only into an empty depot |
 | `single` | reject piles of more than one card |
-| `minCount` (integer) | reject piles smaller than N, e.g. `13` for a Spider foundation |
+| `minCount` (integer) | reject piles smaller than N, e.g. `13` for a Spider foundation. A depot with `minCount` checks the pile's own order against its `build` and `suit`, even when the cards come from an any-order unit |
 | `acceptFrom` (depot pattern) | accept only from matching depots |
 | `seed` (rank) | a drop onto an empty depot must start with this rank |
 | `seedNone` | reject drops while empty |
@@ -178,6 +179,33 @@ which must pass. Fields shown without a type are `true`/`false`.
 | `wildJoker` | jokers are wild, like `wildRank` |
 | `wildDeclares` | what may follow a wild card left on top: `none` (default) follows it as printed, so only another wild follows a joker; `suit` follows a suit the player calls; `free` takes any card; `transparent` reads the wild as the card the pile needed. `true` means `"suit"`. |
 | `allowFaceDown` | accept face-down drops; they skip the checks on what the card is (`seed`, `rankIs`, `build`, `suit`, `follow`) |
+| `when`, `reason` | an expression the drop must also satisfy, and the reason text if it fails; see **Rule expressions** below |
+| `swap` | `true`, or an expression for a card already on the depot that the arriving card swaps with; see **Swapping a card** below |
+
+### Swapping a card
+
+`swap` is used to exchange places between a dropped card and a card on the depot.
+
+**`"swap": true`** picks the wild card standing in for the dropped card. It needs wild
+cards (`wildJoker` or `wildRank`) set as `"transparent"`. A Klondike with Jokers foundation
+looks like this:
+
+```
+"acceptRule": { "seed": "A", "buildUp": true, "suit": "same",
+                "wildJoker": true, "wildDeclares": "transparent", "swap": true }
+```
+
+On A♠, Joker, 3♠, the Joker stands for the 2♠, so a 2♠ dropped on the foundation takes its
+place, and the Joker goes back where the 2♠ came from.
+
+**An expression** can also be used to pick a card on the depot.
+
+Either way:
+
+- `swap` only works with a single face-up card dropped from another depot (one that
+  `acceptFrom`, if set, allows).
+- The picked card goes to the dropped card's depot regardless of that depot's own `acceptRule`,
+  as a trigger's move does.
 
 ### Build and suit rules
 
@@ -210,7 +238,8 @@ so does an eject `Run` unit (below).
 
 A declared `unit` vouches for the group, so the receiving depot's `acceptRule` checks
 only the group's bottom card. A foundation fed by an `Any` unit should therefore set
-`single: true`, or it will take an unordered pile.
+`single: true`, or it will take an unordered pile, unless it takes whole runs with
+`minCount`, which checks the pile's own order.
 
 ### `draw` — tapping a stock
 
@@ -256,6 +285,7 @@ tapping the stock it deals from; each run deals from what is left there.
 | `gather` | `from`, `to`, `when` | move every card from the `from` depots onto `to`, face-down; a repeated depot's name in `from` means all its copies. Each pile is turned over. A redeal that gathers into a stock is tapped from that stock once it is empty, like a recycle. |
 | `shuffle` | `depot` | randomly reorder the depot's cards |
 | `compact` | `group`, `from` | in a trigger or action only: close up a repeated depot's gaps. Each copy's pile slides down to the lowest empty copy, keeping its order and faces; with `from`, each copy left empty then takes one card from its top, face-up. `group` is the copies' shared name (`cell` for `cell-1` …). |
+| `each` | `depots`, `while`, `do` | run the steps in `do` for each of `depots` in turn, as a trigger runs its steps; see **Rearranging the deal** below. `depots` may be a single name, and a repeated depot's name means all its copies. |
 
 A `dealGroup` or a `gather` may add `when`, a rule expression (see **Rule expressions**
 below) that keeps only the depots it holds for: the deal skips the other `to` depots, and
@@ -264,12 +294,42 @@ each one in turn, and every depot is judged before the step moves a card. Gaps d
 Aces out with one, then takes them away with
 `{ "kind": "gather", "from": ["cell"], "to": "aces", "when": "top(depot).rank == Ace" }`.
 
+### Rearranging the deal
+
+A game sometimes changes its deal once the cards are out: Baker's Dozen moves each King to
+the bottom of its column, since a King can never move and would trap what lies under it.
+An `each` step does this, in `dealRules` or `redealRules`:
+
+```
+{ "kind": "each", "depots": "tab", "while": "depot.loose.rank == King",
+  "do": [ { "kind": "move", "from": "@self", "to": "@self", "skip": "count(above(depot, depot.loose))", "under": true },
+          { "kind": "move", "from": "@self", "to": "@self", "skip": "count(depot) - depot.sunk", "count": "depot.sunk - 1", "under": true } ] }
+```
+
+Here `loose` is a depot property naming a column's lowest King with a card that isn't a King
+beneath it, and `sunk` counts the Kings with only Kings beneath them (see **Depot
+properties** below). The first move sends the loose King beneath everything; the second
+sends the Kings already sunk back beneath it, so the Kings keep the order they were dealt in.
+
+- For each depot, the steps in `do` run with `depot` and `@self` naming it, as in a
+  trigger. They run all at once, not card by card, so a `move` may use `count`, `skip` and
+  `under`, which the deal's own moves may not.
+- With `while`, the steps repeat for that depot while the condition holds, so a column with
+  several Kings sinks them all. Without it, they run once per depot.
+- It belongs to the deal, so nothing changes during play. It can also be used in a trigger
+  or an action.
+
 `redealWhen` is a condition that must hold for a redeal to run, written like
 `winCondition` (see **Win & loss conditions** below).
 
 `maxRedeals` caps the redeals after the opening deal: omitted means unlimited, `0` none.
 Every run counts once, even a short one, and all the stocks a redeal deals from share
 the cap.
+
+Any expression can read `redeals`, the number of redeals run so far, whether or not the
+game caps them. It is 0 until the first redeal, and a redeal's own steps already count
+it. A game whose second pass plays differently from its first asks `redeals > 0`, for
+instance in an accept rule's `when`.
 
 ---
 
@@ -308,6 +368,7 @@ It can only read the board, never change it, and it always gives an answer.
 | Where | What it decides | What it can name |
 |---|---|---|
 | `acceptRule.when` | whether a drop lands. Checked after the depot's other accept fields, so it can only narrow what the depot takes. Add `reason` for the message a refused player sees. | `card` (the bottom card of the arriving pile), `pile` (all of it), `depot` (where it would land), `source` (where it came from), `top` (the depot's top card) |
+| `acceptRule.swap`, when not `true` | which card already on the depot a dropped card swaps with: a card, or nothing | the same as `when` |
 | `draw.when` | whether tapping the stock does anything, recycles included | the depots |
 | a deal step's `when` | whether a `dealGroup` deals to a depot, or a `gather` takes from it | `depot` (the one tested) |
 | win, loss and `redealWhen` with `"kind": "expr"` | whether the condition holds | the depots |
@@ -393,22 +454,51 @@ There are also the following functions:
 | `above(cards, card)` | the cards after that card |
 | `faceUp(cards)`, `faceDown(cards)` | only the face-up, or only the face-down, cards |
 | `depot("name")` | the depot of that name |
-| `first(list, condition)` | the first item that satisfies the condition, or nothing |
+| `first(list, condition)`, `last(list, condition)` | the first or last item that satisfies the condition, or nothing |
 | `index(depot)` | a copy's number: 3 for `cell-3`, and 0 for a depot that isn't a copy |
 | `neighbour(depot, k)` | the copy `k` places after or before the depot: `neighbour(depot("cell-3"), 1)` is `cell-4` |
 | `adjacent(a, b)` | whether two depots touch on the grid, diagonals included. A depot placed with `x`/`y` touches nothing. |
 | `coveredBy(depot)` | the depots its `uncoveredBy` names, the ones lying over it. |
 | `cameFrom(depot)` | the depot its top card was last moved from. |
+| `if(condition, a, b)` | Short-circuiting conditional expression. `a` and `b` must be of the same kind: `if(empty(depot), 0, top(depot).value)`. |
 
-The functions that iterate over a list (`count`, `all`, `any`, `first`, `min`, `max`, `sum`)
+The functions that iterate over a list (`count`, `all`, `any`, `first`, `last`, `min`, `max`, `sum`)
 work out their second argument once for each item, calling the item `it`. That argument is an
-expression: a condition for `count`, `all`, `any` and `first`, a number for `min`, `max` and
+expression: a condition for `count`, `all`, `any`, `first` and `last`, a number for `min`, `max` and
 `sum`. So `sum(column, top(it).value)` adds up the columns' top cards.
 A repeated depot's name lists its copies in order, so `first(cell, empty(it))` is the
-lowest-numbered empty cell.
+lowest-numbered empty cell, and `last(cell, empty(it))` the highest. A depot lists its cards
+from the bottom up, so `last(c in depot, c.rank == King)` is the topmost King.
 To ask about two lists at once, name the items instead: `c in discard` in place of the list.
 `any(c in discard, count(d in discard, d.rank == c.rank) >= 4)` is true once four cards of
 one rank are in the discard.
+
+### Depot properties
+
+Reusable custom depot properties can be defined once under `properties`. Expressions can then
+read them like a card's property: `depot.column`, `d.inPlace`. Each property is an expression
+about one depot, called `it`. For example, Gaps defines these properties:
+
+```
+"properties": {
+  "column": "(index(it) - 1) % 13",
+  "lead": "neighbour(it, 0 - it.column)",
+  "fits": "top(it).value == it.column + 2 && top(it).suit == top(it.lead).suit",
+  "inPlace": "all(k in cell, index(k) < index(it.lead) || index(k) > index(it) || k.fits)"
+}
+```
+
+Here `column` counts a cell's place in its row of thirteen from 0, `lead` is the row's
+first cell, `fits` determines if the cell holds the card wanted by its column in the row's suit,
+and `inPlace` checks if the row fits from its first cell up to this one. The game's rules then read
+`"when": "!depot.inPlace"` and `"value": "count(d in cell, d.inPlace)"`.
+
+- A property may use only the properties listed **before** it, never itself or a later one.
+  Order them so each builds on the ones above.
+- Inside a property, a function that iterates over a list must name its item
+  (`all(k in cell, …)`), since `it` is already the property's depot.
+- A property's name can't be one a rule already uses: a card's property (`value`, `suit`…),
+  a function, a word like `Hearts` or `Tableau`, or a depot's name.
 
 ### What an expression can't see
 
@@ -426,10 +516,12 @@ where that matters:
 - **Face-down cards are counted but not read**: they have no rank, suit or colour and are
   worth 0. A rule can't look at the stock's order.
 - **Nothing is remembered**: an expression sees the board as it is now, not what happened
-  earlier.
+  earlier. The one thing the board does keep is how many redeals have run (`redeals`, see
+  **Deal steps** above).
 
-A game that uses expressions, triggers or actions offers no hints and can't be auto-played.
-The respective buttons are hidden on the UI.
+A game that uses expressions, triggers or actions offers no hints and can't be auto-played,
+and the buttons are hidden, unless it opts in with `planner` (see **Teaching Cardz to
+play** below).
 
 Cardz checks every expression when a game is imported or played from the editor. A misspelt
 name, a property a card doesn't have, or a suit compared with a number are errors, and are
@@ -453,12 +545,16 @@ happen. Both are a condition and a list of steps, declared on a depot:
 The steps are deal steps (see **Deal steps** above). In a step, `@self` names the depot the
 trigger or action is on. Conditions see that depot as `depot`. A step's depot may also be an
 expression, read when the step runs: `neighbour(depot, 1)` is the next copy along, and
-`first(cell, empty(it))` the first empty cell. Two extra step fields that can be used:
+`first(cell, empty(it))` the first empty cell. Extra step fields that can be used on a `move`:
 
-- `count` on a `move`: how many top cards move together, keeping their order and faces. It
+- `count`: how many cards move together, keeping their order and faces. It
   is a number or an expression, read when the step runs.
-- `under` on a `move`: the cards go beneath the target's cards instead of on top. A move
+- `under`: the cards go beneath the target's cards instead of on top. A move
   from a depot to itself with `under` cycles it.
+- `skip`: how many top cards stay where they are; the cards that move are
+  taken from under them. It is a number or an expression, read when the step runs.
+  `"skip": 1` lifts the card under the top one; `"skip": 3` with
+  `"count": "count(depot) - 3"` trims a pile to its top three cards from the bottom.
 
 The following game is played entirely through one depot, the loop. Its two actions take turns:
 `look` turns the top card up, and `travel` uses that card's value as a `count`, cycling that many
@@ -508,7 +604,8 @@ value. Every expression in the game reads cards by these values: `card.value`, `
 | `better` | `High` | `High` or `Low`: which way a score is better |
 | `keep` | `Won` | `Won` keeps the score of a won deal only; `Over` keeps a lost deal's too |
 
-A score can also read four facts about the game:
+A score can also read four facts about the game; `redeals`, unlike the other three, may be
+read by any expression:
 
 | Name | What it counts |
 |---|---|
@@ -615,9 +712,10 @@ Card aids change no rule, and changing them doesn't reset a game's statistics.
 
 ## Conventions the rules leave to the player
 
-Some setup rituals and courtesies have no rule field, such as La Belle Lucie's *merci*
-or sinking the Kings in Baker's Dozen. Describe them in `description` and leave the move
-to the player and the table modes.
+Some courtesies have no rule field, such as La Belle Lucie's *merci*, a once-per-game
+move. Describe them in `description` and leave the move to the player and the table
+modes. A setup ritual can often be a deal step instead, as Baker's Dozen sinks its Kings
+(see **Rearranging the deal** above).
 
 ---
 
@@ -654,7 +752,9 @@ Common patterns, with JSON quotes left out:
   `{ seed: King, build: { direction: Down }, suit: Same }`, over two decks; the stock
   draws with `recycle: true, maxRecycles: 1`.
 - **Clock**: each hour pile accepts `{ rankIs: <its hour> }` and sets `landUnder: true`;
-  win `allCardsFaceUp`, loss `noLegalMoves`.
+  win `{ kind: expr, when: "all(h in hour, all(c in h, c.faceUp && c.value == index(h)))
+  && all(c in stock, c.faceUp && c.rank == King)" }`, every card on its hour and the Kings
+  in the middle, with `planner: true`; loss `noLegalMoves`.
 - **Yukon**: the tableau ejects `{ gate: FaceUp, unit: any }`; foundations add
   `single: true`.
 - **Flower Garden**: the bouquet accepts `none`, ejects `{ unit: single }`, and sets

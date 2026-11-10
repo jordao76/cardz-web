@@ -26,6 +26,11 @@
       "note": "Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles."
     },
     {
+      "name": "Die Schwierige",
+      "file": "die-schwierige.cardz",
+      "note": "Two rounds that play by different rules: accept rules that read how many redeals have run close two sorting piles and open the cascades once the stock is gathered back. The regather lists its piles so they deal out in the order they were picked up."
+    },
+    {
       "name": "Fourteen Out",
       "file": "fourteen-out.cardz",
       "note": "Rule expressions pair cards: a column's top card drops onto a partner that makes fourteen with it, and the pair leaves by itself. The win asks for empty columns rather than full foundations."
@@ -39,6 +44,16 @@
       "name": "Grandfather's Clock",
       "file": "grandfathers-clock.cardz",
       "note": "Twelve foundations placed at fractional grid positions and turned to face the middle of a clock, each seeded with a named card and none capped: the next hour's seed is what stops each one."
+    },
+    {
+      "name": "Hemispheres",
+      "file": "hemispheres.cardz",
+      "note": "An exchange made of a drop and a trigger: a stranded card lands only on a stranded card of the other colour, and a trigger on the stock sends the card beneath back where the arrival came from, then refills empty piles for the whole table. Depot properties name the hemispheres, and a planner value teaches Cardz to draw rather than shuffle."
+    },
+    {
+      "name": "Klondike with Jokers",
+      "file": "klondike-with-jokers.cardz",
+      "note": "Klondike's own rules with wild, transparent jokers, and an accept rule's swap: a card a joker stands for, dropped on the joker's column or foundation, takes the joker's place however deep it lies, and the joker goes back where the card came from."
     },
     {
       "name": "Monte Carlo",

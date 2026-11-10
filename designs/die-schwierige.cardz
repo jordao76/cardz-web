@@ -1,0 +1,62 @@
+{
+  "name": "Die Schwierige",
+  "description": "**Goal:** move all 104 cards to the eight foundations.\n\n- The foundations start with the eight **Aces** and build **up in suit** to King.\n- Tap the stock to deal **a row of six** onto the cascades. Only a cascade's top card can move, to a foundation or a sorting pile.\n- The four **sorting piles** build **down in suit**, one card at a time. An empty sorting pile takes any card.\n- In the first round, no card may be played onto a cascade.\n- When the stock is spent, tap it **once** for the second round: the cascades are picked up in order, unshuffled, with the **bottom two sorting piles** on top, so their cards come out last. Those two piles then close.\n- In the second round, an **empty cascade** takes the top card of a sorting pile.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+  "decks": [{ "count": 2 }],
+  "depots": [
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 1, "row": 0, "name": "foundation", "repeat": 8,
+      "acceptRule": { "single": true, "build": { "direction": "Up" }, "suit": "Same" },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "cascade", "repeat": 6,
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true,
+        "acceptFrom": ["sort-1", "sort-2"],
+        "when": "redeals > 15",
+        "reason": "Only an empty cascade, from a sorting pile, after the redeal"
+      },
+      "ejectRule": "topOnly" },
+    { "type": "Cell", "fanDirection": "Down", "fanWindow": 6, "col": 7, "row": 1, "name": "sort",
+      "repeat": 2,
+      "acceptRule": { "single": true, "build": { "direction": "Down" }, "suit": "Same" },
+      "ejectRule": "topOnly" },
+    { "type": "Cell", "fanDirection": "Down", "fanWindow": 6, "col": 7, "row": 3, "name": "spare",
+      "repeat": 2,
+      "acceptRule": {
+        "single": true,
+        "build": { "direction": "Down" },
+        "suit": "Same",
+        "when": "redeals <= 15",
+        "reason": "Closed after the redeal"
+      },
+      "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "foundation-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "foundation-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "foundation-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "foundation-4" },
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "foundation-5" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "foundation-6" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "foundation-7" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "foundation-8" },
+    { "kind": "dealGroup", "to": "cascade", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "sort", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "spare", "faceUp": 1 }
+  ],
+  "redealRules": [
+    { "kind": "gather",
+      "from": ["spare-2", "spare-1", "cascade-6", "cascade-5", "cascade-4", "cascade-3",
+        "cascade-2", "cascade-1"],
+      "to": "stock", "when": "empty(stock)" },
+    { "kind": "dealGroup", "to": "cascade", "faceUp": 1 }
+  ],
+  "redealWhen": { "kind": "expr", "when": "!empty(stock) || redeals <= 15" },
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "planner": true,
+  "tools": "None"
+}

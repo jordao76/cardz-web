@@ -1,0 +1,129 @@
+{
+  "name": "Hemispheres",
+  "aliases": ["The Hemispheres"],
+  "description": "**Goal:** move all 104 cards to the eight foundations.\n\n- The four **red Aces** build **up in suit** to King, the four **black Kings** **down in suit** to Ace.\n- **Red cards belong to the north** (the six piles in the top half of the circle), **black cards to the south** (the six in the bottom half). Only a pile's top card can move, one card at a time.\n- In the north, a red card builds **down in suit** on a red card; in the south, a black card builds **up in suit** on a black card. The waste's top card may build **regardless of suit**, onto a pile of its own colour.\n- A card in the **wrong hemisphere is stranded**: it can't move, and nothing builds on it. **Exchange** it by dropping it on a stranded card of the other colour across the equator: the two swap places.\n- Tap the stock to turn one card onto the waste. There is no redeal.\n- An **empty pile is refilled at once** from the stock, or from the waste once the stock is spent.\n- Once the stock is spent, stranded cards are free, and the four **barriers** lying crossways may finish their foundations.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+  "decks": [{ "count": 2 }],
+  "rules": {
+    "tableau": {
+      "single": true,
+      "when": "!empty(depot) && card.color == Red && (top.color == Black && source.southern || top.color == Red && card.value == top.value - 1 && (source == waste || card.suit == top.suit && (source.northern || empty(stock) && source.southern)))",
+      "reason": "Red builds down in suit in the north; a stranded card swaps with a stranded card"
+    },
+    "foundation": {
+      "single": true,
+      "build": { "direction": "Up" },
+      "suit": "Same",
+      "when": "source == waste || source.northern || empty(stock) && (source.southern || source.barrier)",
+      "reason": "Not from the wrong hemisphere, nor a barrier, until the stock is spent"
+    },
+    "northking": {
+      "single": true,
+      "build": { "direction": "Down" },
+      "suit": "Same",
+      "when": "source == waste || source.southern || empty(stock) && (source.northern || source.barrier)",
+      "reason": "Not from the wrong hemisphere, nor a barrier, until the stock is spent"
+    },
+    "africa-1": {
+      "single": true,
+      "when": "!empty(depot) && card.color == Black && (top.color == Red && source.northern || top.color == Black && card.value == top.value + 1 && (source == waste || card.suit == top.suit && (source.southern || empty(stock) && source.northern)))",
+      "reason": "Black builds up in suit in the south; a stranded card swaps with a stranded card"
+    }
+  },
+  "depots": [
+    { "type": "Tableau", "fanDirection": "None", "col": 1.506, "row": 1.613, "name": "europe-1",
+      "acceptRule": "$tableau", "ejectRule": "topOnly", "angle": -1.1780972450961724 },
+    { "type": "Tableau", "fanDirection": "None", "col": 2.236, "row": 0.765, "name": "europe-2",
+      "acceptRule": "$tableau", "ejectRule": "topOnly", "angle": -0.7853981633974483 },
+    { "type": "Tableau", "fanDirection": "None", "col": 3.328, "row": 0.199, "name": "europe-3",
+      "acceptRule": "$tableau", "ejectRule": "topOnly", "angle": -0.39269908169872414 },
+    { "type": "Reserve", "col": 4.615, "row": 0, "name": "northpole", "acceptRule": "none",
+      "ejectRule": "topOnly", "angle": 1.5707963267948966 },
+    { "type": "Tableau", "fanDirection": "None", "col": 5.903, "row": 0.199, "name": "asia-1",
+      "acceptRule": "$tableau", "ejectRule": "topOnly", "angle": 0.39269908169872414 },
+    { "type": "Tableau", "fanDirection": "None", "col": 6.995, "row": 0.765, "name": "asia-2",
+      "acceptRule": "$tableau", "ejectRule": "topOnly", "angle": 0.7853981633974483 },
+    { "type": "Tableau", "fanDirection": "None", "col": 7.725, "row": 1.613, "name": "asia-3",
+      "acceptRule": "$tableau", "ejectRule": "topOnly", "angle": 1.1780972450961724 },
+    { "type": "Reserve", "col": 1.25, "row": 2.612, "name": "westequator", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Foundation", "col": 4.615, "row": 0.851, "name": "northace",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 2.346, "row": 2.612, "name": "westace",
+      "acceptRule": "$foundation", "ejectRule": "locked", "angle": 1.5707963267948966 },
+    { "type": "Foundation", "col": 4.615, "row": 4.373, "name": "southace",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 6.885, "row": 2.612, "name": "eastace",
+      "acceptRule": "$foundation", "ejectRule": "locked", "angle": 1.5707963267948966 },
+    { "type": "Foundation", "col": 4.615, "row": 1.791, "name": "northking",
+      "acceptRule": "$northking", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3.558, "row": 2.612, "name": "westking",
+      "acceptRule": "$northking", "ejectRule": "locked", "angle": 1.5707963267948966 },
+    { "type": "Foundation", "col": 4.615, "row": 3.433, "name": "southking",
+      "acceptRule": "$northking", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 5.673, "row": 2.612, "name": "eastking",
+      "acceptRule": "$northking", "ejectRule": "locked", "angle": 1.5707963267948966 },
+    { "type": "Stock", "col": 0, "row": 2.015, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked", "landFace": "Down", "draw": { "to": "waste" },
+      "triggers": [
+        { "when": "any(d in Tableau, d.swapping)",
+          "do": [
+            { "kind": "move", "from": "first(Tableau, it.swapping)",
+              "to": "cameFrom(first(Tableau, it.swapping))", "skip": "1" }
+          ] },
+        { "when": "any(d in Tableau, empty(d)) && count(stock) + count(waste) > 0 && !any(d in Tableau, d.swapping)",
+          "do": [
+            { "kind": "flipTop", "depot": "stock" },
+            { "kind": "move", "from": "if(empty(stock), waste, stock)",
+              "to": "first(Tableau, empty(it))" }
+          ] }
+      ] },
+    { "type": "Waste", "col": 0, "row": 3.209, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Reserve", "col": 7.981, "row": 2.612, "name": "eastequator", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Tableau", "fanDirection": "None", "col": 3.328, "row": 5.025, "name": "africa-1",
+      "acceptRule": "$africa-1", "ejectRule": "topOnly", "angle": 0.39269908169872414 },
+    { "type": "Tableau", "fanDirection": "None", "col": 2.236, "row": 4.459, "name": "africa-2",
+      "acceptRule": "$africa-1", "ejectRule": "topOnly", "angle": 0.7853981633974483 },
+    { "type": "Tableau", "fanDirection": "None", "col": 1.506, "row": 3.611, "name": "africa-3",
+      "acceptRule": "$africa-1", "ejectRule": "topOnly", "angle": 1.1780972450961724 },
+    { "type": "Reserve", "col": 4.615, "row": 5.224, "name": "southpole", "acceptRule": "none",
+      "ejectRule": "topOnly", "angle": 1.5707963267948966 },
+    { "type": "Tableau", "fanDirection": "None", "col": 7.725, "row": 3.611, "name": "australia-1",
+      "acceptRule": "$africa-1", "ejectRule": "topOnly", "angle": -1.1780972450961724 },
+    { "type": "Tableau", "fanDirection": "None", "col": 6.995, "row": 4.459, "name": "australia-2",
+      "acceptRule": "$africa-1", "ejectRule": "topOnly", "angle": -0.7853981633974483 },
+    { "type": "Tableau", "fanDirection": "None", "col": 5.903, "row": 5.025, "name": "australia-3",
+      "acceptRule": "$africa-1", "ejectRule": "topOnly", "angle": -0.39269908169872414 }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "northace" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "westace" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "southace" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "eastace" },
+    { "kind": "place", "rank": "King", "suit": "Spades", "to": "northking" },
+    { "kind": "place", "rank": "King", "suit": "Clubs", "to": "westking" },
+    { "kind": "place", "rank": "King", "suit": "Spades", "to": "southking" },
+    { "kind": "place", "rank": "King", "suit": "Clubs", "to": "eastking" },
+    { "kind": "place", "rank": "King", "suit": "Hearts", "to": "westequator" },
+    { "kind": "place", "rank": "King", "suit": "Diamonds", "to": "eastequator" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "northpole" },
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "southpole" },
+    { "kind": "dealGroup", "to": ["europe", "asia", "africa", "australia"], "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "properties": {
+    "northern": "any(d in europe, d == it) || any(d in asia, d == it)",
+    "southern": "any(d in africa, d == it) || any(d in australia, d == it)",
+    "barrier": "any(d in Reserve, d == it)",
+    "stranded": "it.northern && any(c in it, c.color == Black) || it.southern && any(c in it, c.color == Red)",
+    "swapping": "it.stranded && (it.northern && top(it).color == Red || it.southern && top(it).color == Black)"
+  },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "planner": {
+    "value": "20 * sum(Foundation, count(it)) - 10 * count(d in Tableau, d.stranded) - 2 * count(waste) - 3 * count(stock)"
+  },
+  "tools": "None"
+}
