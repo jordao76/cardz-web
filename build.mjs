@@ -634,9 +634,8 @@ ${footer}
  * Every game page, from one card: the games built into Cardz, then the extras,
  * which are offered as design files (cardz-win docs/website-plan.md §11). A card
  * shows the game's screenshot when roster.json names one and its drawn board
- * otherwise. An extra's card adds what its file shows and a download; that joins
- * the two exports, games.json for the page and the design kit for the file, and
- * the build fails where they disagree. Order is roster.json's.
+ * otherwise. An extra's card reads as a built-in's, plus a download; the build
+ * fails if the design kit did not write the file it offers. Order is roster.json's.
  */
 function gamesPage(all) {
   const { up, head, header, footer } = chrome(1);
@@ -659,12 +658,7 @@ function gamesPage(all) {
           <a class="game-card-art${shot ? " game-card-shot" : ""}" href="${page.slug}/" tabindex="-1" aria-hidden="true">${shot || (diagram ? diagram.svg : "")}</a>
           <p class="eyebrow"><span></span> ${escape(page.tagline)}</p>
           <h3><a href="${page.slug}/">${escape(page.name)}</a>${page.new ? " <b>New</b>" : ""}${page.original ? ` <b class="original-badge">Cardz original</b>` : ""}</h3>
-          <p class="game-card-facts">${facts}</p>${
-            extra
-              ? `
-          <p class="game-card-note">${escape(kit.note)}</p>`
-              : ""
-          }
+          <p class="game-card-facts">${facts}</p>
           <div class="game-card-actions">${
             extra
               ? `

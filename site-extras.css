@@ -27,7 +27,6 @@
 .game-card h3 b { display: inline-block; margin-left: .5rem; vertical-align: .3em; padding: .2rem .42rem; border: 1px solid var(--gold); color: #795915; font: 600 .55rem/1 "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .game-card h3 b.original-badge { border-color: var(--red); background: var(--red); color: #fff5e5; }
 .game-card-facts { margin: 0 0 1rem; color: var(--muted); font: 600 .62rem "DM Sans", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
-.game-card-note { margin: 0 0 1.2rem; color: #5f5852; font-size: .9rem; line-height: 1.75; }
 .game-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: auto; }
 .game-card-actions .feature-link { margin-top: 0; }
 .games-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 1.6rem; padding: 70px 0 110px; }
