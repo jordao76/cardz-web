@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-10T16:28:49Z",
+  "generated": "2026-11-12T02:12:19Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -6975,6 +6975,237 @@
             "type": "stock",
             "col": 0.5,
             "row": 0,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "royal-cotillion",
+      "name": "Royal Cotillion",
+      "aliases": [
+        "Lords and Ladies"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build both decks onto eight foundations, thirteen cards each. They build **up by twos, in suit**, wrapping from King round to Ace.\n\n- An Ace and a Two of each suit start the foundations. An Ace builds A 3 5 7 9 J K 2 4 6 8 10 Q, a Two builds 2 4 6 8 10 Q A 3 5 7 9 J K, so a won game shows each suit's King and Queen side by side.\n- **The ladies' side**, on the left, holds four columns of three. Only their top cards are available, and a card taken from there is not replaced.\n- **The lords' side**, on the right, holds sixteen cards, all available. A space there is refilled at once from the waste, or from the stock while the waste is empty.\n- Cards play only to the foundations, never from one pile to another.\n- Turn the stock one card at a time to the waste; the top waste card is available. There is **no redeal**.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+      "inApp": false,
+      "download": "designs/royal-cotillion.cardz",
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "lady-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "lady-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "lady-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "lady-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "ace-1",
+            "type": "foundation",
+            "col": 4.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-2",
+            "type": "foundation",
+            "col": 4.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "ace-3",
+            "type": "foundation",
+            "col": 4.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "ace-4",
+            "type": "foundation",
+            "col": 4.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "two-1",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "two-2",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "two-3",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "two-4",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "lord-1",
+            "type": "tableau",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "lord-2",
+            "type": "tableau",
+            "col": 8,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "lord-3",
+            "type": "tableau",
+            "col": 9,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "lord-4",
+            "type": "tableau",
+            "col": 10,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "lord-5",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "lord-6",
+            "type": "tableau",
+            "col": 8,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "lord-7",
+            "type": "tableau",
+            "col": 9,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "lord-8",
+            "type": "tableau",
+            "col": 10,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "lord-9",
+            "type": "tableau",
+            "col": 7,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "lord-10",
+            "type": "tableau",
+            "col": 8,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "lord-11",
+            "type": "tableau",
+            "col": 9,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "lord-12",
+            "type": "tableau",
+            "col": 10,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "lord-13",
+            "type": "tableau",
+            "col": 7,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "lord-14",
+            "type": "tableau",
+            "col": 8,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "lord-15",
+            "type": "tableau",
+            "col": 9,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "lord-16",
+            "type": "tableau",
+            "col": 10,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 2,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 1,
+            "row": 3,
             "fan": "none"
           }
         ]

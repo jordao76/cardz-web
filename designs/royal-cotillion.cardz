@@ -1,0 +1,57 @@
+{
+  "name": "Royal Cotillion",
+  "aliases": ["Lords and Ladies"],
+  "description": "**Goal:** build both decks onto eight foundations, thirteen cards each. They build **up by twos, in suit**, wrapping from King round to Ace.\n\n- An Ace and a Two of each suit start the foundations. An Ace builds A 3 5 7 9 J K 2 4 6 8 10 Q, a Two builds 2 4 6 8 10 Q A 3 5 7 9 J K, so a won game shows each suit's King and Queen side by side.\n- **The ladies' side**, on the left, holds four columns of three. Only their top cards are available, and a card taken from there is not replaced.\n- **The lords' side**, on the right, holds sixteen cards, all available. A space there is refilled at once from the waste, or from the stock while the waste is empty.\n- Cards play only to the foundations, never from one pile to another.\n- Turn the stock one card at a time to the waste; the top waste card is available. There is **no redeal**.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+  "decks": [{ "count": 2 }],
+  "rules": {
+    "foundation": {
+      "single": true,
+      "seedNone": true,
+      "build": { "direction": "Up", "step": 2, "wrap": true },
+      "suit": "Same",
+      "when": "count(depot) < 13",
+      "reason": "A foundation holds thirteen cards"
+    }
+  },
+  "depots": [
+    { "type": "Reserve", "fanDirection": "Down", "col": 0, "row": 0, "name": "lady", "repeat": 4,
+      "acceptRule": "none", "ejectRule": "topOnly" },
+    { "type": "Foundation", "col": 4.5, "row": 0, "name": "ace", "repeat": 4, "perRow": 1,
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 5.5, "row": 0, "name": "two", "repeat": 4, "perRow": 1,
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Tableau", "fanDirection": "None", "col": 7, "row": 0, "name": "lord", "repeat": 16,
+      "perRow": 4,
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true,
+        "acceptFrom": ["waste", "stock"],
+        "allowFaceDown": true
+      },
+      "ejectRule": "topOnly", "landFace": "Up", "autoRefill": ["waste", "stock"] },
+    { "type": "Waste", "col": 2, "row": 3, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Stock", "col": 1, "row": 3, "name": "stock", "acceptRule": "none",
+      "ejectRule": "topOnly", "landFace": "Down", "draw": { "to": "waste" } }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "ace-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "ace-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "ace-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "ace-4" },
+    { "kind": "place", "rank": "Two", "suit": "Spades", "to": "two-1" },
+    { "kind": "place", "rank": "Two", "suit": "Hearts", "to": "two-2" },
+    { "kind": "place", "rank": "Two", "suit": "Clubs", "to": "two-3" },
+    { "kind": "place", "rank": "Two", "suit": "Diamonds", "to": "two-4" },
+    { "kind": "dealGroup", "to": "lady", "faceUp": 3, "roundRobin": true },
+    { "kind": "dealGroup", "to": "lord", "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "planner": {
+    "value": "20 * sum(Foundation, count(it)) - 2 * sum(d in Reserve, count(d) * count(d))"
+  },
+  "tools": "None"
+}

@@ -41,6 +41,7 @@
     { "slug": "gaps", "tagline": "Two to King, one suit to a row" },
     { "slug": "klondike-with-jokers", "tagline": "Two Jokers wild, and you can win them back", "new": true },
     { "slug": "hemispheres", "tagline": "Red to the north, black to the south", "new": true },
-    { "slug": "die-schwierige", "tagline": "Two decks, two rounds, the difficult one", "new": true }
+    { "slug": "die-schwierige", "tagline": "Two decks, two rounds, the difficult one", "new": true },
+    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true }
   ]
 }

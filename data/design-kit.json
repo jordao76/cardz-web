@@ -66,6 +66,11 @@
       "note": "Foundations that build by colour instead of suit, holding piles only the stock can feed, and one redeal that gathers the piles back in order without dealing anything out."
     },
     {
+      "name": "Royal Cotillion",
+      "file": "royal-cotillion.cardz",
+      "note": "Foundations that build by twos round the corner from King to Ace, capped at thirteen cards by an expression, beside two reserves that give up cards differently: one only from its column tops, never refilled, the other all open and refilled from the waste, then the stock. A planner value teaches Cardz to empty the tallest column first."
+    },
+    {
       "name": "Russian Solitaire",
       "file": "russian-solitaire.cardz",
       "note": "Yukon's diagonal deal and unrestricted face-up group moves, with columns that build in the same suit."
