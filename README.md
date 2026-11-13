@@ -1,6 +1,7 @@
 # Cardz web
 
-Landing page and privacy policy for Cardz for Windows.
+The website for Cardz and Cardz Lite for Windows: the home page, the game pages,
+the deck gallery, Sandbox, Make a game, and the privacy policy.
 
 ## Run locally
 
@@ -33,7 +34,7 @@ Each page's board diagram (`diagram.mjs`) is drawn to scale from the same file's
 depot coordinates — no screenshot, so it cannot fall out of date with the game.
 
 ```powershell
-node build.mjs      # no dependencies; rewrites games/ and one marked region of index.html
+node build.mjs      # no dependencies; rewrites games/, decks.html and the marked regions of the hand-written pages
 ```
 
 `data/games.json` comes from the app repo and is refreshed there, whenever you
@@ -100,10 +101,20 @@ It names its sources by filename, so a renamed capture fails the import rather
 than being picked up. cardz-win's `docs/screenshots/store/shot-list.md` lists
 every capture, taken and planned.
 
+## One header and footer, and the home page's counts
+
+The hand-written pages (`index.html`, `lite.html`, `sandbox.html`,
+`make-a-game.html`, `privacy.html`) carry `<!-- build:header -->` and
+`<!-- build:footer -->` regions that `build.mjs` fills from the same `NAV` list
+the generated pages use, so the navigation is written once. Edit it there, not in
+a page. The home page has two more regions: its games heading, whose counts come
+from `games.json`, and its deck strip, which shows the decks `data/decks.json`
+marks `"featured"`.
+
 ## Make a game is half generated
 
-`make-a-game.html` is hand-written around three marked regions that `build.mjs`
-fills: the reference's table of contents, and the
+`make-a-game.html` is hand-written around marked regions that `build.mjs`
+fills: besides its header and footer, the reference's table of contents and the
 reference itself, rendered from `data/rule-vocabulary.md`. That file is the app
 repo's `docs/rule-vocabulary.md` byte for byte — the same document Cardz serves to
 AI agents — so the page cannot describe a design format the app does not read.

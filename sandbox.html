@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Arrange your own card table in Cardz Sandbox. Move cards freely, keep your layout, and play it again from Your games.">
+  <meta name="description" content="Arrange your own card table in Cardz Sandbox. Move cards freely, keep your layout and its deal, and play it again from Your games.">
   <meta name="theme-color" content="#100f14">
   <title>Sandbox — Cardz</title>
   <link rel="icon" href="assets/cardz-logo.png">
@@ -15,17 +15,21 @@
 </head>
 <body class="sandbox-page">
   <a class="skip-link" href="#main">Skip to content</a>
+<!-- build:header -->
   <header class="site-header">
-    <a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a>
-    <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html" aria-current="page">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="privacy.html">Privacy</a></nav>
+    <a class="brand" href="index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
+    <nav aria-label="Main navigation">
+      <a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html" aria-current="page">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="lite.html">Cardz Lite</a>
+    </nav>
     <a class="button button-small" href="https://apps.microsoft.com/detail/9N96G6H34XCT">Get Cardz</a>
   </header>
+<!-- /build:header -->
   <main id="main">
     <section class="sandbox-hero">
-      <div><p class="eyebrow light"><span></span> The free table</p><h1>Just a deck.<br><em>No rules.</em></h1><p class="lede">Put any card anywhere. Make up a game, replay a family favourite, test an idea—or simply make a satisfying mess.</p></div>
+      <div><p class="eyebrow light"><span></span> Sandbox</p><h1>Just a deck.<br><em>No rules.</em></h1><p class="lede">Put any card anywhere. Make up a game, replay a family favourite, test an idea—or simply make a satisfying mess.</p></div>
       <div class="sandbox-deck" aria-hidden="true"><img class="demo-card" src="assets/cards/filigree-queen-spades.webp" alt="" width="252" height="342" loading="lazy"><img class="demo-card" src="assets/cards/scarab-back.webp" alt="" width="252" height="342" loading="lazy"><img class="demo-card" src="assets/cards/ornamental-seven-diamonds.webp" alt="" width="252" height="342" loading="lazy"></div>
     </section>
-    <section class="sandbox-intro"><div><p class="eyebrow"><span></span> Cards as physical things</p><h2>Small verbs.<br>Endless moves.</h2></div><div><p>Drag to move, double-tap to flip, and drop near a depot to snap. That is all you need. When you want more control, the toolbar's modes change what your next gesture does.</p><p>The modes answer different physical questions: what comes with the card, how the cards should land, whether they travel above or below, and what a double-tap should do.</p></div></section>
+    <section class="sandbox-intro"><div><p class="eyebrow"><span></span> How it works</p><h2>Three gestures.<br>Twelve modes.</h2></div><div><p>Drag to move, double-tap to flip, and drop near a depot to snap. That is all you need. When you want more control, the toolbar's modes change what your next gesture does.</p><p>The modes are grouped below by what they change: what comes with the card, how the cards land, whether they go above or below, and what a double-tap does.</p></div></section>
     <section aria-label="How modes work">
       <ul class="mode-basics">
         <li><h3>For one gesture</h3><p>Click a chip or press its key. The mode applies to your next drag or double-tap, then switches itself off.</p></li>
@@ -166,9 +170,9 @@
 
     <section class="keep-layout section" id="keep-layout" aria-labelledby="keep-title">
       <div class="section-heading">
-        <p class="eyebrow"><span></span> A table worth coming back to</p>
-        <h2 id="keep-title">Arrange it.<br><em>Keep it.</em></h2>
-        <p>Set up a table for the way you like to play, then keep the layout so you can use it again.</p>
+        <p class="eyebrow"><span></span> Keep</p>
+        <h2 id="keep-title">Lay it out. Deal it.<br><em>Keep it.</em></h2>
+        <p>Set up a table for the way you like to play and deal the cards onto it. Keep saves both, so the same table deals itself every time you come back.</p>
       </div>
       <article class="mode-demo" id="depot-demo" aria-labelledby="depot-title">
         <div class="mode-demo-copy">
@@ -186,15 +190,18 @@
       </article>
       <ol class="keep-steps">
         <li><h3>Make room for your game</h3><p>Stamp a depot for each pile your game needs, and move these landing spots where you want them.</p></li>
-        <li><h3>Give it a name</h3><p>Choose Keep to save your layout. When you rearrange a layout you've kept, you can update it or save a new version.</p></li>
-        <li><h3>Come back and play</h3><p>Find it in Your games. Start a new game with a full stock of cards and your landing spots ready. Rename, duplicate, export or delete your layouts there, too.</p></li>
+        <li><h3>Deal it out</h3><p>Deal cards from the stock onto your landing spots, face up or face down, the way your game begins.</p></li>
+        <li><h3>Keep it</h3><p>Choose Keep and give your table a name. Leave <em>Deal the cards as they lie</em> ticked and the deal is saved with the layout. Change a table you've kept, and you can update it or save a new one.</p></li>
+        <li><h3>Come back and play</h3><p>Find it in Your games. Every new game shuffles the deck and deals your table again. Rename, duplicate, export or delete your games there, too.</p></li>
       </ol>
-      <p class="keep-note">Keep saves your table layout and deck setup. The cards you've dealt and their current positions aren't part of the saved layout, and the table stays rule-free—you decide how to play.</p>
+      <p class="keep-note">A kept deal is its shape, not its cards: three face down and one face up on this pile, never the ace of spades, so every game deals differently. Cards lying loose on the felt, off the landing spots, are left out of the deal. The table stays rule-free, and you decide how to play.</p>
       <a class="feature-link" href="make-a-game.html">Want rules too? Make your own game <span aria-hidden="true">→</span></a>
     </section>
-    <section class="sandbox-cta"><p class="eyebrow light" style="justify-content:center"><span></span> The rules can wait</p><h2>What will you<br>do with the deck?</h2><a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Download from the</small>Microsoft Store</span></a></section>
+    <section class="sandbox-cta"><h2>What will you<br>do with the deck?</h2><a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Download from the</small>Microsoft Store</span></a></section>
   </main>
-  <footer><a class="brand" href="index.html"><span>✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="decks.html">Decks</a><a href="sandbox.html">Sandbox</a><a href="privacy.html">Privacy</a></div><small>© 2026 Cardz</small></footer>
+<!-- build:footer -->
+  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="lite.html">Cardz Lite</a><a href="privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>
+<!-- /build:footer -->
   <script src="mode-demos.js"></script>
 </body>
 </html>

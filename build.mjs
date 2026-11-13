@@ -7,8 +7,10 @@
 //   node build.mjs
 //
 // Everything else on the site stays hand-written. This only owns games/ (every
-// game page and the index of them), decks.html, and the marked regions in
-// make-a-game.html, so a redesign can move freely around it.
+// game page and the index of them), decks.html, and the marked regions of the
+// hand-written pages: each one's header and footer, the home page's counts and
+// deck strip, and make-a-game.html's reference. A redesign can move freely
+// around those.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -17,6 +19,17 @@ import { boardDiagram } from "./diagram.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const STORE = "https://apps.microsoft.com/detail/9N96G6H34XCT";
+const LITE_STORE = "https://apps.microsoft.com/detail/9PL2LZN8H36G";
+
+// The one navigation every page wears, generated or hand-written. Home is the brand
+// link, and Privacy and Contact sit in the footer.
+const NAV = [
+  ["games", "games/", "Games"],
+  ["decks", "decks.html", "Decks"],
+  ["sandbox", "sandbox.html", "Sandbox"],
+  ["make-a-game", "make-a-game.html", "Make a game"],
+  ["lite", "lite.html", "Cardz Lite"],
+];
 
 // ---------------------------------------------------------------- data
 
@@ -338,14 +351,21 @@ function chrome(depth) {
   <link rel="stylesheet" href="${up}styles.css">
   <link rel="stylesheet" href="${up}site-extras.css">
 </head>`,
+    // Cardz Lite's page sells Lite, so its button goes to Lite's Store page.
     header: (current) => `  <header class="site-header">
     <a class="brand" href="${up}index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
     <nav aria-label="Main navigation">
-      <a href="${up}index.html">Home</a><a href="${up}games/"${mark(current, "games")}>Games</a><a href="${up}decks.html"${mark(current, "decks")}>Decks</a><a href="${up}sandbox.html"${mark(current, "sandbox")}>Sandbox</a><a href="${up}make-a-game.html"${mark(current, "make-a-game")}>Make a game</a><a href="${up}privacy.html"${mark(current, "privacy")}>Privacy</a>
+      ${NAV.map(([slug, href, label]) => `<a href="${up}${href}"${mark(current, slug)}>${label}</a>`).join("")}
     </nav>
-    <a class="button button-small" href="${STORE}">Get Cardz</a>
+    ${
+      current === "lite"
+        ? `<a class="button button-small" href="${LITE_STORE}">Get Cardz Lite</a>`
+        : `<a class="button button-small" href="${STORE}">Get Cardz</a>`
+    }
   </header>`,
-    footer: `  <footer><a class="brand" href="${up}index.html"><span>✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="${up}sandbox.html">Sandbox</a><a href="${up}privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>`,
+    footer: `  <footer><a class="brand" href="${up}index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div>${NAV.map(
+      ([, href, label]) => `<a href="${up}${href}">${label}</a>`
+    ).join("")}<a href="${up}privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>`,
   };
 }
 
@@ -590,7 +610,7 @@ function deckPage() {
             `Run cardz-win's scripts/build-deck-gallery.mjs.`
         );
       const credit = deck.credit ? `\n          <p class="deck-credit">${escape(deck.credit)}</p>` : "";
-      return `        <article class="deck-card">
+      return `        <article class="deck-card" id="${deck.slug}">
           <img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy"
                alt="Three cards from the ${escape(deck.name)} deck: the back, the King of Spades, and the Ace of Hearts">
           <h2>${escape(deck.name)}</h2>
@@ -599,6 +619,8 @@ function deckPage() {
     })
     .join("\n");
 
+  const extraDecks = deckDownloads.decks.length;
+  const builtInDecks = decks.decks.length - extraDecks;
   return `${head(
     "Card decks — Cardz",
     "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, midnight neon, gothic horror, and more."
@@ -608,9 +630,11 @@ function deckPage() {
 ${header("decks")}
   <main id="main" class="decks-main">
     <header class="decks-head">
-      <p class="eyebrow"><span></span> ${decks.decks.length} decks</p>
-      <h1>Every hand<br><em>takes you places.</em></h1>
-      <p class="lede">A deck is not a skin in Cardz — each one brings its own table, its own suit colours, and its own painted courts and jokers. Switch at any time, mid-game.</p>
+      <p class="eyebrow"><span></span> Decks</p>
+      <h1>${decks.decks.length} decks.<br><em>Each with its own table.</em></h1>
+      <p class="lede">A deck brings its own table, suit colours, courts and jokers. Switch at any time, even mid-game. ${builtInDecks} are built into Cardz${
+        extraDecks ? `, and ${extraDecks} more are free downloads` : ""
+      }.</p>
     </header>
     <section class="deck-grid" aria-label="Illustrated decks">
 ${cards}
@@ -713,6 +737,34 @@ ${footer}
 `;
 }
 
+/** The home page's games heading, with the counts the catalog actually holds. */
+function homeGames(all) {
+  const extras = all.filter(isExtra).length;
+  return `      <div class="section-heading"><p class="eyebrow"><span></span> Games</p><h2>${all.length - extras} games built in.<br><em>${extras} more to download.</em></h2><p>The ones everybody knows, and some worth discovering. Each has a page with its rules and its board, so you can learn a game before you deal it.</p></div>`;
+}
+
+/**
+ * The home page's deck strip: the decks data/decks.json marks "featured", as the same
+ * three-card fans the gallery shows, each linking to its card there.
+ */
+function homeDecks() {
+  const featured = decks.decks.filter((deck) => deck.featured);
+  if (!featured.length) throw new Error("data/decks.json marks no deck as featured, so the home page has none to show.");
+  const builtIn = decks.decks.length - deckDownloads.decks.length;
+  const fans = featured
+    .map((deck) => {
+      const art = deckArt[deck.slug];
+      return `        <a class="deck-fan" href="decks.html#${deck.slug}"><img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy" alt="Three cards from the ${escape(deck.name)} deck"><span>${escape(deck.name)}</span></a>`;
+    })
+    .join("\n");
+  return `      <div class="section-heading"><p class="eyebrow light"><span></span> Decks</p><h2>${builtIn} illustrated decks.<br><em>Each with its own table.</em></h2><p>Change deck at any time, even mid-game. A high-contrast deck and a colourblind-friendly deck are built in too${
+    deckDownloads.decks.length ? ", and more decks are a free download" : ""
+  }.</p></div>
+      <div class="deck-strip">
+${fans}
+      </div>`;
+}
+
 function tocMarkup(toc) {
   return toc
     .map((entry) => `            <li><a href="#${entry.id}">${inlineReference(entry.text)}</a></li>`)
@@ -751,9 +803,16 @@ writeFileSync(join(outDir, "index.html"), gamesPage(ordered), "utf8");
 writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
 
 const rendered = referenceMarkdown(reference);
+const top = chrome(0);
+rewrite("index.html", { header: top.header(), "home-games": homeGames(ordered), "home-decks": homeDecks(), footer: top.footer });
+rewrite("lite.html", { header: top.header("lite"), footer: top.footer });
+rewrite("sandbox.html", { header: top.header("sandbox"), footer: top.footer });
+rewrite("privacy.html", { header: top.header(), footer: top.footer });
 rewrite("make-a-game.html", {
+  header: top.header("make-a-game"),
   "reference-toc": tocMarkup(rendered.toc),
   reference: rendered.html,
+  footer: top.footer,
 });
 
 console.log(

@@ -43,14 +43,8 @@
 /* The home page's way on to the games index, under its hand-picked tiles. */
 .games-link { margin-top: 2.6rem; }
 
-/* The hero and sandbox decoration are real cards now, not CSS rectangles with a
-   glyph in them. These strip the drawn card's fills, borders and inner glyph
-   styling, and restore the true 84:114 card proportion the old boxes only
-   approximated. */
-img.floating-card, img.demo-card { background: none; border: 0; padding: 0; object-fit: contain; }
-img.floating-card { height: auto; aspect-ratio: 84 / 114; }
-img.demo-card { height: auto; aspect-ratio: 84 / 114; display: block; }
-img.demo-card.c2 { border: 0; }
+/* The Sandbox hero's cards are real cards, at the true 84:114 proportion. */
+img.demo-card { height: auto; aspect-ratio: 84 / 114; display: block; object-fit: contain; }
 /* The sandbox trio was spaced for blank rectangles, where a tight stack read as
    a deck. Illustrated cards need to be seen, so the fan opens up. */
 .sandbox-deck img.demo-card:nth-child(1) { transform: translate(-118%, -54%) rotate(-18deg); }
@@ -68,7 +62,7 @@ img.demo-card.c2 { border: 0; }
 .sandbox-deck .demo-card:nth-child(2) { transform: translate(-45%,-65%) rotate(-3deg); }
 .sandbox-deck .demo-card:nth-child(3) { transform: translate(5%,-48%) rotate(14deg); }
 .sandbox-intro { padding: 100px clamp(24px, 9vw, 150px) 30px; background: #eee3d1; color: var(--ink); display: grid; grid-template-columns: .8fr 1.2fr; gap: 8vw; }
-.sandbox-intro h2 { margin: 0; font: 600 clamp(3rem, 5vw, 5.5rem)/.95 "Playfair Display", serif; }
+.sandbox-intro h2 { margin: 0; font: 600 clamp(2.4rem, 3.6vw, 4rem)/1 "Playfair Display", serif; }
 .sandbox-intro p { color: var(--muted); line-height: 1.85; max-width: 650px; }
 .mode-demo { padding: 45px clamp(24px, 9vw, 150px); background: #eee3d1; color: var(--ink); display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); align-items: center; gap: 3rem; }
 .mode-demo h3 { margin: 0; font: 600 clamp(2rem, 3vw, 3rem)/1.1 "Playfair Display", serif; }
@@ -76,14 +70,14 @@ img.demo-card.c2 { border: 0; }
 .mode-demo-copy p:not(.eyebrow) { line-height: 1.8; color: #655b54; }
 .mode-demo-film { margin: 0; min-width: 0; }
 .keep-layout { background: var(--paper); }
-.keep-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: keep-step; }
+.keep-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: keep-step; }
 .keep-steps li { counter-increment: keep-step; border-top: 1px solid var(--line); padding-top: 1.5rem; }
 .keep-steps li::before { content: "0" counter(keep-step); color: #8c6232; font-size: .75rem; letter-spacing: .12em; }
 .keep-layout h2, .keep-layout h3 { color: var(--ink); }
 .keep-steps h3 { font: 600 1.5rem "Playfair Display", serif; margin: 1rem 0; }
 .keep-steps p, .keep-note { color: #655b54; line-height: 1.8; }
 .keep-note { border-top: 1px solid var(--line); padding-top: 1.5rem; margin: 2.5rem 0 0; max-width: 850px; font-size: .9rem; }
-.keep-link { display: inline-block; margin-top: 1rem; padding: .6rem 0; color: var(--gold); font-size: .85rem; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 1100px) { .keep-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px) { .keep-steps { grid-template-columns: 1fr; gap: 1rem; } }
 .mode-demo video { display: block; width: 100%; height: auto; border-radius: 6px; background: #143b2b; box-shadow: 0 15px 40px #241b1426; }
 .mode-demo video:focus-visible { outline: 3px solid var(--red); outline-offset: 5px; }
@@ -198,7 +192,7 @@ img.demo-card.c2 { border: 0; }
    count is fluid here, so a hairline grid would leave a lit empty cell
    wherever the last row runs short. */
 .deck-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1.4rem; }
-.deck-card { background: #15131a; border: 1px solid rgba(216, 168, 78, .16); padding: 2.2rem 2rem 2.4rem; }
+.deck-card { scroll-margin-top: 1.5rem; background: #15131a; border: 1px solid rgba(216, 168, 78, .16); padding: 2.2rem 2rem 2.4rem; }
 .deck-card img { width: 100%; height: auto; margin-bottom: 1.6rem; filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .55)); }
 .deck-card h2 { margin: 0 0 .7rem; font: 600 1.7rem "Playfair Display", serif; }
 .deck-card p { margin: 0; color: #a9a094; font-size: .85rem; line-height: 1.8; }
@@ -211,7 +205,7 @@ img.demo-card.c2 { border: 0; }
 .decks-cta { padding: 90px 0 110px; }
 
 .policy-body { background: #eee3d1; }
-.policy-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header, .games-page .site-header { position: static; background: #100f14; }
+.policy-body .site-header, .game-page .site-header, .decks-page .site-header, .format-page .site-header, .games-page .site-header { position: static; background: #100f14; }
 .policy-main { min-height: calc(100vh - 180px); padding: 90px 24px 120px; }
 .policy-shell { width: min(760px, 100%); margin: auto; }
 .policy-shell h1 { margin: 0 0 1rem; font: 600 clamp(3.5rem, 8vw, 6.5rem)/.95 "Playfair Display", serif; letter-spacing: -.045em; }
