@@ -1,26 +1,54 @@
-/* Look: the table. The page is a card table. Words lie on the felt; anything you
-   can pick up (a game, a step, a detail) is a card; a long read is one big sheet.
-   The navigation is a row of landing spots, and the page you are on is the card
-   lying in its spot. Georgia is the house deck's own index face. */
+/* Look: the table, dealt with a deck of your choosing. The page is a card table.
+   Words lie on the felt; anything you can pick up (a game, a step, a detail) is a
+   card; a long read is one big sheet. The navigation is a row of landing spots,
+   and the page you are on is the card lying in its spot.
+
+   A deck is a skin: deck.js sets data-deck on <html>, and each deck below restates
+   the same few colours, taken from that deck's own theme in the app. Felt House is
+   the default, as it is in Cardz. */
 :root {
-  --felt: #1b4d38; --felt-deep: #123527; --ivory: #f6f0e0; --ink: #1c1a17; --red: #b5302a;
-  --slot: rgba(246, 240, 224, .3); --soft: rgba(246, 240, 224, .78); --dim: #6b6356; --rule: #d9cfb8;
+  --felt: #1b4d38; --felt-deep: #0e2e1f; --glow: #27704f; --ivory: #f7f1e3; --card: #f7f1e3; --card-edge: transparent;
+  --ink: #1a1410; --red: #b3242b; --on-red: #fff; --focus: #d4a957;
+  --slot: rgba(247, 241, 227, .3); --soft: rgba(247, 241, 227, .78); --dim: #6b6356; --rule: #d9cfb8;
+  --code-key: #ecca72; --code-str: #f2bfae; --code-num: #aad3ee;
   --serif: Georgia, "Times New Roman", serif; --sans: "Segoe UI", system-ui, sans-serif;
   --gutter: max(1.5rem, calc((100vw - 1120px) / 2));
   --lift: 0 2px 0 rgba(0, 0, 0, .25), 0 10px 22px rgba(0, 0, 0, .22);
 }
+/* Valhalla: woodcut paper on dark slate, oxblood and iron ink. */
+[data-deck="valhalla"] {
+  --felt: #2a2c30; --felt-deep: #1a1b1e; --glow: #474a50; --ivory: #ece4d2; --card: #e9e1cf;
+  --ink: #262a31; --red: #9b2a20; --focus: #c9b48a;
+  --slot: rgba(236, 228, 210, .3); --soft: rgba(236, 228, 210, .76); --dim: #5e6168; --rule: #cbc2ad;
+}
+/* Scarab: papyrus by torchlight on deep Nile blue, carnelian and gold. */
+[data-deck="scarab"] {
+  --felt: #0b2a33; --felt-deep: #05121a; --glow: #1b4a50; --ivory: #e9cb6b; --card: #e8c47e; --card-edge: #9a7924;
+  --ink: #2a261e; --red: #b23a2a; --focus: #e9cb6b;
+  --slot: rgba(200, 165, 60, .5); --soft: rgba(233, 214, 160, .82); --dim: #6a5524; --rule: #c39f5c;
+  --code-key: #e9cb6b; --code-str: #f0b49c; --code-num: #9cc4e0;
+}
+/* Neon: near-black cards lit cyan and magenta, on a floor darker than the cards. */
+[data-deck="neon"] {
+  --felt: #080912; --felt-deep: #04040a; --glow: #1c1140; --ivory: #d8f7fb; --card: #0e0d1a; --card-edge: rgba(95, 233, 240, .4);
+  --ink: #d8f7fb; --red: #ff3a8f; --on-red: #0e0d1a; --focus: #5fe9f0;
+  --slot: rgba(95, 233, 240, .4); --soft: rgba(216, 247, 251, .74); --dim: #8fa6ba; --rule: rgba(95, 233, 240, .24);
+  --code-key: #5fe9f0; --code-str: #ff8fc0; --code-num: #b9a8ff;
+  --lift: 0 0 0 1px rgba(255, 58, 143, .25), 0 10px 26px rgba(0, 0, 0, .6);
+}
+[data-deck="neon"] h1, [data-deck="neon"] .brand { text-shadow: 0 0 18px rgba(95, 233, 240, .45); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--felt) radial-gradient(ellipse at 50% 0, #27704f 0, transparent 70%) no-repeat; background-size: 100% 900px; color: var(--ivory); font: 1rem/1.65 var(--sans); }
+body { margin: 0; background: var(--felt) radial-gradient(ellipse at 50% 0, var(--glow) 0, transparent 70%) no-repeat; background-size: 100% 900px; color: var(--ivory); font: 1rem/1.65 var(--sans); }
 img, video, svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, summary:focus-visible, video:focus-visible { outline: 3px solid #ffd76a; outline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, video:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; margin: 0 0 .6em; }
 h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
 h2 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
 h3 { font-size: 1.3rem; }
 figure { margin: 0; }
-.skip-link { position: fixed; top: -4rem; left: 1rem; background: var(--ivory); color: var(--ink); padding: .6rem 1rem; z-index: 10; }
+.skip-link { position: fixed; top: -4rem; left: 1rem; background: var(--card); color: var(--ink); padding: .6rem 1rem; z-index: 10; }
 .skip-link:focus { top: 1rem; }
 .eyebrow { margin: 0 0 .5rem; font: italic .95rem var(--serif); color: var(--soft); }
 .eyebrow span, .court-band { display: none; }
@@ -32,13 +60,24 @@ figure { margin: 0; }
 .site-header nav { display: flex; gap: .6rem; margin-left: auto; }
 .site-header nav a { min-width: 5.4rem; padding: .9rem .7rem; text-align: center; border: 1.5px solid var(--slot); border-radius: 8px; text-decoration: none; font-size: .85rem; line-height: 1.2; }
 .site-header nav a:hover { border-color: var(--ivory); }
-.site-header nav a[aria-current] { background: var(--ivory); border-color: var(--ivory); color: var(--ink); box-shadow: var(--lift); }
-.button { display: inline-flex; align-items: center; gap: .7rem; background: var(--red); color: #fff; padding: .8rem 1.2rem; border: 0; border-radius: 8px; box-shadow: 0 2px 0 #7d1f1b; text-decoration: none; font-weight: 600; line-height: 1.15; }
-.button:hover { background: #c43a33; }
+.site-header nav a[aria-current] { background: var(--card); border-color: var(--card); color: var(--ink); box-shadow: var(--lift); }
+.button { display: inline-flex; align-items: center; gap: .7rem; background: var(--red); color: var(--on-red); padding: .8rem 1.2rem; border: 0; border-radius: 8px; box-shadow: 0 2px 0 rgba(0, 0, 0, .35); text-decoration: none; font-weight: 600; line-height: 1.15; }
+.button:hover { filter: brightness(1.12); }
 .button small { display: block; font-weight: 400; font-size: .7rem; opacity: .85; }
 .button-small { padding: .55rem .9rem; font-size: .85rem; }
 .windows-mark { font-size: 1.5rem; }
 .feature-link { display: inline-block; margin-top: 1.2rem; font-weight: 600; }
+/* The deck picker, which deck.js adds to the header: four small cards, each one
+   half its deck's table and half its card. */
+.deck-picker { display: flex; align-items: center; gap: .45rem; }
+.deck-picker button { width: 1.5rem; height: 2.05rem; padding: 0; border: 1.5px solid var(--slot); border-radius: 4px; cursor: pointer; transition: transform .15s; }
+.deck-picker button:hover { transform: translateY(-2px); }
+.deck-picker button[aria-pressed="true"] { border-color: var(--ivory); transform: translateY(-4px); box-shadow: 0 6px 10px rgba(0, 0, 0, .4); }
+.deck-picker [data-deck="felt-house"] { background: linear-gradient(135deg, #1b4d38 50%, #f7f1e3 50%); }
+.deck-picker [data-deck="valhalla"] { background: linear-gradient(135deg, #2a2c30 50%, #e9e1cf 50%); }
+.deck-picker [data-deck="scarab"] { background: linear-gradient(135deg, #0b2a33 50%, #e8c47e 50%); }
+.deck-picker [data-deck="neon"] { background: linear-gradient(135deg, #080912 50%, #ff3a8f 50%); }
+.deck-fan[aria-pressed="true"] span { text-decoration: underline; }
 
 /* Home and Lite. */
 .hero, .sandbox, .sandbox-hero { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 3rem; align-items: center; }
@@ -52,7 +91,7 @@ figure { margin: 0; }
 .section { padding: 4rem var(--gutter); }
 .section-heading { margin-bottom: 2rem; }
 .section-heading p { color: var(--soft); max-width: 34rem; margin: 0; }
-.table-tile, .game-card, .mode-card, .mode-basics li, .keep-steps li, .feature-grid article { background: var(--ivory); color: var(--ink); border-radius: 10px; padding: 1rem; box-shadow: var(--lift); }
+.table-tile, .game-card, .mode-card, .mode-basics li, .keep-steps li, .feature-grid article { background: var(--card); color: var(--ink); border: 1px solid var(--card-edge); border-radius: 10px; padding: 1rem; box-shadow: var(--lift); }
 .table-gallery, .mode-basics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
 .table-tile { text-decoration: none; }
 .table-tile img, .game-card-art { border-radius: 6px; }
@@ -95,7 +134,7 @@ footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 .game-card h3 { margin-bottom: .3rem; }
 .game-card h3 a { text-decoration: none; }
 .game-card h3 b, .game-origin b { display: inline-block; margin-left: .3rem; padding: .1rem .4rem; border: 1px solid currentColor; border-radius: 4px; font: 600 .68rem/1.4 var(--sans); vertical-align: middle; }
-.game-card h3 b.original-badge, .game-origin b { margin-left: 0; margin-right: .5rem; background: var(--red); border-color: var(--red); color: #fff; }
+.game-card h3 b.original-badge, .game-origin b { margin-left: 0; margin-right: .5rem; background: var(--red); border-color: var(--red); color: var(--on-red); }
 .game-card h3 b.original-badge { margin-left: .3rem; margin-right: 0; }
 .game-card-facts { margin: 0 0 .8rem; font-size: .85rem; }
 .game-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-top: auto; }
@@ -115,7 +154,7 @@ footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 
 /* A long read is one sheet on the felt: a game's rules, Make a game, the policy. */
 .game-main, .policy-main, .format-main { padding: 1rem 1rem 4rem; }
-.game-shell, .policy-shell, .format-shell { max-width: 840px; margin: 0 auto; padding: clamp(1.4rem, 5vw, 3.5rem); background: var(--ivory); color: var(--ink); border-radius: 14px; box-shadow: var(--lift); }
+.game-shell, .policy-shell, .format-shell { max-width: 840px; margin: 0 auto; padding: clamp(1.4rem, 5vw, 3.5rem); background: var(--card); color: var(--ink); border: 1px solid var(--card-edge); border-radius: 14px; box-shadow: var(--lift); }
 .game-shell .eyebrow, .policy-shell .eyebrow, .format-shell .eyebrow, .policy-date, .game-cta > small, .game-more a, .game-capture figcaption { color: var(--dim); }
 .back-link { display: inline-block; margin-bottom: 1.2rem; font-size: .9rem; }
 .game-facts { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); color: var(--dim); font-size: .92rem; }
@@ -142,12 +181,12 @@ summary small { margin-left: .5rem; font: .8rem var(--sans); color: var(--dim); 
 .game-more > div { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .9rem; margin-bottom: 1.2rem; }
 pre { overflow-x: auto; margin: 1rem 0 1.4rem; padding: 1rem 1.1rem; background: var(--felt-deep); color: var(--ivory); border-radius: 8px; font: .8rem/1.6 "Cascadia Code", Consolas, monospace; }
 code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
-:not(pre) > code { padding: .08em .3em; background: rgba(0, 0, 0, .07); border-radius: 3px; overflow-wrap: anywhere; }
-.j-key { color: #ecca72; } .j-str { color: #f2bfae; } .j-num, .j-lit { color: #aad3ee; }
+:not(pre) > code { padding: .08em .3em; background: rgba(128, 128, 128, .16); border-radius: 3px; overflow-wrap: anywhere; }
+.j-key { color: var(--code-key); } .j-str { color: var(--code-str); } .j-num, .j-lit { color: var(--code-num); }
 .format-section, .policy-content section { padding: 1.6rem 0; }
 .format-section > h2, .policy-content h2 { font-size: 1.7rem; }
 .format-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
-.format-steps li { padding: 1rem; border: 1.5px dashed #c2b79c; border-radius: 10px; counter-increment: step; }
+.format-steps li { padding: 1rem; border: 1.5px dashed var(--dim); border-radius: 10px; counter-increment: step; }
 .format-steps li::before, .keep-steps li::before { content: counter(step); display: block; font: 1.7rem/1 var(--serif); color: var(--red); margin-bottom: .5rem; }
 .format-steps p, .keep-steps p { margin: 0; }
 .format-prompt { margin: 1.2rem 0; padding: .2rem 0 .2rem 1.2rem; border-left: 3px solid var(--red); font: italic 1.1rem var(--serif); }
@@ -178,7 +217,7 @@ code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
 .mode-top h3 { margin: 0; }
 .mode-demo .mode-top h3 { font-size: 1.9rem; }
 /* A mode's key, drawn as the corner of a card. */
-.mode-key { width: 2.1rem; height: 2.1rem; display: grid; place-items: center; background: var(--ivory); color: var(--red); border: 1px solid var(--rule); border-radius: 6px; font: 1.1rem var(--serif); }
+.mode-key { width: 2.1rem; height: 2.1rem; display: grid; place-items: center; background: var(--card); color: var(--red); border: 1px solid var(--rule); border-radius: 6px; font: 1.1rem var(--serif); }
 .modes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
 .mode-group-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
 .keep-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; counter-reset: step; }
@@ -198,4 +237,4 @@ code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
   .ref-toc ol { columns: 1; }
   .sandbox-deck { height: 240px; transform: scale(.8); }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .deck-picker button { transition: none; } }

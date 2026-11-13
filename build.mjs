@@ -346,6 +346,7 @@ function chrome(depth) {
   <title>${title}</title>
   <link rel="icon" href="${up}assets/cardz-logo.png">
   <link rel="stylesheet" href="${up}styles.css">
+  <script src="${up}deck.js"></script>
 </head>`,
     // Cardz Lite's page sells Lite, so its button goes to Lite's Store page.
     header: (current) => `  <header class="site-header">
