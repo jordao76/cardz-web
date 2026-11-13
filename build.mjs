@@ -496,7 +496,7 @@ function moreGroup(title, pages, up) {
  */
 function originMark(page) {
   if (!page.original) return "";
-  return `      <p class="game-origin"><b>Cardz original</b> A new solitaire, invented for Cardz rather than handed down at the card table.</p>
+  return `      <p class="game-origin"><b>Cardz original</b> Invented for Cardz.</p>
 `;
 }
 
@@ -632,8 +632,8 @@ ${header("decks")}
     <header class="decks-head">
       <p class="eyebrow"><span></span> Decks</p>
       <h1>${decks.decks.length} decks.<br><em>Each with its own table.</em></h1>
-      <p class="lede">A deck brings its own table, suit colours, courts and jokers. Switch at any time, even mid-game. ${builtInDecks} are built into Cardz${
-        extraDecks ? `, and ${extraDecks} more are free downloads` : ""
+      <p class="lede">Switch at any time, even mid-game. ${builtInDecks} are built into Cardz${
+        extraDecks ? `, and ${extraDecks} are free downloads` : ""
       }.</p>
     </header>
     <section class="deck-grid" aria-label="Illustrated decks">
@@ -705,12 +705,10 @@ ${header("games")}
     <header class="games-head">
       <p class="eyebrow"><span></span> Games</p>
       <h1>Choose a game.<br><em>Learn how it plays.</em></h1>
-      <p class="lede">Each game has a page of its own, with its rules and its board. The games in Cardz are there as soon as you install it; the extra games are a download away.</p>
     </header>
     <section class="games-section" aria-labelledby="in-cardz-title">
       <div class="games-section-head">
         <h2 id="in-cardz-title">In Cardz</h2>
-        <p>Built into Cardz and ready to play. Most of their pages also show the design file each one is made from.</p>
       </div>
       <div class="games-grid">
 ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
@@ -719,8 +717,7 @@ ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
     <section class="games-section" id="extras" aria-labelledby="extras-title">
       <div class="games-section-head">
         <h2 id="extras-title">Extra games</h2>
-        <p>Games that aren't built into Cardz. Download one and double-click the file: it joins Your games and plays like any other game there.</p>
-        <p>Each one is also a design file. Open it in a text editor to see how its rules are put together, or change it into a game of your own — <a href="${up}make-a-game.html">Make a game</a> explains how.</p>
+        <p>Not built into Cardz. Download one and double-click the file to add it to Your games. Each is a design file you can open and change: see <a href="${up}make-a-game.html">Make a game</a>.</p>
       </div>
       <div class="games-grid">
 ${all.filter(isExtra).map(card).join("\n")}
@@ -740,7 +737,7 @@ ${footer}
 /** The home page's games heading, with the counts the catalog actually holds. */
 function homeGames(all) {
   const extras = all.filter(isExtra).length;
-  return `      <div class="section-heading"><p class="eyebrow"><span></span> Games</p><h2>${all.length - extras} games built in.<br><em>${extras} more to download.</em></h2><p>The ones everybody knows, and some worth discovering. Each has a page with its rules and its board, so you can learn a game before you deal it.</p></div>`;
+  return `      <div class="section-heading"><p class="eyebrow"><span></span> Games</p><h2>${all.length - extras} games built in.<br><em>${extras} more to download.</em></h2></div>`;
 }
 
 /**
@@ -757,9 +754,7 @@ function homeDecks() {
       return `        <a class="deck-fan" href="decks.html#${deck.slug}"><img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy" alt="Three cards from the ${escape(deck.name)} deck"><span>${escape(deck.name)}</span></a>`;
     })
     .join("\n");
-  return `      <div class="section-heading"><p class="eyebrow light"><span></span> Decks</p><h2>${builtIn} illustrated decks.<br><em>Each with its own table.</em></h2><p>Change deck at any time, even mid-game. A high-contrast deck and a colourblind-friendly deck are built in too${
-    deckDownloads.decks.length ? ", and more decks are a free download" : ""
-  }.</p></div>
+  return `      <div class="section-heading"><p class="eyebrow light"><span></span> Decks</p><h2>${builtIn} illustrated decks.<br><em>Each with its own table.</em></h2><p>Switch at any time, even mid-game.</p></div>
       <div class="deck-strip">
 ${fans}
       </div>`;

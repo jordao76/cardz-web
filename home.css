@@ -40,7 +40,7 @@
 /* Headings state facts now, in more words than the two-word slogans they replace,
    so they are set smaller. */
 .home-page .section-heading h2, .home-page .final-cta h2 { font-size: clamp(2.6rem, 4.4vw, 4.6rem); line-height: 1; letter-spacing: -.04em; }
-.home-page .section-heading { margin-bottom: 50px; }
+.home-page .section-heading { grid-template-columns: 1.6fr 1fr; margin-bottom: 50px; }
 .home-page .details .section-heading { margin-bottom: 40px; }
 /* The deck strip: four of the gallery's fans on the gallery's own dark ground. */
 .home-decks { background: #100f14; color: var(--paper); }
@@ -50,11 +50,9 @@
 .deck-fan span { display: block; margin-top: 1.1rem; font: 600 1.4rem "Playfair Display", serif; }
 .deck-fan:hover span { color: var(--gold); }
 .home-decks .feature-link { margin-top: 2.6rem; color: var(--gold); }
-.lite-page .feature-grid { grid-template-columns: repeat(3, 1fr); }
-.lite-page .feature-grid article { min-height: 0; padding-bottom: 2rem; }
-.lite-page .feature-grid article:nth-child(3) { border-right: 0; }
-.lite-page .feature-grid article:nth-child(4) { padding-left: 0; }
-.lite-page .feature-grid article:nth-child(n+4) { border-top: 1px solid var(--line); }
+/* One row, however many details a page lists. */
+.home-page .feature-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 1fr; }
+.home-page .feature-grid article { min-height: 0; padding-bottom: 2rem; }
 @media (max-width: 1100px) {
   .table-gallery, .deck-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -63,9 +61,7 @@
   .home-page .hero { padding-top: 145px; min-height: 0; }
   .home-page .hero-art { margin-top: 1rem; }
   .home-page .lede { max-width: 540px; }
-  .lite-page .feature-grid { grid-template-columns: 1fr 1fr; }
-  .lite-page .feature-grid article:nth-child(n) { border-top: 0; border-right: 1px solid var(--line); padding-left: 0; }
-  .lite-page .feature-grid article:nth-child(even) { border-right: 0; padding-left: 2rem; }
+  .home-page .feature-grid { grid-template-columns: 1fr 1fr; grid-auto-flow: row; }
 }
 @media (max-width: 560px) {
   .table-gallery { grid-template-columns: 1fr; gap: 2rem; }
