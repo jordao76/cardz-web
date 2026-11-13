@@ -1,5 +1,201 @@
-:root{--ink:#17151a;--paper:#f3ecdb;--paper2:#e8d9bf;--gold:#d8a84e;--red:#b73834;--indigo:#182846;--muted:#746c65;--line:rgba(50,37,28,.18)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit}.skip-link{position:fixed;top:-4rem;left:1rem;background:var(--paper);padding:.7rem 1rem;z-index:100}.skip-link:focus{top:1rem}.site-header{height:84px;padding:0 clamp(24px,5vw,80px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:absolute;top:0;width:100%;z-index:20;color:var(--paper)}.brand{font-family:"Playfair Display",serif;font-size:1.55rem;font-style:italic}.brand span{color:var(--gold);margin-right:.25rem}.site-header nav{display:flex;gap:2rem;font-size:.85rem}.site-header nav a{opacity:.72}.site-header nav a:hover{opacity:1}.button{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;background:var(--red);color:#fff5e5;padding:.9rem 1.35rem;border:1px solid #dc625b;border-radius:3px;box-shadow:0 10px 30px rgba(80,18,16,.25);font-weight:600;line-height:1.05}.button:hover{background:#c5423c;transform:translateY(-2px)}.button small{display:block;font-size:.55rem;font-weight:400;opacity:.8;margin-bottom:.17rem}.button-small{padding:.65rem 1rem;font-size:.8rem}.windows-mark{font-size:1.55rem}.hero{min-height:820px;background:radial-gradient(circle at 15% 12%,rgba(216,168,78,.12),transparent 35%),radial-gradient(circle at 90% 90%,rgba(155,90,134,.2),transparent 38%),linear-gradient(145deg,#0f192a,#100f14 48%,#25182d);color:var(--paper);display:grid;grid-template-columns:minmax(330px,.85fr) minmax(520px,1.3fr);align-items:center;padding:130px clamp(24px,7vw,110px) 70px;gap:4vw;position:relative}.hero:after{content:"";position:absolute;inset:0;opacity:.25;pointer-events:none;background-image:linear-gradient(105deg,transparent 49.8%,rgba(216,168,78,.25) 50%,transparent 50.2%);background-size:650px 450px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:600;display:flex;align-items:center;gap:.65rem;margin:0 0 1.4rem;color:#5d5550}.eyebrow span{display:block;width:28px;height:1px;background:var(--gold)}.eyebrow.light{color:#c8bda9}.hero h1,.section-heading h2,.sandbox h2,.final-cta h2{font-family:"Playfair Display",serif;font-size:clamp(4rem,7vw,7.2rem);line-height:.88;letter-spacing:-.05em;margin:0}.hero h1 em,.section-heading h2 em,.sandbox h2 em,.final-cta h2 em{color:var(--gold);font-weight:600}.lede{font-size:1.05rem;line-height:1.75;color:#c8c0b5;max-width:490px;margin:2rem 0}.hero-actions{display:flex;align-items:center;gap:1.8rem}.trust-row{display:flex;gap:1.5rem;margin-top:2.2rem;color:#948b82;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em}.trust-row span+span:before{content:"✦";color:var(--gold);margin-right:1.5rem}.hero-art{position:relative;z-index:2;perspective:1200px}.court-band{background-repeat:repeat-x;background-position:center}.court-band-felt-house{height:32px;background-color:#6c412a;background-image:url(assets/ornament/felt-house-court-band.webp);background-size:auto 32px}.court-band-valhalla{height:30px;background-color:#5f605e;background-image:url(assets/ornament/valhalla-court-band.webp);background-size:auto 30px}.section{padding:120px clamp(24px,8vw,130px)}.section-heading{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:end;margin-bottom:70px}.section-heading .eyebrow{grid-column:1/-1;margin-bottom:-1rem}.section-heading h2{font-size:clamp(3.4rem,6vw,6.2rem)}.section-heading>p:last-child{max-width:430px;color:var(--muted);line-height:1.8}.sandbox{background:#151116;color:var(--paper);display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;min-height:720px;overflow:hidden}.sandbox h2{font-size:clamp(3.5rem,6vw,6.4rem)}.sandbox-copy>p:nth-of-type(2){color:#b6ada2;line-height:1.8;max-width:550px;margin:2rem 0}.sandbox ul{padding:0;list-style:none;margin-top:2.5rem}.sandbox li{padding:1rem 0;border-top:1px solid rgba(216,168,78,.2);font-family:"Playfair Display",serif}.sandbox li span{font:500 .6rem "DM Sans";color:var(--gold);margin-right:1.2rem}.demo-card{width:130px;height:176px;border-radius:8px;position:absolute;box-shadow:0 25px 50px #060506}.details{background:#eee3d1}.details .section-heading{grid-template-columns:1fr}.feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}.feature-grid article{padding:2.2rem 2rem 1rem 0;border-right:1px solid var(--line);min-height:260px}.feature-grid article+article{padding-left:2rem}.feature-grid article:last-child{border:0}.feature-grid h3{font:600 1.35rem "Playfair Display",serif;margin:0 0 .8rem}.feature-grid p{font-size:.85rem;line-height:1.7;color:var(--muted)}.final-cta{text-align:center;padding:130px 24px;background:radial-gradient(circle,#fff7e7,#e8d9bf)}.final-cta .eyebrow{justify-content:center}.final-cta h2{font-size:clamp(4rem,7vw,7rem);margin-bottom:2.5rem}.final-cta>.button{margin:auto}.final-cta>small{display:block;margin-top:1rem;color:var(--muted)}footer{background:#100f14;color:#b7afa4;padding:42px clamp(24px,6vw,90px);display:flex;align-items:center;gap:2rem;font-size:.75rem}footer .brand{color:var(--paper);margin-right:auto}footer div{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem}footer small{margin-left:2rem}
-@media(max-width:900px){.site-header{height:auto;min-height:84px;flex-wrap:wrap;padding-top:15px;padding-bottom:12px;gap:12px}.site-header nav{order:3;width:100%;justify-content:space-between;gap:1rem;font-size:.8rem}.hero{grid-template-columns:1fr;padding-top:140px}.hero-copy{z-index:3}.hero-art{margin-top:3rem}.section-heading,.sandbox{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}.feature-grid article:nth-child(2),.feature-grid article:nth-child(4){border-right:0}.hero h1{font-size:clamp(4.2rem,15vw,7rem)}}
-@media(max-width:560px){.court-band-felt-house{height:24px;background-size:auto 24px}.court-band-valhalla{height:22px;background-size:auto 22px}.site-header{height:70px}.hero{padding:115px 22px 70px;min-height:860px}.hero-actions{align-items:flex-start;flex-direction:column;gap:.5rem}.trust-row{gap:.7rem;flex-wrap:wrap}.trust-row span+span:before{margin-right:.7rem}.section{padding:85px 22px}.section-heading{margin-bottom:45px}.demo-card{width:90px;height:122px}.feature-grid{grid-template-columns:1fr}.feature-grid article{border-right:0;border-bottom:1px solid var(--line);padding:2rem 0!important;min-height:0}footer{flex-wrap:wrap}footer p{width:100%;order:3}footer small{margin-left:auto}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+/* Look: the table. The page is a card table. Words lie on the felt; anything you
+   can pick up (a game, a step, a detail) is a card; a long read is one big sheet.
+   The navigation is a row of landing spots, and the page you are on is the card
+   lying in its spot. Georgia is the house deck's own index face. */
+:root {
+  --felt: #1b4d38; --felt-deep: #123527; --ivory: #f6f0e0; --ink: #1c1a17; --red: #b5302a;
+  --slot: rgba(246, 240, 224, .3); --soft: rgba(246, 240, 224, .78); --dim: #6b6356; --rule: #d9cfb8;
+  --serif: Georgia, "Times New Roman", serif; --sans: "Segoe UI", system-ui, sans-serif;
+  --gutter: max(1.5rem, calc((100vw - 1120px) / 2));
+  --lift: 0 2px 0 rgba(0, 0, 0, .25), 0 10px 22px rgba(0, 0, 0, .22);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--felt) radial-gradient(ellipse at 50% 0, #27704f 0, transparent 70%) no-repeat; background-size: 100% 900px; color: var(--ivory); font: 1rem/1.65 var(--sans); }
+img, video, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, video:focus-visible { outline: 3px solid #ffd76a; outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; margin: 0 0 .6em; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
+h3 { font-size: 1.3rem; }
+figure { margin: 0; }
+.skip-link { position: fixed; top: -4rem; left: 1rem; background: var(--ivory); color: var(--ink); padding: .6rem 1rem; z-index: 10; }
+.skip-link:focus { top: 1rem; }
+.eyebrow { margin: 0 0 .5rem; font: italic .95rem var(--serif); color: var(--soft); }
+.eyebrow span, .court-band { display: none; }
+.lede { font-size: 1.15rem; color: var(--soft); max-width: 32rem; }
+
+/* Header: brand, a row of landing spots, the Store button. */
+.site-header { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; padding: 1.2rem var(--gutter); }
+.brand { font: italic 1.7rem var(--serif); text-decoration: none; }
+.site-header nav { display: flex; gap: .6rem; margin-left: auto; }
+.site-header nav a { min-width: 5.4rem; padding: .9rem .7rem; text-align: center; border: 1.5px solid var(--slot); border-radius: 8px; text-decoration: none; font-size: .85rem; line-height: 1.2; }
+.site-header nav a:hover { border-color: var(--ivory); }
+.site-header nav a[aria-current] { background: var(--ivory); border-color: var(--ivory); color: var(--ink); box-shadow: var(--lift); }
+.button { display: inline-flex; align-items: center; gap: .7rem; background: var(--red); color: #fff; padding: .8rem 1.2rem; border: 0; border-radius: 8px; box-shadow: 0 2px 0 #7d1f1b; text-decoration: none; font-weight: 600; line-height: 1.15; }
+.button:hover { background: #c43a33; }
+.button small { display: block; font-weight: 400; font-size: .7rem; opacity: .85; }
+.button-small { padding: .55rem .9rem; font-size: .85rem; }
+.windows-mark { font-size: 1.5rem; }
+.feature-link { display: inline-block; margin-top: 1.2rem; font-weight: 600; }
+
+/* Home and Lite. */
+.hero, .sandbox, .sandbox-hero { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 3rem; align-items: center; }
+.hero { padding: 3rem var(--gutter) 4rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; margin: 1.6rem 0; }
+.trust-row { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; font-size: .88rem; color: var(--soft); }
+.table-capture img, .game-capture img, .mode-demo video { border-radius: 10px; box-shadow: 0 14px 34px rgba(0, 0, 0, .38); }
+.table-capture figcaption { margin-top: .8rem; font-size: .88rem; color: var(--soft); }
+.table-capture figcaption span { display: none; }
+.table-capture figcaption a { margin-left: .8rem; }
+.section { padding: 4rem var(--gutter); }
+.section-heading { margin-bottom: 2rem; }
+.section-heading p { color: var(--soft); max-width: 34rem; margin: 0; }
+.table-tile, .game-card, .mode-card, .mode-basics li, .keep-steps li, .feature-grid article { background: var(--ivory); color: var(--ink); border-radius: 10px; padding: 1rem; box-shadow: var(--lift); }
+.table-gallery, .mode-basics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+.table-tile { text-decoration: none; }
+.table-tile img, .game-card-art { border-radius: 6px; }
+.table-tile h3 { margin: .8rem 0 .15rem; }
+.table-tile h3 span { display: none; }
+.table-tile p { margin: 0; }
+.table-tile small, .game-card-facts, .game-card .eyebrow { color: var(--dim); }
+.deck-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+.deck-fan { text-decoration: none; }
+.deck-fan img, .deck-card img { filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .4)); }
+.deck-fan span { display: block; margin-top: .8rem; font: 1.25rem var(--serif); }
+.sandbox ul { list-style: none; padding: 0; margin: 1.2rem 0; }
+.sandbox li { padding: .55rem 0; border-top: 1px solid var(--slot); }
+.sandbox li span { display: none; }
+.sandbox-copy > p:not(.eyebrow) { color: var(--soft); }
+.make-callout { display: block; margin-top: 1.6rem; padding: 1rem 1.2rem; border: 1.5px dashed var(--slot); border-radius: 10px; text-decoration: none; color: var(--soft); }
+.make-callout:hover { border-color: var(--ivory); }
+.make-callout > span { display: block; font: 1.25rem var(--serif); color: var(--ivory); }
+.make-callout b { text-decoration: underline; white-space: nowrap; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.2rem; }
+.feature-grid h3 { margin-bottom: .4rem; }
+.feature-grid p { margin: 0; }
+.final-cta, .sandbox-cta { text-align: center; padding: 4rem 1.5rem 5rem; }
+.final-cta > small { display: block; margin-top: 1rem; color: var(--soft); }
+footer { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; padding: 2rem var(--gutter); background: var(--felt-deep); color: var(--soft); font-size: .88rem; }
+footer .brand { margin-right: auto; color: var(--ivory); }
+footer p { margin: 0; }
+footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
+
+/* Games index and deck gallery. */
+.games-main, .decks-main { padding: 2rem var(--gutter) 0; }
+.games-section { margin-top: 3rem; scroll-margin-top: 1rem; }
+.games-section-head p { color: var(--soft); max-width: 40rem; }
+.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.2rem; }
+.game-card { display: flex; flex-direction: column; }
+.game-card-art { display: block; aspect-ratio: 16 / 9; margin-bottom: .8rem; padding: .6rem; background: var(--felt); overflow: hidden; }
+.game-card-art svg { width: 100%; height: 100%; }
+.game-card-shot { padding: 0; }
+.game-card-shot img { width: 100%; height: 100%; object-fit: cover; }
+.game-card h3 { margin-bottom: .3rem; }
+.game-card h3 a { text-decoration: none; }
+.game-card h3 b, .game-origin b { display: inline-block; margin-left: .3rem; padding: .1rem .4rem; border: 1px solid currentColor; border-radius: 4px; font: 600 .68rem/1.4 var(--sans); vertical-align: middle; }
+.game-card h3 b.original-badge, .game-origin b { margin-left: 0; margin-right: .5rem; background: var(--red); border-color: var(--red); color: #fff; }
+.game-card h3 b.original-badge { margin-left: .3rem; margin-right: 0; }
+.game-card-facts { margin: 0 0 .8rem; font-size: .85rem; }
+.game-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-top: auto; }
+.game-card-actions .feature-link { margin-top: 0; }
+.games-cta, .game-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.games-cta { padding: 3rem 0 4rem; }
+.games-cta > small { color: var(--soft); }
+.deck-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 3rem 2.2rem; margin-top: 2rem; }
+.deck-card { scroll-margin-top: 1rem; }
+.deck-card h2 { margin: 1.2rem 0 .4rem; font-size: 1.6rem; }
+.deck-card p, .decks-note p { margin: 0; color: var(--soft); }
+.deck-credit, .deck-download small { font-size: .8rem; }
+.deck-credit { margin-top: .6rem !important; }
+.deck-download { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+.decks-note { max-width: 40rem; margin: 3rem 0; }
+.decks-cta { padding-bottom: 4rem; }
+
+/* A long read is one sheet on the felt: a game's rules, Make a game, the policy. */
+.game-main, .policy-main, .format-main { padding: 1rem 1rem 4rem; }
+.game-shell, .policy-shell, .format-shell { max-width: 840px; margin: 0 auto; padding: clamp(1.4rem, 5vw, 3.5rem); background: var(--ivory); color: var(--ink); border-radius: 14px; box-shadow: var(--lift); }
+.game-shell .eyebrow, .policy-shell .eyebrow, .format-shell .eyebrow, .policy-date, .game-cta > small, .game-more a, .game-capture figcaption { color: var(--dim); }
+.back-link { display: inline-block; margin-bottom: 1.2rem; font-size: .9rem; }
+.game-facts { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); color: var(--dim); font-size: .92rem; }
+.game-origin { margin: 1.2rem 0 0; }
+.game-capture { margin: 1.6rem 0 0; }
+.game-capture figcaption { margin-top: .5rem; font-size: .85rem; }
+/* The board diagram is drawn on its own patch of felt. */
+.game-board { margin: 1.6rem 0 0; padding: 1.2rem; background: var(--felt); border-radius: 10px; }
+.game-board svg { width: 100%; }
+.game-board .cfd-ghost { opacity: .42; }
+.game-board-tall svg { max-width: 430px; margin: 0 auto; }
+.game-board-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: 1rem; color: var(--ivory); font-size: .82rem; }
+.game-board-legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.game-board-legend i { width: 13px; height: 18px; border: 1px solid; border-radius: 2px; }
+.game-rules { padding-top: 1.6rem; }
+.game-rules li { margin-bottom: .5rem; }
+.game-rules-primary > p:first-child, .format-lede, .policy-intro { font: 1.25rem/1.5 var(--serif); }
+.game-variants details, .game-source, .format-section, .policy-content section, .reference h3 { border-top: 1px solid var(--rule); }
+.game-variants h2 { font-size: 1.5rem; margin-top: 1.5rem; }
+summary { cursor: pointer; padding: .8rem 0; font: 1.15rem var(--serif); }
+summary small { margin-left: .5rem; font: .8rem var(--sans); color: var(--dim); }
+.game-source { border-bottom: 1px solid var(--rule); }
+.game-cta { margin: 2rem 0; }
+.game-more > div { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .9rem; margin-bottom: 1.2rem; }
+pre { overflow-x: auto; margin: 1rem 0 1.4rem; padding: 1rem 1.1rem; background: var(--felt-deep); color: var(--ivory); border-radius: 8px; font: .8rem/1.6 "Cascadia Code", Consolas, monospace; }
+code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
+:not(pre) > code { padding: .08em .3em; background: rgba(0, 0, 0, .07); border-radius: 3px; overflow-wrap: anywhere; }
+.j-key { color: #ecca72; } .j-str { color: #f2bfae; } .j-num, .j-lit { color: #aad3ee; }
+.format-section, .policy-content section { padding: 1.6rem 0; }
+.format-section > h2, .policy-content h2 { font-size: 1.7rem; }
+.format-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
+.format-steps li { padding: 1rem; border: 1.5px dashed #c2b79c; border-radius: 10px; counter-increment: step; }
+.format-steps li::before, .keep-steps li::before { content: counter(step); display: block; font: 1.7rem/1 var(--serif); color: var(--red); margin-bottom: .5rem; }
+.format-steps p, .keep-steps p { margin: 0; }
+.format-prompt { margin: 1.2rem 0; padding: .2rem 0 .2rem 1.2rem; border-left: 3px solid var(--red); font: italic 1.1rem var(--serif); }
+.ref-toc ol { columns: 2; column-gap: 2.5rem; }
+.reference h3 { margin-top: 2.5rem; padding-top: 1.6rem; font-size: 1.6rem; scroll-margin-top: 1rem; }
+.reference h4 { font: 1.2rem var(--serif); margin: 1.8rem 0 .6rem; }
+.ref-table { overflow-x: auto; margin: 1rem 0 1.4rem; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.ref-table th, .ref-table td { padding: .5rem .6rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+
+/* Sandbox. */
+.sandbox-hero { padding: 3rem var(--gutter); }
+.sandbox-deck { position: relative; height: 300px; }
+.demo-card { position: absolute; left: 50%; top: 50%; width: 130px; border-radius: 8px; filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .4)); }
+.demo-card:nth-child(1) { transform: translate(-118%, -54%) rotate(-18deg); }
+.demo-card:nth-child(2) { transform: translate(-50%, -62%) rotate(-3deg); }
+.demo-card:nth-child(3) { transform: translate(18%, -46%) rotate(14deg); }
+.sandbox-intro { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 3rem; padding: 2rem var(--gutter); }
+.sandbox-intro p, .mode-group-head p, .mode-demo-copy p, .mode-group-note, .keep-note, .mode-demo figcaption { color: var(--soft); }
+.mode-basics { list-style: none; margin: 0; padding: 1rem var(--gutter) 2rem; }
+.mode-basics h3 { margin-bottom: .4rem; }
+.mode-basics p, .mode-card p { margin: 0; }
+.mode-group { padding: 3rem var(--gutter) 1rem; }
+.mode-demo { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); gap: 2.5rem; align-items: center; margin: 2.5rem 0; }
+.mode-demo figcaption { margin-top: .6rem; font-size: .85rem; }
+.demo-toggle { margin-top: .6rem; padding: .4rem .9rem; background: none; border: 1.5px solid var(--slot); border-radius: 6px; color: inherit; font: inherit; font-size: .85rem; cursor: pointer; }
+.mode-top { display: flex; align-items: center; gap: .7rem; margin-bottom: .6rem; }
+.mode-top h3 { margin: 0; }
+.mode-demo .mode-top h3 { font-size: 1.9rem; }
+/* A mode's key, drawn as the corner of a card. */
+.mode-key { width: 2.1rem; height: 2.1rem; display: grid; place-items: center; background: var(--ivory); color: var(--red); border: 1px solid var(--rule); border-radius: 6px; font: 1.1rem var(--serif); }
+.modes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.mode-group-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+.keep-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; counter-reset: step; }
+.keep-steps li { counter-increment: step; }
+.keep-steps h3 { margin-bottom: .4rem; }
+.keep-note { max-width: 44rem; margin-top: 1.6rem; }
+
+@media (max-width: 900px) {
+  .hero, .sandbox, .sandbox-hero, .sandbox-intro, .mode-demo, .mode-group-pair, .mode-basics, .format-steps { grid-template-columns: 1fr; }
+  .table-gallery, .deck-strip, .keep-steps { grid-template-columns: 1fr 1fr; }
+  .site-header nav { order: 3; width: 100%; margin-left: 0; }
+  .site-header nav a { flex: 1; min-width: 0; padding: .7rem .3rem; font-size: .78rem; }
+  .site-header .button { margin-left: auto; }
+}
+@media (max-width: 560px) {
+  .table-gallery, .deck-strip, .keep-steps { grid-template-columns: 1fr; }
+  .ref-toc ol { columns: 1; }
+  .sandbox-deck { height: 240px; transform: scale(.8); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
