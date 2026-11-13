@@ -629,7 +629,7 @@ ${header("decks")}
   <main id="main" class="decks-main">
     <header class="decks-head">
       <p class="eyebrow"><span></span> Decks</p>
-      <h1>Decks.<br><em>Each with its own table.</em></h1>
+      <h1>Change the deck.<br><em>Change the table.</em></h1>
       <p class="lede">Switch at any time, even mid-game.</p>
     </header>
     <section class="deck-grid" aria-label="Illustrated decks">
