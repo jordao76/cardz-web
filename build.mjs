@@ -8,8 +8,8 @@
 //
 // Everything else on the site stays hand-written. This only owns games/ (every
 // game page and the index of them), decks.html, and the marked regions of the
-// hand-written pages: each one's header and footer, the home page's counts and
-// deck strip, and make-a-game.html's reference. A redesign can move freely
+// hand-written pages: each one's header and footer, and make-a-game.html's
+// reference. A redesign can move freely
 // around those.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
@@ -393,7 +393,7 @@ function extraCta(game, up) {
   const file = game.download.split("/").pop();
   return `      <div class="game-cta">
         <a class="button" href="${up}${game.download}" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>${escape(file)}</span></a>
-        <small>Not built into Cardz. Double-click the file to add it to Your games, and <a href="${STORE}">get Cardz for Windows</a> first if you need it.</small>
+        <small>Not built into Cardz. Download and open it in <a href="${STORE}">Cardz</a>.</small>
       </div>`;
 }
 
@@ -589,7 +589,7 @@ function deckDownload(deck) {
   return `
           <div class="deck-download">
             <a class="button button-small" href="${download.file}" download>Download</a>
-            <small>Not built into Cardz. Double-click the file, or open Your decks at the end of the Theme picker and Import it.</small>
+            <small>Not built into Cardz. Download and open it in Cardz.</small>
           </div>`;
 }
 
@@ -619,8 +619,6 @@ function deckPage() {
     })
     .join("\n");
 
-  const extraDecks = deckDownloads.decks.length;
-  const builtInDecks = decks.decks.length - extraDecks;
   return `${head(
     "Card decks — Cardz",
     "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, midnight neon, gothic horror, and more."
@@ -631,10 +629,8 @@ ${header("decks")}
   <main id="main" class="decks-main">
     <header class="decks-head">
       <p class="eyebrow"><span></span> Decks</p>
-      <h1>${decks.decks.length} decks.<br><em>Each with its own table.</em></h1>
-      <p class="lede">Switch at any time, even mid-game. ${builtInDecks} are built into Cardz${
-        extraDecks ? `, and ${extraDecks} are free downloads` : ""
-      }.</p>
+      <h1>Decks.<br><em>Each with its own table.</em></h1>
+      <p class="lede">Switch at any time, even mid-game.</p>
     </header>
     <section class="deck-grid" aria-label="Illustrated decks">
 ${cards}
@@ -717,7 +713,7 @@ ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
     <section class="games-section" id="extras" aria-labelledby="extras-title">
       <div class="games-section-head">
         <h2 id="extras-title">Extra games</h2>
-        <p>Not built into Cardz. Download one and double-click the file to add it to Your games. Each is a design file you can open and change: see <a href="${up}make-a-game.html">Make a game</a>.</p>
+        <p>Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href="${up}make-a-game.html">Make a game</a>.</p>
       </div>
       <div class="games-grid">
 ${all.filter(isExtra).map(card).join("\n")}
@@ -732,32 +728,6 @@ ${footer}
 </body>
 </html>
 `;
-}
-
-/** The home page's games heading, with the counts the catalog actually holds. */
-function homeGames(all) {
-  const extras = all.filter(isExtra).length;
-  return `      <div class="section-heading"><p class="eyebrow"><span></span> Games</p><h2>${all.length - extras} games built in.<br><em>${extras} more to download.</em></h2></div>`;
-}
-
-/**
- * The home page's deck strip: the decks data/decks.json marks "featured", as the same
- * three-card fans the gallery shows, each linking to its card there.
- */
-function homeDecks() {
-  const featured = decks.decks.filter((deck) => deck.featured);
-  if (!featured.length) throw new Error("data/decks.json marks no deck as featured, so the home page has none to show.");
-  const builtIn = decks.decks.length - deckDownloads.decks.length;
-  const fans = featured
-    .map((deck) => {
-      const art = deckArt[deck.slug];
-      return `        <a class="deck-fan" href="decks.html#${deck.slug}"><img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy" alt="Three cards from the ${escape(deck.name)} deck"><span>${escape(deck.name)}</span></a>`;
-    })
-    .join("\n");
-  return `      <div class="section-heading"><p class="eyebrow light"><span></span> Decks</p><h2>${builtIn} illustrated decks.<br><em>Each with its own table.</em></h2><p>Switch at any time, even mid-game.</p></div>
-      <div class="deck-strip">
-${fans}
-      </div>`;
 }
 
 function tocMarkup(toc) {
@@ -799,7 +769,7 @@ writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
 
 const rendered = referenceMarkdown(reference);
 const top = chrome(0);
-rewrite("index.html", { header: top.header(), "home-games": homeGames(ordered), "home-decks": homeDecks(), footer: top.footer });
+rewrite("index.html", { header: top.header(), footer: top.footer });
 rewrite("lite.html", { header: top.header("lite"), footer: top.footer });
 rewrite("sandbox.html", { header: top.header("sandbox"), footer: top.footer });
 rewrite("privacy.html", { header: top.header(), footer: top.footer });

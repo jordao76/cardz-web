@@ -101,15 +101,13 @@ It names its sources by filename, so a renamed capture fails the import rather
 than being picked up. cardz-win's `docs/screenshots/store/shot-list.md` lists
 every capture, taken and planned.
 
-## One header and footer, and the home page's counts
+## One header and footer
 
 The hand-written pages (`index.html`, `lite.html`, `sandbox.html`,
 `make-a-game.html`, `privacy.html`) carry `<!-- build:header -->` and
 `<!-- build:footer -->` regions that `build.mjs` fills from the same `NAV` list
 the generated pages use, so the navigation is written once. Edit it there, not in
-a page. The home page has two more regions: its games heading, whose counts come
-from `games.json`, and its deck strip, which shows the decks `data/decks.json`
-marks `"featured"`.
+a page.
 
 ## Make a game is half generated
 

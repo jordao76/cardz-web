@@ -1,23 +1,20 @@
 {
-  "_comment": "Editorial copy for the deck gallery. Art is composited into a three-card fan by cardz-win's scripts/build-deck-gallery.mjs — from the PNGs the app ships, or, for decks whose cards the app draws rather than loads, from cards the app renders itself (--export-decks). build.mjs refuses a slug with no art in assets/decks/manifest.json. 'credit' is optional and only present where art comes from outside the project. 'featured' puts a deck's fan on the home page's deck strip.",
+  "_comment": "Editorial copy for the deck gallery. Art is composited into a three-card fan by cardz-win's scripts/build-deck-gallery.mjs — from the PNGs the app ships, or, for decks whose cards the app draws rather than loads, from cards the app renders itself (--export-decks). build.mjs refuses a slug with no art in assets/decks/manifest.json. 'credit' is optional and only present where art comes from outside the project.",
   "decks": [
     {
       "slug": "felt-house",
       "name": "Felt House",
-      "blurb": "The house deck, and the one Cardz deals until you choose another. Printed courts, aces and jokers in the French pattern, serif pips on the number cards, and a brass filigree back.",
-      "featured": true
+      "blurb": "The house deck, and the one Cardz deals until you choose another. Printed courts, aces and jokers in the French pattern, serif pips on the number cards, and a brass filigree back."
     },
     {
       "slug": "valhalla",
       "name": "Valhalla",
-      "blurb": "A Norse woodcut deck with two-headed courts. The pair of Loki jokers are worth finding.",
-      "featured": true
+      "blurb": "A Norse woodcut deck with two-headed courts. The pair of Loki jokers are worth finding."
     },
     {
       "slug": "scarab",
       "name": "Scarab",
-      "blurb": "Ancient Egypt on papyrus. A small gold cartouche beside each index shows the rank that card pairs with to make thirteen, which is most of Pyramid solved in the corner of your eye.",
-      "featured": true
+      "blurb": "Ancient Egypt on papyrus. A small gold cartouche beside each index shows the rank that card pairs with to make thirteen, which is most of Pyramid solved in the corner of your eye."
     },
     {
       "slug": "olympus",
@@ -48,8 +45,7 @@
     {
       "slug": "neon",
       "name": "Neon",
-      "blurb": "A midnight arcade. Near-black cards lit cyan and magenta, with glowing two-headed courts. The sign over the table hums and stutters while you play.",
-      "featured": true
+      "blurb": "A midnight arcade. Near-black cards lit cyan and magenta, with glowing two-headed courts. The sign over the table hums and stutters while you play."
     },
     {
       "slug": "dread",
