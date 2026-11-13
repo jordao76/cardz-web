@@ -345,11 +345,7 @@ function chrome(depth) {
   <meta name="theme-color" content="#100f14">
   <title>${title}</title>
   <link rel="icon" href="${up}assets/cardz-logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${up}styles.css">
-  <link rel="stylesheet" href="${up}site-extras.css">
 </head>`,
     // Cardz Lite's page sells Lite, so its button goes to Lite's Store page.
     header: (current) => `  <header class="site-header">
