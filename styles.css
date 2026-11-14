@@ -23,9 +23,9 @@
 }
 /* Scarab: papyrus by torchlight on deep Nile blue, carnelian and gold. */
 [data-deck="scarab"] {
-  --felt: #0b2a33; --felt-deep: #05121a; --glow: #1b4a50; --ivory: #e9cb6b; --card: #e8c47e; --card-edge: #9a7924;
+  --felt: #0b2a33; --felt-deep: #05121a; --glow: #1b4a50; --ivory: #e9cb6b; --card: #efdfb8; --card-edge: #9a7924;
   --ink: #2a261e; --red: #b23a2a; --focus: #e9cb6b;
-  --slot: rgba(200, 165, 60, .5); --soft: rgba(233, 214, 160, .82); --dim: #6a5524; --rule: #c39f5c;
+  --slot: rgba(200, 165, 60, .5); --soft: rgba(233, 214, 160, .82); --dim: #6a5524; --rule: #d3bf8e;
   --code-key: #e9cb6b; --code-str: #f0b49c; --code-num: #9cc4e0;
 }
 /* Neon: near-black cards lit cyan and magenta, on a floor darker than the cards. */
@@ -75,7 +75,7 @@ figure { margin: 0; }
 .deck-picker button[aria-pressed="true"] { border-color: var(--ivory); transform: translateY(-4px); box-shadow: 0 6px 10px rgba(0, 0, 0, .4); }
 .deck-picker [data-deck="felt-house"] { background: linear-gradient(135deg, #1b4d38 50%, #f7f1e3 50%); }
 .deck-picker [data-deck="valhalla"] { background: linear-gradient(135deg, #2a2c30 50%, #e9e1cf 50%); }
-.deck-picker [data-deck="scarab"] { background: linear-gradient(135deg, #0b2a33 50%, #e8c47e 50%); }
+.deck-picker [data-deck="scarab"] { background: linear-gradient(135deg, #0b2a33 50%, #efdfb8 50%); }
 .deck-picker [data-deck="neon"] { background: linear-gradient(135deg, #080912 50%, #ff3a8f 50%); }
 .deck-fan[aria-pressed="true"] span { text-decoration: underline; }
 
