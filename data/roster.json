@@ -12,7 +12,7 @@
     { "slug": "beleaguered-castle", "tagline": "Eight open wings, no stock", "capture": { "file": "22-beleaguered-deepfield.png", "deck": "Deepfield" } },
     { "slug": "bisley", "tagline": "Build each suit from both ends", "capture": { "file": "14-bisley-herbarium.png", "deck": "Herbarium" } },
     { "slug": "flower-garden", "tagline": "Reach anywhere in the bouquet", "capture": { "file": "19-flowergarden-olympus.png", "deck": "Olympus" } },
-    { "slug": "bakers-dozen", "tagline": "Thirteen columns, Kings sunk first" },
+    { "slug": "bakers-dozen", "tagline": "Thirteen columns, Kings sunk first", "capture": { "file": "39-bakersdozen-monosolid.png", "deck": "Monosolid" } },
     { "slug": "golf", "tagline": "One rank away", "capture": { "file": "16-golf-neon.png", "deck": "Neon" } },
     { "slug": "tri-peaks", "tagline": "Clear all three peaks", "capture": { "file": "09-tripeaks-dread.png", "deck": "Dread" } },
     { "slug": "pyramid", "tagline": "Pairs add up to thirteen", "capture": { "file": "05-pyramid-scarab.png", "deck": "Scarab" } },
@@ -36,12 +36,12 @@
     { "slug": "sultan", "tagline": "Crown the Sultan with eight Queens", "capture": { "file": "34-sultan-ornamental.png", "deck": "Ornamental" } },
     { "slug": "grandfathers-clock", "tagline": "Wind every hour up to its number", "capture": { "file": "35-grandfathersclock-herbarium.png", "deck": "Herbarium" } },
     { "slug": "puss-in-the-corner", "tagline": "Red on red, black on black", "capture": { "file": "37-pussinthecorner-frightnight.png", "deck": "Fright Night" } },
-    { "slug": "accordion", "tagline": "Squeeze the deck into one pile" },
-    { "slug": "monte-carlo", "tagline": "Pair off neighbours, close the gaps" },
-    { "slug": "gaps", "tagline": "Two to King, one suit to a row" },
-    { "slug": "klondike-with-jokers", "tagline": "Two Jokers wild, and you can win them back", "new": true },
-    { "slug": "hemispheres", "tagline": "Red to the north, black to the south", "new": true },
-    { "slug": "die-schwierige", "tagline": "Two decks, two rounds, the difficult one", "new": true },
-    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true }
+    { "slug": "accordion", "tagline": "Squeeze the deck into one pile", "capture": { "file": "43-accordion-mono.png", "deck": "Mono" } },
+    { "slug": "monte-carlo", "tagline": "Pair off neighbours, close the gaps", "capture": { "file": "45-montecarlo-olympus.png", "deck": "Olympus" } },
+    { "slug": "gaps", "tagline": "Two to King, one suit to a row", "capture": { "file": "41-gaps-mono.png", "deck": "Mono" } },
+    { "slug": "klondike-with-jokers", "tagline": "Two Jokers wild, and you can win them back", "new": true, "capture": { "file": "40-klondikewithjokers-jetset.png", "deck": "Jet Set" } },
+    { "slug": "hemispheres", "tagline": "Red to the north, black to the south", "new": true, "capture": { "file": "42-hemispheres-frightnight.png", "deck": "Fright Night" } },
+    { "slug": "die-schwierige", "tagline": "Two decks, two rounds, the difficult one", "new": true, "capture": { "file": "44-dieschwierige-jetset.png", "deck": "Jet Set" } },
+    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true, "capture": { "file": "38-royalcotillion-filigree.png", "deck": "Filigree" } }
   ]
 }
