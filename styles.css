@@ -229,10 +229,17 @@ code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
   .hero, .sandbox, .sandbox-hero, .sandbox-intro, .mode-demo, .mode-group-pair, .mode-basics, .format-steps { grid-template-columns: 1fr; }
   .table-gallery, .deck-strip, .keep-steps { grid-template-columns: 1fr 1fr; }
   .site-header nav { order: 3; width: 100%; margin-left: 0; }
-  .site-header nav a { flex: 1; min-width: 0; padding: .7rem .3rem; font-size: .78rem; }
-  .site-header .button { margin-left: auto; }
+  .site-header nav a { flex: 1; min-width: 0; display: grid; place-items: center; padding: .7rem .3rem; font-size: .78rem; }
+  .site-header .button { margin-left: auto; white-space: nowrap; }
 }
 @media (max-width: 560px) {
+  /* The brand, the deck picker and the button share the first row. */
+  .site-header { column-gap: .6rem; }
+  .brand { font-size: 1.35rem; }
+  .deck-picker { gap: .3rem; }
+  .deck-picker button { width: 1.3rem; height: 1.8rem; }
+  .site-header nav { gap: .35rem; }
+  .site-header nav a { font-size: .72rem; }
   .table-gallery, .deck-strip, .keep-steps { grid-template-columns: 1fr; }
   .ref-toc ol { columns: 1; }
   .sandbox-deck { height: 240px; transform: scale(.8); }
