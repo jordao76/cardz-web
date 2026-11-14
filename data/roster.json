@@ -42,6 +42,7 @@
     { "slug": "klondike-with-jokers", "tagline": "Two Jokers wild, and you can win them back", "new": true, "capture": { "file": "40-klondikewithjokers-jetset.png", "deck": "Jet Set" } },
     { "slug": "hemispheres", "tagline": "Red to the north, black to the south", "new": true, "capture": { "file": "42-hemispheres-frightnight.png", "deck": "Fright Night" } },
     { "slug": "die-schwierige", "tagline": "Two decks, two rounds, the difficult one", "new": true, "capture": { "file": "44-dieschwierige-jetset.png", "deck": "Jet Set" } },
-    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true, "capture": { "file": "38-royalcotillion-filigree.png", "deck": "Filigree" } }
+    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true, "capture": { "file": "38-royalcotillion-filigree.png", "deck": "Filigree" } },
+    { "slug": "alhambra", "tagline": "Build on the waste, up or down in suit", "new": true }
   ]
 }

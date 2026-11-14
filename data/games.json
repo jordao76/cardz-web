@@ -5079,6 +5079,150 @@
       }
     },
     {
+      "slug": "alhambra",
+      "name": "Alhambra",
+      "sandbox": false,
+      "rules": "**Goal:** build both decks onto eight foundations. An Ace and a King of each suit start them: the Aces build **up in suit** to the King, the Kings **down in suit** to the Ace.\n\n- Eight reserve piles hold four face-up cards each. Only their top cards are available, and an emptied pile is not refilled.\n- Turn the stock one card at a time to the waste. The top waste card is available for the foundations.\n- A reserve card may also go onto the waste, **up or down by one in the same suit**, turning the corner between King and Ace. The waste never takes a card from anywhere else, and never takes one while it is empty.\n- When the stock runs out, the waste turns over to become a new stock, cards built on it included. There are **two redeals**, three passes in all.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+      "inApp": false,
+      "download": "designs/alhambra.cardz",
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "ace-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-1",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-2",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-3",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 3,
+            "row": 2.75,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4,
+            "row": 2.75,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "australian-patience",
       "name": "Australian Patience",
       "family": "Yukon",

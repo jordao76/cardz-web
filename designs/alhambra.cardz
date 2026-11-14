@@ -1,0 +1,53 @@
+{
+  "name": "Alhambra",
+  "description": "**Goal:** build both decks onto eight foundations. An Ace and a King of each suit start them: the Aces build **up in suit** to the King, the Kings **down in suit** to the Ace.\n\n- Eight reserve piles hold four face-up cards each. Only their top cards are available, and an emptied pile is not refilled.\n- Turn the stock one card at a time to the waste. The top waste card is available for the foundations.\n- A reserve card may also go onto the waste, **up or down by one in the same suit**, turning the corner between King and Ace. The waste never takes a card from anywhere else, and never takes one while it is empty.\n- When the stock runs out, the waste turns over to become a new stock, cards built on it included. There are **two redeals**, three passes in all.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+  "decks": [{ "count": 2 }],
+  "depots": [
+    { "type": "Foundation", "col": 0, "row": 0, "name": "ace", "repeat": 4,
+      "acceptRule": {
+        "single": true,
+        "seedNone": true,
+        "build": { "direction": "Up" },
+        "suit": "Same"
+      },
+      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 4, "row": 0, "name": "king", "repeat": 4,
+      "acceptRule": {
+        "single": true,
+        "seedNone": true,
+        "build": { "direction": "Down" },
+        "suit": "Same"
+      },
+      "ejectRule": "locked" },
+    { "type": "Reserve", "fanDirection": "Down", "col": 0, "row": 1, "name": "reserve",
+      "repeat": 8, "acceptRule": "none", "ejectRule": "topOnly" },
+    { "type": "Stock", "col": 3, "row": 2.75, "name": "stock", "acceptRule": "none",
+      "ejectRule": "topOnly", "landFace": "Down",
+      "draw": { "to": "waste", "recycle": true, "maxRecycles": 2 } },
+    { "type": "Waste", "col": 4, "row": 2.75, "name": "waste",
+      "acceptRule": {
+        "single": true,
+        "seedNone": true,
+        "build": { "direction": "Either", "wrap": true },
+        "suit": "Same",
+        "acceptFrom": "Reserve"
+      },
+      "ejectRule": "topOnly" }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "ace-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "ace-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "ace-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "ace-4" },
+    { "kind": "place", "rank": "King", "suit": "Spades", "to": "king-1" },
+    { "kind": "place", "rank": "King", "suit": "Hearts", "to": "king-2" },
+    { "kind": "place", "rank": "King", "suit": "Clubs", "to": "king-3" },
+    { "kind": "place", "rank": "King", "suit": "Diamonds", "to": "king-4" },
+    { "kind": "dealGroup", "to": "reserve", "faceUp": 4 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "tools": "None"
+}

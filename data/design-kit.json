@@ -11,6 +11,11 @@
       "note": "Empty foundations that build in opposite directions, four single-card spaces the stock refills by itself, and a waste that gets one pass."
     },
     {
+      "name": "Alhambra",
+      "file": "alhambra.cardz",
+      "note": "A waste the player builds on: it takes reserve cards only, up or down in suit round the corner, while the stock's draw lands on it regardless of that rule. Placed Aces and Kings start foundations that build in opposite directions, and the stock gets three passes."
+    },
+    {
       "name": "Australian Patience",
       "file": "australian-patience.cardz",
       "note": "Yukon-style group moves and same-suit columns, paired with a draw-one stock that cannot recycle its waste."
