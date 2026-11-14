@@ -26,6 +26,11 @@
       "note": "FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit."
     },
     {
+      "name": "Baroness",
+      "file": "baroness.cardz",
+      "note": "Fourteen Out's pairing at thirteen, with Pyramid's King that leaves alone, over five piles that a stock tap deals a row onto. Two deal steps with conditions share the tap, so the last two cards go to grace cards of their own, and an expression lets the stock deal only once nothing is left to discard."
+    },
+    {
       "name": "Carpet",
       "file": "carpet.cardz",
       "note": "Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles."

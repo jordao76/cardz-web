@@ -1,0 +1,49 @@
+{
+  "name": "Baroness",
+  "aliases": ["Five Piles", "Thirteens"],
+  "description": "**Goal:** discard all 52 cards, in pairs that total **13** and Kings alone.\n\n- Five cards are dealt **face up** to start five piles. Only the **top card** of each pile is available.\n- Drag an available card **onto its partner**, the top card of another pile, and both go to the **discard**: Ace + Queen, 2 + Jack, 3 + 10, 4 + 9, 5 + 8, or 6 + 7.\n- A **King** is worth 13 on its own: drag it to the discard.\n- When no discard is left, **tap the stock** to deal five more cards, one onto each pile, filling any empty pile.\n- The last two cards are the **grace cards**: they are dealt face up side by side at the end of the row, and are available like the piles' tops.\n- The game is lost when no discard is left and the stock is spent. Your **score** is the number of cards discarded, 52 for a win.",
+  "rules": {
+    "tableau": {
+      "single": true,
+      "when": "!empty(depot) && card.value + top.value == 13",
+      "reason": "Pair cards that total 13"
+    }
+  },
+  "depots": [
+    { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 1, "row": 0, "name": "column", "repeat": 5,
+      "acceptRule": "$tableau", "ejectRule": "topOnly",
+      "triggers": [
+        { "when": "any(d in Tableau, d == cameFrom(depot))",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 6.25, "row": 0, "name": "grace",
+      "repeat": 2, "acceptRule": "$tableau", "ejectRule": "topOnly",
+      "triggers": [
+        { "when": "any(d in Tableau, d == cameFrom(depot))",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Foundation", "col": 0, "row": 1.2, "name": "discard",
+      "acceptRule": { "single": true, "rankIs": "King" }, "ejectRule": "locked",
+      "landFace": "Down" }
+  ],
+  "dealRules": [{ "kind": "dealGroup", "to": "column", "faceUp": 1 }],
+  "redealRules": [
+    { "kind": "dealGroup", "to": "grace", "faceUp": 1, "when": "count(stock) <= 2" },
+    { "kind": "dealGroup", "to": "column", "faceUp": 1, "when": "count(stock) > 2" }
+  ],
+  "redealWhen": {
+    "kind": "expr",
+    "when": "!any(a in Tableau, !empty(a) && (top(a).rank == King || any(b in Tableau, b != a && !empty(b) && top(a).value + top(b).value == 13)))"
+  },
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "count(discard)", "keep": "Over" },
+  "planner": {
+    "value": "40 * count(discard) + 2 * count(a in Tableau, !empty(a) && (top(a).rank == King || any(b in Tableau, b != a && !empty(b) && top(a).value + top(b).value == 13))) - sum(d in column, count(d) * count(d))"
+  },
+  "aids": { "pairSum": 13 },
+  "tools": "None"
+}

@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-14T21:03:43Z",
+  "generated": "2026-11-14T21:32:21Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -5459,6 +5459,91 @@
             "col": 7,
             "row": 1,
             "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "baroness",
+      "name": "Baroness",
+      "aliases": [
+        "Five Piles",
+        "Thirteens"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** discard all 52 cards, in pairs that total **13** and Kings alone.\n\n- Five cards are dealt **face up** to start five piles. Only the **top card** of each pile is available.\n- Drag an available card **onto its partner**, the top card of another pile, and both go to the **discard**: Ace + Queen, 2 + Jack, 3 + 10, 4 + 9, 5 + 8, or 6 + 7.\n- A **King** is worth 13 on its own: drag it to the discard.\n- When no discard is left, **tap the stock** to deal five more cards, one onto each pile, filling any empty pile.\n- The last two cards are the **grace cards**: they are dealt face up side by side at the end of the row, and are available like the piles' tops.\n- The game is lost when no discard is left and the stock is spent. Your **score** is the number of cards discarded, 52 for a win.",
+      "inApp": false,
+      "download": "designs/baroness.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 4,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 5,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "grace-1",
+            "type": "tableau",
+            "col": 6.25,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "grace-2",
+            "type": "tableau",
+            "col": 7.25,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "discard",
+            "type": "foundation",
+            "col": 0,
+            "row": 1.2,
+            "fan": "none"
           }
         ]
       }
