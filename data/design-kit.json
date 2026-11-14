@@ -91,6 +91,11 @@
       "note": "Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck."
     },
     {
+      "name": "Stalactites",
+      "file": "stalactites.cardz",
+      "note": "A choice the player makes by playing: the foundations' accept rule reads the step off the first foundation built on, so the first build sets every foundation going by ones or by twos, and undoing it undoes the choice. A depot property finds that step, and columns accept nothing, so they are only a source."
+    },
+    {
       "name": "Sultan",
       "file": "sultan.cardz",
       "note": "Named foundations laid out as a portrait, a centre card that accepts nothing, Kings that wrap round to Ace, and a stock that recycles twice."

@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-12T02:12:19Z",
+  "generated": "2026-11-14T21:03:43Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -7665,6 +7665,122 @@
             "name": "tab-7",
             "type": "tableau",
             "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "stalactites",
+      "name": "Stalactites",
+      "sandbox": false,
+      "rules": "**Goal:** build every card onto four foundations, thirteen cards each. They build **up regardless of suit**, wrapping from King round to Ace, either **by ones** or **by twos**.\n\n- The first four cards dealt start the foundations, whatever their ranks.\n- **Your first build chooses the step** for all four foundations. On a 5, a 6 sets them building by ones (6 7 8 … K A … 4), a 7 by twos (7 9 J K 2 4 6 8 10 Q A 3).\n- The other forty-eight cards are dealt **face up** into eight columns of six.\n- **Nothing is built on the columns.** Their top cards go to a foundation or to one of the two cells, and an emptied column stays empty.\n- Each **cell** holds one card, which may go only to a foundation.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
+      "inApp": false,
+      "download": "designs/stalactites.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-1",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-2",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-3",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 7,
             "row": 1,
             "fan": "down"
           }
