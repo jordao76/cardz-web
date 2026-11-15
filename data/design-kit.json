@@ -31,6 +31,11 @@
       "note": "Fourteen Out's pairing at thirteen, with Pyramid's King that leaves alone, over five piles that a stock tap deals a row onto. Two deal steps with conditions share the tap, so the last two cards go to grace cards of their own."
     },
     {
+      "name": "Captive Queens",
+      "file": "captive-queens.cardz",
+      "note": "No tableau at all: a stock, a waste and a radial layout, eight foundations turned along their radii round a cross of overlapping Queens, all placed by the deal. A Five's foundation wraps through the Ace to the King, and with the Queens out of play neither kind needs a cap."
+    },
+    {
       "name": "Carpet",
       "file": "carpet.cardz",
       "note": "Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles."

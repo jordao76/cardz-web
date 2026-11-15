@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-15T03:38:21Z",
+  "generated": "2026-11-15T04:27:01Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -5543,6 +5543,135 @@
             "type": "foundation",
             "col": 0,
             "row": 1.2,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "captive-queens",
+      "name": "Captive Queens",
+      "aliases": [
+        "Quadrille"
+      ],
+      "sandbox": false,
+      "rules": "A game of pure luck. **Goal:** build the other 40 cards round the four **Queens**, who hold court in the middle and never move.\n\n- The four **Fives** and four **Sixes** are laid round the court to start eight foundations.\n- Each **Five** builds **down in suit** through the Ace to the King: 5 4 3 2 A K.\n- Each **Six** builds **up in suit** to the Jack: 6 7 8 9 10 J.\n- **Tap the stock** to turn one card at a time onto the waste. The top card of the waste is available.\n- When the stock is spent, tap it to turn the waste back over. You may do so **twice** (three passes in all).\n- Your **score** is the number of cards round the court, the Queens, Fives and Sixes among them, 52 for a win.",
+      "inApp": false,
+      "download": "designs/captive-queens.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 1.2313,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 0,
+            "row": 2.2761,
+            "fan": "none"
+          },
+          {
+            "name": "queen-diamonds",
+            "type": "foundation",
+            "col": 3.0769,
+            "row": 1.7537,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "queen-spades",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 1.3209,
+            "fan": "none"
+          },
+          {
+            "name": "queen-hearts",
+            "type": "foundation",
+            "col": 4.1923,
+            "row": 1.7537,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "queen-clubs",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 2.1866,
+            "angleDegrees": 180,
+            "fan": "none"
+          },
+          {
+            "name": "five-spades",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "six-spades",
+            "type": "foundation",
+            "col": 5.2324,
+            "row": 0.5137,
+            "angleDegrees": 45,
+            "fan": "none"
+          },
+          {
+            "name": "five-hearts",
+            "type": "foundation",
+            "col": 5.8942,
+            "row": 1.7537,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "six-hearts",
+            "type": "foundation",
+            "col": 5.2324,
+            "row": 2.9938,
+            "angleDegrees": 135,
+            "fan": "none"
+          },
+          {
+            "name": "five-clubs",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 3.5075,
+            "angleDegrees": 180,
+            "fan": "none"
+          },
+          {
+            "name": "six-clubs",
+            "type": "foundation",
+            "col": 2.0368,
+            "row": 2.9938,
+            "angleDegrees": -135,
+            "fan": "none"
+          },
+          {
+            "name": "five-diamonds",
+            "type": "foundation",
+            "col": 1.375,
+            "row": 1.7537,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "six-diamonds",
+            "type": "foundation",
+            "col": 2.0368,
+            "row": 0.5137,
+            "angleDegrees": -45,
             "fan": "none"
           }
         ]

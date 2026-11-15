@@ -45,6 +45,7 @@
     { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true, "capture": { "file": "38-royalcotillion-filigree.png", "deck": "Filigree" } },
     { "slug": "alhambra", "tagline": "Build on the waste, up or down in suit", "new": true },
     { "slug": "stalactites", "tagline": "Columns that only give, by ones or by twos", "new": true },
-    { "slug": "baroness", "tagline": "Pairs to thirteen, Kings alone", "new": true }
+    { "slug": "baroness", "tagline": "Pairs to thirteen, Kings alone", "new": true },
+    { "slug": "captive-queens", "tagline": "Fives down, Sixes up, round a court of Queens", "new": true }
   ]
 }
