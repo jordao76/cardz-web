@@ -1,7 +1,7 @@
 {
   "name": "Faerie Queen",
   "aliases": ["Spenser's Fairie Queen", "Fairie Queen"],
-  "description": "**Goal:** build the eight foundations from Ace up to Queen, 96 cards. The eight Kings stay on the table.\n\n- A King starts the first column. **Tap the stock** to turn the next card: a **King starts a new column**, an **Ace** goes to a foundation, and any other card is dealt onto the **newest King's column**.\n- Each foundation builds **up in suit** from its Ace to the Queen.\n- Only the **card at the foot** of each column is available. It may go to a foundation, or onto another column's foot **one rank higher, regardless of suit**: a 7 on an 8.\n- A **King alone** in its column takes any available card.\n- You may play at any time, during the deal or after it. There is no redeal.\n- Your **score** is the number of cards on the foundations, 96 for a win.",
+  "description": "**Goal:** build the eight foundations from Ace up to Queen, 96 cards. The eight Kings stay on the table.\n\n- A King starts the first column. **Tap the stock** to turn the next card: a **King starts a new column**, an **Ace** goes to a foundation, and any other card is dealt onto the **newest King's column**.\n- Each foundation builds **up regardless of suit** from its Ace to the Queen: a 3 of any suit on any 2.\n- Only the **card at the foot** of each column is available. It may go to a foundation, or onto another column's foot **one rank higher, regardless of suit**: a 7 on an 8.\n- A **King alone** in its column takes any available card.\n- You may play at any time, during the deal or after it. There is no redeal.\n- Your **score** is the number of cards on the foundations, 96 for a win.",
   "decks": [{ "count": 2 }],
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
@@ -28,7 +28,6 @@
         "single": true,
         "seed": "Ace",
         "build": { "direction": "Up" },
-        "suit": "Same",
         "when": "card.rank != King",
         "reason": "A foundation ends on its Queen"
       },
