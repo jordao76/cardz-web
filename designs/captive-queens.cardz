@@ -3,12 +3,8 @@
   "aliases": ["Quadrille"],
   "description": "A game of pure luck. **Goal:** build the other 40 cards round the four **Queens**, who hold court in the middle and never move.\n\n- The four **Fives** and four **Sixes** are laid round the court to start eight foundations.\n- Each **Five** builds **down in suit** through the Ace to the King: 5 4 3 2 A K.\n- Each **Six** builds **up in suit** to the Jack: 6 7 8 9 10 J.\n- **Tap the stock** to turn one card at a time onto the waste. The top card of the waste is available.\n- When the stock is spent, tap it to turn the waste back over. You may do so **twice** (three passes in all).\n- Your **score** is the number of cards round the court, the Queens, Fives and Sixes among them, 52 for a win.",
   "rules": {
-    "foundation": {
-      "seedNone": true,
-      "build": { "direction": "Down", "wrap": true },
-      "suit": "Same"
-    },
-    "six-spades": { "seedNone": true, "build": { "direction": "Up" }, "suit": "Same" }
+    "five": { "seedNone": true, "build": { "direction": "Down", "wrap": true }, "suit": "Same" },
+    "six": { "seedNone": true, "build": { "direction": "Up" }, "suit": "Same" }
   },
   "depots": [
     { "type": "Stock", "col": 0, "row": 1.2313, "name": "stock", "acceptRule": "none",
@@ -24,22 +20,22 @@
       "acceptRule": "none", "ejectRule": "locked", "angle": 1.5707963267948966 },
     { "type": "Foundation", "col": 3.6346, "row": 2.1866, "name": "queen-clubs",
       "acceptRule": "none", "ejectRule": "locked", "angle": 3.141592653589793 },
-    { "type": "Foundation", "col": 3.6346, "row": 0, "name": "five-spades",
-      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3.6346, "row": 0, "name": "five-spades", "acceptRule": "$five",
+      "ejectRule": "locked" },
     { "type": "Foundation", "col": 5.2324, "row": 0.5137, "name": "six-spades",
-      "acceptRule": "$six-spades", "ejectRule": "locked", "angle": 0.7853981633974483 },
+      "acceptRule": "$six", "ejectRule": "locked", "angle": 0.7853981633974483 },
     { "type": "Foundation", "col": 5.8942, "row": 1.7537, "name": "five-hearts",
-      "acceptRule": "$foundation", "ejectRule": "locked", "angle": 1.5707963267948966 },
+      "acceptRule": "$five", "ejectRule": "locked", "angle": 1.5707963267948966 },
     { "type": "Foundation", "col": 5.2324, "row": 2.9938, "name": "six-hearts",
-      "acceptRule": "$six-spades", "ejectRule": "locked", "angle": 2.356194490192345 },
+      "acceptRule": "$six", "ejectRule": "locked", "angle": 2.356194490192345 },
     { "type": "Foundation", "col": 3.6346, "row": 3.5075, "name": "five-clubs",
-      "acceptRule": "$foundation", "ejectRule": "locked", "angle": 3.141592653589793 },
+      "acceptRule": "$five", "ejectRule": "locked", "angle": 3.141592653589793 },
     { "type": "Foundation", "col": 2.0368, "row": 2.9938, "name": "six-clubs",
-      "acceptRule": "$six-spades", "ejectRule": "locked", "angle": -2.356194490192345 },
+      "acceptRule": "$six", "ejectRule": "locked", "angle": -2.356194490192345 },
     { "type": "Foundation", "col": 1.375, "row": 1.7537, "name": "five-diamonds",
-      "acceptRule": "$foundation", "ejectRule": "locked", "angle": -1.5707963267948966 },
+      "acceptRule": "$five", "ejectRule": "locked", "angle": -1.5707963267948966 },
     { "type": "Foundation", "col": 2.0368, "row": 0.5137, "name": "six-diamonds",
-      "acceptRule": "$six-spades", "ejectRule": "locked", "angle": -0.7853981633974483 }
+      "acceptRule": "$six", "ejectRule": "locked", "angle": -0.7853981633974483 }
   ],
   "dealRules": [
     { "kind": "place", "rank": "Queen", "suit": "Diamonds", "to": "queen-diamonds" },
