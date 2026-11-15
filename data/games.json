@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-15T04:27:01Z",
+  "generated": "2026-11-15T21:34:14Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -6024,6 +6024,154 @@
             "col": 8,
             "row": 3,
             "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "faerie-queen",
+      "name": "Faerie Queen",
+      "aliases": [
+        "Spenser's Fairie Queen",
+        "Fairie Queen"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build the eight foundations from Ace up to Queen, 96 cards. The eight Kings stay on the table.\n\n- A King starts the first column. **Tap the stock** to turn the next card: a **King starts a new column**, an **Ace** goes to a foundation, and any other card is dealt onto the **newest King's column**.\n- Each foundation builds **up in suit** from its Ace to the Queen.\n- Only the **card at the foot** of each column is available. It may go to a foundation, or onto another column's foot **one rank higher, regardless of suit**: a 7 on an 8.\n- A **King alone** in its column takes any available card.\n- You may play at any time, during the deal or after it. There is no redeal.\n- Your **score** is the number of cards on the foundations, 96 for a win.",
+      "inApp": false,
+      "download": "designs/faerie-queen.cardz",
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "hold",
+            "type": "waste",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 1.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 2.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 3.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 4.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 5.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 6.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 7.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 8.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 3,
+            "fan": "none"
           }
         ]
       }

@@ -46,6 +46,11 @@
       "note": "Two rounds that play by different rules: accept rules that read how many redeals have run close two sorting piles and open the cascades once the stock is gathered back. The regather lists its piles so they deal out in the order they were picked up."
     },
     {
+      "name": "Faerie Queen",
+      "file": "faerie-queen.cardz",
+      "note": "A deal that is the game: each tap turns a card onto a hold whose trigger sends it on at once, picking its place with an expression: an Ace to an empty foundation, a King to the first empty column, any other card to the last column started. One place step lays the first King."
+    },
+    {
       "name": "Fourteen Out",
       "file": "fourteen-out.cardz",
       "note": "Rule expressions pair cards: a column's top card drops onto a partner that makes fourteen with it, and the pair leaves by itself. The win asks for empty columns rather than full foundations."
