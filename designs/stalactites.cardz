@@ -1,18 +1,33 @@
 {
   "name": "Stalactites",
   "description": "**Goal:** build every card onto four foundations, thirteen cards each. They build **up regardless of suit**, wrapping from King round to Ace, either **by ones** or **by twos**.\n\n- The first four cards dealt start the foundations, whatever their ranks.\n- **Your first build chooses the step** for all four foundations. On a 5, a 6 sets them building by ones (6 7 8 … K A … 4), a 7 by twos (7 9 J K 2 4 6 8 10 Q A 3).\n- The other forty-eight cards are dealt **face up** into eight columns of six.\n- **Nothing is built on the columns.** Their top cards go to a foundation or to one of the two cells, and an emptied column stays empty.\n- Each **cell** holds one card, which may go only to a foundation.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
+  "rules": {
+    "foundation": {
+      "single": true,
+      "when": "let s = max(build, it.stepTaken); let d = (card.value - depot.end.value) % 13; count(depot) < 12 && if(s == 0, d == 1 || d == 2, d == s)",
+      "reason": "Build up by the chosen step"
+    }
+  },
   "depots": [
     { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true },
     { "type": "Cell", "col": 0, "row": 0, "name": "cell", "repeat": 2,
       "acceptRule": { "emptyOnly": true, "single": true, "acceptFrom": "Tableau" } },
-    { "type": "Foundation", "col": 4, "row": 0, "name": "base", "repeat": 4,
-      "acceptRule": {
-        "single": true,
-        "seedNone": true,
-        "when": "let s = max(Foundation, it.stepTaken); let d = (card.value - top.value) % 13; count(depot) < 13 && if(s == 0, d == 1 || d == 2, d == s)",
-        "reason": "Build up by the chosen step"
-      },
-      "ejectRule": "locked" },
+    { "type": "Foundation", "col": 2.5, "row": 0, "name": "base-1", "acceptRule": "none",
+      "ejectRule": "locked", "angle": -1.5707963267948966 },
+    { "type": "Foundation", "col": 2.6442, "row": 0, "name": "build-1",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 3.75, "row": 0, "name": "base-2", "acceptRule": "none",
+      "ejectRule": "locked", "angle": -1.5707963267948966 },
+    { "type": "Foundation", "col": 3.8942, "row": 0, "name": "build-2",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 5, "row": 0, "name": "base-3", "acceptRule": "none",
+      "ejectRule": "locked", "angle": -1.5707963267948966 },
+    { "type": "Foundation", "col": 5.1442, "row": 0, "name": "build-3",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 6.25, "row": 0, "name": "base-4", "acceptRule": "none",
+      "ejectRule": "locked", "angle": -1.5707963267948966 },
+    { "type": "Foundation", "col": 6.3942, "row": 0, "name": "build-4",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
     { "type": "Tableau", "col": 0, "row": 1, "name": "column", "repeat": 8, "acceptRule": "none",
       "ejectRule": "topOnly" }
   ],
@@ -24,11 +39,13 @@
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "lossCondition": { "kind": "noLegalMoves" },
   "properties": {
-    "stepTaken": "if(count(it) < 2, 0, (bottom(above(it, bottom(it))).value - bottom(it).value) % 13)"
+    "under": "first(b in base, index(b) == index(it))",
+    "end": "if(empty(it), top(it.under), top(it))",
+    "stepTaken": "if(empty(it), 0, (bottom(it).value - top(it.under).value) % 13)"
   },
   "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
   "planner": {
-    "value": "let s = max(Foundation, it.stepTaken); 10 * sum(Foundation, count(it)) + count(c in column, !empty(c) && any(f in Foundation, count(f) < 13 && (top(c).value - top(f).value) % 13 == s)) + count(c in cell, !empty(c) && any(f in Foundation, count(f) < 13 && (top(c).value - top(f).value) % 13 == s))"
+    "value": "let s = max(build, it.stepTaken); 10 * sum(Foundation, count(it)) + count(c in column, !empty(c) && any(f in build, count(f) < 12 && (top(c).value - f.end.value) % 13 == s)) + count(c in cell, !empty(c) && any(f in build, count(f) < 12 && (top(c).value - f.end.value) % 13 == s))"
   },
   "tools": "None"
 }

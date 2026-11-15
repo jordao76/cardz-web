@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-14T21:32:21Z",
+  "generated": "2026-11-15T03:21:39Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -7788,28 +7788,60 @@
           {
             "name": "base-1",
             "type": "foundation",
-            "col": 4,
+            "col": 2.5,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-1",
+            "type": "foundation",
+            "col": 2.6442,
             "row": 0,
             "fan": "none"
           },
           {
             "name": "base-2",
             "type": "foundation",
-            "col": 5,
+            "col": 3.75,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-2",
+            "type": "foundation",
+            "col": 3.8942,
             "row": 0,
             "fan": "none"
           },
           {
             "name": "base-3",
             "type": "foundation",
-            "col": 6,
+            "col": 5,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-3",
+            "type": "foundation",
+            "col": 5.1442,
             "row": 0,
             "fan": "none"
           },
           {
             "name": "base-4",
             "type": "foundation",
-            "col": 7,
+            "col": 6.25,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-4",
+            "type": "foundation",
+            "col": 6.3942,
             "row": 0,
             "fan": "none"
           },

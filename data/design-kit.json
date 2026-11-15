@@ -98,7 +98,7 @@
     {
       "name": "Stalactites",
       "file": "stalactites.cardz",
-      "note": "A choice the player makes by playing: the foundations' accept rule reads the step off the first foundation built on, so the first build sets every foundation going by ones or by twos, and undoing it undoes the choice. A depot property finds that step, and columns accept nothing, so they are only a source."
+      "note": "A choice the player makes by playing: the foundations' accept rule reads the step off the first foundation built on, so the first build sets every foundation going by ones or by twos, and undoing it undoes the choice. A depot property finds that step, and columns accept nothing, so they are only a source. Each foundation is two overlapping depots, a base turned sideways under an upright pile aligned to its right edge that builds on the base's card while empty, so the base shows where the thirteen started."
     },
     {
       "name": "Sultan",
