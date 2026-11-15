@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-15T03:21:39Z",
+  "generated": "2026-11-15T03:28:43Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -5471,7 +5471,7 @@
         "Thirteens"
       ],
       "sandbox": false,
-      "rules": "**Goal:** discard all 52 cards, in pairs that total **13** and Kings alone.\n\n- Five cards are dealt **face up** to start five piles. Only the **top card** of each pile is available.\n- Drag an available card **onto its partner**, the top card of another pile, and both go to the **discard**: Ace + Queen, 2 + Jack, 3 + 10, 4 + 9, 5 + 8, or 6 + 7.\n- A **King** is worth 13 on its own: drag it to the discard.\n- When no discard is left, **tap the stock** to deal five more cards, one onto each pile, filling any empty pile.\n- The last two cards are the **grace cards**: they are dealt face up side by side at the end of the row, and are available like the piles' tops.\n- The game is lost when no discard is left and the stock is spent. Your **score** is the number of cards discarded, 52 for a win.",
+      "rules": "**Goal:** discard all 52 cards, in pairs that total **13** and Kings alone.\n\n- Five cards are dealt **face up** to start five piles. Only the **top card** of each pile is available.\n- Drag an available card **onto its partner**, the top card of another pile, and both go to the **discard**: Ace + Queen, 2 + Jack, 3 + 10, 4 + 9, 5 + 8, or 6 + 7.\n- A **King** is worth 13 on its own: drag it to the discard.\n- **Tap the stock** to deal five more cards, one onto each pile, filling any empty pile. Discard what you can first: a new row covers the tops.\n- The last two cards are the **grace cards**: they are dealt face up side by side at the end of the row, and are available like the piles' tops.\n- The game is lost when no discard is left and the stock is spent. Your **score** is the number of cards discarded, 52 for a win.",
       "inApp": false,
       "download": "designs/baroness.cardz",
       "decks": {
