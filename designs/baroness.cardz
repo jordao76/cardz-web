@@ -5,7 +5,8 @@
   "rules": {
     "tableau": {
       "single": true,
-      "when": "!empty(depot) && card.value + top.value == 13",
+      "seedNone": true,
+      "when": "card.value + top.value == 13",
       "reason": "Pair cards that total 13"
     }
   },

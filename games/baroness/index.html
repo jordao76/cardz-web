@@ -38,7 +38,7 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>45 lines</small></summary>
+        <summary>Read its design file <small>46 lines</small></summary>
         <p>Fourteen Out's pairing at thirteen, with Pyramid's King that leaves alone, over five piles that a stock tap deals a row onto. Two deal steps with conditions share the tap, so the last two cards go to grace cards of their own. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Baroness&quot;</span>,
@@ -47,7 +47,8 @@
   <span class="j-key">&quot;rules&quot;</span>: {
     <span class="j-key">&quot;tableau&quot;</span>: {
       <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
-      <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;!empty(depot) &amp;&amp; card.value + top.value == 13&quot;</span>,
+      <span class="j-key">&quot;seedNone&quot;</span>: <span class="j-lit">true</span>,
+      <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;card.value + top.value == 13&quot;</span>,
       <span class="j-key">&quot;reason&quot;</span>: <span class="j-str">&quot;Pair cards that total 13&quot;</span>
     }
   },
