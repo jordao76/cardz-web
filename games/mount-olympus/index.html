@@ -38,8 +38,8 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>85 lines</small></summary>
-        <p>Sixteen foundations placed one by one into an inverted V, each Ace and Two by name, building by twos without wrap, so an Ace pile stops at the King and a Two pile at the Queen with no cap. A battery building down by twos in suit, whose spaces take only their refill from the waste, then the stock, and a stock that turns the waste back once. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
+        <summary>Read its design file <small>86 lines</small></summary>
+        <p>Sixteen foundations placed one by one into an inverted V, each Ace and Two by name, building by twos without wrap, so an Ace pile stops at the King and a Two pile at the Queen with no cap. A battery building down by twos in suit, whose spaces take only their refill from the waste, then the stock, and a stock that turns the waste back once. A planner value counts each card turned from the stock, so Cardz draws rather than shuttle a card between two equal tops. This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it.</p>
         <pre><code class="language-json">{
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Mount Olympus&quot;</span>,
   <span class="j-key">&quot;aliases&quot;</span>: [<span class="j-str">&quot;Der Olymp&quot;</span>],
@@ -123,6 +123,7 @@
   <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;allCardsIn&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span> },
   <span class="j-key">&quot;lossCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;noLegalMoves&quot;</span> },
   <span class="j-key">&quot;scoring&quot;</span>: { <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;sum(Foundation, count(it))&quot;</span>, <span class="j-key">&quot;keep&quot;</span>: <span class="j-str">&quot;Over&quot;</span> },
+  <span class="j-key">&quot;planner&quot;</span>: { <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;100 * sum(Foundation, count(it)) - count(stock)&quot;</span> },
   <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
 }</code></pre>
       </details>

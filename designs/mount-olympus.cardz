@@ -81,5 +81,6 @@
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "lossCondition": { "kind": "noLegalMoves" },
   "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "planner": { "value": "100 * sum(Foundation, count(it)) - count(stock)" },
   "tools": "None"
 }
