@@ -38,6 +38,8 @@
   "winCondition": { "kind": "expr", "when": "sum(Foundation, count(it)) == 96" },
   "lossCondition": { "kind": "noLegalMoves" },
   "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
-  "planner": { "value": "100 * sum(Foundation, count(it)) - count(stock)" },
+  "planner": {
+    "value": "100 * sum(Foundation, count(it)) - count(stock) - sum(d in column, sum(c in d, count(a in above(d, c), a.value > c.value)))"
+  },
   "tools": "None"
 }
