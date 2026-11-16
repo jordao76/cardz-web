@@ -6,8 +6,8 @@
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "acceptRule": "none",
       "ejectRule": "locked", "draw": { "to": "hold" } },
-    { "type": "Waste", "col": 0, "row": 1, "name": "hold", "acceptRule": "none",
-      "ejectRule": "locked",
+    { "type": "Waste", "col": -1, "row": -1, "name": "hold", "acceptRule": "none",
+      "ejectRule": "locked", "offTable": true,
       "triggers": [
         { "when": "!empty(depot)",
           "do": [
@@ -22,7 +22,7 @@
         "when": "card.rank != King && (count(depot) == 1 || card.value + 1 == top.value)",
         "reason": "Build down by one, or onto a King alone"
       },
-      "ejectRule": "topOnly" },
+      "ejectRule": "topOnly", "fanOffsetFaceUp": 24 },
     { "type": "Foundation", "col": 9.5, "row": 0, "name": "foundation", "repeat": 8, "perRow": 2,
       "acceptRule": {
         "single": true,
