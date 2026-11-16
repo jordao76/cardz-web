@@ -47,6 +47,7 @@
     { "slug": "stalactites", "tagline": "Columns that only give, by ones or by twos", "new": true },
     { "slug": "baroness", "tagline": "Pairs to thirteen, Kings alone", "new": true },
     { "slug": "captive-queens", "tagline": "Fives down, Sixes up, round a court of Queens", "new": true },
-    { "slug": "faerie-queen", "tagline": "Every card dealt onto the newest King", "new": true }
+    { "slug": "faerie-queen", "tagline": "Every card dealt onto the newest King", "new": true },
+    { "slug": "mount-olympus", "tagline": "A pyramid of Aces and Twos, climbing by twos", "new": true }
   ]
 }

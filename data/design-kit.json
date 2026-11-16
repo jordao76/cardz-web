@@ -81,6 +81,11 @@
       "note": "A five by five grid where a card pairs only with a touching card of its rank, pairs that leave by themselves, and a stock tap that closes the grid up and refills it."
     },
     {
+      "name": "Mount Olympus",
+      "file": "mount-olympus.cardz",
+      "note": "Sixteen foundations placed one by one into an inverted V, each Ace and Two by name, building by twos without wrap, so an Ace pile stops at the King and a Two pile at the Queen with no cap. A battery building down by twos in suit, whose spaces take only their refill from the waste, then the stock, and a stock that turns the waste back once."
+    },
+    {
       "name": "Puss in the Corner",
       "file": "puss-in-the-corner.cardz",
       "note": "Foundations that build by colour instead of suit, holding piles only the stock can feed, and one redeal that gathers the piles back in order without dealing anything out."
