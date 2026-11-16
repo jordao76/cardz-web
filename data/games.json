@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-15T21:55:12Z",
+  "generated": "2026-11-16T16:24:59Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -6052,13 +6052,6 @@
             "type": "stock",
             "col": 0,
             "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "hold",
-            "type": "waste",
-            "col": 0,
-            "row": 1,
             "fan": "none"
           },
           {
