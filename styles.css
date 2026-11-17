@@ -158,6 +158,10 @@ footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 .game-shell .eyebrow, .policy-shell .eyebrow, .format-shell .eyebrow, .policy-date, .game-cta > small, .game-more a, .game-capture figcaption { color: var(--dim); }
 .back-link { display: inline-block; margin-bottom: 1.2rem; font-size: .9rem; }
 .game-facts { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); color: var(--dim); font-size: .92rem; }
+.game-kin { display: grid; gap: .35rem; margin: 1rem 0 0; font-size: .92rem; }
+.game-kin div { display: flex; flex-wrap: wrap; gap: 0 .6rem; }
+.game-kin dt { color: var(--dim); }
+.game-kin dd { margin: 0; }
 .game-origin { margin: 1.2rem 0 0; }
 .game-capture { margin: 1.6rem 0 0; }
 .game-capture figcaption { margin-top: .5rem; font-size: .85rem; }

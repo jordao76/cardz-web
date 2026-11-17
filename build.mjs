@@ -497,6 +497,36 @@ function originMark(page) {
 `;
 }
 
+/**
+ * What else a game is called, and the family it belongs to, under the facts strip.
+ * Aliases are every variant's, so a page sharing variants lists each name once. The
+ * family links the other pages in it, as the app's Games page groups them; a family
+ * with no other page says nothing a reader could follow, so it is left out, and so is
+ * a game the app files under no family.
+ */
+function gameKin(page, all, up) {
+  const names = new Set([page.name, ...page.variants.map((v) => v.name)]);
+  const aliases = [...new Set(page.variants.flatMap((v) => v.aliases ?? []))].filter((a) => !names.has(a));
+  const family = page.variants.map((v) => v.family).find(Boolean);
+  const kin = family
+    ? all.filter((other) => other.slug !== page.slug && other.variants.some((v) => v.family === family))
+    : [];
+  const rows = [];
+  if (aliases.length)
+    rows.push(`        <div><dt>Also known as</dt><dd>${aliases.map(escape).join(", ")}</dd></div>`);
+  if (kin.length)
+    rows.push(
+      `        <div><dt>${escape(family)} family</dt><dd>${kin
+        .map((other) => `<a href="${up}games/${other.slug}/">${escape(other.name)}</a>`)
+        .join(", ")}</dd></div>`
+    );
+  if (!rows.length) return "";
+  return `      <dl class="game-kin">
+${rows.join("\n")}
+      </dl>
+`;
+}
+
 function gamePage(page, all) {
   const { up, head, header, footer } = chrome(2);
   const primary = page.variants[0];
@@ -544,7 +574,7 @@ ${header()}
       <div class="game-facts">
         <span>${deckLine(primary)}</span>${extra ? `\n        <span>Extra game · download</span>` : ""}${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
-${originMark(page)}${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
+${gameKin(page, all, up)}${originMark(page)}${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
       <div class="game-rules${ledeClass(primary.rules ?? "")}">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
