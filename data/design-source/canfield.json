@@ -2,15 +2,15 @@
   "name": "Canfield",
   "family": "Canfield",
   "aliases": ["Demon", "Demon Patience"],
-  "description": "**Goal:** build all four foundations up in suit from the dealt base rank, wrapping past King back to Ace.\n\n- The **first foundation card is dealt** — its rank sets the base for all four foundations. Build each one **up in the same suit**, wrapping King→Ace as needed.\n- Tableau columns build **down in alternating colour** and also **wrap** (a King may go on an Ace). Move a single card or a valid run.\n- The **reserve** of 13 cards feeds its top card into play; uncovering the next card turns it up.\n- Draw **three at a time** from the stock to the waste; recycle the waste as often as you like.\n- **Empty a column and the reserve refills it** at once. Once the reserve is spent, an empty column is yours to fill with any card or run.",
+  "description": "**Goal:** build all four foundations up in suit from the dealt base rank, wrapping past King back to Ace.\n\n- The **first foundation card is dealt** — its rank sets the base for all four foundations. Build each one **up in the same suit**, wrapping King→Ace as needed.\n- Tableau columns build **down in alternating colour** and also **wrap** (a King may go on an Ace). Move a single card or a valid run.\n- The **reserve** of 13 cards feeds its top card into play; uncovering the next card turns it up.\n- Draw from the stock to the waste **one card at a time**, or **three at a time** in Draw 3, where only the top card of the waste is in play. Recycle the waste as often as you like.\n- **Empty a column and the reserve refills it** at once. Once the reserve is spent, an empty column is yours to fill with any card or run.",
   "depots": [
     { "type": "Stock", "col": 0, "row": 0, "name": "stock", "ejectRule": "locked",
-      "landFace": "Down", "draw": { "to": "waste", "count": 3, "recycle": true } },
-    { "type": "Waste", "fanDirection": "Right", "fanWindow": 3, "col": 1, "row": 0,
-      "name": "waste", "acceptRule": "none", "ejectRule": "topOnly" },
+      "landFace": "Down", "draw": { "to": "waste", "recycle": true } },
+    { "type": "Waste", "col": 1, "row": 0, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
     { "type": "Foundation", "col": 3, "row": 0, "name": "found", "repeat": 4,
       "acceptRule": {
-        "seedFromDeal": true,
+        "seedFrom": "bottom(found).rank",
         "build": { "direction": "Up", "wrap": true },
         "suit": "Same"
       },

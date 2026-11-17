@@ -40,9 +40,14 @@
     { "kind": "dealGroup", "to": "tab-7", "faceUp": 1 }
   ],
   "redealRules": [{ "kind": "dealGroup", "to": "tab", "faceUp": 1, "roundRobin": true }],
-  "redealWhen": { "kind": "depotsNonEmpty", "depots": "Tableau" },
+  "redealWhen": {
+    "kind": "expr",
+    "when": "all(Tableau, !empty(it))",
+    "reason": "Deal a row only when no column is empty"
+  },
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "scoring": { "value": "500 - moves + 100 * count(Foundation, !empty(it))" },
+  "planner": true,
   "tools": "None"
 }

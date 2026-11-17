@@ -31,6 +31,11 @@
       "note": "Pyramid's pairs that make thirteen, and its King that leaves alone, over five piles that a stock tap deals a row onto. Two deal steps with conditions share the tap, so the last two cards go to grace cards of their own."
     },
     {
+      "name": "Braid",
+      "file": "braid.cardz",
+      "note": "A base read from the deal, as Canfield's, for eight foundations of two decks, capped at thirteen cards so a finished one cannot take its base's twin. A braid of twenty single cards placed in a zig-zag, each uncovered by the next and dealt by an each step that keeps twins out, whose end refills four corners by themselves, and eight sideways cells that take only the waste, when the player chooses."
+    },
+    {
       "name": "Captive Queens",
       "file": "captive-queens.cardz",
       "note": "No tableau at all: a stock, a waste and a radial layout, eight foundations turned along their radii round a cross of overlapping Queens, all placed by the deal. A Five's foundation wraps through the Ace to the King, and with the Queens out of play neither kind needs a cap."
@@ -84,6 +89,11 @@
       "name": "Mount Olympus",
       "file": "mount-olympus.cardz",
       "note": "Sixteen foundations placed one by one into an inverted V, each Ace and Two by name, building by twos without wrap, so an Ace pile stops at the King and a Two pile at the Queen with no cap. A battery building down by twos in suit, whose spaces take only their refill from the waste, then the stock, and a stock that turns the waste back once. A planner value counts each card turned from the stock, so Cardz draws rather than shuttle a card between two equal tops."
+    },
+    {
+      "name": "Penguin",
+      "file": "penguin.cardz",
+      "note": "A FreeCell relative whose deal decides the rank everything turns on: the first card dealt sets the foundations' and columns' rank through seed expressions read once the deal ends, and three place steps pull its three rank-mates to the foundations, each picked by an expression."
     },
     {
       "name": "Puss in the Corner",
@@ -153,6 +163,18 @@
       "note": "Columns that build in alternating colours but lift any face-up group, in order or not, over a diagonal deal of hidden cards."
     },
     {
+      "name": "Tri Peaks",
+      "page": "tri-peaks",
+      "source": "data/design-source/tri-peaks.json",
+      "note": "Three peaks of single-card slots over a base row, each turned up when the two cards below it leave, and a waste that takes a card one rank up or down, wrapping from King to Ace."
+    },
+    {
+      "name": "Pyramid",
+      "page": "pyramid",
+      "source": "data/design-source/pyramid.json",
+      "note": "A triangle of twenty-eight slots, each freed when the two cards below it leave, one named rule that pairs cards totalling thirteen, and a trigger that discards each pair."
+    },
+    {
       "name": "Forty Thieves",
       "page": "forty-thieves",
       "source": "data/design-source/forty-thieves.json",
@@ -177,6 +199,12 @@
       "note": "One pile that takes any card matching its top in rank or suit, wild eights that name the suit which must follow them, and a stock that draws to a waste instead of onto the pile."
     },
     {
+      "name": "Clock",
+      "page": "clock",
+      "source": "data/design-source/clock.json",
+      "note": "Twelve hour piles placed round a dial by position and angle, a centre pile that is also the stock, and a win written as an expression: every card face up, each hour holding its own four and the Kings in the centre."
+    },
+    {
       "name": "La Belle Lucie",
       "page": "la-belle-lucie",
       "source": "data/design-source/la-belle-lucie.json",
@@ -187,6 +215,12 @@
       "page": "canfield",
       "source": "data/design-source/canfield.json",
       "note": "Foundations whose starting rank is set by the deal and wrap from King to Ace, and a reserve that refills an emptied column by itself."
+    },
+    {
+      "name": "Crazy Quilt",
+      "page": "crazy-quilt",
+      "source": "data/design-source/crazy-quilt.json",
+      "note": "Sixty-four cards woven into a lattice, each free once either short end is clear, eight foundations seeded before the deal, and a waste that takes quilt cards one rank up or down."
     },
     {
       "name": "Beleaguered Castle",

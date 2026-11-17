@@ -52,7 +52,11 @@
       "to": "stock", "when": "empty(stock)" },
     { "kind": "dealGroup", "to": "cascade", "faceUp": 1 }
   ],
-  "redealWhen": { "kind": "expr", "when": "!empty(stock) || redeals <= 15" },
+  "redealWhen": {
+    "kind": "expr",
+    "when": "!empty(stock) || redeals <= 15",
+    "reason": "The stock is regathered only once"
+  },
   "depotOnly": true,
   "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
   "lossCondition": { "kind": "noLegalMoves" },

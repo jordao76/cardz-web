@@ -1,0 +1,40 @@
+{
+  "name": "Penguin",
+  "family": "FreeCell",
+  "description": "**Goal:** build all four foundations up in suit from the beak's rank, going round from King to Ace, until each holds thirteen cards.\n\n- The first card dealt is the **beak**, at the foot of the first column. The three other cards of its rank start the foundations; the fourth foundation waits for the beak itself.\n- Tableau columns build **down in the same suit**, going round from Ace to King.\n- Move one card, or a run already in same-suit order, as a unit.\n- The **flipper** is seven cells, each holding a single card.\n- An empty column takes only a card **one rank below the beak**, or a run headed by one.",
+  "depots": [
+    { "type": "Cell", "col": 0, "row": 0, "name": "cell", "repeat": 7,
+      "acceptRule": { "emptyOnly": true, "single": true } },
+    { "type": "Foundation", "col": 7.5, "row": 0, "name": "found", "repeat": 4, "perRow": 1,
+      "acceptRule": {
+        "seedFrom": "bottom(tab).rank",
+        "build": { "direction": "Up", "wrap": true },
+        "suit": "Same"
+      },
+      "ejectRule": "locked" },
+    { "type": "Stock", "col": -1, "row": -1, "name": "stock", "offTable": true },
+    { "type": "Tableau", "col": 0, "row": 1, "name": "tab", "repeat": 7,
+      "acceptRule": {
+        "seedFrom": "step(bottom(tab).rank, -1)",
+        "build": { "direction": "Down", "wrap": true },
+        "suit": "Same"
+      },
+      "ejectRule": {
+        "gate": "FaceUp",
+        "unit": { "kind": "Run", "build": { "direction": "Down", "wrap": true }, "suit": "Same" }
+      } }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "tab-1", "faceUp": 1 },
+    { "kind": "place", "to": "found-1", "when": "card.rank == bottom(tab).rank" },
+    { "kind": "place", "to": "found-2", "when": "card.rank == bottom(tab).rank" },
+    { "kind": "place", "to": "found-3", "when": "card.rank == bottom(tab).rank" },
+    { "kind": "dealGroup", "to": ["tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7"],
+      "faceUp": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab", "faceUp": 6, "roundRobin": true }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "tools": "None"
+}

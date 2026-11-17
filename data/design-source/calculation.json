@@ -18,7 +18,7 @@
     { "type": "Foundation", "col": 5, "row": 0, "name": "by-4",
       "acceptRule": { "seed": "Four", "build": { "direction": "Up", "step": 4, "wrap": true } },
       "ejectRule": "locked" },
-    { "type": "Tableau", "col": 2, "row": 1, "name": "hold", "repeat": 4,
+    { "type": "Tableau", "col": 2, "row": 1, "name": "hold", "repeat": 4, "label": "Hold",
       "acceptRule": { "acceptFrom": ["stock"] }, "ejectRule": "topOnly" }
   ],
   "dealRules": [

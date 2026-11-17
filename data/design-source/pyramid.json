@@ -1,0 +1,226 @@
+{
+  "name": "Pyramid",
+  "family": "Pyramid",
+  "description": "**Goal:** clear the whole 28-card **pyramid**.\n\n- Remove cards in **pairs that total 13** (A=1 … Q=12): drag a card **onto its partner** and both go to the **discard**. A **King** (13) goes to the discard alone.\n- A card can be played only once the **two cards overlapping it from below** are gone, so a card can't pair with one that covers it. The base row is free to start, and the rest open up as you clear toward the apex.\n- The **stock's** top card is face up and playable; drag it to the **waste** to set it aside, where it never pairs. The waste's top card stays playable: to pair it with the stock's top card, drop it onto the stock.\n- When the stock runs out, **tap it** to turn the waste back over. You get **three passes** through the stock in all.\n- The game is lost when no move is left. Your **score** is the number of pyramid cards removed, 28 for a win.\n- _Tip: the **Scarab** deck shows a small gold hint on each card — the rank it pairs with to reach 13._",
+  "rules": {
+    "tableau": {
+      "single": true,
+      "seedNone": true,
+      "when": "card.value + top.value == 13 && all(c in coveredBy(depot), c != source && empty(c))",
+      "reason": "Pair cards that total 13"
+    }
+  },
+  "depots": [
+    { "type": "Tableau", "fanDirection": "None", "col": 3, "row": 0, "name": "pyr-1",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-2", "pyr-3"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 2.5, "row": 0.35, "name": "pyr-2",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-4", "pyr-5"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 3.5, "row": 0.35, "name": "pyr-3",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-5", "pyr-6"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 2, "row": 0.7, "name": "pyr-4",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-7", "pyr-8"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 3, "row": 0.7, "name": "pyr-5",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-8", "pyr-9"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 4, "row": 0.7, "name": "pyr-6",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-9", "pyr-10"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 1.5, "row": 1.05, "name": "pyr-7",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-11", "pyr-12"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 2.5, "row": 1.05, "name": "pyr-8",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-12", "pyr-13"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 3.5, "row": 1.05, "name": "pyr-9",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-13", "pyr-14"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 4.5, "row": 1.05, "name": "pyr-10",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-14", "pyr-15"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 1, "row": 1.4, "name": "pyr-11",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-16", "pyr-17"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 2, "row": 1.4, "name": "pyr-12",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-17", "pyr-18"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 3, "row": 1.4, "name": "pyr-13",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-18", "pyr-19"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 4, "row": 1.4, "name": "pyr-14",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-19", "pyr-20"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 5, "row": 1.4, "name": "pyr-15",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-20", "pyr-21"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 0.5, "row": 1.75, "name": "pyr-16",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-22", "pyr-23"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 1.5, "row": 1.75, "name": "pyr-17",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-23", "pyr-24"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 2.5, "row": 1.75, "name": "pyr-18",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-24", "pyr-25"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 3.5, "row": 1.75, "name": "pyr-19",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-25", "pyr-26"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 4.5, "row": 1.75, "name": "pyr-20",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-26", "pyr-27"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 5.5, "row": 1.75, "name": "pyr-21",
+      "acceptRule": "$tableau", "ejectRule": "faceUp", "uncoveredBy": ["pyr-27", "pyr-28"],
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 0, "row": 2.1, "name": "pyr-22",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 1, "row": 2.1, "name": "pyr-23",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 2, "row": 2.1, "name": "pyr-24",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 3, "row": 2.1, "name": "pyr-25",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 4, "row": 2.1, "name": "pyr-26",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 5, "row": 2.1, "name": "pyr-27",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Tableau", "fanDirection": "None", "col": 6, "row": 2.1, "name": "pyr-28",
+      "acceptRule": "$tableau", "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "count(depot) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Stock", "col": 2.5, "row": 3.15, "name": "stock",
+      "acceptRule": {
+        "single": true,
+        "seedNone": true,
+        "when": "top.faceUp && card.value + top.value == 13",
+        "reason": "Pair cards that total 13"
+      },
+      "ejectRule": "faceUp", "autoFlipTop": true,
+      "triggers": [
+        { "when": "count(faceUp(depot)) == 2",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Waste", "col": 3.5, "row": 3.15, "name": "waste",
+      "acceptRule": {
+        "single": true,
+        "when": "source == stock || (!empty(depot) && card.value + top.value == 13)",
+        "reason": "Pair cards that total 13"
+      },
+      "triggers": [
+        { "when": "any(d in Tableau, d == cameFrom(depot))",
+          "do": [{ "kind": "move", "from": "@self", "to": "discard", "count": "2" }] }
+      ] },
+    { "type": "Foundation", "col": 5.5, "row": 3.15, "name": "discard",
+      "acceptRule": { "single": true, "rankIs": "King" }, "ejectRule": "locked",
+      "landFace": "Down" }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "pyr", "faceUp": 1 },
+    { "kind": "flipTop", "depot": "stock" }
+  ],
+  "redealRules": [
+    { "kind": "gather", "from": ["waste"], "to": "stock" },
+    { "kind": "flipTop", "depot": "stock" }
+  ],
+  "maxRedeals": 2,
+  "depotOnly": true,
+  "winCondition": { "kind": "depotsEmpty", "depots": "Tableau" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "scoring": { "value": "28 - count(d in Tableau, !empty(d))", "keep": "Over" },
+  "planner": {
+    "value": "count(d in Tableau, !empty(d) && all(c in coveredBy(d), empty(c))) - 10 * count(d in Tableau, !empty(d))"
+  },
+  "aids": { "pairSum": 13 },
+  "tools": "None"
+}

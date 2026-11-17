@@ -70,7 +70,7 @@ explained below.
 | `properties` | object | — | named properties of a depot, used in expressions; see **Depot properties** below |
 | `scoring` | object | — | how a deal is scored; see **Values and scoring** below |
 | `planner` | `true`, `false` or object | by how the game is written | whether Cardz's own player may play the game, and how it values a board; see **Teaching Cardz to play** below |
-| `aids` | object | — | symbols a deck may print on the cards to help play this game; see **Card aids** below |
+| `aids` | object | — | marks on the cards to help play this game; see **Card aids** below |
 | `depotOnly` | bool | `false` | a card dropped on open table, not on a depot, bounces back. Usually on for ruled games. |
 | `compoundMoves` | `Free`, `Staged` | `Free` | `Free` moves any valid run as a unit; `Staged` limits runs to `(1 + free cells) × 2^(empty columns)`, as in FreeCell |
 | `tools` | `Unset`, `Free`, `None` | `Unset` | `None` hides the table modes, the free-handling tools (Fish, Grab, Order, Spread…) |
@@ -115,16 +115,17 @@ Copies alternate between two card backs. A pack that sets `back` shows that back
 | Field | Values | Notes |
 |---|---|---|
 | `name` | string | unique id other fields use to refer to this depot |
-| `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Layout` | required. Decks without a `to` start on a `Stock`. `Layout` is a rule-free spot for unruled tables. |
+| `label` | string | text written at the foot of the depot's slot |
+| `type` | `Stock`, `Waste`, `Foundation`, `Tableau`, `Cell`, `Reserve`, `Hand`, `Layout` | required. Decks without a `to` start on a `Stock`. `Layout` is a rule-free spot for unruled tables. A `Hand` holds a player's cards: unless it says otherwise, its cards land face up and leave one at a time. |
 | placement | `col`/`row` (grid, fractional) or `x`/`y` (px); `angle` (radians) | `x`/`y` win over `col`/`row` |
 | `repeat` | integer | create N copies, named with 1-based suffixes (`column-1` … `column-7`), each one grid column right of the last |
 | `perRow` | integer | with `repeat`, wrap the copies: this many to a row, each row one grid row below the last, numbered in reading order |
 | `offTable` | bool | keep the depot off the visible table, e.g. a stock that only deals |
-| `fanDirection` | `None`, `Down`, `Up`, `Left`, `Right`, `Radial` | `None` is a squared pile; `Radial` is a held-hand arc. Default `Down` for a `Tableau`, `None` otherwise. |
+| `fanDirection` | `None`, `Down`, `Up`, `Left`, `Right`, `Radial` | `None` is a squared pile; `Radial` is a held-hand arc. Default `Down` for a `Tableau`, `Radial` for a `Hand`, `None` otherwise. |
 | `fanWindow` | integer | fan only the top N cards; ignored by `Radial` |
 | `fanAnchor` | `Base`, `Center`, `Top` | which fan card stays on the depot's spot: bottom, middle or top. Default `Base`, or `Center` for `Radial`. |
 | `fanOffsetFaceUp`, `fanOffsetFaceDown` | number | this depot's fan step in px; defaults to the top-level value |
-| `looseOrder` | bool | a drag reorders cards along the fan, and a pickup takes only the selected card. For hands and fanned reserves. |
+| `looseOrder` | bool | a drag reorders cards along the fan, and a pickup takes only the selected card. For hands and fanned reserves. Default `true` for a `Hand`, `false` otherwise. |
 
 ---
 
@@ -148,7 +149,7 @@ by itself (`autoSend`, `autoRefill`). An `acceptRule` or `ejectRule` may be writ
 
 | Field | Values | Meaning |
 |---|---|---|
-| `landFace` | `Up`, `Down` | dropped cards land this side up; omit to keep their face |
+| `landFace` | `Up`, `Down`, `Keep` | dropped cards land this side up; `Keep` leaves them as they arrived. Default `Up` for a `Hand`, `Keep` otherwise. |
 | `landUnder` | bool | dropped cards go beneath the pile |
 | `autoFlipTop` | bool | turn the new top card face-up after a card leaves |
 | `uncoveredBy` | list of names | the top card can't be picked up until these depots are empty; a single name may be a string |
@@ -168,9 +169,9 @@ which must pass. Fields shown without a type are `true`/`false`.
 | `single` | reject piles of more than one card |
 | `minCount` (integer) | reject piles smaller than N, e.g. `13` for a Spider foundation. A depot with `minCount` checks the pile's own order against its `build` and `suit`, even when the cards come from an any-order unit |
 | `acceptFrom` (depot pattern) | accept only from matching depots |
-| `seed` (rank) | a drop onto an empty depot must start with this rank |
+| `seed` (rank) | a drop onto an empty depot must start with this rank. The depot shows that rank in its slot. |
 | `seedNone` | reject drops while empty |
-| `seedFromDeal` | the deal sets the seed: the face-up card it leaves on a `seedFromDeal` depot seeds them all. If none is face-up, they reject drops while empty. |
+| `seedFrom` (rule expression) | the deal sets the seed: a rank read off the board once, when the opening deal ends, and kept as the depot's `seed` from then on |
 | `rankIs` (rank) | accept only this rank, empty or not; every card of a dropped pile must match |
 | `build` | rank relation to the top card; see **Build and suit rules** below |
 | `suit` | suit relation to the top card; see **Build and suit rules** below |
@@ -281,7 +282,7 @@ tapping the stock it deals from; each run deals from what is left there.
 | `dealGroup` | `to`, `faceDown`, `faceUp`, `roundRobin`, `from`, `when` | deal `faceDown` then `faceUp` cards to each `to` depot. `roundRobin: true` deals one per depot per pass; otherwise each depot is filled before the next. `to` may be a single name, and the name of a repeated depot (`column`) means all its copies in order; `from` defaults to the first stock. Stops when the stock runs out. |
 | `move` | `from`, `to` | move one card, keeping its face |
 | `flipTop` | `depot` | turn the depot's top card face-up |
-| `place` | `rank`, `suit`, `to`, `joker` | pull the first matching card out of the stock and place it face-up. Needs `rank` and `suit`, or `joker: true`. |
+| `place` | `rank`, `suit`, `to`, `joker`, `when` | pull the first matching card out of the stock and place it face-up. Needs `rank` and `suit`, or `joker: true`, or `when`: a rule expression that picks the card. |
 | `gather` | `from`, `to`, `when` | move every card from the `from` depots onto `to`, face-down; a repeated depot's name in `from` means all its copies. Each pile is turned over. A redeal that gathers into a stock is tapped from that stock once it is empty, like a recycle. |
 | `shuffle` | `depot` | randomly reorder the depot's cards |
 | `compact` | `group`, `from` | in a trigger or action only: close up a repeated depot's gaps. Each copy's pile slides down to the lowest empty copy, keeping its order and faces; with `from`, each copy left empty then takes one card from its top, face-up. `group` is the copies' shared name (`cell` for `cell-1` …). |
@@ -313,14 +314,23 @@ sends the Kings already sunk back beneath it, so the Kings keep the order they w
 
 - For each depot, the steps in `do` run with `depot` and `@self` naming it, as in a
   trigger. They run all at once, not card by card, so a `move` may use `count`, `skip` and
-  `under`, which the deal's own moves may not.
+  `under`, which the deal's own moves may not. An `each` whose steps are all `place`s
+  is the exception: in a deal, its cards are dealt one at a time, as any `place` deals.
 - With `while`, the steps repeat for that depot while the condition holds, so a column with
   several Kings sinks them all. Without it, they run once per depot.
 - It belongs to the deal, so nothing changes during play. It can also be used in a trigger
   or an action.
 
 `redealWhen` is a condition that must hold for a redeal to run, written like
-`winCondition` (see **Win & loss conditions** below).
+`winCondition` (see **Win & loss conditions** below). Written as an `expr`, it can take a
+`reason`: the message a player sees when a tap on the stock is refused. Without one, the
+player reads that the rules don't allow a deal yet. Spider deals a row only while every
+column holds a card:
+
+```
+"redealWhen": { "kind": "expr", "when": "all(Tableau, !empty(it))",
+  "reason": "Deal a row only when no column is empty" }
+```
 
 `maxRedeals` caps the redeals after the opening deal: omitted means unlimited, `0` none.
 Every run counts once, even a short one, and all the stocks a redeal deals from share
@@ -346,7 +356,6 @@ Fields named `depots` take a depot pattern.
 - `allCardsIn` (`depots`): every card is on a matching depot.
 - `allCardsFaceUp`: every card is face-up.
 - `depotsEmpty` (`depots`): every matching depot is empty.
-- `depotsNonEmpty` (`depots`): every matching depot has a card; mostly for `redealWhen`.
 - `allOf` / `anyOf` (`of`): all / any of the listed conditions.
 - `expr` (`when`): the rule expression holds; see **Rule expressions** below.
 
@@ -369,8 +378,10 @@ It can only read the board, never change it, and it always gives an answer.
 |---|---|---|
 | `acceptRule.when` | whether a drop lands. Checked after the depot's other accept fields, so it can only narrow what the depot takes. Add `reason` for the message a refused player sees. | `card` (the bottom card of the arriving pile), `pile` (all of it), `depot` (where it would land), `source` (where it came from), `top` (the depot's top card) |
 | `acceptRule.swap`, when not `true` | which card already on the depot a dropped card swaps with: a card, or nothing | the same as `when` |
+| `acceptRule.seedFrom` | the rank an empty depot starts with: a rank, read once when the opening deal ends | `depot` (the depot the rule is on) |
 | `draw.when` | whether tapping the stock does anything, recycles included | the depots |
 | a deal step's `when` | whether a `dealGroup` deals to a depot, or a `gather` takes from it | `depot` (the one tested) |
+| a `place`'s `when` | which stock card the step pulls | `card` (the stock card asked about, read as if face-up) |
 | win, loss and `redealWhen` with `"kind": "expr"` | whether the condition holds | the depots |
 
 This game uses some of them:
@@ -422,7 +433,7 @@ cards have properties, lists can be counted. The kinds are:
 Operators join values into a larger expression, much as in a spreadsheet formula: arithmetic
 for numbers, comparisons for conditions, and `&&`, `||` and `!` combine conditions.
 The whole expression must end up as a condition, except where a number is expected,
-as in a `move`'s `count` or a game's `scoring`.
+as in a `move`'s `count` or a game's `scoring`, or a rank, as in `seedFrom`.
 
 `||` (or), `&&` (and), `!` (not), `==`, `!=`, `<`, `<=`, `>`, `>=`, `+`, `-`, `*`, `%`, and
 parentheses. `&&` binds tighter than `||`, and `%` binds like `*`. `%` is the remainder, never
@@ -460,6 +471,7 @@ There are also the following functions:
 | `adjacent(a, b)` | whether two depots touch on the grid, diagonals included. A depot placed with `x`/`y` touches nothing. |
 | `coveredBy(depot)` | the depots its `uncoveredBy` names, the ones lying over it. |
 | `cameFrom(depot)` | the depot its top card was last moved from. |
+| `step(rank, k)` | the rank `k` steps above it, or below it for a negative `k`, going round from King to Ace: `step(King, 1)` is `Ace`. |
 | `if(condition, a, b)` | Short-circuiting conditional expression. `a` and `b` must be of the same kind: `if(empty(depot), 0, top(depot).value)`. |
 
 The functions that iterate over a list (`count`, `all`, `any`, `first`, `last`, `min`, `max`, `sum`)
@@ -694,15 +706,20 @@ game has some.
 ## Card aids
 
 A card aid is a symbol or a sign that a deck may prints on a card. The game indicates aids
-that can help the player; a deck that draws an aid then shows it. Players can turn card aids
-off, and the switch appears only when the game and the deck share one.
+that can help the player; a deck that draws an aid then shows it. The table itself draws
+`available`, so every deck shows it. Players can turn card aids off, and the switch appears
+only when the game asks for an aid that the deck or the table can show.
 
 | Aid | Value | Each card shows |
 |---|---|---|
 | `pairSum` | number | the rank whose value adds up with this card's to the number, if unique |
+| `available` | `true` | dimmed when it can't be taken now; a face-down card and a pile that never gives a card up are left as they are |
 
 Pyramid removes pairs that total 13, so it asks for `"aids": { "pairSum": 13 }`: a 10 shows a
 3, and a King shows nothing.
+
+Crazy Quilt's woven cards free one another as they leave, so it asks for
+`"aids": { "available": true }`: the cards you can play stay bright.
 
 Cards are counted by their pips default values (Ace 1 … King 13) or by the game's `values` if used.
 
@@ -760,5 +777,5 @@ Common patterns, with JSON quotes left out:
 - **Flower Garden**: the bouquet accepts `none`, ejects `{ unit: single }`, and sets
   `looseOrder: true`.
 - **Canfield**: foundations accept
-  `{ seedFromDeal: true, build: { direction: Up, wrap: true }, suit: Same }` and eject
+  `{ seedFrom: "bottom(found).rank", build: { direction: Up, wrap: true }, suit: Same }` and eject
   `locked`; the tableau sets `autoRefill: [reserve]`.
