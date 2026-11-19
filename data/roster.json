@@ -48,7 +48,7 @@
     { "slug": "baroness", "tagline": "Pairs to thirteen, Kings alone", "new": true, "capture": { "file": "48-baroness-scarab.png", "deck": "Scarab" } },
     { "slug": "captive-queens", "tagline": "Fives down, Sixes up, round a court of Queens", "new": true, "capture": { "file": "49-captivequeens-herbarium.png", "deck": "Herbarium" } },
     { "slug": "faerie-queen", "tagline": "Every card dealt onto the newest King", "new": true, "capture": { "file": "50-faeriequeen-ornamental.png", "deck": "Ornamental" } },
-    { "slug": "mount-olympus", "tagline": "A pyramid of Aces and Twos, climbing by twos", "new": true, "capture": { "file": "51-mountolympus-olympus.png", "deck": "Olympus" } },
+    { "slug": "mount-olympus", "tagline": "A mountain of Aces and Twos, climbing by twos", "new": true },
     { "slug": "penguin", "tagline": "The beak picks the rank every foundation starts from", "new": true, "capture": { "file": "53-penguin-neon.png", "deck": "Neon" } },
     { "slug": "braid", "tagline": "Twenty cards braided down the middle", "new": true, "capture": { "file": "52-braid-frightnight.png", "deck": "Fright Night" } }
   ]

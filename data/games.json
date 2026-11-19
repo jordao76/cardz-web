@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-17T18:40:07Z",
+  "generated": "2026-11-19T19:53:55Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -8038,7 +8038,7 @@
         "Der Olymp"
       ],
       "sandbox": false,
-      "rules": "**Goal:** build both decks onto sixteen foundations. They build **up by twos, in suit**.\n\n- The eight Aces and eight Twos start the foundations, laid out as a pyramid. An Ace builds A 3 5 7 9 J K, a Two builds 2 4 6 8 10 Q, so a won game shows Kings and Queens alternating up each side.\n- **The battery** of nine piles builds **down by twos, in suit**: a 7 on a 9, a 10 on a Queen. Only the top card of each pile is available, and cards move one at a time.\n- A space in the battery is refilled at once from the waste, or from the stock while the waste is empty.\n- Turn the stock one card at a time to the waste; the top waste card is available.\n- You may **redeal once**: tap the empty stock to turn the waste back over.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+      "rules": "**Goal:** build both decks onto sixteen foundations. They build **up by twos, in suit**.\n\n- The eight Aces and eight Twos start the foundations, laid out as a mountain. An Ace builds A 3 5 7 9 J K, a Two builds 2 4 6 8 10 Q, so a won game shows Kings and Queens alternating up each side.\n- **The battery** of nine piles builds **down by twos, in suit**: a 7 on a 9, a 10 on a Queen. Only the top card of each pile is available, and cards move one at a time.\n- A space in the battery is refilled at once from the waste, or from the stock while the waste is empty.\n- Turn the stock one card at a time to the waste; the top waste card is available.\n- You may **redeal once**: tap the empty stock to turn the waste back over.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
       "inApp": false,
       "download": "designs/mount-olympus.cardz",
       "decks": {
@@ -8050,192 +8050,208 @@
         "anchor": "topCenter",
         "depots": [
           {
-            "name": "ace-1",
+            "name": "two-8",
             "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "two-1",
-            "type": "foundation",
-            "col": 8,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "two-2",
-            "type": "foundation",
-            "col": 6,
-            "row": 0.5,
-            "fan": "none"
-          },
-          {
-            "name": "ace-2",
-            "type": "foundation",
-            "col": 9,
-            "row": 0.5,
-            "fan": "none"
-          },
-          {
-            "name": "ace-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "two-3",
-            "type": "foundation",
-            "col": 10,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "two-4",
-            "type": "foundation",
-            "col": 4,
-            "row": 1.5,
-            "fan": "none"
-          },
-          {
-            "name": "ace-4",
-            "type": "foundation",
-            "col": 11,
-            "row": 1.5,
-            "fan": "none"
-          },
-          {
-            "name": "ace-5",
-            "type": "foundation",
-            "col": 3,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "two-5",
-            "type": "foundation",
-            "col": 12,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "two-6",
-            "type": "foundation",
-            "col": 2,
-            "row": 2.5,
-            "fan": "none"
-          },
-          {
-            "name": "ace-6",
-            "type": "foundation",
-            "col": 13,
-            "row": 2.5,
+            "col": 0,
+            "row": 4.008,
+            "angleDegrees": -90,
             "fan": "none"
           },
           {
             "name": "ace-7",
             "type": "foundation",
-            "col": 1,
-            "row": 3,
+            "col": 0.113,
+            "row": 3.17,
+            "angleDegrees": -78,
+            "fan": "none"
+          },
+          {
+            "name": "two-6",
+            "type": "foundation",
+            "col": 0.449,
+            "row": 2.369,
+            "angleDegrees": -66,
+            "fan": "none"
+          },
+          {
+            "name": "ace-5",
+            "type": "foundation",
+            "col": 0.992,
+            "row": 1.639,
+            "angleDegrees": -54,
+            "fan": "none"
+          },
+          {
+            "name": "two-4",
+            "type": "foundation",
+            "col": 1.718,
+            "row": 1.013,
+            "angleDegrees": -42,
+            "fan": "none"
+          },
+          {
+            "name": "ace-3",
+            "type": "foundation",
+            "col": 2.596,
+            "row": 0.518,
+            "angleDegrees": -30,
+            "fan": "none"
+          },
+          {
+            "name": "two-2",
+            "type": "foundation",
+            "col": 3.588,
+            "row": 0.175,
+            "angleDegrees": -18,
+            "fan": "none"
+          },
+          {
+            "name": "ace-1",
+            "type": "foundation",
+            "col": 4.65,
+            "row": 0,
+            "angleDegrees": -6,
+            "fan": "none"
+          },
+          {
+            "name": "two-1",
+            "type": "foundation",
+            "col": 5.735,
+            "row": 0,
+            "angleDegrees": 6,
+            "fan": "none"
+          },
+          {
+            "name": "ace-2",
+            "type": "foundation",
+            "col": 6.797,
+            "row": 0.175,
+            "angleDegrees": 18,
+            "fan": "none"
+          },
+          {
+            "name": "two-3",
+            "type": "foundation",
+            "col": 7.788,
+            "row": 0.518,
+            "angleDegrees": 30,
+            "fan": "none"
+          },
+          {
+            "name": "ace-4",
+            "type": "foundation",
+            "col": 8.667,
+            "row": 1.013,
+            "angleDegrees": 42,
+            "fan": "none"
+          },
+          {
+            "name": "two-5",
+            "type": "foundation",
+            "col": 9.393,
+            "row": 1.639,
+            "angleDegrees": 54,
+            "fan": "none"
+          },
+          {
+            "name": "ace-6",
+            "type": "foundation",
+            "col": 9.936,
+            "row": 2.369,
+            "angleDegrees": 66,
             "fan": "none"
           },
           {
             "name": "two-7",
             "type": "foundation",
-            "col": 14,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "two-8",
-            "type": "foundation",
-            "col": 0,
-            "row": 3.5,
+            "col": 10.271,
+            "row": 3.17,
+            "angleDegrees": 78,
             "fan": "none"
           },
           {
             "name": "ace-8",
             "type": "foundation",
-            "col": 15,
-            "row": 3.5,
+            "col": 10.385,
+            "row": 4.008,
+            "angleDegrees": 90,
             "fan": "none"
           },
           {
             "name": "waste",
             "type": "waste",
-            "col": 8.5,
-            "row": 1.5,
+            "col": 5.692,
+            "row": 2.067,
             "fan": "none"
           },
           {
             "name": "stock",
             "type": "stock",
-            "col": 6.5,
-            "row": 1.5,
+            "col": 4.692,
+            "row": 2.067,
             "fan": "none"
           },
           {
             "name": "battery-1",
             "type": "tableau",
-            "col": 3.5,
-            "row": 3.1,
+            "col": 1.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-2",
             "type": "tableau",
-            "col": 4.5,
-            "row": 3.1,
+            "col": 2.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-3",
             "type": "tableau",
-            "col": 5.5,
-            "row": 3.1,
+            "col": 3.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-4",
             "type": "tableau",
-            "col": 6.5,
-            "row": 3.1,
+            "col": 4.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-5",
             "type": "tableau",
-            "col": 7.5,
-            "row": 3.1,
+            "col": 5.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-6",
             "type": "tableau",
-            "col": 8.5,
-            "row": 3.1,
+            "col": 6.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-7",
             "type": "tableau",
-            "col": 9.5,
-            "row": 3.1,
+            "col": 7.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-8",
             "type": "tableau",
-            "col": 10.5,
-            "row": 3.1,
+            "col": 8.192,
+            "row": 4.008,
             "fan": "down"
           },
           {
             "name": "battery-9",
             "type": "tableau",
-            "col": 11.5,
-            "row": 3.1,
+            "col": 9.192,
+            "row": 4.008,
             "fan": "down"
           }
         ]
