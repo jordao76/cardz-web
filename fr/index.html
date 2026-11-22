@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cardz est une collection de solitaires pour Windows. Jouez les classiques dans les règles, désactivez les règles, ou créez votre propre jeu. Sans publicité, sans compte, entièrement hors ligne.">
+  <meta name="theme-color" content="#100f14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cardz — Le solitaire, à votre façon">
+  <meta property="og:description" content="Une collection de solitaires pour Windows. Jouez les classiques dans les règles, désactivez les règles, ou créez votre propre jeu.">
+  <meta property="og:url" content="https://cardz.roderic.dev/fr/">
+  <meta property="og:image" content="https://cardz.roderic.dev/assets/screenshots/klondike-1600.webp">
+  <title>Cardz — Le solitaire, à votre façon</title>
+  <link rel="icon" href="../assets/cardz-logo.png">
+  <link rel="stylesheet" href="../styles.css">
+<!-- build:head -->
+  <link rel="alternate" hreflang="en" href="https://cardz.roderic.dev/">
+  <link rel="alternate" hreflang="fr" href="https://cardz.roderic.dev/fr/">
+  <link rel="alternate" hreflang="pt-BR" href="https://cardz.roderic.dev/pt/">
+  <link rel="alternate" hreflang="es" href="https://cardz.roderic.dev/es/">
+  <link rel="alternate" hreflang="x-default" href="https://cardz.roderic.dev/">
+  <script type="application/json" id="site-strings">{"home":"./","deckPicker":"Habiller ce site d'un autre jeu de cartes","deckButton":"Jeu {name}","heroAlt":"{game} dans Cardz, avec le jeu {name}","heroLink":"Comment jouer ↗","decksHint":"Changez quand vous voulez, même en pleine partie. Choisissez-en un, et ce site s'en habille aussi.","play":"Lire la démo","pause":"Mettre la démo en pause","playNamed":"Lire : {name}","pauseNamed":"Mettre en pause : {name}"}</script>
+<!-- /build:head -->
+  <script src="../deck.js"></script>
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+<!-- build:header -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Accueil de Cardz"><span aria-hidden="true">✣</span> Cardz</a>
+    <nav aria-label="Navigation principale">
+      <a href="games/">Jeux</a><a href="decks.html">Cartes</a><a href="../sandbox.html">Sandbox</a><a href="../make-a-game.html">Créer un jeu</a><a href="../lite.html">Cardz Lite</a>
+    </nav>
+    <a class="button button-small" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=fr-fr">Obtenir Cardz</a>
+  </header>
+<!-- /build:header -->
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow light"><span></span> <span>Le solitaire pour Windows</span></p>
+        <h1>Le solitaire.<br><em>À votre façon.</em></h1>
+        <p class="lede">Jouez les classiques dans les règles, désactivez les règles quand l'envie vous prend, ou partez d'un jeu de cartes nu et inventez votre propre jeu.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=fr-fr"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Télécharger sur le</small>Microsoft Store</span></a>
+          <a class="text-link" href="../lite.html">Ou essayez Cardz Lite, gratuit <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="trust-row" aria-label="Qualités du produit"><span>Sans publicité</span><span>Sans compte</span><span>Entièrement hors ligne</span></div>
+      </div>
+      <figure class="hero-art table-capture">
+        <a href="../assets/screenshots/klondike-1600.webp" aria-label="Voir la capture de Klondike en entier"><img src="../assets/screenshots/klondike-1600.webp" srcset="../assets/screenshots/klondike-960.webp 960w, ../assets/screenshots/klondike-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 65vw" alt="Klondike dans Cardz, avec les cartes crème du jeu Felt House sur un tapis vert" width="1600" height="900" fetchpriority="high"></a>
+        <figcaption><span>Sur la table</span> Klondike · Felt House <a href="games/klondike/">Comment jouer ↗</a></figcaption>
+      </figure>
+    </section>
+
+    <section class="games section" id="games">
+      <div class="section-heading"><p class="eyebrow"><span></span> <span>Jeux</span></p><h2>Plus de quarante jeux.</h2></div>
+      <div class="table-gallery">
+        <a class="table-tile" href="games/pyramid/"><img src="../assets/screenshots/pyramid-960.webp" alt="Une pyramide de cartes du jeu égyptien Scarab" width="960" height="540" loading="lazy"><div><h3>Pyramid <span aria-hidden="true">↗</span></h3><p>Des paires qui font treize</p><small>Jeu Scarab</small></div></a>
+        <a class="table-tile" href="games/freecell/"><img src="../assets/screenshots/freecell-960.webp" alt="FreeCell avec le jeu minimaliste Deepfield sur une table sombre" width="960" height="540" loading="lazy"><div><h3>FreeCell <span aria-hidden="true">↗</span></h3><p>Toutes les cartes à découvert</p><small>Jeu Deepfield</small></div></a>
+        <a class="table-tile" href="games/yukon/"><img src="../assets/screenshots/yukon-960.webp" alt="Yukon avec les cartes richement illustrées du jeu Filigree" width="960" height="540" loading="lazy"><div><h3>Yukon <span aria-hidden="true">↗</span></h3><p>Déplacez des queues entières d'un coup</p><small>Jeu Filigree</small></div></a>
+        <a class="table-tile" href="games/la-belle-lucie/"><img src="../assets/screenshots/la-belle-lucie-960.webp" alt="La Belle Lucie avec les cartes du jeu Olympus disposées en éventails rayonnants" width="960" height="540" loading="lazy"><div><h3>La Belle Lucie <span aria-hidden="true">↗</span></h3><p>Dix-huit éventails, deux redistributions</p><small>Jeu Olympus</small></div></a>
+        <a class="table-tile" href="games/canfield/"><img src="../assets/screenshots/canfield-960.webp" alt="Canfield avec les cartes botaniques du jeu Herbarium" width="960" height="540" loading="lazy"><div><h3>Canfield <span aria-hidden="true">↗</span></h3><p>La première carte donne le ton</p><small>Jeu Herbarium</small></div></a>
+        <a class="table-tile" href="games/crazy-quilt/"><img src="../assets/screenshots/crazy-quilt-960.webp" alt="Crazy Quilt avec les cartes du jeu Valhalla tissées en treillis" width="960" height="540" loading="lazy"><div><h3>Crazy Quilt <span aria-hidden="true">↗</span></h3><p>Défaites le tissage</p><small>Jeu Valhalla</small></div></a>
+      </div>
+      <a class="feature-link games-link" href="games/">Voir tous les jeux <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="court-band court-band-felt-house" role="presentation"></div>
+
+    <section class="home-decks section" id="decks">
+      <div class="section-heading"><p class="eyebrow light"><span></span> <span>Cartes</span></p><h2>Chaque jeu de cartes vous emmène ailleurs.</h2><p>Changez quand vous voulez, même en pleine partie.</p></div>
+      <div class="deck-strip">
+        <a class="deck-fan" href="decks.html#felt-house"><img src="../assets/decks/felt-house.webp" width="595" height="384" loading="lazy" alt="Trois cartes du jeu Felt House"><span>Felt House</span></a>
+        <a class="deck-fan" href="decks.html#valhalla"><img src="../assets/decks/valhalla.webp" width="595" height="384" loading="lazy" alt="Trois cartes du jeu Valhalla"><span>Valhalla</span></a>
+        <a class="deck-fan" href="decks.html#scarab"><img src="../assets/decks/scarab.webp" width="595" height="384" loading="lazy" alt="Trois cartes du jeu Scarab"><span>Scarab</span></a>
+        <a class="deck-fan" href="decks.html#neon"><img src="../assets/decks/neon.webp" width="595" height="384" loading="lazy" alt="Trois cartes du jeu Neon"><span>Neon</span></a>
+      </div>
+      <a class="feature-link" href="decks.html">Voir tous les jeux de cartes <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="court-band court-band-valhalla" role="presentation"></div>
+
+    <section class="sandbox section" id="sandbox">
+      <div class="sandbox-copy"><p class="eyebrow light"><span></span> <span>Sandbox</span></p><h2>Un jeu de cartes.<br><em>Aucune règle.</em></h2><p>Une table et un jeu de cartes. Posez les cartes où vous voulez et inventez un jeu au fil de la partie.</p><ul><li><span>01</span><span>Douze modes de table</span></li><li><span>02</span><span>Un jeu de cartes ou deux, avec ou sans jokers</span></li><li><span>03</span><span>Gardez une disposition et sa donne, et rejouez-la</span></li></ul><a class="button sandbox-button" href="../sandbox.html">Le Sandbox en détail <span aria-hidden="true">→</span></a><a class="make-callout" href="../make-a-game.html"><span>Finalement, vous voulez des règles ?</span> Écrivez votre propre jeu, à la main ou avec un assistant IA. <b>Créer un jeu <span aria-hidden="true">↗</span></b></a></div>
+      <figure class="table-capture sandbox-capture"><a href="../assets/screenshots/sandbox-monosolid-1600.webp" aria-label="Voir la capture du Sandbox en entier"><img src="../assets/screenshots/sandbox-monosolid-960.webp" srcset="../assets/screenshots/sandbox-monosolid-960.webp 960w, ../assets/screenshots/sandbox-monosolid-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 55vw" alt="Le Sandbox avec les cartes du jeu Monosolid disposées en colonnes et en éventail, des emplacements vides et les outils de la table ouverts" width="1600" height="900" loading="lazy"></a><figcaption><span>Sandbox</span> <span>Jeu Monosolid</span></figcaption></figure>
+    </section>
+
+    <section class="details section" id="details">
+      <div class="section-heading"><h2>Les détails</h2></div>
+      <div class="feature-grid">
+        <article><h3>Toutes les commandes</h3><p>Au doigt, au stylet, à la souris ou au clavier.</p></article>
+        <article><h3>Sauvegarde en cours de partie</h3><p>Fermez l'application. La partie est toujours là quand vous revenez.</p></article>
+        <article><h3>Indices</h3><p>Bloqué ? Demandez un indice. Ou désactivez les règles et déplacez n'importe quelle carte.</p></article>
+        <article><h3>Accessible</h3><p>Contraste élevé, un jeu de cartes adapté au daltonisme, mouvement réduit, narration pour lecteur d'écran et jeu entièrement au clavier.</p></article>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Distribuez-vous<br><em>une bonne main.</em></h2>
+      <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=fr-fr"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Télécharger sur le</small>Microsoft Store</span></a>
+      <small>Pour Windows 10 et Windows 11 · <a href="../lite.html">Ou essayez Cardz Lite, gratuit</a></small>
+    </section>
+  </main>
+<!-- build:footer -->
+  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Le solitaire, à votre façon.</p><div><a href="games/">Jeux</a><a href="decks.html">Cartes</a><a href="../sandbox.html">Sandbox</a><a href="../make-a-game.html">Créer un jeu</a><a href="../lite.html">Cardz Lite</a><a href="../privacy.html">Confidentialité</a><a href="mailto:cardz@roderic.dev">Contact</a></div><nav class="language-switch" aria-label="Langues"><a href="../" lang="en" hreflang="en">English</a><a href="./" lang="fr" aria-current="true">Français</a><a href="../pt/" lang="pt-BR" hreflang="pt-BR">Português</a><a href="../es/" lang="es" hreflang="es">Español</a></nav><small>© 2026 Cardz</small></footer>
+<!-- /build:footer -->
+</body>
+</html>

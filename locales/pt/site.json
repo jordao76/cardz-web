@@ -1,0 +1,346 @@
+{
+  "footer.languages": {
+    "en": "Languages",
+    "text": "Idiomas"
+  },
+  "js.deck-picker": {
+    "en": "Deal this site with another deck",
+    "text": "Vestir este site com outro baralho"
+  },
+  "js.deck-button": {
+    "en": "{name} deck",
+    "text": "Baralho {name}"
+  },
+  "js.hero-alt": {
+    "en": "{game} in Cardz, played with the {name} deck",
+    "text": "{game} no Cardz, com o baralho {name}"
+  },
+  "js.hero-link": {
+    "en": "How to play ↗",
+    "text": "Como jogar ↗"
+  },
+  "js.decks-hint": {
+    "en": "Switch at any time, even mid-game. Pick one, and this site is dealt with it too.",
+    "text": "Troque quando quiser, até no meio da partida. Escolha um, e este site se veste com ele também."
+  },
+  "js.demo-play": {
+    "en": "Play demo",
+    "text": "Reproduzir demo"
+  },
+  "js.demo-pause": {
+    "en": "Pause demo",
+    "text": "Pausar demo"
+  },
+  "js.demo-play-named": {
+    "en": "Play {name}",
+    "text": "Reproduzir: {name}"
+  },
+  "js.demo-pause-named": {
+    "en": "Pause {name}",
+    "text": "Pausar: {name}"
+  },
+  "footer.tagline": {
+    "en": "Solitaire, your way.",
+    "text": "Paciência do seu jeito."
+  },
+  "nav.games": {
+    "en": "Games",
+    "text": "Jogos"
+  },
+  "nav.decks": {
+    "en": "Decks",
+    "text": "Baralhos"
+  },
+  "nav.sandbox": {
+    "en": "Sandbox",
+    "text": "Sandbox"
+  },
+  "nav.make-a-game": {
+    "en": "Make a game",
+    "text": "Crie um jogo"
+  },
+  "nav.lite": {
+    "en": "Cardz Lite",
+    "text": "Cardz Lite"
+  },
+  "footer.privacy": {
+    "en": "Privacy",
+    "text": "Privacidade"
+  },
+  "footer.contact": {
+    "en": "Contact",
+    "text": "Contato"
+  },
+  "facts.variants": {
+    "en": "{axis}: {labels}",
+    "text": "{axis}: {labels}"
+  },
+  "variants.title": {
+    "en": "Variants",
+    "text": "Variantes"
+  },
+  "variants.lead": {
+    "en": "The rules above are {name}. Here is how the other variants differ.",
+    "text": "As regras acima são as de {name}. Veja como as outras variantes diferem."
+  },
+  "game.title": {
+    "en": "{name} — how to play | Cardz",
+    "text": "{name} — como jogar | Cardz"
+  },
+  "skip": {
+    "en": "Skip to content",
+    "text": "Pular para o conteúdo"
+  },
+  "header.home": {
+    "en": "Cardz home",
+    "text": "Página inicial do Cardz"
+  },
+  "header.nav": {
+    "en": "Main navigation",
+    "text": "Navegação principal"
+  },
+  "header.get": {
+    "en": "Get Cardz",
+    "text": "Baixar o Cardz"
+  },
+  "back.games": {
+    "en": "Games",
+    "text": "Jogos"
+  },
+  "facts.one-deck": {
+    "en": "One deck",
+    "text": "Um baralho"
+  },
+  "kin.aliases": {
+    "en": "Also known as",
+    "text": "Também conhecido como"
+  },
+  "kin.family": {
+    "en": "{family} family",
+    "text": "Família {family}"
+  },
+  "capture.alt": {
+    "en": "{game} in Cardz, played with the {deck} deck",
+    "text": "{game} no Cardz, com o baralho {deck}"
+  },
+  "capture.caption": {
+    "en": "{deck} deck",
+    "text": "Baralho {deck}"
+  },
+  "diagram.stock.one": {
+    "en": "{n} stock",
+    "text": "{n} monte"
+  },
+  "diagram.waste.one": {
+    "en": "{n} waste",
+    "text": "{n} descarte"
+  },
+  "diagram.foundation.many": {
+    "en": "{n} foundations",
+    "text": "{n} fundações"
+  },
+  "diagram.tableau.many": {
+    "en": "{n} tableaus",
+    "text": "{n} colunas do tabuleiro"
+  },
+  "diagram.stock": {
+    "en": "Stock",
+    "text": "Monte"
+  },
+  "diagram.waste": {
+    "en": "Waste",
+    "text": "Descarte"
+  },
+  "diagram.foundation": {
+    "en": "Foundation",
+    "text": "Fundação"
+  },
+  "diagram.tableau": {
+    "en": "Tableau",
+    "text": "Tabuleiro"
+  },
+  "diagram.title": {
+    "en": "The {game} board",
+    "text": "A mesa de {game}"
+  },
+  "diagram.desc": {
+    "en": "{piles}. Fanned piles are shown with a trail of cards.",
+    "text": "{piles}. As pilhas em leque aparecem com um rastro de cartas."
+  },
+  "source.lead-variant": {
+    "en": "This is {name}; the other variants change a line or two.",
+    "text": "Este é {name}; as outras variantes mudam uma ou duas linhas."
+  },
+  "source.summary": {
+    "en": "Read its design file",
+    "text": "Ler o arquivo de design"
+  },
+  "source.lines": {
+    "en": "{n} lines",
+    "text": "{n} linhas"
+  },
+  "source.explains": {
+    "en": "<a href=\"{href}\">Make a game</a> explains every part of it.",
+    "text": "<a href=\"{href}\">Crie um jogo</a> explica cada parte dele (em inglês)."
+  },
+  "cta.play-in": {
+    "en": "Play it in",
+    "text": "Jogue no"
+  },
+  "cta.windows": {
+    "en": "Cardz for Windows",
+    "text": "Cardz para Windows"
+  },
+  "cta.qualities": {
+    "en": "No ads, no accounts, fully offline.",
+    "text": "Sem anúncios, sem contas, totalmente offline."
+  },
+  "more.label": {
+    "en": "Other games",
+    "text": "Outros jogos"
+  },
+  "more.solitaire": {
+    "en": "More solitaire",
+    "text": "Mais paciências"
+  },
+  "more.extras": {
+    "en": "Extra games",
+    "text": "Jogos extras"
+  },
+  "facts.two-decks": {
+    "en": "Two decks",
+    "text": "Dois baralhos"
+  },
+  "diagram.cell.many": {
+    "en": "{n} free cells",
+    "text": "{n} células"
+  },
+  "diagram.cell": {
+    "en": "Free cell",
+    "text": "Célula"
+  },
+  "source.lead": {
+    "en": "Written as a design file, this is the whole game.",
+    "text": "Escrito como um arquivo de design, este é o jogo inteiro."
+  },
+  "diagram.reserve.one": {
+    "en": "{n} reserve",
+    "text": "{n} reserva"
+  },
+  "diagram.reserve": {
+    "en": "Reserve",
+    "text": "Reserva"
+  },
+  "diagram.foundation.one": {
+    "en": "{n} foundation",
+    "text": "{n} fundação"
+  },
+  "original.badge": {
+    "en": "Cardz original",
+    "text": "Criação do Cardz"
+  },
+  "original.note": {
+    "en": "Invented for Cardz.",
+    "text": "Inventado para o Cardz."
+  },
+  "back.extras": {
+    "en": "Extra games",
+    "text": "Jogos extras"
+  },
+  "facts.extra": {
+    "en": "Extra game · download",
+    "text": "Jogo extra · para baixar"
+  },
+  "source.lead-extra": {
+    "en": "This is the file the download button gives you.",
+    "text": "Este é o arquivo que o botão de download entrega."
+  },
+  "cta.download": {
+    "en": "Download",
+    "text": "Baixar"
+  },
+  "cta.extra-note": {
+    "en": "Not built into Cardz. Download and open it in <a href=\"{store}\">Cardz</a>.",
+    "text": "Não vem com o Cardz. Baixe e abra no <a href=\"{store}\">Cardz</a>."
+  },
+  "diagram.reserve.many": {
+    "en": "{n} reserves",
+    "text": "{n} reservas"
+  },
+  "facts.cards": {
+    "en": "{n} cards",
+    "text": "{n} cartas"
+  },
+  "facts.jokers": {
+    "en": "{decks} · {n} jokers",
+    "text": "{decks} · {n} coringas"
+  },
+  "games.title": {
+    "en": "Solitaire games — how to play | Cardz",
+    "text": "Jogos de paciência — como jogar | Cardz"
+  },
+  "games.description": {
+    "en": "Solitaire games to play in Cardz, each with its rules and its board, and extra games to download and add to Your games.",
+    "text": "Os jogos de paciência do Cardz, cada um com suas regras e sua mesa, e jogos extras para baixar e adicionar a Seus jogos."
+  },
+  "games.heading": {
+    "en": "All the games.",
+    "text": "Todos os jogos."
+  },
+  "games.in-cardz": {
+    "en": "In Cardz",
+    "text": "No Cardz"
+  },
+  "card.facts": {
+    "en": "{decks} · {deck} deck",
+    "text": "{decks} · baralho {deck}"
+  },
+  "card.how": {
+    "en": "How to play",
+    "text": "Como jogar"
+  },
+  "games.extras-lead": {
+    "en": "Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href=\"{href}\">Make a game</a>.",
+    "text": "Não vêm com o Cardz. Baixe um e abra no Cardz. Cada um é um arquivo de design que você pode alterar: veja <a href=\"{href}\">Crie um jogo</a>."
+  },
+  "card.new": {
+    "en": "New",
+    "text": "Novo"
+  },
+  "cta.store-small": {
+    "en": "Get it on the",
+    "text": "Disponível na"
+  },
+  "cta.store": {
+    "en": "Microsoft Store",
+    "text": "Microsoft Store"
+  },
+  "decks.alt": {
+    "en": "Three cards from the {name} deck: the back, the King of Spades, and the Ace of Hearts",
+    "text": "Três cartas do baralho {name}: o verso, o Rei de espadas e o Ás de copas"
+  },
+  "decks.extra-note": {
+    "en": "Not built into Cardz. Download and open it in Cardz.",
+    "text": "Não vem com o Cardz. Baixe e abra no Cardz."
+  },
+  "decks.title": {
+    "en": "Card decks — Cardz",
+    "text": "Baralhos — Cardz"
+  },
+  "decks.description": {
+    "en": "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, midnight neon, gothic horror, and more.",
+    "text": "Todos os baralhos do Cardz: o baralho da casa, xilogravura nórdica, papiro egípcio, herbário prensado, filigrana gravada, neon da meia-noite, terror gótico e muito mais."
+  },
+  "decks.heading": {
+    "en": "Change the deck.<br><em>Change the table.</em>",
+    "text": "Troque o baralho.<br><em>Troque a mesa.</em>"
+  },
+  "decks.lede": {
+    "en": "Switch at any time, even mid-game.",
+    "text": "Troque quando quiser, até no meio da partida."
+  },
+  "decks.grid": {
+    "en": "Illustrated decks",
+    "text": "Baralhos ilustrados"
+  }
+}

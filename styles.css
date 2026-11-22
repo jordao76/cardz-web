@@ -120,6 +120,8 @@ footer { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem;
 footer .brand { margin-right: auto; color: var(--ivory); }
 footer p { margin: 0; }
 footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
+footer .language-switch { display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+footer .language-switch a[aria-current] { color: var(--ivory); text-decoration: none; font-weight: 600; }
 
 /* Games index and deck gallery. */
 .games-main, .decks-main { padding: 2rem var(--gutter) 0; }

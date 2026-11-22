@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Objetivo: despeja toda la pirámide de 28 cartas.">
+  <meta name="theme-color" content="#100f14">
+  <title>Pyramid — cómo se juega | Cardz</title>
+  <link rel="icon" href="../../../assets/cardz-logo.png">
+  <link rel="stylesheet" href="../../../styles.css">
+  <link rel="alternate" hreflang="en" href="https://cardz.roderic.dev/games/pyramid/">
+  <link rel="alternate" hreflang="fr" href="https://cardz.roderic.dev/fr/games/pyramid/">
+  <link rel="alternate" hreflang="pt-BR" href="https://cardz.roderic.dev/pt/games/pyramid/">
+  <link rel="alternate" hreflang="es" href="https://cardz.roderic.dev/es/games/pyramid/">
+  <link rel="alternate" hreflang="x-default" href="https://cardz.roderic.dev/games/pyramid/">
+  <script type="application/json" id="site-strings">{"home":"../../","deckPicker":"Vestir este sitio con otra baraja","deckButton":"Baraja {name}","heroAlt":"{game} en Cardz, con la baraja {name}","heroLink":"Cómo se juega ↗","decksHint":"Cambia cuando quieras, incluso a mitad de partida. Elige una, y este sitio también se viste con ella.","play":"Reproducir demo","pause":"Pausar demo","playNamed":"Reproducir: {name}","pauseNamed":"Pausar: {name}"}</script>
+  <script src="../../../deck.js"></script>
+</head>
+<body class="game-page">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="../../index.html" aria-label="Inicio de Cardz"><span aria-hidden="true">✣</span> Cardz</a>
+    <nav aria-label="Navegación principal">
+      <a href="../../games/">Juegos</a><a href="../../decks.html">Barajas</a><a href="../../../sandbox.html">Sandbox</a><a href="../../../make-a-game.html">Crea un juego</a><a href="../../../lite.html">Cardz Lite</a>
+    </nav>
+    <a class="button button-small" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=es-es">Consigue Cardz</a>
+  </header>
+  <main id="main" class="game-main">
+    <article class="game-shell">
+      <a class="back-link" href="../../games/"><span aria-hidden="true">←</span> Juegos</a>
+      <p class="eyebrow"><span></span> Parejas que suman trece</p>
+      <h1>Pyramid</h1>
+      <div class="game-facts">
+        <span>Una baraja</span>
+      </div>
+      <dl class="game-kin">
+        <div><dt>Familia Pyramid</dt><dd><a href="../../games/fourteen-out/">Fourteen Out</a>, <a href="../../games/monte-carlo/">Monte Carlo</a></dd></div>
+      </dl>
+      <figure class="game-capture">
+        <img src="../../../assets/screenshots/pyramid-960.webp" srcset="../../../assets/screenshots/pyramid-960.webp 960w, ../../../assets/screenshots/pyramid-1600.webp 1600w" sizes="(max-width: 808px) calc(100vw - 48px), 760px" alt="Pyramid en Cardz, con la baraja Scarab" width="1600" height="900" loading="eager">
+        <figcaption>Baraja Scarab</figcaption>
+      </figure>
+      <figure class="game-board">
+        <svg viewBox="6 6 736 564.1" role="img" aria-labelledby="board-pyramid-title board-pyramid-desc" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><title id="board-pyramid-title">La mesa de Pyramid</title><desc id="board-pyramid-desc">28 columnas, 1 mazo, 1 descarte, 1 fundación. Los montones en abanico se muestran con una estela de cartas.</desc><g stroke-width="1.5"><rect x="332" y="20" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="280" y="66.9" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="384" y="66.9" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="228" y="113.8" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="332" y="113.8" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="436" y="113.8" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="176" y="160.7" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="280" y="160.7" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="384" y="160.7" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="488" y="160.7" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="124" y="207.6" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="228" y="207.6" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="332" y="207.6" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="436" y="207.6" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="540" y="207.6" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="72" y="254.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="176" y="254.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="280" y="254.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="384" y="254.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="488" y="254.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="592" y="254.5" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="20" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="124" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="228" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="332" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="436" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="540" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="644" y="301.4" width="84" height="114" rx="6" fill="#f3ecdb" stroke="#9c8d76"/><rect x="280" y="442.1" width="84" height="114" rx="6" fill="#2b3a55" stroke="#1b2740"/><rect x="384" y="442.1" width="84" height="114" rx="6" fill="#e2d4b8" stroke="#9c8d76"/><rect x="592" y="442.1" width="84" height="114" rx="6" fill="#f6ecd6" stroke="#c39a3f"/></g></svg>
+        <figcaption><span class="game-board-legend"><span><i style="background:#f3ecdb;border-color:#9c8d76"></i>Tableau</span><span><i style="background:#2b3a55;border-color:#1b2740"></i>Mazo</span><span><i style="background:#e2d4b8;border-color:#9c8d76"></i>Descarte</span><span><i style="background:#f6ecd6;border-color:#c39a3f"></i>Fundación</span></span></figcaption>
+      </figure>
+      <div class="game-rules game-rules-primary">
+          <p><strong>Objetivo:</strong> despeja toda la <strong>pirámide</strong> de 28 cartas.</p>
+          <ul><li>Retira cartas en <strong>parejas que sumen 13</strong> (A=1 … Q=12): arrastra una carta <strong>sobre su pareja</strong> y las dos van a la <strong>pila de retirada</strong>. Un <strong>rey</strong> (13) va solo a la pila de retirada.</li><li>Una carta solo puede jugarse cuando las <strong>dos cartas que la cubren por debajo</strong> ya han salido, así que una carta no puede emparejarse con una que la cubre. La fila inferior está libre al principio y el resto se abre a medida que despejas hacia la cima.</li><li>La carta superior del <strong>mazo</strong> está boca arriba y es jugable; arrástrala al <strong>descarte</strong> para dejarla a un lado, sin emparejarla nunca allí. La carta superior del descarte sigue siendo jugable: para emparejarla con la del mazo, suéltala sobre el mazo.</li><li>Cuando el mazo se agote, <strong>tócalo</strong> para dar la vuelta al descarte. Tienes <strong>tres pasadas</strong> por el mazo en total.</li><li>La partida se pierde cuando no queda ningún movimiento. Tu <strong>puntuación</strong> es el número de cartas retiradas de la pirámide, 28 en una victoria.</li><li><em>Consejo: el mazo <strong>Scarab</strong> muestra una pequeña pista dorada en cada carta: el rango con el que se combina para llegar a 13.</em></li></ul>
+      </div>
+
+      <details class="game-source">
+        <summary>Leer su archivo de diseño <small>226 líneas</small></summary>
+        <p>A triangle of twenty-eight slots, each freed when the two cards below it leave, one named rule that pairs cards totalling thirteen, and a trigger that discards each pair. Escrito como un archivo de diseño, este es el juego entero. <a href="../../../make-a-game.html">Crea un juego</a> explica cada parte (en inglés).</p>
+        <pre><code class="language-json">{
+  <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Pyramid&quot;</span>,
+  <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;Pyramid&quot;</span>,
+  <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** clear the whole 28-card **pyramid**.\n\n- Remove cards in **pairs that total 13** (A=1 … Q=12): drag a card **onto its partner** and both go to the **discard**. A **King** (13) goes to the discard alone.\n- A card can be played only once the **two cards overlapping it from below** are gone, so a card can't pair with one that covers it. The base row is free to start, and the rest open up as you clear toward the apex.\n- The **stock's** top card is face up and playable; drag it to the **waste** to set it aside, where it never pairs. The waste's top card stays playable: to pair it with the stock's top card, drop it onto the stock.\n- When the stock runs out, **tap it** to turn the waste back over. You get **three passes** through the stock in all.\n- The game is lost when no move is left. Your **score** is the number of pyramid cards removed, 28 for a win.\n- _Tip: the **Scarab** deck shows a small gold hint on each card — the rank it pairs with to reach 13._&quot;</span>,
+  <span class="j-key">&quot;rules&quot;</span>: {
+    <span class="j-key">&quot;tableau&quot;</span>: {
+      <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
+      <span class="j-key">&quot;seedNone&quot;</span>: <span class="j-lit">true</span>,
+      <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;card.value + top.value == 13 &amp;&amp; all(c in coveredBy(depot), c != source &amp;&amp; empty(c))&quot;</span>,
+      <span class="j-key">&quot;reason&quot;</span>: <span class="j-str">&quot;Pair cards that total 13&quot;</span>
+    }
+  },
+  <span class="j-key">&quot;depots&quot;</span>: [
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-1&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-2&quot;</span>, <span class="j-str">&quot;pyr-3&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0.35</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-2&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-4&quot;</span>, <span class="j-str">&quot;pyr-5&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0.35</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-3&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-5&quot;</span>, <span class="j-str">&quot;pyr-6&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0.7</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-4&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-7&quot;</span>, <span class="j-str">&quot;pyr-8&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0.7</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-5&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-8&quot;</span>, <span class="j-str">&quot;pyr-9&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0.7</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-6&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-9&quot;</span>, <span class="j-str">&quot;pyr-10&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.05</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-7&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-11&quot;</span>, <span class="j-str">&quot;pyr-12&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.05</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-8&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-12&quot;</span>, <span class="j-str">&quot;pyr-13&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.05</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-9&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-13&quot;</span>, <span class="j-str">&quot;pyr-14&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">4.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.05</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-10&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-14&quot;</span>, <span class="j-str">&quot;pyr-15&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.4</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-11&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-16&quot;</span>, <span class="j-str">&quot;pyr-17&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.4</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-12&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-17&quot;</span>, <span class="j-str">&quot;pyr-18&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.4</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-13&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-18&quot;</span>, <span class="j-str">&quot;pyr-19&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.4</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-14&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-19&quot;</span>, <span class="j-str">&quot;pyr-20&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.4</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-15&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-20&quot;</span>, <span class="j-str">&quot;pyr-21&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.75</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-16&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-22&quot;</span>, <span class="j-str">&quot;pyr-23&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.75</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-17&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-23&quot;</span>, <span class="j-str">&quot;pyr-24&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.75</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-18&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-24&quot;</span>, <span class="j-str">&quot;pyr-25&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.75</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-19&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-25&quot;</span>, <span class="j-str">&quot;pyr-26&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">4.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.75</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-20&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-26&quot;</span>, <span class="j-str">&quot;pyr-27&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">5.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1.75</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-21&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;uncoveredBy&quot;</span>: [<span class="j-str">&quot;pyr-27&quot;</span>, <span class="j-str">&quot;pyr-28&quot;</span>],
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-22&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-23&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-24&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-25&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-26&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-27&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;fanDirection&quot;</span>: <span class="j-str">&quot;None&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">6</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">2.1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;pyr-28&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: <span class="j-str">&quot;$tableau&quot;</span>, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(depot) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">2.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">3.15</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;seedNone&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;top.faceUp &amp;&amp; card.value + top.value == 13&quot;</span>,
+        <span class="j-key">&quot;reason&quot;</span>: <span class="j-str">&quot;Pair cards that total 13&quot;</span>
+      },
+      <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;faceUp&quot;</span>, <span class="j-key">&quot;autoFlipTop&quot;</span>: <span class="j-lit">true</span>,
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;count(faceUp(depot)) == 2&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Waste&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">3.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">3.15</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;waste&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: {
+        <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>,
+        <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;source == stock || (!empty(depot) &amp;&amp; card.value + top.value == 13)&quot;</span>,
+        <span class="j-key">&quot;reason&quot;</span>: <span class="j-str">&quot;Pair cards that total 13&quot;</span>
+      },
+      <span class="j-key">&quot;triggers&quot;</span>: [
+        { <span class="j-key">&quot;when&quot;</span>: <span class="j-str">&quot;any(d in Tableau, d == cameFrom(depot))&quot;</span>,
+          <span class="j-key">&quot;do&quot;</span>: [{ <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;move&quot;</span>, <span class="j-key">&quot;from&quot;</span>: <span class="j-str">&quot;@self&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;discard&quot;</span>, <span class="j-key">&quot;count&quot;</span>: <span class="j-str">&quot;2&quot;</span> }] }
+      ] },
+    { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">5.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">3.15</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;discard&quot;</span>,
+      <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;rankIs&quot;</span>: <span class="j-str">&quot;King&quot;</span> }, <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span>,
+      <span class="j-key">&quot;landFace&quot;</span>: <span class="j-str">&quot;Down&quot;</span> }
+  ],
+  <span class="j-key">&quot;dealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;dealGroup&quot;</span>, <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;pyr&quot;</span>, <span class="j-key">&quot;faceUp&quot;</span>: <span class="j-num">1</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;flipTop&quot;</span>, <span class="j-key">&quot;depot&quot;</span>: <span class="j-str">&quot;stock&quot;</span> }
+  ],
+  <span class="j-key">&quot;redealRules&quot;</span>: [
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;gather&quot;</span>, <span class="j-key">&quot;from&quot;</span>: [<span class="j-str">&quot;waste&quot;</span>], <span class="j-key">&quot;to&quot;</span>: <span class="j-str">&quot;stock&quot;</span> },
+    { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;flipTop&quot;</span>, <span class="j-key">&quot;depot&quot;</span>: <span class="j-str">&quot;stock&quot;</span> }
+  ],
+  <span class="j-key">&quot;maxRedeals&quot;</span>: <span class="j-num">2</span>,
+  <span class="j-key">&quot;depotOnly&quot;</span>: <span class="j-lit">true</span>,
+  <span class="j-key">&quot;winCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;depotsEmpty&quot;</span>, <span class="j-key">&quot;depots&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span> },
+  <span class="j-key">&quot;lossCondition&quot;</span>: { <span class="j-key">&quot;kind&quot;</span>: <span class="j-str">&quot;noLegalMoves&quot;</span> },
+  <span class="j-key">&quot;scoring&quot;</span>: { <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;28 - count(d in Tableau, !empty(d))&quot;</span>, <span class="j-key">&quot;keep&quot;</span>: <span class="j-str">&quot;Over&quot;</span> },
+  <span class="j-key">&quot;planner&quot;</span>: {
+    <span class="j-key">&quot;value&quot;</span>: <span class="j-str">&quot;count(d in Tableau, !empty(d) &amp;&amp; all(c in coveredBy(d), empty(c))) - 10 * count(d in Tableau, !empty(d))&quot;</span>
+  },
+  <span class="j-key">&quot;aids&quot;</span>: { <span class="j-key">&quot;pairSum&quot;</span>: <span class="j-num">13</span> },
+  <span class="j-key">&quot;tools&quot;</span>: <span class="j-str">&quot;None&quot;</span>
+}</code></pre>
+      </details>
+      <div class="game-cta">
+        <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=es-es"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Juégalo en</small>Cardz para Windows</span></a>
+        <small>Sin anuncios, sin cuentas, totalmente sin conexión.</small>
+      </div>
+      <nav class="game-more" aria-label="Otros juegos">
+        <p class="eyebrow"><span></span> Más solitarios</p>
+        <div><a href="../../games/klondike/">Klondike</a><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/bakers-dozen/">Baker's Dozen</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a><a href="../../games/weathervane/">Weathervane</a><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt/">Putt Putt</a></div>
+        <p class="eyebrow"><span></span> Juegos extra</p>
+        <div><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a><a href="../../games/accordion/">Accordion</a><a href="../../games/monte-carlo/">Monte Carlo</a><a href="../../games/gaps/">Gaps</a><a href="../../games/klondike-with-jokers/">Klondike with Jokers</a><a href="../../games/hemispheres/">Hemispheres</a><a href="../../games/die-schwierige/">Die Schwierige</a><a href="../../games/royal-cotillion/">Royal Cotillion</a><a href="../../games/alhambra/">Alhambra</a><a href="../../games/stalactites/">Stalactites</a><a href="../../games/baroness/">Baroness</a><a href="../../games/captive-queens/">Captive Queens</a><a href="../../games/faerie-queen/">Faerie Queen</a><a href="../../games/mount-olympus/">Mount Olympus</a><a href="../../../games/penguin/">Penguin</a><a href="../../../games/braid/">Braid</a></div>
+      </nav>
+    </article>
+  </main>
+  <footer><a class="brand" href="../../index.html"><span aria-hidden="true">✣</span> Cardz</a><p>El solitario, a tu manera.</p><div><a href="../../games/">Juegos</a><a href="../../decks.html">Barajas</a><a href="../../../sandbox.html">Sandbox</a><a href="../../../make-a-game.html">Crea un juego</a><a href="../../../lite.html">Cardz Lite</a><a href="../../../privacy.html">Privacidad</a><a href="mailto:cardz@roderic.dev">Contacto</a></div><nav class="language-switch" aria-label="Idiomas"><a href="../../../games/pyramid/" lang="en" hreflang="en">English</a><a href="../../../fr/games/pyramid/" lang="fr" hreflang="fr">Français</a><a href="../../../pt/games/pyramid/" lang="pt-BR" hreflang="pt-BR">Português</a><a href="../../games/pyramid/" lang="es" aria-current="true">Español</a></nav><small>© 2026 Cardz</small></footer>
+</body>
+</html>

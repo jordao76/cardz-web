@@ -1,0 +1,278 @@
+{
+  "meta.title": {
+    "en": "Cardz — Solitaire, your way",
+    "text": "Cardz — Paciência do seu jeito"
+  },
+  "skip": {
+    "en": "Skip to content",
+    "text": "Pular para o conteúdo"
+  },
+  "hero.eyebrow": {
+    "en": "Solitaire for Windows",
+    "text": "Paciência para Windows"
+  },
+  "hero.heading": {
+    "en": "Solitaire.<br><em>Your way.</em>",
+    "text": "Paciência.<br><em>Do seu jeito.</em>"
+  },
+  "hero.lede": {
+    "en": "Play the classics by the book, switch the rules off when you want to, or start from a bare deck and make up a game of your own.",
+    "text": "Jogue os clássicos seguindo as regras, desligue as regras quando quiser, ou comece de um baralho vazio e invente um jogo seu."
+  },
+  "cta.store": {
+    "en": "<small>Download from the</small>Microsoft Store",
+    "text": "<small>Baixe na</small>Microsoft Store"
+  },
+  "hero.lite": {
+    "en": "Or try Cardz Lite, free <span aria-hidden=\"true\">→</span>",
+    "text": "Ou experimente o Cardz Lite, grátis <span aria-hidden=\"true\">→</span>"
+  },
+  "hero.no-ads": {
+    "en": "No ads",
+    "text": "Sem anúncios"
+  },
+  "hero.no-accounts": {
+    "en": "No accounts",
+    "text": "Sem contas"
+  },
+  "hero.offline": {
+    "en": "Fully offline",
+    "text": "Totalmente offline"
+  },
+  "hero.on-table": {
+    "en": "On the table",
+    "text": "Na mesa"
+  },
+  "hero.how": {
+    "en": "How to play ↗",
+    "text": "Como jogar ↗"
+  },
+  "games.eyebrow": {
+    "en": "Games",
+    "text": "Jogos"
+  },
+  "games.heading": {
+    "en": "More than forty games.",
+    "text": "Mais de quarenta jogos."
+  },
+  "tile.pyramid.text": {
+    "en": "Pairs add up to thirteen",
+    "text": "Pares que somam treze"
+  },
+  "tile.pyramid.deck": {
+    "en": "Scarab deck",
+    "text": "Baralho Scarab"
+  },
+  "tile.freecell.text": {
+    "en": "Every card in plain sight",
+    "text": "Todas as cartas à vista"
+  },
+  "tile.freecell.deck": {
+    "en": "Deepfield deck",
+    "text": "Baralho Deepfield"
+  },
+  "tile.yukon.text": {
+    "en": "Move whole tails at once",
+    "text": "Mova pilhas inteiras de uma vez"
+  },
+  "tile.yukon.deck": {
+    "en": "Filigree deck",
+    "text": "Baralho Filigree"
+  },
+  "tile.la-belle-lucie.text": {
+    "en": "Eighteen fans, two redeals",
+    "text": "Dezoito leques, duas redistribuições"
+  },
+  "tile.la-belle-lucie.deck": {
+    "en": "Olympus deck",
+    "text": "Baralho Olympus"
+  },
+  "tile.canfield.text": {
+    "en": "The first card sets the pace",
+    "text": "A primeira carta dita o ritmo"
+  },
+  "tile.canfield.deck": {
+    "en": "Herbarium deck",
+    "text": "Baralho Herbarium"
+  },
+  "tile.crazy-quilt.text": {
+    "en": "Unpick the weave",
+    "text": "Desfaça a trama"
+  },
+  "tile.crazy-quilt.deck": {
+    "en": "Valhalla deck",
+    "text": "Baralho Valhalla"
+  },
+  "games.all": {
+    "en": "See all the games <span aria-hidden=\"true\">→</span>",
+    "text": "Ver todos os jogos <span aria-hidden=\"true\">→</span>"
+  },
+  "decks.eyebrow": {
+    "en": "Decks",
+    "text": "Baralhos"
+  },
+  "decks.heading": {
+    "en": "Each deck takes you places.",
+    "text": "Cada baralho leva você a outro lugar."
+  },
+  "decks.lede": {
+    "en": "Switch at any time, even mid-game.",
+    "text": "Troque quando quiser, até no meio da partida."
+  },
+  "decks.all": {
+    "en": "See all the decks <span aria-hidden=\"true\">→</span>",
+    "text": "Ver todos os baralhos <span aria-hidden=\"true\">→</span>"
+  },
+  "sandbox.eyebrow": {
+    "en": "Sandbox",
+    "text": "Sandbox"
+  },
+  "sandbox.heading": {
+    "en": "A deck.<br><em>No rules.</em>",
+    "text": "Um baralho.<br><em>Nenhuma regra.</em>"
+  },
+  "sandbox.lede": {
+    "en": "A table and a deck. Move cards anywhere and make up a game as you go.",
+    "text": "Uma mesa e um baralho. Mova as cartas para onde quiser e invente um jogo enquanto joga."
+  },
+  "sandbox.modes": {
+    "en": "Twelve table modes",
+    "text": "Doze modos de mesa"
+  },
+  "sandbox.decks": {
+    "en": "One deck or two, with or without jokers",
+    "text": "Um ou dois baralhos, com ou sem coringas"
+  },
+  "sandbox.keep": {
+    "en": "Keep a layout and its deal, and play it again",
+    "text": "Guarde uma disposição e sua distribuição, e jogue de novo"
+  },
+  "sandbox.how": {
+    "en": "How Sandbox works <span aria-hidden=\"true\">→</span>",
+    "text": "Como o Sandbox funciona <span aria-hidden=\"true\">→</span>"
+  },
+  "sandbox.make": {
+    "en": "<span>Want rules after all?</span> Write your own game, by hand or with an AI assistant. <b>Make a game <span aria-hidden=\"true\">↗</span></b>",
+    "text": "<span>Quer regras, afinal?</span> Escreva seu próprio jogo, à mão ou com um assistente de IA. <b>Crie um jogo <span aria-hidden=\"true\">↗</span></b>"
+  },
+  "sandbox.caption": {
+    "en": "Monosolid deck",
+    "text": "Baralho Monosolid"
+  },
+  "details.heading": {
+    "en": "The details",
+    "text": "Os detalhes"
+  },
+  "details.input": {
+    "en": "Any input",
+    "text": "Qualquer entrada"
+  },
+  "details.input-text": {
+    "en": "Touch, pen, mouse or keyboard.",
+    "text": "Toque, caneta, mouse ou teclado."
+  },
+  "details.saves": {
+    "en": "Saves as you play",
+    "text": "Salva enquanto você joga"
+  },
+  "details.saves-text": {
+    "en": "Close the app. Your game is there when you come back.",
+    "text": "Feche o aplicativo. A partida continua lá quando você volta."
+  },
+  "details.hints": {
+    "en": "Hints",
+    "text": "Dicas"
+  },
+  "details.hints-text": {
+    "en": "Stuck? Ask for one. Or switch the rules off and move any card.",
+    "text": "Travou? Peça uma. Ou desligue as regras e mova qualquer carta."
+  },
+  "details.accessible": {
+    "en": "Accessible",
+    "text": "Acessível"
+  },
+  "details.accessible-text": {
+    "en": "High contrast, a colourblind-friendly deck, reduced motion, screen-reader narration and full keyboard play.",
+    "text": "Alto contraste, um baralho adequado para daltônicos, movimento reduzido, narração para leitores de tela e jogo completo pelo teclado."
+  },
+  "final.heading": {
+    "en": "Deal yourself<br><em>a good hand.</em>",
+    "text": "Dê a si mesmo<br><em>uma boa mão.</em>"
+  },
+  "final.windows": {
+    "en": "For Windows 10 and Windows 11 · <a href=\"lite.html\">Or try Cardz Lite, free</a>",
+    "text": "Para Windows 10 e Windows 11 · <a href=\"lite.html\">Ou experimente o Cardz Lite, grátis</a>"
+  },
+  "meta.description": {
+    "en": "Cardz is a solitaire collection for Windows. Play the classics by the book, switch the rules off, or make a game of your own. No ads, no accounts, fully offline.",
+    "text": "O Cardz é uma coleção de jogos de paciência para Windows. Jogue os clássicos seguindo as regras, desligue as regras ou crie um jogo seu. Sem anúncios, sem contas, totalmente offline."
+  },
+  "meta.og-title": {
+    "en": "Cardz — Solitaire, your way",
+    "text": "Cardz — Paciência do seu jeito"
+  },
+  "meta.og-description": {
+    "en": "A solitaire collection for Windows. Play the classics by the book, switch the rules off, or make a game of your own.",
+    "text": "Uma coleção de jogos de paciência para Windows. Jogue os clássicos seguindo as regras, desligue as regras ou crie um jogo seu."
+  },
+  "hero.qualities": {
+    "en": "Product qualities",
+    "text": "Qualidades do produto"
+  },
+  "hero.view": {
+    "en": "View the full Klondike screenshot",
+    "text": "Ver a captura do Klondike inteira"
+  },
+  "hero.alt": {
+    "en": "Klondike in Cardz, with cream Felt House cards on a green felt table",
+    "text": "Klondike no Cardz, com as cartas creme do baralho Felt House sobre um feltro verde"
+  },
+  "tile.pyramid.alt": {
+    "en": "A pyramid of Egyptian Scarab cards",
+    "text": "Uma pirâmide de cartas do baralho egípcio Scarab"
+  },
+  "tile.freecell.alt": {
+    "en": "FreeCell with the minimal Deepfield deck on a dark table",
+    "text": "FreeCell com o baralho minimalista Deepfield sobre uma mesa escura"
+  },
+  "tile.yukon.alt": {
+    "en": "Yukon with richly illustrated Filigree cards",
+    "text": "Yukon com as cartas ricamente ilustradas do baralho Filigree"
+  },
+  "tile.la-belle-lucie.alt": {
+    "en": "La Belle Lucie with Olympus cards arranged in radial fans",
+    "text": "La Belle Lucie com as cartas do baralho Olympus dispostas em leques radiais"
+  },
+  "tile.canfield.alt": {
+    "en": "Canfield with botanical Herbarium cards",
+    "text": "Canfield com as cartas botânicas do baralho Herbarium"
+  },
+  "tile.crazy-quilt.alt": {
+    "en": "Crazy Quilt with Valhalla cards woven into a lattice",
+    "text": "Crazy Quilt com as cartas do baralho Valhalla tecidas em treliça"
+  },
+  "decks.felt-house.alt": {
+    "en": "Three cards from the Felt House deck",
+    "text": "Três cartas do baralho Felt House"
+  },
+  "decks.valhalla.alt": {
+    "en": "Three cards from the Valhalla deck",
+    "text": "Três cartas do baralho Valhalla"
+  },
+  "decks.scarab.alt": {
+    "en": "Three cards from the Scarab deck",
+    "text": "Três cartas do baralho Scarab"
+  },
+  "decks.neon.alt": {
+    "en": "Three cards from the Neon deck",
+    "text": "Três cartas do baralho Neon"
+  },
+  "sandbox.view": {
+    "en": "View the full Sandbox screenshot",
+    "text": "Ver a captura do Sandbox inteira"
+  },
+  "sandbox.alt": {
+    "en": "Sandbox with Monosolid cards arranged in columns and a fan, empty landing spots, and the table tools open",
+    "text": "O Sandbox com as cartas do baralho Monosolid dispostas em colunas e em leque, espaços vazios e as ferramentas da mesa abertas"
+  }
+}

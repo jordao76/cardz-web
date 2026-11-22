@@ -12,6 +12,11 @@
   };
   const root = document.documentElement;
   const base = new URL('.', document.currentScript.src).href;
+  // A page in another language carries this script's words, and where its own
+  // language's pages start, in #site-strings (build.mjs). English carries none.
+  let text = { home: base };
+  const say = (key, english, vars = {}) =>
+    (text[key] ?? english).replace(/\{(\w+)\}/g, (whole, name) => vars[name] ?? whole);
 
   let deck = 'felt-house';
   try {
@@ -42,22 +47,29 @@
     const image = hero.querySelector('img');
     image.srcset = `${shot(960)} 960w, ${shot(1600)} 1600w`;
     image.src = shot(1600);
-    image.alt = `${game} in Cardz, played with the ${name} deck`;
+    image.alt = say('heroAlt', '{game} in Cardz, played with the {name} deck', { game, name });
     hero.querySelector('a').href = shot(1600);
-    hero.querySelector('figcaption').innerHTML = `${game} · ${name} <a href="${base}games/${slug}/">How to play ↗</a>`;
+    hero.querySelector('figcaption').innerHTML = `${game} · ${name} <a href="${text.home}games/${slug}/">${say('heroLink', 'How to play ↗')}</a>`;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    try {
+      const own = document.getElementById('site-strings');
+      if (own) {
+        const strings = JSON.parse(own.textContent);
+        text = { ...strings, home: new URL(strings.home, location.href).href };
+      }
+    } catch {}
     const picker = document.createElement('div');
     picker.className = 'deck-picker';
     picker.setAttribute('role', 'group');
-    picker.setAttribute('aria-label', 'Deal this site with another deck');
+    picker.setAttribute('aria-label', say('deckPicker', 'Deal this site with another deck'));
     for (const [id, { name }] of Object.entries(DECKS)) {
       const button = document.createElement('button');
       button.type = 'button';
       button.dataset.deck = id;
       button.title = name;
-      button.setAttribute('aria-label', `${name} deck`);
+      button.setAttribute('aria-label', say('deckButton', '{name} deck', { name }));
       button.addEventListener('click', () => deal(id));
       picker.append(button);
     }
@@ -75,7 +87,7 @@
       });
     }
     const hint = document.querySelector('.home-decks .section-heading p:last-child');
-    if (hint) hint.textContent = 'Switch at any time, even mid-game. Pick one, and this site is dealt with it too.';
+    if (hint) hint.textContent = say('decksHint', 'Switch at any time, even mid-game. Pick one, and this site is dealt with it too.');
 
     show();
   });

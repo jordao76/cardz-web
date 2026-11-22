@@ -1,0 +1,194 @@
+{
+  "klondike": {
+    "en": "The classic layout: a stock that draws one card and recycles its waste, four foundations, and seven columns dealt diagonally one step at a time.",
+    "text": null
+  },
+  "spider": {
+    "en": "Eight foundations that take only a finished King-to-Ace run, columns that lift descending runs, and a stock that deals a row while no column is empty.",
+    "text": null
+  },
+  "freecell": {
+    "en": "Four free cells that hold one card each, alternating-colour columns, and staged moves that limit how many cards a run may carry.",
+    "text": null
+  },
+  "eight-off": {
+    "en": "FreeCell with eight cells, same-suit columns, and a rule that only a King may start an empty column.",
+    "text": null
+  },
+  "seahaven-towers": {
+    "en": "Ten same-suit columns that only a King may start, four cells, and staged moves over a deal that leaves two cards in the cells.",
+    "text": null
+  },
+  "yukon": {
+    "en": "Columns that build in alternating colours but lift any face-up group, in order or not, over a diagonal deal of hidden cards.",
+    "text": null
+  },
+  "scorpion": {
+    "en": "Columns that lift any face-up group, in order or not, and a stock of three cards that deals once, onto the first three columns.",
+    "text": null
+  },
+  "forty-thieves": {
+    "en": "Two decks, eight foundations, and ten same-suit columns that move one card at a time, fed by a stock that never recycles.",
+    "text": null
+  },
+  "beleaguered-castle": {
+    "en": "Aces placed on the foundations before the deal, and eight columns that fan out to the left and right and move one card at a time.",
+    "text": null
+  },
+  "bisley": {
+    "en": "Aces placed before the deal, King foundations that build down to meet them, and columns that build up or down in suit.",
+    "text": null
+  },
+  "flower-garden": {
+    "en": "A bouquet of sixteen cards that play in any order, and six beds that build down regardless of suit.",
+    "text": null
+  },
+  "bakers-dozen": {
+    "en": "Thirteen open columns that build down in any suit one card at a time, empty columns that take nothing back, and a King sink left to the player instead of the deal.",
+    "text": null
+  },
+  "golf": {
+    "en": "One foundation that takes a card a rank up or down, a stock that draws straight onto it, and a loss when no move is left.",
+    "text": null
+  },
+  "tri-peaks": {
+    "en": "Three peaks of single-card slots over a base row, each turned up when the two cards below it leave, and a waste that takes a card one rank up or down, wrapping from King to Ace.",
+    "text": null
+  },
+  "pyramid": {
+    "en": "A triangle of twenty-eight slots, each freed when the two cards below it leave, one named rule that pairs cards totalling thirteen, and a trigger that discards each pair.",
+    "text": null
+  },
+  "black-hole": {
+    "en": "One foundation seeded with the Ace of Spades that takes a card up or down with wrap, and seventeen fans that give up only their top card.",
+    "text": null
+  },
+  "calculation": {
+    "en": "Four foundations that count up by one, two, three and four, each seeded with a named card, and waste piles that take cards only from the stock.",
+    "text": null
+  },
+  "canfield": {
+    "en": "Foundations whose starting rank is set by the deal and wrap from King to Ace, and a reserve that refills an emptied column by itself.",
+    "text": null
+  },
+  "clock": {
+    "en": "Twelve hour piles placed round a dial by position and angle, a centre pile that is also the stock, and a win written as an expression: every card face up, each hour holding its own four and the Kings in the centre.",
+    "text": null
+  },
+  "la-belle-lucie": {
+    "en": "Eighteen fans that give up only their top card, one named rule shared by all of them, and two redeals that gather, shuffle and deal again.",
+    "text": null
+  },
+  "crazy-quilt": {
+    "en": "Sixty-four cards woven into a lattice, each free once either short end is clear, eight foundations seeded before the deal, and a waste that takes quilt cards one rank up or down.",
+    "text": null
+  },
+  "weathervane": {
+    "en": "One pile that takes any card matching its top in rank or suit, wild eights that name the suit which must follow them, and a stock that draws to a waste instead of onto the pile.",
+    "text": null
+  },
+  "double-klondike": {
+    "en": "Klondike's stock, waste and turn-up columns stretched over two decks: eight repeated foundations and a nine-column diagonal deal.",
+    "text": null
+  },
+  "putt-putt": {
+    "en": "Golf's one foundation with ranks that wrap from King to Ace, and a Jokers toggle that adds two wild cards.",
+    "text": null
+  },
+  "bakers-game.cardz": {
+    "en": "FreeCell's free cells, foundations and staged run moves, with one word changed: the columns build in the same suit.",
+    "text": null
+  },
+  "spiderette.cardz": {
+    "en": "Spider's row deal, same-suit runs and self-banking foundations, set out on Klondike's seven-column table with one deck.",
+    "text": null
+  },
+  "russian-solitaire.cardz": {
+    "en": "Yukon's diagonal deal and unrestricted face-up group moves, with columns that build in the same suit.",
+    "text": null
+  },
+  "simple-simon.cardz": {
+    "en": "Spider's same-suit group moves and self-banking runs, with all 52 cards dealt face up and no stock to draw from.",
+    "text": null
+  },
+  "australian-patience.cardz": {
+    "en": "Yukon-style group moves and same-suit columns, paired with a draw-one stock that cannot recycle its waste.",
+    "text": null
+  },
+  "aces-and-kings.cardz": {
+    "en": "Empty foundations that build in opposite directions, four single-card spaces the stock refills by itself, and a waste that gets one pass.",
+    "text": null
+  },
+  "carpet.cardz": {
+    "en": "Twenty single-card spaces that accept only from the waste, over a stock that draws once and never recycles.",
+    "text": null
+  },
+  "fourteen-out.cardz": {
+    "en": "Rule expressions pair cards: a column's top card drops onto a partner that makes fourteen with it, and the pair leaves by itself. The win asks for empty columns rather than full foundations.",
+    "text": null
+  },
+  "sultan.cardz": {
+    "en": "Named foundations laid out as a portrait, a centre card that accepts nothing, Kings that wrap round to Ace, and a stock that recycles twice.",
+    "text": null
+  },
+  "grandfathers-clock.cardz": {
+    "en": "Twelve foundations placed at fractional grid positions and turned to face the middle of a clock, each seeded with a named card and none capped: the next hour's seed is what stops each one.",
+    "text": null
+  },
+  "puss-in-the-corner.cardz": {
+    "en": "Foundations that build by colour instead of suit, holding piles only the stock can feed, and one redeal that gathers the piles back in order without dealing anything out.",
+    "text": null
+  },
+  "accordion.cardz": {
+    "en": "Fifty-two spaces read as one long row, piles that move only whole and only onto the pile one or three places to their left, a row that closes up by itself, and a stock that deals onto the first empty space.",
+    "text": null
+  },
+  "monte-carlo.cardz": {
+    "en": "A five by five grid where a card pairs only with a touching card of its rank, pairs that leave by themselves, and a stock tap that closes the grid up and refills it.",
+    "text": null
+  },
+  "gaps.cardz": {
+    "en": "Rule expressions read the row: a gap takes the next card up in its left neighbour's suit. Deal steps that act only where their condition holds take the Aces out after the deal and leave one gap after each row's run on a redeal.",
+    "text": null
+  },
+  "klondike-with-jokers.cardz": {
+    "en": "Klondike's own rules with wild, transparent jokers, and an accept rule's swap: a card a joker stands for, dropped on the joker's column or foundation, takes the joker's place however deep it lies, and the joker goes back where the card came from.",
+    "text": null
+  },
+  "hemispheres.cardz": {
+    "en": "An exchange made of a drop and a trigger: a stranded card lands only on a stranded card of the other colour, and a trigger on the stock sends the card beneath back where the arrival came from, then refills empty piles for the whole table. Depot properties name the hemispheres, and a planner value teaches Cardz to draw rather than shuffle.",
+    "text": null
+  },
+  "die-schwierige.cardz": {
+    "en": "Two rounds that play by different rules: accept rules that read how many redeals have run close two sorting piles and open the cascades once the stock is gathered back. The regather lists its piles so they deal out in the order they were picked up.",
+    "text": null
+  },
+  "royal-cotillion.cardz": {
+    "en": "Foundations that build by twos round the corner from King to Ace, capped at thirteen cards by an expression, beside two reserves that give up cards differently: one only from its column tops, never refilled, the other all open and refilled from the waste, then the stock. A planner value teaches Cardz to empty the tallest column first.",
+    "text": null
+  },
+  "alhambra.cardz": {
+    "en": "A waste the player builds on: it takes reserve cards only, up or down in suit round the corner, while the stock's draw lands on it regardless of that rule. Placed Aces and Kings start foundations that build in opposite directions, and the stock gets three passes.",
+    "text": null
+  },
+  "stalactites.cardz": {
+    "en": "A choice the player makes by playing: the foundations' accept rule reads the step off the first foundation built on, so the first build sets every foundation going by ones or by twos, and undoing it undoes the choice. A depot property finds that step, and columns accept nothing, so they are only a source. Each foundation is two overlapping depots, a base turned sideways under an upright pile aligned to its right edge that builds on the base's card while empty, so the base shows where the thirteen started.",
+    "text": null
+  },
+  "baroness.cardz": {
+    "en": "Pyramid's pairs that make thirteen, and its King that leaves alone, over five piles that a stock tap deals a row onto. Two deal steps with conditions share the tap, so the last two cards go to grace cards of their own.",
+    "text": null
+  },
+  "captive-queens.cardz": {
+    "en": "No tableau at all: a stock, a waste and a radial layout, eight foundations turned along their radii round a cross of overlapping Queens, all placed by the deal. A Five's foundation wraps through the Ace to the King, and with the Queens out of play neither kind needs a cap.",
+    "text": null
+  },
+  "faerie-queen.cardz": {
+    "en": "A deal that is the game: each tap turns a card onto a hold whose trigger sends it on at once, picking its place with an expression: an Ace to an empty foundation, a King to the first empty column, any other card to the last column started. One place step lays the first King.",
+    "text": null
+  },
+  "mount-olympus.cardz": {
+    "en": "Sixteen foundations placed one by one into an arch, each at its own angle, each Ace and Two by name, building by twos without wrap, so an Ace pile stops at the King and a Two pile at the Queen with no cap. A battery building down by twos in suit, whose spaces take only their refill from the waste, then the stock, and a stock that turns the waste back once. A planner value counts each card turned from the stock, so Cardz draws rather than shuttle a card between two equal tops.",
+    "text": null
+  }
+}

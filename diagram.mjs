@@ -14,7 +14,8 @@ const TRAIL = 3; // ghost cards drawn along a fanning depot
 const PAD = 14;
 
 // Depot types, in legend order. Fills echo the site palette: a face-down stock
-// reads dark, a foundation gold, an empty cell an outline.
+// reads dark, a foundation gold, an empty cell an outline. The labels are the
+// English; boardDiagram's `t` gives them in the page's language (i18n.mjs).
 const TYPES = {
   stock: { label: "Stock", fill: "#2b3a55", stroke: "#1b2740", dash: null },
   waste: { label: "Waste", fill: "#e2d4b8", stroke: "#9c8d76", dash: null },
@@ -80,7 +81,7 @@ function round(n) {
  * An inline SVG of the board, plus a plain-language description of it.
  * Returns null for a board with nothing placeable.
  */
-export function boardDiagram(game, layout) {
+export function boardDiagram(game, layout, t = (key, english, vars) => english.replace(/\{(\w+)\}/g, (_, name) => vars[name])) {
   const depots = game.board.depots;
   if (!depots.length) return null;
 
@@ -138,16 +139,25 @@ export function boardDiagram(game, layout) {
   const vh = round(bounds.maxY - bounds.minY + PAD * 2);
 
   const counts = new Map();
+  const kind = (type) => (TYPES[type] ? type : "tableau");
+  const label = (type) => t(`diagram.${kind(type)}`, TYPES[kind(type)].label);
+  const count = (type, n) => {
+    type = kind(type);
+    const english = TYPES[type].label.toLowerCase();
+    return n > 1
+      ? t(`diagram.${type}.many`, `{n} ${english}s`, { n })
+      : t(`diagram.${type}.one`, `{n} ${english}`, { n });
+  };
   for (const depot of depots) counts.set(depot.type, (counts.get(depot.type) ?? 0) + 1);
   const described = [...counts]
-    .map(([type, n]) => `${n} ${(TYPES[type] ?? TYPES.tableau).label.toLowerCase()}${n > 1 ? "s" : ""}`)
+    .map(([type, n]) => count(type, n))
     .join(", ");
   const legend = [...counts.keys()]
     .map((type) => {
       const style = TYPES[type] ?? TYPES.tableau;
       return (
         `<span><i style="background:${style.fill === "none" ? "transparent" : style.fill};` +
-        `border-color:${style.stroke}${style.dash ? ";border-style:dashed" : ""}"></i>${style.label}</span>`
+        `border-color:${style.stroke}${style.dash ? ";border-style:dashed" : ""}"></i>${label(type)}</span>`
       );
     })
     .join("");
@@ -157,8 +167,8 @@ export function boardDiagram(game, layout) {
   const svg =
     `<svg viewBox="${vx} ${vy} ${vw} ${vh}" role="img" aria-labelledby="${id}-title ${id}-desc" ` +
     `preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">` +
-    `<title id="${id}-title">The ${game.name} board</title>` +
-    `<desc id="${id}-desc">${described}. Fanned piles are shown with a trail of cards.</desc>` +
+    `<title id="${id}-title">${t("diagram.title", "The {game} board", { game: game.name })}</title>` +
+    `<desc id="${id}-desc">${t("diagram.desc", "{piles}. Fanned piles are shown with a trail of cards.", { piles: described })}</desc>` +
     `<g stroke-width="1.5">${shapes.join("")}</g></svg>`;
 
   return { svg, legend, described, ratio: vw / vh };

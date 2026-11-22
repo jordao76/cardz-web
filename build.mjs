@@ -8,21 +8,36 @@
 //
 // Everything else on the site stays hand-written. This only owns games/ (every
 // game page and the index of them), decks.html, and the marked regions of the
-// hand-written pages: each one's header and footer, and make-a-game.html's
+// hand-written pages: each one's head, header and footer, and make-a-game.html's
 // reference. A redesign can move freely
 // around those.
+//
+// It builds the site once per language in i18n.mjs: English at the root, and each
+// other language in its own folder (fr/, pt/, es/), from translations kept beside
+// the code in locales/, never in it. Every English string below is asked for
+// through s() or a catalogue, with the English inline; see i18n.mjs.
+//
+//   node build.mjs --sync   also brings locales/ in line with what the build asked
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { boardDiagram } from "./diagram.mjs";
+import { LOCALES, NEUTRAL, Catalog, localizePage, pagePath } from "./i18n.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const STORE = "https://apps.microsoft.com/detail/9N96G6H34XCT";
 const LITE_STORE = "https://apps.microsoft.com/detail/9PL2LZN8H36G";
+const SITE = "https://cardz.roderic.dev/";
+
+// The hand-written pages that can be published in another language: each is
+// translated by its own locales/<code>/pages/<page>.json, and appears in a language
+// only once every string it marks is translated there.
+const HAND_WRITTEN = ["index", "lite", "sandbox", "make-a-game", "privacy"];
 
 // The one navigation every page wears, generated or hand-written. Home is the brand
-// link, and Privacy and Contact sit in the footer.
+// link, and Privacy and Contact sit in the footer. Labels are English; s() gives
+// them in the page's language.
 const NAV = [
   ["games", "games/", "Games"],
   ["decks", "decks.html", "Decks"],
@@ -91,6 +106,45 @@ for (const entry of designKit.builtIns) {
   if (!existsSync(join(root, entry.source)))
     throw new Error(`data/design-kit.json names ${entry.source}, which is not on disk. Run cardz-win's scripts/export-design-kit.ps1.`);
 }
+
+// ---------------------------------------------------------------- languages
+
+// The app's exporter writes the same catalog once per language
+// (games.<code>.json): the rules prose, variant axes and labels in that language,
+// everything else as games.json has it. A game a language's file lacks (one it was
+// last exported without) keeps only its English page, and that language links to it.
+const sync = process.argv.includes("--sync");
+const languages = LOCALES.filter(
+  (locale) => locale === NEUTRAL || existsSync(join(root, "locales", locale.code))
+).map((locale) => {
+  const file = join(root, `data/games.${locale.code}.json`);
+  const data = locale === NEUTRAL ? games : existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : { games: [] };
+  return {
+    locale,
+    catalog: new Catalog(root, locale),
+    bySlug: new Map(data.games.map((game) => [game.slug, game])),
+    localized: new Set(),
+  };
+});
+
+// The language being built: every template reads it through s() and the helpers
+// below, rather than threading it through each one.
+let here;
+
+/** A string of build.mjs's own, in the language being built. */
+const s = (key, english, vars) => here.catalog.t("site", key, english, vars);
+
+/** A page's variants in the language being built, or null when it lacks any of them. */
+function localVariants(page, language = here) {
+  const variants = page.variants.map((variant) => language.bySlug.get(variant.slug));
+  return variants.every(Boolean) ? variants : null;
+}
+
+/** A Store link that opens the Store's page in the language being built. */
+const store = (url) => (here.locale.store ? `${url}?hl=${here.locale.store}` : url);
+
+/** The tagline roster.json gives a page, in the language being built. */
+const tagline = (page) => here.catalog.t("roster", page.slug, page.tagline);
 
 // ---------------------------------------------------------------- markdown
 
@@ -319,8 +373,8 @@ function ledeClass(rules) {
 }
 
 /** First sentence of the rules, stripped to plain text, for <meta description>. */
-function summarize(page) {
-  const first = (page.variants[0].rules ?? "").split("\n")[0];
+function summarize(variants) {
+  const first = (variants[0].rules ?? "").split("\n")[0];
   const plain = first.replace(/[*_]/g, "").replace(/\s+/g, " ").trim();
   return escape(plain.length > 150 ? `${plain.slice(0, 147).trimEnd()}…` : plain);
 }
@@ -332,37 +386,92 @@ function summarize(page) {
 // Games would tell a screen reader that it was.
 const mark = (current, slug) => (current === slug ? ` aria-current="page"` : "");
 
-function chrome(depth) {
+/** A link's href form of a page path: `games/index.html` is `games/`. */
+const hrefOf = (path) => path.replace(/(^|\/)index\.html$/, "$1");
+
+/**
+ * A page's chrome, for a page at `path` inside the language being built, `depth`
+ * folders below that language's root. `up` climbs to the language's root, `root`
+ * to the site's, where the assets are. `link` reaches another page in this
+ * language when it has one, and the English page when it does not.
+ */
+function chrome(depth, path) {
   const up = "../".repeat(depth);
+  const root = up + (here.locale.dir ? "../" : "");
+  const link = (href) => (here.localized.has(pagePath(href)) ? up + href : root + href);
+  const others = languages.filter((language) => language.localized.has(path));
+  // A page in one language only has no alternates to name.
+  const alternates = (others.length > 1 ? others : [])
+    .map((language) => `  <link rel="alternate" hreflang="${language.locale.tag}" href="${SITE}${language.locale.dir}${hrefOf(path)}">`)
+    .concat(others.length > 1 ? [`  <link rel="alternate" hreflang="x-default" href="${SITE}${hrefOf(path)}">`] : [])
+    .join("\n");
+  const languageLinks =
+    others.length > 1
+      ? `<nav class="language-switch" aria-label="${s("footer.languages", "Languages")}">${others
+          .map((language) => {
+            const href = (language === here ? up : root + language.locale.dir) + hrefOf(path) || "./";
+            return language === here
+              ? `<a href="${href}" lang="${language.locale.tag}" aria-current="true">${language.locale.name}</a>`
+              : `<a href="${href}" lang="${language.locale.tag}" hreflang="${language.locale.tag}">${language.locale.name}</a>`;
+          })
+          .join("")}</nav>`
+      : "";
+  // What deck.js and mode-demos.js say, in this language. English pages need none:
+  // the scripts carry their English.
+  const scriptStrings = here.locale === NEUTRAL ? "" : `\n  <script type="application/json" id="site-strings">${JSON.stringify(clientStrings(up)).replaceAll("<", "\\u003c")}</script>`;
   return {
     up,
+    root,
+    link,
+    // The hand-written pages' own <head> keeps everything but this: the language
+    // alternates and the scripts' strings.
+    headExtra: `${alternates}${scriptStrings}`,
     head: (title, description) => `<!doctype html>
-<html lang="en">
+<html lang="${here.locale.tag}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${description}">
   <meta name="theme-color" content="#100f14">
   <title>${title}</title>
-  <link rel="icon" href="${up}assets/cardz-logo.png">
-  <link rel="stylesheet" href="${up}styles.css">
-  <script src="${up}deck.js"></script>
+  <link rel="icon" href="${root}assets/cardz-logo.png">
+  <link rel="stylesheet" href="${root}styles.css">
+${alternates ? `${alternates}\n` : ""}${scriptStrings ? `${scriptStrings.slice(1)}\n` : ""}  <script src="${root}deck.js"></script>
 </head>`,
     // Cardz Lite's page sells Lite, so its button goes to Lite's Store page.
     header: (current) => `  <header class="site-header">
-    <a class="brand" href="${up}index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
-    <nav aria-label="Main navigation">
-      ${NAV.map(([slug, href, label]) => `<a href="${up}${href}"${mark(current, slug)}>${label}</a>`).join("")}
+    <a class="brand" href="${link("index.html")}" aria-label="${s("header.home", "Cardz home")}"><span aria-hidden="true">✣</span> Cardz</a>
+    <nav aria-label="${s("header.nav", "Main navigation")}">
+      ${NAV.map(([slug, href, label]) => `<a href="${link(href)}"${mark(current, slug)}>${s(`nav.${slug}`, label)}</a>`).join("")}
     </nav>
     ${
       current === "lite"
-        ? `<a class="button button-small" href="${LITE_STORE}">Get Cardz Lite</a>`
-        : `<a class="button button-small" href="${STORE}">Get Cardz</a>`
+        ? `<a class="button button-small" href="${store(LITE_STORE)}">${s("header.get-lite", "Get Cardz Lite")}</a>`
+        : `<a class="button button-small" href="${store(STORE)}">${s("header.get", "Get Cardz")}</a>`
     }
   </header>`,
-    footer: `  <footer><a class="brand" href="${up}index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div>${NAV.map(
-      ([, href, label]) => `<a href="${up}${href}">${label}</a>`
-    ).join("")}<a href="${up}privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>`,
+    footer: `  <footer><a class="brand" href="${link("index.html")}"><span aria-hidden="true">✣</span> Cardz</a><p>${s("footer.tagline", "Solitaire, your way.")}</p><div>${NAV.map(
+      ([slug, href, label]) => `<a href="${link(href)}">${s(`nav.${slug}`, label)}</a>`
+    ).join("")}<a href="${link("privacy.html")}">${s("footer.privacy", "Privacy")}</a><a href="mailto:cardz@roderic.dev">${s("footer.contact", "Contact")}</a></div>${languageLinks}<small>© 2026 Cardz</small></footer>`,
+  };
+}
+
+/**
+ * What the site's two scripts say, for a page in a language other than English.
+ * `home` is where that language's pages start, so deck.js's hero link stays in it.
+ */
+function clientStrings(up) {
+  return {
+    home: up || "./",
+    deckPicker: s("js.deck-picker", "Deal this site with another deck"),
+    deckButton: s("js.deck-button", "{name} deck"),
+    heroAlt: s("js.hero-alt", "{game} in Cardz, played with the {name} deck"),
+    heroLink: s("js.hero-link", "How to play ↗"),
+    decksHint: s("js.decks-hint", "Switch at any time, even mid-game. Pick one, and this site is dealt with it too."),
+    play: s("js.demo-play", "Play demo"),
+    pause: s("js.demo-pause", "Pause demo"),
+    playNamed: s("js.demo-play-named", "Play {name}"),
+    pauseNamed: s("js.demo-pause-named", "Pause {name}"),
   };
 }
 
@@ -372,60 +481,73 @@ function deckLine(game) {
   // eight copies of a single-suit pack, and a player calls that two decks.
   const decks = cards % 52 === 0 ? cards / 52 : null;
   const base =
-    decks === 1 ? "One deck" : decks === 2 ? "Two decks" : decks ? `${decks} decks` : `${cards} cards`;
-  return jokers ? `${base} · ${jokers} jokers` : base;
+    decks === 1
+      ? s("facts.one-deck", "One deck")
+      : decks === 2
+        ? s("facts.two-decks", "Two decks")
+        : decks
+          ? s("facts.decks", "{n} decks", { n: decks })
+          : s("facts.cards", "{n} cards", { n: cards });
+  return jokers ? s("facts.jokers", "{decks} · {n} jokers", { decks: base, n: jokers }) : base;
 }
+
+/** The board's words, in the language being built, for diagram.mjs. */
+const diagramText = (key, english, vars) => here.catalog.t("site", key, english, vars);
 
 /**
  * An extra is not in the app, so its call to action is the file itself. The file
  * must exist: games.json and the design kit come from two separate exports, and a
  * page offering a file neither wrote would break its only button.
  */
-function extraCta(game, up) {
-  if (!existsSync(join(root, game.download)))
+function extraCta(game, root) {
+  if (!existsSync(joinRoot(game.download)))
     throw new Error(
       `games.json offers ${game.download} for ${game.name}, which is not on disk. ` +
         `Run cardz-win's scripts/export-design-kit.ps1.`
     );
   const file = game.download.split("/").pop();
   return `      <div class="game-cta">
-        <a class="button" href="${up}${game.download}" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>${escape(file)}</span></a>
-        <small>Not built into Cardz. Download and open it in <a href="${STORE}">Cardz</a>.</small>
+        <a class="button" href="${root}${game.download}" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>${s("cta.download", "Download")}</small>${escape(file)}</span></a>
+        <small>${s("cta.extra-note", 'Not built into Cardz. Download and open it in <a href="{store}">Cardz</a>.', { store: store(STORE) })}</small>
       </div>`;
 }
+
+const joinRoot = (path) => join(root, path);
 
 /**
  * The game's design file, folded away under the rules: the text a person would write to
  * make this game in Cardz (cardz-win docs/website-plan.md §12). A built-in's comes from
  * the design kit's builtIns list, and shows the binding a grouped page leads with; an
  * extra's is the very file its download button offers. A built-in the export did not
- * write a file for shows none.
+ * write a file for shows none. The file itself is the design format, which is English
+ * in every language; what is said about it is not.
  */
-function designSource(page, up) {
+function designSource(page, link) {
   const extra = isExtra(page);
   const primary = page.variants[0];
   let path, note, lead;
   if (extra) {
     path = primary.download;
-    note = designKit.games.find((entry) => `designs/${entry.file}` === path)?.note;
-    lead = "This is the file the download button gives you.";
+    const entry = designKit.games.find((candidate) => `designs/${candidate.file}` === path);
+    note = entry?.note && here.catalog.t("design-kit", entry.file, entry.note);
+    lead = s("source.lead-extra", "This is the file the download button gives you.");
   } else {
     const entry = designKit.builtIns.find((candidate) => candidate.page === page.slug);
     if (!entry) return "";
     path = entry.source;
-    note = entry.note;
+    note = entry.note && here.catalog.t("design-kit", entry.page, entry.note);
     lead =
       page.variants.length > 1
-        ? `This is ${escape(entry.name)}; the other variants change a line or two.`
-        : "Written as a design file, this is the whole game.";
+        ? s("source.lead-variant", "This is {name}; the other variants change a line or two.", { name: escape(entry.name) })
+        : s("source.lead", "Written as a design file, this is the whole game.");
   }
-  if (!existsSync(join(root, path)))
+  if (!existsSync(joinRoot(path)))
     throw new Error(`${page.name} shows ${path}, which is not on disk. Run cardz-win's scripts/export-design-kit.ps1.`);
-  const text = readFileSync(join(root, path), "utf8").replace(/\r\n/g, "\n").trimEnd();
+  const text = readFileSync(joinRoot(path), "utf8").replace(/\r\n/g, "\n").trimEnd();
   const lines = text.split("\n").length;
   return `      <details class="game-source">
-        <summary>Read its design file <small>${lines} lines</small></summary>
-        <p>${note ? `${escape(note)} ` : ""}${lead} <a href="${up}make-a-game.html">Make a game</a> explains every part of it.</p>
+        <summary>${s("source.summary", "Read its design file")} <small>${s("source.lines", "{n} lines", { n: lines })}</small></summary>
+        <p>${note ? `${escape(note)} ` : ""}${lead} ${s("source.explains", '<a href="{href}">Make a game</a> explains every part of it.', { href: link("make-a-game.html") })}</p>
         <pre><code class="language-json">${highlightJson(text)}</code></pre>
       </details>
 `;
@@ -438,7 +560,7 @@ function designSource(page, up) {
  * a screenshot leads the page: then the board stays as wide as the screenshot.
  */
 function board(game, underCapture) {
-  const diagram = boardDiagram(game, games.layout);
+  const diagram = boardDiagram(game, games.layout, diagramText);
   if (!diagram) return "";
   // A long board earns room past the reading column; a squarish one (Clock's
   // face, Beleaguered Castle's column) would otherwise tower over the page.
@@ -455,34 +577,38 @@ function board(game, underCapture) {
  * sizes, so a capture named there without its images fails the build rather
  * than shipping a broken picture.
  */
-function captureImage(page, up, sizes, loading) {
+function captureImage(page, root, sizes, loading) {
   if (!page.capture) return "";
   const base = `assets/screenshots/${page.slug}`;
   for (const width of [960, 1600])
-    if (!existsSync(join(root, `${base}-${width}.webp`)))
+    if (!existsSync(joinRoot(`${base}-${width}.webp`)))
       throw new Error(
         `data/roster.json names a capture for ${page.name}, but ${base}-${width}.webp is missing. ` +
           `Run scripts/import-screenshots.py.`
       );
-  return `<img src="${up}${base}-960.webp" srcset="${up}${base}-960.webp 960w, ${up}${base}-1600.webp 1600w" sizes="${sizes}" alt="${escape(page.name)} in Cardz, played with the ${escape(page.capture.deck)} deck" width="1600" height="900" loading="${loading}">`;
+  const alt = s("capture.alt", "{game} in Cardz, played with the {deck} deck", { game: escape(page.name), deck: escape(page.capture.deck) });
+  return `<img src="${root}${base}-960.webp" srcset="${root}${base}-960.webp 960w, ${root}${base}-1600.webp 1600w" sizes="${sizes}" alt="${alt}" width="1600" height="900" loading="${loading}">`;
 }
 
 /** The screenshot leads a game page, ahead of the drawn board. */
-function captureFigure(page, up) {
-  const image = captureImage(page, up, "(max-width: 808px) calc(100vw - 48px), 760px", "eager");
+function captureFigure(page, root) {
+  const image = captureImage(page, root, "(max-width: 808px) calc(100vw - 48px), 760px", "eager");
   if (!image) return "";
   return `      <figure class="game-capture">
         ${image}
-        <figcaption>${escape(page.capture.deck)} deck</figcaption>
+        <figcaption>${s("capture.caption", "{deck} deck", { deck: escape(page.capture.deck) })}</figcaption>
       </figure>
 `;
 }
 
+/** Another game page, in this language when it has one and in English when not. */
+const gameLink = (other, link) => link(`games/${other.slug}/`);
+
 /** One group of links in a game page's "more" navigation, or nothing. */
-function moreGroup(title, pages, up) {
+function moreGroup(title, pages, link) {
   if (!pages.length) return "";
   return `        <p class="eyebrow"><span></span> ${title}</p>
-        <div>${pages.map((other) => `<a href="${up}games/${other.slug}/">${escape(other.name)}</a>`).join("")}</div>
+        <div>${pages.map((other) => `<a href="${gameLink(other, link)}">${escape(other.name)}</a>`).join("")}</div>
 `;
 }
 
@@ -493,7 +619,7 @@ function moreGroup(title, pages, up) {
  */
 function originMark(page) {
   if (!page.original) return "";
-  return `      <p class="game-origin"><b>Cardz original</b> Invented for Cardz.</p>
+  return `      <p class="game-origin"><b>${s("original.badge", "Cardz original")}</b> ${s("original.note", "Invented for Cardz.")}</p>
 `;
 }
 
@@ -504,7 +630,7 @@ function originMark(page) {
  * with no other page says nothing a reader could follow, so it is left out, and so is
  * a game the app files under no family.
  */
-function gameKin(page, all, up) {
+function gameKin(page, all, link) {
   const names = new Set([page.name, ...page.variants.map((v) => v.name)]);
   const aliases = [...new Set(page.variants.flatMap((v) => v.aliases ?? []))].filter((a) => !names.has(a));
   const family = page.variants.map((v) => v.family).find(Boolean);
@@ -513,11 +639,11 @@ function gameKin(page, all, up) {
     : [];
   const rows = [];
   if (aliases.length)
-    rows.push(`        <div><dt>Also known as</dt><dd>${aliases.map(escape).join(", ")}</dd></div>`);
+    rows.push(`        <div><dt>${s("kin.aliases", "Also known as")}</dt><dd>${aliases.map(escape).join(", ")}</dd></div>`);
   if (kin.length)
     rows.push(
-      `        <div><dt>${escape(family)} family</dt><dd>${kin
-        .map((other) => `<a href="${up}games/${other.slug}/">${escape(other.name)}</a>`)
+      `        <div><dt>${s("kin.family", "{family} family", { family: escape(family) })}</dt><dd>${kin
+        .map((other) => `<a href="${gameLink(other, link)}">${escape(other.name)}</a>`)
         .join(", ")}</dd></div>`
     );
   if (!rows.length) return "";
@@ -528,27 +654,29 @@ ${rows.join("\n")}
 }
 
 function gamePage(page, all) {
-  const { up, head, header, footer } = chrome(2);
-  const primary = page.variants[0];
-  const grouped = page.variants.length > 1;
+  const { root, link, head, header, footer } = chrome(2, `games/${page.slug}/index.html`);
+  const variants = localVariants(page);
+  const primary = variants[0];
+  const grouped = variants.length > 1;
   const others = all.filter((other) => other.slug !== page.slug);
   const extra = isExtra(page);
 
   const variantStrip = grouped
-    ? `<span>${escape(primary.variant.selections[0].axis)}: ${page.variants
-        .map((v) => escape(v.variant.label))
-        .join(" · ")}</span>`
+    ? `<span>${s("facts.variants", "{axis}: {labels}", {
+        axis: escape(primary.variant.selections[0].axis),
+        labels: variants.map((v) => escape(v.variant.label)).join(" · "),
+      })}</span>`
     : "";
 
   // The rules above are the default variant's in full; the others differ by a
   // line or two, so they fold away rather than restate the whole game. A game
   // whose one description covers every variant has nothing to fold away.
-  const differing = page.variants.slice(1).filter((v) => v.rules !== primary.rules);
+  const differing = variants.slice(1).filter((v) => v.rules !== primary.rules);
   const alternates = differing.length
     ? `
       <div class="game-variants">
-        <h2>Variants</h2>
-        <p>The rules above are ${escape(primary.name)}. Here is how the other variants differ.</p>
+        <h2>${s("variants.title", "Variants")}</h2>
+        <p>${s("variants.lead", "The rules above are {name}. Here is how the other variants differ.", { name: escape(primary.name) })}</p>
 ${differing
   .map(
     (v) => `        <details>
@@ -562,33 +690,33 @@ ${differing
       </div>`
     : "";
 
-  return `${head(`${escape(page.name)} — how to play | Cardz`, summarize(page))}
+  return `${head(s("game.title", "{name} — how to play | Cardz", { name: escape(page.name) }), summarize(variants))}
 <body class="game-page">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">${s("skip", "Skip to content")}</a>
 ${header()}
   <main id="main" class="game-main">
     <article class="game-shell">
-      <a class="back-link" href="${up}games/${extra ? "#extras" : ""}"><span aria-hidden="true">←</span> ${extra ? "Extra games" : "Games"}</a>
-      <p class="eyebrow"><span></span> ${escape(page.tagline)}</p>
+      <a class="back-link" href="${link("games/")}${extra ? "#extras" : ""}"><span aria-hidden="true">←</span> ${extra ? s("back.extras", "Extra games") : s("back.games", "Games")}</a>
+      <p class="eyebrow"><span></span> ${escape(tagline(page))}</p>
       <h1>${escape(page.name)}</h1>
       <div class="game-facts">
-        <span>${deckLine(primary)}</span>${extra ? `\n        <span>Extra game · download</span>` : ""}${variantStrip ? `\n        ${variantStrip}` : ""}
+        <span>${deckLine(primary)}</span>${extra ? `\n        <span>${s("facts.extra", "Extra game · download")}</span>` : ""}${variantStrip ? `\n        ${variantStrip}` : ""}
       </div>
-${gameKin(page, all, up)}${originMark(page)}${captureFigure(page, up)}${board(primary, Boolean(page.capture))}
+${gameKin(page, all, link)}${originMark(page)}${captureFigure(page, root)}${board(primary, Boolean(page.capture))}
       <div class="game-rules${ledeClass(primary.rules ?? "")}">
           ${markdown(primary.rules ?? "", page.slug)}
       </div>
 ${alternates}
-${designSource(page, up)}${
+${designSource(page, link)}${
   extra
-    ? extraCta(primary, up)
+    ? extraCta(primary, root)
     : `      <div class="game-cta">
-        <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Play it in</small>Cardz for Windows</span></a>
-        <small>No ads, no accounts, fully offline.</small>
+        <a class="button" href="${store(STORE)}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>${s("cta.play-in", "Play it in")}</small>${s("cta.windows", "Cardz for Windows")}</span></a>
+        <small>${s("cta.qualities", "No ads, no accounts, fully offline.")}</small>
       </div>`
 }
-      <nav class="game-more" aria-label="Other games">
-${moreGroup("More solitaire", others.filter((other) => !isExtra(other)), up)}${moreGroup("Extra games", others.filter(isExtra), up)}      </nav>
+      <nav class="game-more" aria-label="${s("more.label", "Other games")}">
+${moreGroup(s("more.solitaire", "More solitaire"), others.filter((other) => !isExtra(other)), link)}${moreGroup(s("more.extras", "Extra games"), others.filter(isExtra), link)}      </nav>
     </article>
   </main>
 ${footer}
@@ -605,23 +733,24 @@ ${footer}
  * the downloads and the gallery copy come from two places, and either one alone
  * would offer a file nobody can see or show a deck nobody can get.
  */
-function deckDownload(deck) {
+function deckDownload(deck, root) {
   const download = deckDownloads.decks.find((entry) => entry.slug === deck.slug);
   if (!download) return "";
-  if (!existsSync(join(root, download.file)))
+  if (!existsSync(joinRoot(download.file)))
     throw new Error(
       `data/deck-downloads.json offers ${download.file} for ${deck.name}, which is not on disk. ` +
         `Run cardz-win's scripts/export-deck-packs.ps1.`
     );
   return `
           <div class="deck-download">
-            <a class="button button-small" href="${download.file}" download>Download</a>
-            <small>Not built into Cardz. Download and open it in Cardz.</small>
+            <a class="button button-small" href="${root}${download.file}" download>${s("cta.download", "Download")}</a>
+            <small>${s("decks.extra-note", "Not built into Cardz. Download and open it in Cardz.")}</small>
           </div>`;
 }
 
 function deckPage() {
-  const { head, header, footer } = chrome(0);
+  const { root, head, header, footer } = chrome(0, "decks.html");
+  const d = here.catalog.scope("decks");
   const orphans = deckDownloads.decks.filter((entry) => !decks.decks.some((deck) => deck.slug === entry.slug));
   if (orphans.length)
     throw new Error(
@@ -636,37 +765,41 @@ function deckPage() {
           `data/decks.json lists '${deck.slug}', but assets/decks/manifest.json has no art for it. ` +
             `Run cardz-win's scripts/build-deck-gallery.mjs.`
         );
-      const credit = deck.credit ? `\n          <p class="deck-credit">${escape(deck.credit)}</p>` : "";
+      const credit = deck.credit ? `\n          <p class="deck-credit">${escape(d(`${deck.slug}.credit`, deck.credit))}</p>` : "";
+      const alt = s("decks.alt", "Three cards from the {name} deck: the back, the King of Spades, and the Ace of Hearts", { name: escape(deck.name) });
       return `        <article class="deck-card" id="${deck.slug}">
-          <img src="assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy"
-               alt="Three cards from the ${escape(deck.name)} deck: the back, the King of Spades, and the Ace of Hearts">
+          <img src="${root}assets/decks/${art.file}" width="${art.width}" height="${art.height}" loading="lazy"
+               alt="${alt}">
           <h2>${escape(deck.name)}</h2>
-          <p>${escape(deck.blurb)}</p>${credit}${deckDownload(deck)}
+          <p>${escape(d(`${deck.slug}.blurb`, deck.blurb))}</p>${credit}${deckDownload(deck, root)}
         </article>`;
     })
     .join("\n");
 
   return `${head(
-    "Card decks — Cardz",
-    "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, midnight neon, gothic horror, and more."
+    s("decks.title", "Card decks — Cardz"),
+    s(
+      "decks.description",
+      "Every card deck in Cardz: the house deck, Norse woodcut, Egyptian papyrus, pressed botanicals, engraved filigree, midnight neon, gothic horror, and more."
+    )
   )}
 <body class="decks-page">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">${s("skip", "Skip to content")}</a>
 ${header("decks")}
   <main id="main" class="decks-main">
     <header class="decks-head">
-      <p class="eyebrow"><span></span> Decks</p>
-      <h1>Change the deck.<br><em>Change the table.</em></h1>
-      <p class="lede">Switch at any time, even mid-game.</p>
+      <p class="eyebrow"><span></span> ${s("nav.decks", "Decks")}</p>
+      <h1>${s("decks.heading", "Change the deck.<br><em>Change the table.</em>")}</h1>
+      <p class="lede">${s("decks.lede", "Switch at any time, even mid-game.")}</p>
     </header>
-    <section class="deck-grid" aria-label="Illustrated decks">
+    <section class="deck-grid" aria-label="${s("decks.grid", "Illustrated decks")}">
 ${cards}
     </section>
     <section class="decks-note">
-      <p>${escape(decks.note)}</p>
+      <p>${escape(d("note", decks.note))}</p>
     </section>
     <section class="decks-cta">
-      <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Get it on the</small>Microsoft Store</span></a>
+      <a class="button" href="${store(STORE)}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>${s("cta.store-small", "Get it on the")}</small>${s("cta.store", "Microsoft Store")}</span></a>
     </section>
   </main>
 ${footer}
@@ -685,52 +818,56 @@ ${footer}
  * fails if the design kit did not write the file it offers. Order is roster.json's.
  */
 function gamesPage(all) {
-  const { up, head, header, footer } = chrome(1);
+  const { root, link, head, header, footer } = chrome(1, "games/index.html");
   if (!Array.isArray(designKit.games))
     throw new Error("data/design-kit.json has no games list. Run cardz-win's scripts/export-design-kit.ps1.");
 
   const card = (page) => {
-    const game = page.variants[0];
+    const game = localVariants(page)?.[0] ?? page.variants[0];
     const extra = isExtra(page);
     const kit = extra ? designKit.games.find((entry) => `designs/${entry.file}` === game.download) : null;
-    if (extra && (!kit || !existsSync(join(root, game.download))))
+    if (extra && (!kit || !existsSync(joinRoot(game.download))))
       throw new Error(
         `${game.name} offers ${game.download}, which the design kit did not write. ` +
           `Run cardz-win's scripts/export-design-kit.ps1.`
       );
-    const shot = captureImage(page, up, "(max-width: 700px) calc(100vw - 48px), 460px", "lazy");
-    const diagram = shot ? null : boardDiagram(game, games.layout);
-    const facts = page.capture ? `${deckLine(game)} · ${escape(page.capture.deck)} deck` : deckLine(game);
+    // A game this language has no page for links to the English one.
+    const href = here.localized.has(`games/${page.slug}/index.html`) ? `${page.slug}/` : `${root}games/${page.slug}/`;
+    const shot = captureImage(page, root, "(max-width: 700px) calc(100vw - 48px), 460px", "lazy");
+    const diagram = shot ? null : boardDiagram(game, games.layout, diagramText);
+    const facts = page.capture
+      ? s("card.facts", "{decks} · {deck} deck", { decks: deckLine(game), deck: escape(page.capture.deck) })
+      : deckLine(game);
     return `        <article class="game-card">
-          <a class="game-card-art${shot ? " game-card-shot" : ""}" href="${page.slug}/" tabindex="-1" aria-hidden="true">${shot || (diagram ? diagram.svg : "")}</a>
-          <p class="eyebrow"><span></span> ${escape(page.tagline)}</p>
-          <h3><a href="${page.slug}/">${escape(page.name)}</a>${page.new ? " <b>New</b>" : ""}${page.original ? ` <b class="original-badge">Cardz original</b>` : ""}</h3>
+          <a class="game-card-art${shot ? " game-card-shot" : ""}" href="${href}" tabindex="-1" aria-hidden="true">${shot || (diagram ? diagram.svg : "")}</a>
+          <p class="eyebrow"><span></span> ${escape(tagline(page))}</p>
+          <h3><a href="${href}">${escape(page.name)}</a>${page.new ? ` <b>${s("card.new", "New")}</b>` : ""}${page.original ? ` <b class="original-badge">${s("original.badge", "Cardz original")}</b>` : ""}</h3>
           <p class="game-card-facts">${facts}</p>
           <div class="game-card-actions">${
             extra
               ? `
-            <a class="button button-small" href="${up}${game.download}" download>Download</a>`
+            <a class="button button-small" href="${root}${game.download}" download>${s("cta.download", "Download")}</a>`
               : ""
           }
-            <a class="feature-link" href="${page.slug}/">How to play <span aria-hidden="true">→</span></a>
+            <a class="feature-link" href="${href}">${s("card.how", "How to play")} <span aria-hidden="true">→</span></a>
           </div>
         </article>`;
   };
 
   return `${head(
-    "Solitaire games — how to play | Cardz",
-    "Solitaire games to play in Cardz, each with its rules and its board, and extra games to download and add to Your games."
+    s("games.title", "Solitaire games — how to play | Cardz"),
+    s("games.description", "Solitaire games to play in Cardz, each with its rules and its board, and extra games to download and add to Your games.")
   )}
 <body class="games-page">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">${s("skip", "Skip to content")}</a>
 ${header("games")}
   <main id="main" class="games-main">
     <header class="games-head">
-      <h1>All the games.</h1>
+      <h1>${s("games.heading", "All the games.")}</h1>
     </header>
     <section class="games-section" aria-labelledby="in-cardz-title">
       <div class="games-section-head">
-        <h2 id="in-cardz-title">In Cardz</h2>
+        <h2 id="in-cardz-title">${s("games.in-cardz", "In Cardz")}</h2>
       </div>
       <div class="games-grid">
 ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
@@ -738,16 +875,16 @@ ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
     </section>
     <section class="games-section" id="extras" aria-labelledby="extras-title">
       <div class="games-section-head">
-        <h2 id="extras-title">Extra games</h2>
-        <p>Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href="${up}make-a-game.html">Make a game</a>.</p>
+        <h2 id="extras-title">${s("more.extras", "Extra games")}</h2>
+        <p>${s("games.extras-lead", 'Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href="{href}">Make a game</a>.', { href: link("make-a-game.html") })}</p>
       </div>
       <div class="games-grid">
 ${all.filter(isExtra).map(card).join("\n")}
       </div>
     </section>
     <section class="games-cta">
-      <a class="button" href="${STORE}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Get it on the</small>Microsoft Store</span></a>
-      <small>No ads, no accounts, fully offline.</small>
+      <a class="button" href="${store(STORE)}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>${s("cta.store-small", "Get it on the")}</small>${s("cta.store", "Microsoft Store")}</span></a>
+      <small>${s("cta.qualities", "No ads, no accounts, fully offline.")}</small>
     </section>
   </main>
 ${footer}
@@ -770,41 +907,91 @@ function replaceRegion(html, name, body, file) {
   const start = html.indexOf(open);
   const end = html.indexOf(close);
   if (start < 0 || end < 0) throw new Error(`${file} is missing the ${name} region markers`);
-  return `${html.slice(0, start + open.length)}\n${body}\n${html.slice(end)}`;
+  return `${html.slice(0, start + open.length)}\n${body ? `${body}\n` : ""}${html.slice(end)}`;
 }
 
-function rewrite(file, regions) {
-  const path = join(root, file);
-  let html = readFileSync(path, "utf8");
+function fillRegions(html, regions, file) {
   for (const [name, body] of Object.entries(regions)) html = replaceRegion(html, name, body, file);
-  writeFileSync(path, html, "utf8");
+  return html;
+}
+
+/** Write a file under the language being built, making its folder. */
+function emit(path, html) {
+  const out = join(root, here.locale.dir, path);
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, html, "utf8");
 }
 
 // ---------------------------------------------------------------- run
 
-const outDir = join(root, "games");
-if (existsSync(outDir)) rmSync(outDir, { recursive: true });
-for (const page of ordered) {
-  const dir = join(outDir, page.slug);
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "index.html"), gamePage(page, ordered), "utf8");
+const rendered = referenceMarkdown(reference);
+const sources = Object.fromEntries(HAND_WRITTEN.map((page) => [page, readFileSync(join(root, `${page}.html`), "utf8")]));
+const regionsOf = {
+  index: () => ({}),
+  lite: () => ({}),
+  sandbox: () => ({}),
+  privacy: () => ({}),
+  "make-a-game": () => ({ "reference-toc": tocMarkup(rendered.toc), reference: rendered.html }),
+};
+const currentOf = { index: undefined, lite: "lite", sandbox: "sandbox", privacy: undefined, "make-a-game": "make-a-game" };
+
+// First, which pages each language has, since every page's header, footer and
+// alternates link to the others. English has them all. Another language has the
+// generated pages, each game page its export covers, and each hand-written page it
+// has translated in full.
+for (const language of languages) {
+  here = language;
+  const has = language.localized;
+  if (language.locale === NEUTRAL) {
+    for (const page of HAND_WRITTEN) has.add(`${page}.html`);
+  } else {
+    for (const page of HAND_WRITTEN) {
+      const t = language.catalog.scope(`pages/${page}`);
+      localizePage(sources[page], page, t, language.locale, has);
+      const file = `pages/${page}`;
+      if (language.catalog.asked.get(file)?.size && !language.catalog.missingIn(file)) has.add(`${page}.html`);
+    }
+  }
+  has.add("games/index.html");
+  has.add("decks.html");
+  for (const page of ordered) if (localVariants(page, language)) has.add(`games/${page.slug}/index.html`);
 }
 
-writeFileSync(join(outDir, "index.html"), gamesPage(ordered), "utf8");
-writeFileSync(join(root, "decks.html"), deckPage(), "utf8");
+// The English site stays where it always was: games/ and decks.html are rewritten
+// whole, and the hand-written pages only in their regions.
+const outDir = join(root, "games");
+if (existsSync(outDir)) rmSync(outDir, { recursive: true });
+for (const language of languages) {
+  here = language;
+  if (language.locale !== NEUTRAL && existsSync(join(root, language.locale.dir)))
+    rmSync(join(root, language.locale.dir), { recursive: true });
 
-const rendered = referenceMarkdown(reference);
-const top = chrome(0);
-rewrite("index.html", { header: top.header(), footer: top.footer });
-rewrite("lite.html", { header: top.header("lite"), footer: top.footer });
-rewrite("sandbox.html", { header: top.header("sandbox"), footer: top.footer });
-rewrite("privacy.html", { header: top.header(), footer: top.footer });
-rewrite("make-a-game.html", {
-  header: top.header("make-a-game"),
-  "reference-toc": tocMarkup(rendered.toc),
-  reference: rendered.html,
-  footer: top.footer,
-});
+  for (const page of ordered)
+    if (localVariants(page)) emit(`games/${page.slug}/index.html`, gamePage(page, ordered));
+  emit("games/index.html", gamesPage(ordered));
+  emit("decks.html", deckPage());
+
+  const top = chrome(0, "");
+  for (const page of HAND_WRITTEN) {
+    if (!language.localized.has(`${page}.html`)) continue;
+    const pageChrome = chrome(0, `${page}.html`);
+    const regions = {
+      head: pageChrome.headExtra,
+      header: top.header(currentOf[page]),
+      footer: pageChrome.footer,
+      ...regionsOf[page](),
+    };
+    if (language.locale === NEUTRAL) writeFileSync(join(root, `${page}.html`), fillRegions(sources[page], regions, `${page}.html`), "utf8");
+    else {
+      const t = language.catalog.scope(`pages/${page}`);
+      // The page's own address and its Store links name this language too.
+      const html = localizePage(sources[page], page, t, language.locale, language.localized)
+        .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}${language.locale.dir}${hrefOf(`${page}.html`)}"`)
+        .replace(/"(https:\/\/apps\.microsoft\.com\/detail\/\w+)"/g, (_, url) => `"${store(url)}"`);
+      emit(`${page}.html`, fillRegions(html, regions, `${page}.html`));
+    }
+  }
+}
 
 console.log(
   `${ordered.length} pages → games/  (${games.games.filter((g) => !g.sandbox).length} games, ${ordered.filter(isExtra).length} of them extras, ${games.culture})\n` +
@@ -812,3 +999,13 @@ console.log(
     `games/index.html  (${ordered.length} cards, ${ordered.filter((page) => page.capture).length} with a screenshot)\n` +
     `make-a-game.html  (${rendered.toc.length} reference sections)`
 );
+for (const language of languages.filter((language) => language.locale !== NEUTRAL)) {
+  const pages = [...language.localized];
+  const hand = HAND_WRITTEN.filter((page) => language.localized.has(`${page}.html`));
+  console.log(
+    `${language.locale.dir}  (${pages.filter((path) => path.startsWith("games/") && path !== "games/index.html").length} game pages, ` +
+      `${hand.length ? hand.map((page) => `${page}.html`).join(", ") : "no hand-written page yet"})`
+  );
+  for (const line of language.catalog.report()) console.log(line);
+  if (sync) for (const path of language.catalog.sync()) console.log(`  synced ${path.slice(root.length + 1)}`);
+}
