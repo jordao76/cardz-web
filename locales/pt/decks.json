@@ -1,0 +1,66 @@
+{
+  "felt-house.blurb": {
+    "en": "The house deck, and the one Cardz deals until you choose another. Printed courts, aces and jokers in the French pattern, serif pips on the number cards, and a brass filigree back.",
+    "text": "O baralho da casa, o que o Cardz distribui até você escolher outro. Figuras, ases e coringas impressos no padrão francês, números com serifa nas cartas numeradas e um verso em filigrana de latão."
+  },
+  "valhalla.blurb": {
+    "en": "A Norse woodcut deck with two-headed courts. The pair of Loki jokers are worth finding.",
+    "text": "Um baralho nórdico em xilogravura, com figuras de duas cabeças. O par de coringas Loki vale a pena encontrar."
+  },
+  "scarab.blurb": {
+    "en": "Ancient Egypt on papyrus. A small gold cartouche beside each index shows the rank that card pairs with to make thirteen, which is most of Pyramid solved in the corner of your eye.",
+    "text": "O Egito antigo em papiro. Uma pequena cártula dourada ao lado de cada índice mostra o valor que forma treze com aquela carta, o que resolve boa parte do Pyramid com o canto do olho."
+  },
+  "olympus.blurb": {
+    "en": "Gods painted on marble, with a gold index laid over the plate.",
+    "text": "Deuses pintados em mármore, com um índice dourado sobre a placa."
+  },
+  "herbarium.blurb": {
+    "en": "A pressed-botanical plate book in ink and watercolour, with the four suits as four plant families — rose, marigold, clover, thistle — on a deep botanical-green table.",
+    "text": "Um livro de pranchas de herbário em tinta e aquarela, com os quatro naipes como quatro famílias de plantas — rosa, calêndula, trevo, cardo — sobre uma mesa de verde botânico profundo."
+  },
+  "filigree.blurb": {
+    "en": "Engraved in vermilion and iron-gall ink, the classic red and black, on an espresso-leather writing desk.",
+    "text": "Gravado em tinta vermelhão e tinta ferrogálica, o vermelho e o preto clássicos, sobre uma escrivaninha de couro café."
+  },
+  "ornamental.credit": {
+    "en": "Card art by Nicu Buculei, from his OpenClipart ornamental deck. Released into the public domain (CC0 1.0).",
+    "text": "Arte das cartas de Nicu Buculei, do seu baralho ornamental no OpenClipart. Em domínio público (CC0 1.0)."
+  },
+  "ornamental.blurb": {
+    "en": "Fine Victorian ornament on a damask table. The first illustrated deck Cardz shipped.",
+    "text": "Ornamentação vitoriana delicada sobre uma mesa adamascada. O primeiro baralho ilustrado que o Cardz lançou."
+  },
+  "deepfield.blurb": {
+    "en": "A space deck: dark navy cards, orbital pips, celestial courts, and four colours of suit instead of the usual two.",
+    "text": "Um baralho espacial: cartas azul-marinho escuro, naipes em órbita, figuras celestes e quatro cores de naipe em vez das duas de sempre."
+  },
+  "neon.blurb": {
+    "en": "A midnight arcade. Near-black cards lit cyan and magenta, with glowing two-headed courts. The sign over the table hums and stutters while you play.",
+    "text": "Um fliperama à meia-noite. Cartas quase pretas iluminadas de ciano e magenta, com figuras de duas cabeças que brilham. O letreiro sobre a mesa zumbe e falha enquanto você joga."
+  },
+  "dread.blurb": {
+    "en": "Gothic horror in soot black, dried-blood crimson and bone ash, with mirrored court portraits and reliquary aces. The table is altar stone lit by a candle that gutters under the cards.",
+    "text": "Terror gótico em preto fuligem, carmim de sangue seco e cinza de osso, com retratos de figuras espelhados e ases em relicários. A mesa é uma pedra de altar iluminada por uma vela que tremula sob as cartas."
+  },
+  "fright-night.blurb": {
+    "en": "An 80s Halloween deck on worn videotape: horror-video-cover art, the reds in hot magenta and the blacks in slime green, each ace on a haunted television, and two zombie jokers. Scanlines and a tracking bar run over the whole table. Switch table effects off and the tape pauses.",
+    "text": "Um baralho de Halloween dos anos 80 numa fita de vídeo gasta: arte de capa de filme de terror, os vermelhos em magenta vivo e os pretos em verde gosma, cada ás numa televisão assombrada, e dois coringas zumbis. Linhas de varredura e uma barra de tracking correm pela mesa inteira. Desligue os efeitos de mesa e a fita pausa."
+  },
+  "monosolid.blurb": {
+    "en": "Paper-cut shapes in two inks on a dark table: tally pips, and courts cut down to a crown, an orb and a blade.",
+    "text": "Formas de papel recortado em duas tintas sobre uma mesa escura: naipes em traços de contagem, e figuras reduzidas a uma coroa, um orbe e uma lâmina."
+  },
+  "jet-set.blurb": {
+    "en": "Mid-century air travel as a sunlit airline poster. The courts are the crew, each ace is a plane tracing its suit across the sky, the jokers fly standby, and the backs are route maps in navy and orange.",
+    "text": "As viagens aéreas de meados do século como um cartaz ensolarado de companhia aérea. As figuras são a tripulação, cada ás é um avião que desenha seu naipe no céu, os coringas voam em lista de espera, e os versos são mapas de rotas em azul-marinho e laranja."
+  },
+  "mono.blurb": {
+    "en": "Signal orange and black on bone-white stock. Every card wears its rank huge, with tally bars on the number cards and aces flooded in their colour, on a pale stone table.",
+    "text": "Laranja sinal e preto sobre papel branco-osso. Cada carta traz seu valor enorme, com barras de contagem nas cartas numeradas e ases inundados de sua cor, sobre uma mesa de pedra clara."
+  },
+  "note": {
+    "en": "Cardz also has a High-contrast deck, which follows your Windows setting, and a Colourblind deck with blue hearts and diamonds against black spades and clubs.",
+    "text": "O Cardz também tem um baralho de alto contraste, que segue sua configuração do Windows, e um baralho para daltônicos com copas e ouros em azul contra espadas e paus em preto."
+  }
+}

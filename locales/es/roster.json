@@ -1,0 +1,202 @@
+{
+  "klondike": {
+    "en": "Draw 1 & Draw 3 · The timeless original",
+    "text": "Robo 1 y robo 3 · El original de siempre"
+  },
+  "spider": {
+    "en": "1, 2 & 4 suits · Eight perfect runs",
+    "text": "1, 2 y 4 palos · Ocho escaleras perfectas"
+  },
+  "freecell": {
+    "en": "Every card in plain sight",
+    "text": "Todas las cartas a la vista"
+  },
+  "eight-off": {
+    "en": "Eight cells, and room to think",
+    "text": "Ocho celdas, y espacio para pensar"
+  },
+  "seahaven-towers": {
+    "en": "Free the Kings first",
+    "text": "Libera primero a los Reyes"
+  },
+  "yukon": {
+    "en": "Move whole tails at once",
+    "text": "Mueve colas enteras de una vez"
+  },
+  "scorpion": {
+    "en": "Lift a card, buried and all",
+    "text": "Levanta una carta, con todo lo que la cubre"
+  },
+  "forty-thieves": {
+    "en": "Two decks. No second chances.",
+    "text": "Dos barajas. Sin segundas oportunidades."
+  },
+  "beleaguered-castle": {
+    "en": "Eight open wings, no stock",
+    "text": "Ocho alas abiertas, sin mazo"
+  },
+  "bisley": {
+    "en": "Build each suit from both ends",
+    "text": "Sube cada palo por los dos extremos"
+  },
+  "flower-garden": {
+    "en": "Reach anywhere in the bouquet",
+    "text": "Llega a cualquier punto del ramo"
+  },
+  "bakers-dozen": {
+    "en": "Thirteen columns, Kings sunk first",
+    "text": "Trece columnas, los Reyes hundidos primero"
+  },
+  "golf": {
+    "en": "One rank away",
+    "text": "A un valor de distancia"
+  },
+  "tri-peaks": {
+    "en": "Clear all three peaks",
+    "text": "Despeja las tres cumbres"
+  },
+  "pyramid": {
+    "en": "Pairs add up to thirteen",
+    "text": "Parejas que suman trece"
+  },
+  "black-hole": {
+    "en": "Fifty-one cards, one way in",
+    "text": "Cincuenta y una cartas, una sola entrada"
+  },
+  "calculation": {
+    "en": "Count by one, two, three, four",
+    "text": "Cuenta de uno en uno, de dos, de tres, de cuatro"
+  },
+  "canfield": {
+    "en": "Draw 1 & Draw 3 · Foundations can start anywhere",
+    "text": "Robo 1 y robo 3 · Las fundaciones empiezan en cualquier valor"
+  },
+  "clock": {
+    "en": "Beat the fourth King",
+    "text": "Gánale al cuarto Rey"
+  },
+  "la-belle-lucie": {
+    "en": "Eighteen fans, two redeals",
+    "text": "Dieciocho abanicos, dos repartos más"
+  },
+  "crazy-quilt": {
+    "en": "Unpick the weave",
+    "text": "Deshaz el tejido"
+  },
+  "weathervane": {
+    "en": "Play an eight, name the wind",
+    "text": "Juega un ocho, elige el viento"
+  },
+  "double-klondike": {
+    "en": "Two decks, nine columns",
+    "text": "Dos barajas, nueve columnas"
+  },
+  "putt-putt": {
+    "en": "Round the corner, Jokers wild or not",
+    "text": "Dobla la esquina, con Comodines libres o no"
+  },
+  "bakers-game": {
+    "en": "FreeCell's stricter ancestor",
+    "text": "El antepasado más estricto de FreeCell"
+  },
+  "spiderette": {
+    "en": "Spider on a single deck",
+    "text": "Spider con una sola baraja"
+  },
+  "russian-solitaire": {
+    "en": "Yukon, one suit at a time",
+    "text": "Yukon, un palo cada vez"
+  },
+  "simple-simon": {
+    "en": "Four perfect runs, every card in sight",
+    "text": "Cuatro escaleras perfectas, todas las cartas a la vista"
+  },
+  "australian-patience": {
+    "en": "Loose groups, strict suits, one pass",
+    "text": "Grupos sueltos, palos estrictos, una sola pasada"
+  },
+  "aces-and-kings": {
+    "en": "Build up and down at once",
+    "text": "Sube y baja a la vez"
+  },
+  "carpet": {
+    "en": "Twenty holes, one waste to fill them",
+    "text": "Veinte huecos, un descarte para llenarlos"
+  },
+  "fourteen-out": {
+    "en": "Pairs that make fourteen, all in sight",
+    "text": "Parejas que suman catorce, todas a la vista"
+  },
+  "sultan": {
+    "en": "Crown the Sultan with eight Queens",
+    "text": "Corona al Sultán con ocho Damas"
+  },
+  "grandfathers-clock": {
+    "en": "Wind every hour up to its number",
+    "text": "Da cuerda a cada hora hasta su número"
+  },
+  "puss-in-the-corner": {
+    "en": "Red on red, black on black",
+    "text": "Rojo sobre rojo, negro sobre negro"
+  },
+  "accordion": {
+    "en": "Squeeze the deck into one pile",
+    "text": "Aprieta la baraja en un solo montón"
+  },
+  "monte-carlo": {
+    "en": "Pair off neighbours, close the gaps",
+    "text": "Empareja vecinas, cierra los huecos"
+  },
+  "gaps": {
+    "en": "Two to King, one suit to a row",
+    "text": "Del dos al Rey, un palo por fila"
+  },
+  "klondike-with-jokers": {
+    "en": "Two Jokers wild, and you can win them back",
+    "text": "Dos Comodines libres, y puedes recuperarlos"
+  },
+  "hemispheres": {
+    "en": "Red to the north, black to the south",
+    "text": "El rojo al norte, el negro al sur"
+  },
+  "die-schwierige": {
+    "en": "Two decks, two rounds, the difficult one",
+    "text": "Dos barajas, dos rondas, la difícil"
+  },
+  "royal-cotillion": {
+    "en": "Lords and ladies, dancing up by twos",
+    "text": "Damas y caballeros, bailando de dos en dos"
+  },
+  "alhambra": {
+    "en": "Build on the waste, up or down in suit",
+    "text": "Construye sobre el descarte, subiendo o bajando en el palo"
+  },
+  "stalactites": {
+    "en": "Columns that only give, by ones or by twos",
+    "text": "Columnas que solo dan, de una en una o de dos en dos"
+  },
+  "baroness": {
+    "en": "Pairs to thirteen, Kings alone",
+    "text": "Parejas que suman trece, los Reyes solos"
+  },
+  "captive-queens": {
+    "en": "Fives down, Sixes up, round a court of Queens",
+    "text": "Los Cincos bajan, los Seis suben, alrededor de una corte de Damas"
+  },
+  "faerie-queen": {
+    "en": "Every card dealt onto the newest King",
+    "text": "Cada carta repartida sobre el Rey más reciente"
+  },
+  "mount-olympus": {
+    "en": "A mountain of Aces and Twos, climbing by twos",
+    "text": "Una montaña de Ases y Doses, que sube de dos en dos"
+  },
+  "penguin": {
+    "en": "The beak picks the rank every foundation starts from",
+    "text": "El pico elige el valor inicial de cada fundación"
+  },
+  "braid": {
+    "en": "Twenty cards braided down the middle",
+    "text": "Veinte cartas trenzadas por el medio"
+  }
+}

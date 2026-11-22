@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cardz is a solitaire collection for Windows. Play the classics by the book, switch the rules off, or make a game of your own. No ads, no accounts, fully offline.">
+  <meta name="description" data-l10n-content="meta.description" content="Cardz is a solitaire collection for Windows. Play the classics by the book, switch the rules off, or make a game of your own. No ads, no accounts, fully offline.">
   <meta name="theme-color" content="#100f14">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cardz — Solitaire, your way">
-  <meta property="og:description" content="A solitaire collection for Windows. Play the classics by the book, switch the rules off, or make a game of your own.">
+  <meta property="og:title" data-l10n-content="meta.og-title" content="Cardz — Solitaire, your way">
+  <meta property="og:description" data-l10n-content="meta.og-description" content="A solitaire collection for Windows. Play the classics by the book, switch the rules off, or make a game of your own.">
   <meta property="og:url" content="https://cardz.roderic.dev/">
   <meta property="og:image" content="https://cardz.roderic.dev/assets/screenshots/klondike-1600.webp">
-  <title>Cardz — Solitaire, your way</title>
+  <title data-l10n="meta.title">Cardz — Solitaire, your way</title>
   <link rel="icon" href="assets/cardz-logo.png">
   <link rel="stylesheet" href="styles.css">
+<!-- build:head -->
+  <link rel="alternate" hreflang="en" href="https://cardz.roderic.dev/">
+  <link rel="alternate" hreflang="fr" href="https://cardz.roderic.dev/fr/">
+  <link rel="alternate" hreflang="pt-BR" href="https://cardz.roderic.dev/pt/">
+  <link rel="alternate" hreflang="es" href="https://cardz.roderic.dev/es/">
+  <link rel="alternate" hreflang="x-default" href="https://cardz.roderic.dev/">
+<!-- /build:head -->
   <script src="deck.js"></script>
 </head>
 <body class="home-page">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-l10n="skip">Skip to content</a>
 <!-- build:header -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
@@ -30,72 +37,72 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="hero-copy">
-        <p class="eyebrow light"><span></span> Solitaire for Windows</p>
-        <h1>Solitaire.<br><em>Your way.</em></h1>
-        <p class="lede">Play the classics by the book, switch the rules off when you want to, or start from a bare deck and make up a game of your own.</p>
+        <p class="eyebrow light"><span></span> <span data-l10n="hero.eyebrow">Solitaire for Windows</span></p>
+        <h1 data-l10n="hero.heading">Solitaire.<br><em>Your way.</em></h1>
+        <p class="lede" data-l10n="hero.lede">Play the classics by the book, switch the rules off when you want to, or start from a bare deck and make up a game of your own.</p>
         <div class="hero-actions">
-          <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Download from the</small>Microsoft Store</span></a>
-          <a class="text-link" href="lite.html">Or try Cardz Lite, free <span aria-hidden="true">→</span></a>
+          <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span data-l10n="cta.store"><small>Download from the</small>Microsoft Store</span></a>
+          <a class="text-link" href="lite.html" data-l10n="hero.lite">Or try Cardz Lite, free <span aria-hidden="true">→</span></a>
         </div>
-        <div class="trust-row" aria-label="Product qualities"><span>No ads</span><span>No accounts</span><span>Fully offline</span></div>
+        <div class="trust-row" aria-label="Product qualities" data-l10n-aria-label="hero.qualities"><span data-l10n="hero.no-ads">No ads</span><span data-l10n="hero.no-accounts">No accounts</span><span data-l10n="hero.offline">Fully offline</span></div>
       </div>
       <figure class="hero-art table-capture">
-        <a href="assets/screenshots/klondike-1600.webp" aria-label="View the full Klondike screenshot"><img src="assets/screenshots/klondike-1600.webp" srcset="assets/screenshots/klondike-960.webp 960w, assets/screenshots/klondike-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 65vw" alt="Klondike in Cardz, with cream Felt House cards on a green felt table" width="1600" height="900" fetchpriority="high"></a>
-        <figcaption><span>On the table</span> Klondike · Felt House <a href="games/klondike/">How to play ↗</a></figcaption>
+        <a href="assets/screenshots/klondike-1600.webp" aria-label="View the full Klondike screenshot" data-l10n-aria-label="hero.view"><img src="assets/screenshots/klondike-1600.webp" srcset="assets/screenshots/klondike-960.webp 960w, assets/screenshots/klondike-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 65vw" alt="Klondike in Cardz, with cream Felt House cards on a green felt table" data-l10n-alt="hero.alt" width="1600" height="900" fetchpriority="high"></a>
+        <figcaption><span data-l10n="hero.on-table">On the table</span> Klondike · Felt House <a href="games/klondike/" data-l10n="hero.how">How to play ↗</a></figcaption>
       </figure>
     </section>
 
     <section class="games section" id="games">
-      <div class="section-heading"><p class="eyebrow"><span></span> Games</p><h2>More than forty games.</h2></div>
+      <div class="section-heading"><p class="eyebrow"><span></span> <span data-l10n="games.eyebrow">Games</span></p><h2 data-l10n="games.heading">More than forty games.</h2></div>
       <div class="table-gallery">
-        <a class="table-tile" href="games/pyramid/"><img src="assets/screenshots/pyramid-960.webp" alt="A pyramid of Egyptian Scarab cards" width="960" height="540" loading="lazy"><div><h3>Pyramid <span aria-hidden="true">↗</span></h3><p>Pairs add up to thirteen</p><small>Scarab deck</small></div></a>
-        <a class="table-tile" href="games/freecell/"><img src="assets/screenshots/freecell-960.webp" alt="FreeCell with the minimal Deepfield deck on a dark table" width="960" height="540" loading="lazy"><div><h3>FreeCell <span aria-hidden="true">↗</span></h3><p>Every card in plain sight</p><small>Deepfield deck</small></div></a>
-        <a class="table-tile" href="games/yukon/"><img src="assets/screenshots/yukon-960.webp" alt="Yukon with richly illustrated Filigree cards" width="960" height="540" loading="lazy"><div><h3>Yukon <span aria-hidden="true">↗</span></h3><p>Move whole tails at once</p><small>Filigree deck</small></div></a>
-        <a class="table-tile" href="games/la-belle-lucie/"><img src="assets/screenshots/la-belle-lucie-960.webp" alt="La Belle Lucie with Olympus cards arranged in radial fans" width="960" height="540" loading="lazy"><div><h3>La Belle Lucie <span aria-hidden="true">↗</span></h3><p>Eighteen fans, two redeals</p><small>Olympus deck</small></div></a>
-        <a class="table-tile" href="games/canfield/"><img src="assets/screenshots/canfield-960.webp" alt="Canfield with botanical Herbarium cards" width="960" height="540" loading="lazy"><div><h3>Canfield <span aria-hidden="true">↗</span></h3><p>The first card sets the pace</p><small>Herbarium deck</small></div></a>
-        <a class="table-tile" href="games/crazy-quilt/"><img src="assets/screenshots/crazy-quilt-960.webp" alt="Crazy Quilt with Valhalla cards woven into a lattice" width="960" height="540" loading="lazy"><div><h3>Crazy Quilt <span aria-hidden="true">↗</span></h3><p>Unpick the weave</p><small>Valhalla deck</small></div></a>
+        <a class="table-tile" href="games/pyramid/"><img src="assets/screenshots/pyramid-960.webp" data-l10n-alt="tile.pyramid.alt" alt="A pyramid of Egyptian Scarab cards" width="960" height="540" loading="lazy"><div><h3>Pyramid <span aria-hidden="true">↗</span></h3><p data-l10n="tile.pyramid.text">Pairs add up to thirteen</p><small data-l10n="tile.pyramid.deck">Scarab deck</small></div></a>
+        <a class="table-tile" href="games/freecell/"><img src="assets/screenshots/freecell-960.webp" data-l10n-alt="tile.freecell.alt" alt="FreeCell with the minimal Deepfield deck on a dark table" width="960" height="540" loading="lazy"><div><h3>FreeCell <span aria-hidden="true">↗</span></h3><p data-l10n="tile.freecell.text">Every card in plain sight</p><small data-l10n="tile.freecell.deck">Deepfield deck</small></div></a>
+        <a class="table-tile" href="games/yukon/"><img src="assets/screenshots/yukon-960.webp" data-l10n-alt="tile.yukon.alt" alt="Yukon with richly illustrated Filigree cards" width="960" height="540" loading="lazy"><div><h3>Yukon <span aria-hidden="true">↗</span></h3><p data-l10n="tile.yukon.text">Move whole tails at once</p><small data-l10n="tile.yukon.deck">Filigree deck</small></div></a>
+        <a class="table-tile" href="games/la-belle-lucie/"><img src="assets/screenshots/la-belle-lucie-960.webp" data-l10n-alt="tile.la-belle-lucie.alt" alt="La Belle Lucie with Olympus cards arranged in radial fans" width="960" height="540" loading="lazy"><div><h3>La Belle Lucie <span aria-hidden="true">↗</span></h3><p data-l10n="tile.la-belle-lucie.text">Eighteen fans, two redeals</p><small data-l10n="tile.la-belle-lucie.deck">Olympus deck</small></div></a>
+        <a class="table-tile" href="games/canfield/"><img src="assets/screenshots/canfield-960.webp" data-l10n-alt="tile.canfield.alt" alt="Canfield with botanical Herbarium cards" width="960" height="540" loading="lazy"><div><h3>Canfield <span aria-hidden="true">↗</span></h3><p data-l10n="tile.canfield.text">The first card sets the pace</p><small data-l10n="tile.canfield.deck">Herbarium deck</small></div></a>
+        <a class="table-tile" href="games/crazy-quilt/"><img src="assets/screenshots/crazy-quilt-960.webp" data-l10n-alt="tile.crazy-quilt.alt" alt="Crazy Quilt with Valhalla cards woven into a lattice" width="960" height="540" loading="lazy"><div><h3>Crazy Quilt <span aria-hidden="true">↗</span></h3><p data-l10n="tile.crazy-quilt.text">Unpick the weave</p><small data-l10n="tile.crazy-quilt.deck">Valhalla deck</small></div></a>
       </div>
-      <a class="feature-link games-link" href="games/">See all the games <span aria-hidden="true">→</span></a>
+      <a class="feature-link games-link" href="games/" data-l10n="games.all">See all the games <span aria-hidden="true">→</span></a>
     </section>
 
     <div class="court-band court-band-felt-house" role="presentation"></div>
 
     <section class="home-decks section" id="decks">
-      <div class="section-heading"><p class="eyebrow light"><span></span> Decks</p><h2>Each deck takes you places.</h2><p>Switch at any time, even mid-game.</p></div>
+      <div class="section-heading"><p class="eyebrow light"><span></span> <span data-l10n="decks.eyebrow">Decks</span></p><h2 data-l10n="decks.heading">Each deck takes you places.</h2><p data-l10n="decks.lede">Switch at any time, even mid-game.</p></div>
       <div class="deck-strip">
-        <a class="deck-fan" href="decks.html#felt-house"><img src="assets/decks/felt-house.webp" width="595" height="384" loading="lazy" alt="Three cards from the Felt House deck"><span>Felt House</span></a>
-        <a class="deck-fan" href="decks.html#valhalla"><img src="assets/decks/valhalla.webp" width="595" height="384" loading="lazy" alt="Three cards from the Valhalla deck"><span>Valhalla</span></a>
-        <a class="deck-fan" href="decks.html#scarab"><img src="assets/decks/scarab.webp" width="595" height="384" loading="lazy" alt="Three cards from the Scarab deck"><span>Scarab</span></a>
-        <a class="deck-fan" href="decks.html#neon"><img src="assets/decks/neon.webp" width="595" height="384" loading="lazy" alt="Three cards from the Neon deck"><span>Neon</span></a>
+        <a class="deck-fan" href="decks.html#felt-house"><img src="assets/decks/felt-house.webp" width="595" height="384" loading="lazy" data-l10n-alt="decks.felt-house.alt" alt="Three cards from the Felt House deck"><span>Felt House</span></a>
+        <a class="deck-fan" href="decks.html#valhalla"><img src="assets/decks/valhalla.webp" width="595" height="384" loading="lazy" data-l10n-alt="decks.valhalla.alt" alt="Three cards from the Valhalla deck"><span>Valhalla</span></a>
+        <a class="deck-fan" href="decks.html#scarab"><img src="assets/decks/scarab.webp" width="595" height="384" loading="lazy" data-l10n-alt="decks.scarab.alt" alt="Three cards from the Scarab deck"><span>Scarab</span></a>
+        <a class="deck-fan" href="decks.html#neon"><img src="assets/decks/neon.webp" width="595" height="384" loading="lazy" data-l10n-alt="decks.neon.alt" alt="Three cards from the Neon deck"><span>Neon</span></a>
       </div>
-      <a class="feature-link" href="decks.html">See all the decks <span aria-hidden="true">→</span></a>
+      <a class="feature-link" href="decks.html" data-l10n="decks.all">See all the decks <span aria-hidden="true">→</span></a>
     </section>
 
     <div class="court-band court-band-valhalla" role="presentation"></div>
 
     <section class="sandbox section" id="sandbox">
-      <div class="sandbox-copy"><p class="eyebrow light"><span></span> Sandbox</p><h2>A deck.<br><em>No rules.</em></h2><p>A table and a deck. Move cards anywhere and make up a game as you go.</p><ul><li><span>01</span>Twelve table modes</li><li><span>02</span>One deck or two, with or without jokers</li><li><span>03</span>Keep a layout and its deal, and play it again</li></ul><a class="button sandbox-button" href="sandbox.html">How Sandbox works <span aria-hidden="true">→</span></a><a class="make-callout" href="make-a-game.html"><span>Want rules after all?</span> Write your own game, by hand or with an AI assistant. <b>Make a game <span aria-hidden="true">↗</span></b></a></div>
-      <figure class="table-capture sandbox-capture"><a href="assets/screenshots/sandbox-monosolid-1600.webp" aria-label="View the full Sandbox screenshot"><img src="assets/screenshots/sandbox-monosolid-960.webp" srcset="assets/screenshots/sandbox-monosolid-960.webp 960w, assets/screenshots/sandbox-monosolid-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 55vw" alt="Sandbox with Monosolid cards arranged in columns and a fan, empty landing spots, and the table tools open" width="1600" height="900" loading="lazy"></a><figcaption><span>Sandbox</span> Monosolid deck</figcaption></figure>
+      <div class="sandbox-copy"><p class="eyebrow light"><span></span> <span data-l10n="sandbox.eyebrow">Sandbox</span></p><h2 data-l10n="sandbox.heading">A deck.<br><em>No rules.</em></h2><p data-l10n="sandbox.lede">A table and a deck. Move cards anywhere and make up a game as you go.</p><ul><li><span>01</span><span data-l10n="sandbox.modes">Twelve table modes</span></li><li><span>02</span><span data-l10n="sandbox.decks">One deck or two, with or without jokers</span></li><li><span>03</span><span data-l10n="sandbox.keep">Keep a layout and its deal, and play it again</span></li></ul><a class="button sandbox-button" href="sandbox.html" data-l10n="sandbox.how">How Sandbox works <span aria-hidden="true">→</span></a><a class="make-callout" href="make-a-game.html" data-l10n="sandbox.make"><span>Want rules after all?</span> Write your own game, by hand or with an AI assistant. <b>Make a game <span aria-hidden="true">↗</span></b></a></div>
+      <figure class="table-capture sandbox-capture"><a href="assets/screenshots/sandbox-monosolid-1600.webp" aria-label="View the full Sandbox screenshot" data-l10n-aria-label="sandbox.view"><img src="assets/screenshots/sandbox-monosolid-960.webp" srcset="assets/screenshots/sandbox-monosolid-960.webp 960w, assets/screenshots/sandbox-monosolid-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 55vw" data-l10n-alt="sandbox.alt" alt="Sandbox with Monosolid cards arranged in columns and a fan, empty landing spots, and the table tools open" width="1600" height="900" loading="lazy"></a><figcaption><span>Sandbox</span> <span data-l10n="sandbox.caption">Monosolid deck</span></figcaption></figure>
     </section>
 
     <section class="details section" id="details">
-      <div class="section-heading"><h2>The details</h2></div>
+      <div class="section-heading"><h2 data-l10n="details.heading">The details</h2></div>
       <div class="feature-grid">
-        <article><h3>Any input</h3><p>Touch, pen, mouse or keyboard.</p></article>
-        <article><h3>Saves as you play</h3><p>Close the app. Your game is there when you come back.</p></article>
-        <article><h3>Hints</h3><p>Stuck? Ask for one. Or switch the rules off and move any card.</p></article>
-        <article><h3>Accessible</h3><p>High contrast, a colourblind-friendly deck, reduced motion, screen-reader narration and full keyboard play.</p></article>
+        <article><h3 data-l10n="details.input">Any input</h3><p data-l10n="details.input-text">Touch, pen, mouse or keyboard.</p></article>
+        <article><h3 data-l10n="details.saves">Saves as you play</h3><p data-l10n="details.saves-text">Close the app. Your game is there when you come back.</p></article>
+        <article><h3 data-l10n="details.hints">Hints</h3><p data-l10n="details.hints-text">Stuck? Ask for one. Or switch the rules off and move any card.</p></article>
+        <article><h3 data-l10n="details.accessible">Accessible</h3><p data-l10n="details.accessible-text">High contrast, a colourblind-friendly deck, reduced motion, screen-reader narration and full keyboard play.</p></article>
       </div>
     </section>
 
     <section class="final-cta">
-      <h2>Deal yourself<br><em>a good hand.</em></h2>
-      <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Download from the</small>Microsoft Store</span></a>
-      <small>For Windows 10 and Windows 11 · <a href="lite.html">Or try Cardz Lite, free</a></small>
+      <h2 data-l10n="final.heading">Deal yourself<br><em>a good hand.</em></h2>
+      <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span data-l10n="cta.store"><small>Download from the</small>Microsoft Store</span></a>
+      <small data-l10n="final.windows">For Windows 10 and Windows 11 · <a href="lite.html">Or try Cardz Lite, free</a></small>
     </section>
   </main>
 <!-- build:footer -->
-  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="lite.html">Cardz Lite</a><a href="privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>
+  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="lite.html">Cardz Lite</a><a href="privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><nav class="language-switch" aria-label="Languages"><a href="./" lang="en" aria-current="true">English</a><a href="fr/" lang="fr" hreflang="fr">Français</a><a href="pt/" lang="pt-BR" hreflang="pt-BR">Português</a><a href="es/" lang="es" hreflang="es">Español</a></nav><small>© 2026 Cardz</small></footer>
 <!-- /build:footer -->
 </body>
 </html>

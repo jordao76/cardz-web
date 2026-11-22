@@ -109,6 +109,42 @@ The hand-written pages (`index.html`, `lite.html`, `sandbox.html`,
 the generated pages use, so the navigation is written once. Edit it there, not in
 a page.
 
+## Languages
+
+The site is built in English, French, Brazilian Portuguese and Spanish: English at
+the root, the others under `fr/`, `pt/` and `es/`, all written by `node build.mjs`.
+The translations are kept apart from the code, the way .NET keeps them in
+satellite assemblies: English stays where it is written, inline in `build.mjs` and
+in the hand-written pages, and each language is a folder under `locales/` that the
+build reads beside it. `i18n.mjs` has the details; in short:
+
+- `locales/<code>/site.json` is what `build.mjs` writes (chrome, game pages, decks),
+  `roster.json` and `decks.json` translate the editorial files by slug,
+  `design-kit.json` the notes on design files, and `pages/<page>.json` a
+  hand-written page.
+- Each entry is `{ "en": …, "text": … }`: the English it was translated from, and
+  the translation. When the English in the code changes, the build reports the
+  entry as stale until someone reads it again. `text: null` is not translated yet.
+- A missing string falls back to English and the build lists it. A hand-written
+  page is published in a language only once every string it marks is translated;
+  until then that language links to the English page.
+- A hand-written page marks its prose with `data-l10n="key"` (an element's
+  content) and `data-l10n-alt="key"`, `data-l10n-content="key"` and the like (an
+  attribute). Nothing else reads the marks.
+- The rules, variant names and axes come from the app: cardz-win's
+  `export-games.ps1` writes `data/games.<code>.json` beside `games.json`. A game
+  a language's file lacks keeps only its English page.
+
+After changing English the build asks for, or marking a new string on a page:
+
+```powershell
+node build.mjs --sync   # adds new keys with text: null, marks changed ones stale, drops unused ones
+```
+
+Then fill in `text` and build again. Make a game and Privacy have no
+translations yet, so they stay English in every language, and so do the design
+files themselves.
+
 ## Make a game is half generated
 
 `make-a-game.html` is hand-written around marked regions that `build.mjs`
@@ -138,7 +174,7 @@ a page would offer a design file the kit did not write, so run both exports afte
 an extra changes.
 
 See `docs/website-plan.md` in the app repo for why it is built this way and
-what comes next (headless board renders, localized pages). Its "Refreshing the
+what comes next (headless board renders). Its "Refreshing the
 site" section lists every export in one table: what each writes, what it needs,
 and when to run it.
 

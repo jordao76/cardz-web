@@ -1,6 +1,17 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+// A page in another language carries these words in #site-strings (build.mjs).
+const text = (() => {
+  try {
+    return JSON.parse(document.getElementById('site-strings')?.textContent ?? '{}');
+  } catch {
+    return {};
+  }
+})();
+const say = (key, english, vars = {}) =>
+  (text[key] ?? english).replace(/\{(\w+)\}/g, (whole, name) => vars[name] ?? whole);
 const demos = [...document.querySelectorAll('.mode-demo video')].map((video) => {
-  const name = video.getAttribute('aria-label').replace(' demonstration', '');
+  // The video's own label ("Fish mode demonstration"), in whatever language the page is.
+  const name = video.getAttribute('aria-label');
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'demo-toggle';
@@ -12,8 +23,13 @@ const demos = [...document.querySelectorAll('.mode-demo video')].map((video) => 
   video.loop = true;
   const demo = { video, button, visible: false, enabled: !reducedMotion.matches };
   const label = () => {
-    button.textContent = video.paused ? 'Play demo' : 'Pause demo';
-    button.setAttribute('aria-label', `${video.paused ? 'Play' : 'Pause'} ${name} demonstration`);
+    button.textContent = video.paused ? say('play', 'Play demo') : say('pause', 'Pause demo');
+    button.setAttribute(
+      'aria-label',
+      video.paused
+        ? say('playNamed', 'Play {name}', { name })
+        : say('pauseNamed', 'Pause {name}', { name })
+    );
   };
   video.addEventListener('play', label);
   video.addEventListener('pause', label);
@@ -28,7 +44,7 @@ const demos = [...document.querySelectorAll('.mode-demo video')].map((video) => 
 function sync(demo) {
   if (demo.enabled && demo.visible && !document.hidden) {
     demo.video.play().catch(() => {
-      demo.button.textContent = 'Play demo';
+      demo.button.textContent = say('play', 'Play demo');
     });
   } else {
     demo.video.pause();
