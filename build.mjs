@@ -20,6 +20,7 @@
 //   node build.mjs --sync   also brings locales/ in line with what the build asked
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { boardDiagram } from "./diagram.mjs";
@@ -949,7 +950,23 @@ function fillRegions(html, regions, file) {
 function emit(path, html) {
   const out = join(root, here.locale.dir, path);
   mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(out, html, "utf8");
+  writeFileSync(out, versioned(html), "utf8");
+}
+
+// The site's stylesheet and scripts, each linked with a fingerprint of its
+// contents (`styles.css?v=3f2a9c1b`). GitHub Pages lets a browser keep a file for
+// ten minutes, so without one a returning reader can get a new page with the old
+// stylesheet, and see whatever the new page adds unstyled. With it, a page asks
+// for exactly the files it was built with.
+const VERSIONED = ["styles.css", "deck.js", "languages.js", "mode-demos.js"];
+const fingerprints = Object.fromEntries(
+  VERSIONED.map((file) => [file, createHash("sha256").update(readFileSync(join(root, file))).digest("hex").slice(0, 8)])
+);
+const versionedLink = new RegExp(`(\\s(?:href|src)="(?:\\.\\./)*)(${VERSIONED.map((file) => file.replace(".", "\\.")).join("|")})(?:\\?v=[0-9a-f]*)?"`, "g");
+
+/** A page with its stylesheet and script links carrying their current fingerprints. */
+function versioned(html) {
+  return html.replace(versionedLink, (_, before, file) => `${before}${file}?v=${fingerprints[file]}"`);
 }
 
 // ---------------------------------------------------------------- run
@@ -1011,7 +1028,7 @@ for (const language of languages) {
       footer: pageChrome.footer,
       ...regionsOf[page](),
     };
-    if (language.locale === NEUTRAL) writeFileSync(join(root, `${page}.html`), fillRegions(sources[page], regions, `${page}.html`), "utf8");
+    if (language.locale === NEUTRAL) writeFileSync(join(root, `${page}.html`), versioned(fillRegions(sources[page], regions, `${page}.html`)), "utf8");
     else {
       const english = language.english.has(`${page}.html`);
       // A page this language has not translated keeps its English inside, marked

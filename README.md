@@ -193,3 +193,9 @@ and when to run it.
 The site can be deployed as-is to Netlify, Cloudflare Pages, or any static host.
 For GitHub Pages, publish the `main` branch from the repository root. The
 `.nojekyll` marker keeps the site on the direct static-file path.
+
+GitHub Pages lets a browser keep each file for ten minutes, so `build.mjs` links
+`styles.css`, `deck.js`, `languages.js` and `mode-demos.js` with a fingerprint of
+their contents (`styles.css?v=3f2a9c1b`). A page then always loads the stylesheet
+and scripts it was built with. Change one of them, and run `node build.mjs` before
+committing so every page picks up the new fingerprint.
