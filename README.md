@@ -131,6 +131,14 @@ build reads beside it. `i18n.mjs` has the details; in short:
 - A hand-written page marks its prose with `data-l10n="key"` (an element's
   content) and `data-l10n-alt="key"`, `data-l10n-content="key"` and the like (an
   attribute). Nothing else reads the marks.
+- Every page has a language menu in the header (a globe and the language's
+  code; on a phone, the end of the nav row) and the same list in the footer. Each
+  language links to this page in it, or to its home page when it has no
+  translation of this page.
+- Nothing redirects. On an English page, `languages.js` offers a reader whose
+  browser prefers French, Portuguese or Spanish a bar above the header, in that
+  language. Choosing a language anywhere, or closing the bar, is remembered on the
+  device (`cardz-language` in local storage), and the bar does not come back.
 - The rules, variant names and axes come from the app: cardz-win's
   `export-games.ps1` writes `data/games.<code>.json` beside `games.json`. A game
   a language's file lacks keeps only its English page.
