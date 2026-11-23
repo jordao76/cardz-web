@@ -1024,7 +1024,9 @@ for (const language of languages) {
       if (english) {
         if ((html.match(/<main\b/g) ?? []).length !== 1) throw new Error(`${page}.html: expected one <main>`);
         html = html
-          .replace(/<main\b/, '<main lang="en"')
+          .replace(/<main\b([^>]*)>/, (_, attributes) =>
+            `<main lang="en"${attributes}>\n    <p class="english-only" lang="${language.locale.tag}">${s("english-only", "This page is only available in English.")}</p>`
+          )
           .replace(/(<a class="skip-link" href="#main">)[^<]*/, `$1${s("skip", "Skip to content")}`);
         regions.head = `${regions.head ? `${regions.head}\n` : ""}  <link rel="canonical" href="${SITE}${hrefOf(`${page}.html`)}">`;
       } else {

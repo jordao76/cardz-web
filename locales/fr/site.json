@@ -358,5 +358,9 @@
   "header.get-lite": {
     "en": "Get Cardz Lite",
     "text": "Obtenir Cardz Lite"
+  },
+  "english-only": {
+    "en": "This page is only available in English.",
+    "text": "Cette page n'existe qu'en anglais."
   }
 }

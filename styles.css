@@ -169,6 +169,8 @@ footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 
 /* A long read is one sheet on the felt: a game's rules, Make a game, the policy. */
 .game-main, .policy-main, .format-main { padding: 1rem 1rem 4rem; }
+/* Above a hand-written page a language has not translated: says why the page is in English. */
+.english-only { max-width: 840px; margin: 0 auto 1rem; color: var(--soft); font: italic .95rem var(--serif); text-align: center; }
 .game-shell, .policy-shell, .format-shell { max-width: 840px; margin: 0 auto; padding: clamp(1.4rem, 5vw, 3.5rem); background: var(--card); color: var(--ink); border: 1px solid var(--card-edge); border-radius: 14px; box-shadow: var(--lift); }
 .game-shell .eyebrow, .policy-shell .eyebrow, .format-shell .eyebrow, .policy-date, .game-cta > small, .game-more a, .game-capture figcaption { color: var(--dim); }
 .back-link { display: inline-block; margin-bottom: 1.2rem; font-size: .9rem; }
