@@ -125,8 +125,10 @@ build reads beside it. `i18n.mjs` has the details; in short:
   the translation. When the English in the code changes, the build reports the
   entry as stale until someone reads it again. `text: null` is not translated yet.
 - A missing string falls back to English and the build lists it. A hand-written
-  page is published in a language only once every string it marks is translated;
-  until then that language links to the English page.
+  page is in a language's own words only once every string it marks is
+  translated; until then the language still has the page, with its own header and
+  footer around the English (marked `lang="en"`, and naming the English page as
+  canonical), so a link never drops a reader's language.
 - A hand-written page marks its prose with `data-l10n="key"` (an element's
   content) and `data-l10n-alt="key"`, `data-l10n-content="key"` and the like (an
   attribute). Nothing else reads the marks.
@@ -148,9 +150,10 @@ After changing English the build asks for, or marking a new string on a page:
 node build.mjs --sync   # adds new keys with text: null, marks changed ones stale, drops unused ones
 ```
 
-Then fill in `text` and build again. Make a game and Privacy have no
-translations yet, so they stay English in every language, and so do the design
-files themselves.
+Then fill in `text` and build again. Make a game and Privacy are English inside
+every language's header and footer: Make a game is the design reference, which
+changes often and which authors and agents read in English, and Privacy has no
+translation yet. The design files themselves are English too.
 
 ## Make a game is half generated
 
