@@ -481,7 +481,7 @@ ${alternates ? `${alternates}\n` : ""}${`${scriptStrings}${offers}${languageScri
   </header>`,
     footer: `  <footer><a class="brand" href="${link("index.html")}"><span aria-hidden="true">✣</span> Cardz</a><p>${s("footer.tagline", "Solitaire, your way.")}</p><div>${NAV.map(
       ([slug, href, label]) => `<a href="${link(href)}">${s(`nav.${slug}`, label)}</a>`
-    ).join("")}<a href="${link("privacy.html")}">${s("footer.privacy", "Privacy")}</a><a href="mailto:cardz@roderic.dev">${s("footer.contact", "Contact")}</a></div><nav class="language-switch" aria-label="${s("footer.languages", "Languages")}">${languageLinks}</nav><small>© 2026 Cardz</small></footer>`,
+    ).join("")}<a href="${link("privacy.html")}">${s("footer.privacy", "Privacy")}</a><a href="mailto:cardz@roderic.dev">${s("footer.contact", "Contact")}</a></div><small>© 2026 Cardz</small></footer>`,
   };
 }
 

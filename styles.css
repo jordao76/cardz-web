@@ -120,8 +120,6 @@ footer { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem;
 footer .brand { margin-right: auto; color: var(--ivory); }
 footer p { margin: 0; }
 footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
-footer .language-switch { display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
-footer .language-switch a[aria-current] { color: var(--ivory); text-decoration: none; font-weight: 600; }
 /* The header's language menu: a globe and the language's code, opening a short list. */
 .language-menu { position: relative; }
 .language-menu summary { display: flex; align-items: center; gap: .35rem; padding: .55rem .6rem; border: 1.5px solid var(--slot); border-radius: 8px; font-size: .8rem; letter-spacing: .04em; cursor: pointer; list-style: none; }

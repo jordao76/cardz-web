@@ -25,7 +25,7 @@
 
   const menu = document.querySelector('.language-menu');
   document.addEventListener('click', (event) => {
-    const choice = event.target.closest('.language-menu a, .language-switch a, .language-offer a');
+    const choice = event.target.closest('.language-menu a, .language-offer a');
     if (choice) remember(codeOf(choice.lang));
     if (menu?.open && !menu.contains(event.target)) menu.open = false;
   });
