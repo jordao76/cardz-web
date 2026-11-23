@@ -83,10 +83,6 @@
     "en": "Contact",
     "text": "Contact"
   },
-  "footer.languages": {
-    "en": "Languages",
-    "text": "Langues"
-  },
   "facts.variants": {
     "en": "{axis}: {labels}",
     "text": "{axis} : {labels}"

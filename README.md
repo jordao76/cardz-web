@@ -132,7 +132,7 @@ build reads beside it. `i18n.mjs` has the details; in short:
   content) and `data-l10n-alt="key"`, `data-l10n-content="key"` and the like (an
   attribute). Nothing else reads the marks.
 - Every page has a language menu in the header (a globe and the language's
-  code; on a phone, the end of the nav row) and the same list in the footer. Each
+  code; on a phone, the end of the nav row). Each
   language links to this page in it, or to its home page when it has no
   translation of this page.
 - Nothing redirects. On an English page, `languages.js` offers a reader whose
