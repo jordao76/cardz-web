@@ -51,7 +51,7 @@ figure { margin: 0; }
 .skip-link { position: fixed; top: -4rem; left: 1rem; background: var(--card); color: var(--ink); padding: .6rem 1rem; z-index: 10; }
 .skip-link:focus { top: 1rem; }
 .eyebrow { margin: 0 0 .5rem; font: italic .95rem var(--serif); color: var(--soft); }
-.eyebrow span, .court-band { display: none; }
+.eyebrow > span:empty, .court-band { display: none; }
 .lede { font-size: 1.15rem; color: var(--soft); max-width: 32rem; }
 
 /* Header: brand, a row of landing spots, the Store button. */
@@ -105,7 +105,7 @@ figure { margin: 0; }
 .deck-fan span { display: block; margin-top: .8rem; font: 1.25rem var(--serif); }
 .sandbox ul { list-style: none; padding: 0; margin: 1.2rem 0; }
 .sandbox li { padding: .55rem 0; border-top: 1px solid var(--slot); }
-.sandbox li span { display: none; }
+.sandbox li > span:first-child { display: none; }
 .sandbox-copy > p:not(.eyebrow) { color: var(--soft); }
 .make-callout { display: block; margin-top: 1.6rem; padding: 1rem 1.2rem; border: 1.5px dashed var(--slot); border-radius: 10px; text-decoration: none; color: var(--soft); }
 .make-callout:hover { border-color: var(--ivory); }
