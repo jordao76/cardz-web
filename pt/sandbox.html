@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Monte sua própria mesa de cartas no Sandbox do Cardz. Mova as cartas à vontade, guarde a disposição e sua distribuição, e jogue de novo em Seus jogos.">
+  <meta name="theme-color" content="#100f14">
+  <title>Sandbox — Cardz</title>
+  <link rel="icon" href="../assets/cardz-logo.png">
+  <link rel="stylesheet" href="../styles.css">
+<!-- build:head -->
+  <link rel="alternate" hreflang="en" href="https://cardz.roderic.dev/sandbox.html">
+  <link rel="alternate" hreflang="fr" href="https://cardz.roderic.dev/fr/sandbox.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://cardz.roderic.dev/pt/sandbox.html">
+  <link rel="alternate" hreflang="es" href="https://cardz.roderic.dev/es/sandbox.html">
+  <link rel="alternate" hreflang="x-default" href="https://cardz.roderic.dev/sandbox.html">
+  <script type="application/json" id="site-strings">{"home":"./","deckPicker":"Vestir este site com outro baralho","deckButton":"Baralho {name}","heroAlt":"{game} no Cardz, com o baralho {name}","heroLink":"Como jogar ↗","decksHint":"Troque quando quiser, até no meio da partida. Escolha um, e este site se veste com ele também.","play":"Reproduzir demo","pause":"Pausar demo","playNamed":"Reproduzir: {name}","pauseNamed":"Pausar: {name}"}</script>
+<!-- /build:head -->
+  <script src="../deck.js"></script>
+</head>
+<body class="sandbox-page">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+<!-- build:header -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Página inicial do Cardz"><span aria-hidden="true">✣</span> Cardz</a>
+    <nav aria-label="Navegação principal">
+      <a href="games/">Jogos</a><a href="decks.html">Baralhos</a><a href="sandbox.html" aria-current="page">Sandbox</a><a href="../make-a-game.html">Crie um jogo</a><a href="lite.html">Cardz Lite</a>
+    </nav>
+    <a class="button button-small" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=pt-br">Baixar o Cardz</a>
+  </header>
+<!-- /build:header -->
+  <main id="main">
+    <section class="sandbox-hero">
+      <div><p class="eyebrow light"><span></span> <span>Sandbox</span></p><h1>Só um baralho.<br><em>Nenhuma regra.</em></h1><p class="lede">Coloque qualquer carta em qualquer lugar. Invente um jogo, relembre um favorito da família, teste uma ideia — ou simplesmente faça uma bagunça gostosa.</p></div>
+      <div class="sandbox-deck" aria-hidden="true"><img class="demo-card" src="../assets/cards/filigree-queen-spades.webp" alt="" width="252" height="342" loading="lazy"><img class="demo-card" src="../assets/cards/scarab-back.webp" alt="" width="252" height="342" loading="lazy"><img class="demo-card" src="../assets/cards/ornamental-seven-diamonds.webp" alt="" width="252" height="342" loading="lazy"></div>
+    </section>
+    <section class="sandbox-intro"><div><p class="eyebrow"><span></span> <span>Como funciona</span></p><h2>Três gestos.<br>Doze modos.</h2></div><div><p>Arraste para mover, toque duas vezes para virar, e solte perto de um depósito para encaixar. É só disso que você precisa. Quando quiser mais controle, os modos da barra de ferramentas mudam o que o próximo gesto faz.</p></div></section>
+    <section aria-label="Como os modos funcionam">
+      <ul class="mode-basics">
+        <li><h3>Para um gesto só</h3><p>Clique em um chip ou aperte a tecla dele. O modo vale para o próximo arraste ou toque duplo, e depois se desliga sozinho.</p></li>
+        <li><h3>Ou deixe ligado</h3><p>Segure Ctrl ao apertar a tecla, ou mantenha o chip pressionado, e o modo fica ligado até você desligá-lo.</p></li>
+        <li><h3>Combine os modos</h3><p>Grab define uma quantidade que Fish, Spread e Order usam em seguida. Rotate gira tudo o que All, Spread, Fish ou Grab pegar.</p></li>
+      </ul>
+    </section>
+
+    <section class="mode-group" id="modes" aria-labelledby="carry-title">
+      <div class="mode-group-head">
+        <p class="eyebrow"><span></span> <span>Modos de mesa</span></p>
+        <h2 id="carry-title">O que vai junto com a carta</h2>
+        <p>Um arraste levanta a carta que você toca e tudo o que está em leque por cima dela. Estes modos mudam o que vai junto.</p>
+      </div>
+      <article class="mode-demo" id="fish-demo" aria-labelledby="fish-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">F</span><h3 id="fish-title">Fish</h3></div>
+          <p>Puxe uma única carta de dentro de uma pilha. As cartas por cima dela ficam para trás; em um depósito, as outras fecham o espaço.</p>
+          <p id="fish-description">Veja a dama de copas deslizar de baixo do seis de paus e cair na pilha vazia, enquanto o leque se fecha atrás dela.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/fish-poster.webp" width="1210" height="500" aria-label="Demonstração do modo Fish" aria-describedby="fish-description">
+            <source src="../assets/demos/fish.mp4" type="video/mp4">
+            <a href="../assets/demos/fish.mp4">Assista à demonstração do Fish</a>
+          </video>
+          <figcaption>Gravado no Cardz · Fish</figcaption>
+        </figure>
+      </article>
+      <article class="mode-demo" id="grab-demo" aria-labelledby="grab-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">G</span><h3 id="grab-title">Grab</h3></div>
+          <p>Pegue as cartas de cima de uma pilha como um único maço. Clique no chip para alternar entre 2, 3 e 5, ou aperte um número de 2 a 9. Com Fish, o maço pode vir de qualquer ponto da pilha.</p>
+          <p id="grab-description">Veja três cartas vermelhas saírem juntas do meio do leque, deixando as cartas dos dois lados onde estavam.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/grab-poster.webp" width="1214" height="500" aria-label="Demonstração do modo Grab" aria-describedby="grab-description">
+            <source src="../assets/demos/grab.mp4" type="video/mp4">
+            <a href="../assets/demos/grab.mp4">Assista à demonstração do Grab</a>
+          </video>
+          <figcaption>Gravado no Cardz · Grab + Fish</figcaption>
+        </figure>
+      </article>
+      <article class="mode-demo" id="trawl-demo" aria-labelledby="trawl-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">T</span><h3 id="trawl-title">Trawl</h3></div>
+          <p>Arraste por cartas soltas e cada uma entra no seu arraste quando você passa por cima. Cartas em um depósito nunca são recolhidas.</p>
+          <p id="trawl-description">Veja a dama de copas varrer a mesa para a esquerda e recolher três cartas soltas pelo caminho.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/trawl-poster.webp" width="1218" height="486" aria-label="Demonstração do modo Trawl" aria-describedby="trawl-description">
+            <source src="../assets/demos/trawl.mp4" type="video/mp4">
+            <a href="../assets/demos/trawl.mp4">Assista à demonstração do Trawl</a>
+          </video>
+          <figcaption>Gravado no Cardz · Trawl</figcaption>
+        </figure>
+      </article>
+      <div class="modes-grid">
+        <article class="mode-card"><div class="mode-top"><span class="mode-key" aria-hidden="true">A</span><h3>All</h3></div><p>Pegue todas as cartas da pilha que se tocam, por mais bagunçada que esteja. No toque duplo, vire o grupo inteiro de uma vez.</p></article>
+      </div>
+    </section>
+
+    <section class="mode-group" aria-labelledby="land-title">
+      <div class="mode-group-head">
+        <h2 id="land-title">Como as cartas pousam</h2>
+        <p>Dê forma às cartas enquanto elas se movem: abra-as em leque, junte-as, ou coloque uma no lugar certo.</p>
+      </div>
+      <article class="mode-demo" id="spread-demo" aria-labelledby="spread-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">S</span><h3 id="spread-title">Spread</h3></div>
+          <p>Arraste a carta de cima de uma pilha e a pilha se abre em leque atrás dela, na direção em que você arrastar. A carta de baixo fica onde está.</p>
+          <p id="spread-description">Veja a pilha se abrir atrás da dama de copas enquanto ela é arrastada para a direita.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/spread-poster.webp" width="1214" height="494" aria-label="Demonstração do modo Spread" aria-describedby="spread-description">
+            <source src="../assets/demos/spread.mp4" type="video/mp4">
+            <a href="../assets/demos/spread.mp4">Assista à demonstração do Spread</a>
+          </video>
+          <figcaption>Gravado no Cardz · Spread</figcaption>
+        </figure>
+      </article>
+      <article class="mode-demo" id="corral-demo" aria-labelledby="corral-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">C</span><h3 id="corral-title">Corral</h3></div>
+          <p>Arraste uma carta de um amontoado sobreposto e as outras se juntam a ela, formando uma pilha, coluna, linha ou leque. Clique com o botão direito no chip para escolher a forma.</p>
+          <p id="corral-description">Veja quatro cartas sobrepostas se juntarem sob a dama de copas em uma pilha alinhada. O sete de paus não toca em nenhuma delas, então fica onde está.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/corral-poster.webp" width="1212" height="500" aria-label="Demonstração do modo Corral" aria-describedby="corral-description">
+            <source src="../assets/demos/corral.mp4" type="video/mp4">
+            <a href="../assets/demos/corral.mp4">Assista à demonstração do Corral</a>
+          </video>
+          <figcaption>Gravado no Cardz · Corral</figcaption>
+        </figure>
+      </article>
+      <article class="mode-demo" id="order-demo" aria-labelledby="order-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">D</span><h3 id="order-title">Order</h3></div>
+          <p>Arraste uma carta ao longo do próprio leque até uma nova posição. As cartas vizinhas deslizam para abrir espaço.</p>
+          <p id="order-description">Veja a dama de copas ir do meio do leque até a ponta esquerda enquanto as outras cartas deslizam para o lado.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/order-poster.webp" width="1210" height="500" aria-label="Demonstração do modo Order" aria-describedby="order-description">
+            <source src="../assets/demos/order.mp4" type="video/mp4">
+            <a href="../assets/demos/order.mp4">Assista à demonstração do Order</a>
+          </video>
+          <figcaption>Gravado no Cardz · Order</figcaption>
+        </figure>
+      </article>
+      <div class="modes-grid">
+        <article class="mode-card"><div class="mode-top"><span class="mode-key" aria-hidden="true">R</span><h3>Rotate</h3></div><p>Gire uma carta enquanto arrasta. Combine com All, Spread, Fish ou Grab para girar um grupo inteiro.</p></article>
+      </div>
+    </section>
+
+    <section class="mode-group" aria-label="Profundidade e toques duplos">
+      <div class="mode-group-pair">
+        <div>
+          <div class="mode-group-head">
+            <h2 id="depth-title">Por cima ou por baixo</h2>
+            <p>Todo arraste pousa por cima, a não ser que você diga o contrário.</p>
+          </div>
+          <div class="modes-grid">
+            <article class="mode-card"><div class="mode-top"><span class="mode-key" aria-hidden="true">V</span><h3>Dive</h3></div><p>Mande as cartas que você arrasta para trás em vez de para a frente, para que fiquem por baixo do que estiver onde você soltar.</p></article>
+          </div>
+        </div>
+        <div>
+          <div class="mode-group-head">
+            <h2 id="tap-title">O que um toque duplo faz</h2>
+            <p>Um toque duplo vira uma carta. Estes modos fazem com que ele faça outra coisa.</p>
+          </div>
+          <div class="modes-grid">
+            <article class="mode-card"><div class="mode-top"><span class="mode-key" aria-hidden="true">L</span><h3>Shuffle</h3></div><p>O próximo toque duplo embaralha a pilha ali mesmo em vez de virá-la. A segunda opção coloca a pilha em ordem.</p></article>
+            <article class="mode-card"><div class="mode-top"><span class="mode-key" aria-hidden="true">O</span><h3>Orient</h3></div><p>O próximo toque duplo vira todas as cartas para cima, ou para baixo na segunda opção. Arruma uma pilha misturada com um toque.</p></article>
+          </div>
+          <p class="mode-group-note">All e Grab também funcionam aqui: aja sobre a pilha inteira que se toca, ou só sobre as cartas de cima.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="keep-layout section" id="keep-layout" aria-labelledby="keep-title">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> <span>Keep</span></p>
+        <h2 id="keep-title">Monte. Distribua.<br><em>Guarde.</em></h2>
+        <p>Keep salva a disposição de uma mesa e sua distribuição.</p>
+      </div>
+      <article class="mode-demo" id="depot-demo" aria-labelledby="depot-title">
+        <div class="mode-demo-copy">
+          <div class="mode-top"><span class="mode-key" aria-hidden="true">P</span><h3 id="depot-title">Depósito</h3></div>
+          <p>Escolha Depósito e clique no feltro para criar um lugar de pouso sem regras: uma pilha, coluna, linha ou leque. Coloque-o sobre uma pilha bagunçada e as cartas tomam a forma dele. Clique com o botão direito no chip para escolher a forma.</p>
+          <p id="depot-description">Veja um lugar de pouso em leque cair sobre uma pilha bagunçada, e cada carta tomar a forma dele.</p>
+        </div>
+        <figure class="mode-demo-film">
+          <video controls playsinline preload="none" poster="../assets/demos/depot-poster.webp" width="1210" height="500" aria-label="Demonstração do modo Depósito" aria-describedby="depot-description">
+            <source src="../assets/demos/depot.mp4" type="video/mp4">
+            <a href="../assets/demos/depot.mp4">Assista à demonstração do Depósito</a>
+          </video>
+          <figcaption>Gravado no Cardz · Depósito</figcaption>
+        </figure>
+      </article>
+      <ol class="keep-steps">
+        <li><h3>Abra espaço para o seu jogo</h3><p>Crie um depósito para cada pilha de que o seu jogo precisa.</p></li>
+        <li><h3>Distribua as cartas</h3><p>Distribua cartas do monte sobre eles, viradas para cima ou para baixo.</p></li>
+        <li><h3>Guarde</h3><p>Escolha Keep e dê um nome à sua mesa. Deixe <em>Distribuir as cartas como estão</em> marcado para salvar a distribuição também.</p></li>
+        <li><h3>Volte e jogue</h3><p>Encontre-a em Seus jogos. Cada nova partida embaralha e distribui sua mesa de novo.</p></li>
+      </ol>
+      <p class="keep-note">Uma distribuição guardada é a sua forma, não as suas cartas: três viradas para baixo e uma para cima nesta pilha, nunca o ás de espadas. Cartas soltas no feltro ficam de fora.</p>
+      <a class="feature-link" href="../make-a-game.html">Quer regras também? Crie seu próprio jogo <span aria-hidden="true">→</span></a>
+    </section>
+    <section class="sandbox-cta"><h2>O que você vai<br>fazer com o baralho?</h2><a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT?hl=pt-br"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Baixe na</small>Microsoft Store</span></a></section>
+  </main>
+<!-- build:footer -->
+  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Paciência do seu jeito.</p><div><a href="games/">Jogos</a><a href="decks.html">Baralhos</a><a href="sandbox.html">Sandbox</a><a href="../make-a-game.html">Crie um jogo</a><a href="lite.html">Cardz Lite</a><a href="../privacy.html">Privacidade</a><a href="mailto:cardz@roderic.dev">Contato</a></div><nav class="language-switch" aria-label="Idiomas"><a href="../sandbox.html" lang="en" hreflang="en">English</a><a href="../fr/sandbox.html" lang="fr" hreflang="fr">Français</a><a href="sandbox.html" lang="pt-BR" aria-current="true">Português</a><a href="../es/sandbox.html" lang="es" hreflang="es">Español</a></nav><small>© 2026 Cardz</small></footer>
+<!-- /build:footer -->
+  <script src="../mode-demos.js"></script>
+</body>
+</html>

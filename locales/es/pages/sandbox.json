@@ -1,0 +1,378 @@
+{
+  "meta.title": {
+    "en": "Sandbox — Cardz",
+    "text": "Sandbox — Cardz"
+  },
+  "skip": {
+    "en": "Skip to content",
+    "text": "Saltar al contenido"
+  },
+  "hero.eyebrow": {
+    "en": "Sandbox",
+    "text": "Sandbox"
+  },
+  "hero.heading": {
+    "en": "Just a deck.<br><em>No rules.</em>",
+    "text": "Solo una baraja.<br><em>Ninguna regla.</em>"
+  },
+  "hero.lede": {
+    "en": "Put any card anywhere. Make up a game, replay a family favourite, test an idea—or simply make a satisfying mess.",
+    "text": "Pon cualquier carta en cualquier sitio. Inventa un juego, recupera un clásico de la familia, prueba una idea… o simplemente monta un desorden de lo más satisfactorio."
+  },
+  "intro.eyebrow": {
+    "en": "How it works",
+    "text": "Cómo funciona"
+  },
+  "intro.heading": {
+    "en": "Three gestures.<br>Twelve modes.",
+    "text": "Tres gestos.<br>Doce modos."
+  },
+  "intro.text": {
+    "en": "Drag to move, double-tap to flip, and drop near a depot to snap. That is all you need. When you want more control, the toolbar's modes change what your next gesture does.",
+    "text": "Arrastra para mover, toca dos veces para voltear y suelta cerca de un depósito para encajar. No necesitas más. Cuando quieras más control, los modos de la barra de herramientas cambian lo que hace tu siguiente gesto."
+  },
+  "basics.once": {
+    "en": "For one gesture",
+    "text": "Para un solo gesto"
+  },
+  "basics.once-text": {
+    "en": "Click a chip or press its key. The mode applies to your next drag or double-tap, then switches itself off.",
+    "text": "Haz clic en un chip o pulsa su tecla. El modo se aplica a tu siguiente arrastre o doble toque, y luego se desactiva solo."
+  },
+  "basics.lock": {
+    "en": "Or keep it on",
+    "text": "O déjalo activado"
+  },
+  "basics.lock-text": {
+    "en": "Hold Ctrl as you press the key, or long-press the chip, and the mode stays on until you switch it off.",
+    "text": "Mantén pulsado Ctrl al pulsar la tecla, o mantén pulsado el chip, y el modo sigue activo hasta que lo desactives."
+  },
+  "basics.combine": {
+    "en": "Combine them",
+    "text": "Combínalos"
+  },
+  "basics.combine-text": {
+    "en": "Grab sets a count that Fish, Spread and Order then use. Rotate turns whatever All, Spread, Fish or Grab picks up.",
+    "text": "Grab fija una cantidad que luego usan Fish, Spread y Order. Rotate gira todo lo que levanten All, Spread, Fish o Grab."
+  },
+  "carry.eyebrow": {
+    "en": "Table modes",
+    "text": "Modos de mesa"
+  },
+  "carry.heading": {
+    "en": "What comes with the card",
+    "text": "Lo que viaja con la carta"
+  },
+  "carry.lede": {
+    "en": "A drag lifts the card you press and everything fanned on top of it. These modes change what travels.",
+    "text": "Un arrastre levanta la carta que tocas y todo lo que está en abanico encima de ella. Estos modos cambian lo que viaja."
+  },
+  "fish.name": {
+    "en": "Fish",
+    "text": "Fish"
+  },
+  "fish.text": {
+    "en": "Drag one card out of a pile. The cards on top of it stay behind; in a depot, the rest close the gap.",
+    "text": "Saca una sola carta de un montón. Las cartas que tiene encima se quedan atrás; en un depósito, las demás cierran el hueco."
+  },
+  "fish.description": {
+    "en": "Watch the queen of hearts slide out from under the six of clubs and drop into the empty pile, while the fan closes up behind her.",
+    "text": "Mira cómo la reina de corazones se desliza de debajo del seis de tréboles y cae en el montón vacío, mientras el abanico se cierra tras ella."
+  },
+  "fish.fallback": {
+    "en": "Watch the Fish demonstration",
+    "text": "Ver la demostración de Fish"
+  },
+  "fish.caption": {
+    "en": "Recorded in Cardz · Fish",
+    "text": "Grabado en Cardz · Fish"
+  },
+  "grab.name": {
+    "en": "Grab",
+    "text": "Grab"
+  },
+  "grab.text": {
+    "en": "Take the top cards of a pile as one packet. Click the chip to cycle through 2, 3 and 5, or press a number from 2 to 9. With Fish, the packet can come from anywhere in the pile.",
+    "text": "Toma las cartas de arriba de un montón como un solo paquete. Haz clic en el chip para pasar por 2, 3 y 5, o pulsa un número del 2 al 9. Con Fish, el paquete puede salir de cualquier punto del montón."
+  },
+  "grab.description": {
+    "en": "Watch three red cards come out of the middle of the fan together, leaving the cards on either side where they were.",
+    "text": "Mira cómo tres cartas rojas salen juntas del centro del abanico, y las cartas de cada lado se quedan donde estaban."
+  },
+  "grab.fallback": {
+    "en": "Watch the Grab demonstration",
+    "text": "Ver la demostración de Grab"
+  },
+  "grab.caption": {
+    "en": "Recorded in Cardz · Grab + Fish",
+    "text": "Grabado en Cardz · Grab + Fish"
+  },
+  "trawl.name": {
+    "en": "Trawl",
+    "text": "Trawl"
+  },
+  "trawl.text": {
+    "en": "Drag through loose cards and each one joins your drag as you pass over it. Cards in a depot are never swept up.",
+    "text": "Arrastra sobre cartas sueltas y cada una se une a tu arrastre al pasar por encima. Las cartas de un depósito nunca se recogen."
+  },
+  "trawl.description": {
+    "en": "Watch the queen of hearts sweep left across the table and pick up three loose cards on her way.",
+    "text": "Mira cómo la reina de corazones barre la mesa hacia la izquierda y recoge tres cartas sueltas por el camino."
+  },
+  "trawl.fallback": {
+    "en": "Watch the Trawl demonstration",
+    "text": "Ver la demostración de Trawl"
+  },
+  "trawl.caption": {
+    "en": "Recorded in Cardz · Trawl",
+    "text": "Grabado en Cardz · Trawl"
+  },
+  "all.name": {
+    "en": "All",
+    "text": "All"
+  },
+  "all.text": {
+    "en": "Pick up every card in the connected pile, however messy. On a double-tap, flip the whole group together.",
+    "text": "Recoge todas las cartas del montón que se tocan, por desordenado que esté. Con un doble toque, voltea todo el grupo a la vez."
+  },
+  "land.heading": {
+    "en": "How the cards land",
+    "text": "Cómo caen las cartas"
+  },
+  "land.lede": {
+    "en": "Shape the cards as they move: open them out, gather them up, or put one in its place.",
+    "text": "Da forma a las cartas mientras se mueven: ábrelas, júntalas o pon una en su sitio."
+  },
+  "spread.name": {
+    "en": "Spread",
+    "text": "Spread"
+  },
+  "spread.text": {
+    "en": "Drag the top card of a pile and the pile opens into a fan behind it, in whatever direction you drag. The bottom card stays put.",
+    "text": "Arrastra la carta de arriba de un montón y el montón se abre en abanico tras ella, en la dirección en que arrastres. La carta de abajo se queda donde está."
+  },
+  "spread.description": {
+    "en": "Watch the pile open behind the queen of hearts as she is dragged to the right.",
+    "text": "Mira cómo el montón se abre tras la reina de corazones mientras se arrastra hacia la derecha."
+  },
+  "spread.fallback": {
+    "en": "Watch the Spread demonstration",
+    "text": "Ver la demostración de Spread"
+  },
+  "spread.caption": {
+    "en": "Recorded in Cardz · Spread",
+    "text": "Grabado en Cardz · Spread"
+  },
+  "corral.name": {
+    "en": "Corral",
+    "text": "Corral"
+  },
+  "corral.text": {
+    "en": "Drag one card of an overlapping cluster and the rest gather to it, settling into a pile, column, row or fan. Right-click the chip to pick the shape.",
+    "text": "Arrastra una carta de un grupo superpuesto y las demás se reúnen con ella, formando una pila, columna, fila o abanico. Haz clic derecho en el chip para elegir la forma."
+  },
+  "corral.description": {
+    "en": "Watch four overlapping cards gather under the queen of hearts into a squared pile. The seven of clubs touches none of them, so it stays put.",
+    "text": "Mira cómo cuatro cartas superpuestas se reúnen bajo la reina de corazones en una pila bien cuadrada. El siete de tréboles no toca ninguna, así que se queda donde está."
+  },
+  "corral.fallback": {
+    "en": "Watch the Corral demonstration",
+    "text": "Ver la demostración de Corral"
+  },
+  "corral.caption": {
+    "en": "Recorded in Cardz · Corral",
+    "text": "Grabado en Cardz · Corral"
+  },
+  "order.name": {
+    "en": "Order",
+    "text": "Order"
+  },
+  "order.text": {
+    "en": "Drag a card along its own fan to a new position. The neighbouring cards slide aside to make room.",
+    "text": "Arrastra una carta a lo largo de su propio abanico hasta una nueva posición. Las cartas vecinas se apartan para hacerle sitio."
+  },
+  "order.description": {
+    "en": "Watch the queen of hearts move from the middle of the fan to its left end as the other cards slide aside.",
+    "text": "Mira cómo la reina de corazones pasa del centro del abanico a su extremo izquierdo mientras las demás cartas se apartan."
+  },
+  "order.fallback": {
+    "en": "Watch the Order demonstration",
+    "text": "Ver la demostración de Order"
+  },
+  "order.caption": {
+    "en": "Recorded in Cardz · Order",
+    "text": "Grabado en Cardz · Order"
+  },
+  "rotate.name": {
+    "en": "Rotate",
+    "text": "Rotate"
+  },
+  "rotate.text": {
+    "en": "Turn a card as you drag. Combine it with All, Spread, Fish or Grab to turn a whole group.",
+    "text": "Gira una carta mientras la arrastras. Combínalo con All, Spread, Fish o Grab para girar un grupo entero."
+  },
+  "depth.heading": {
+    "en": "Above or below",
+    "text": "Encima o debajo"
+  },
+  "depth.lede": {
+    "en": "Every drag lands on top, unless you say otherwise.",
+    "text": "Todo arrastre cae encima, a menos que digas lo contrario."
+  },
+  "dive.name": {
+    "en": "Dive",
+    "text": "Dive"
+  },
+  "dive.text": {
+    "en": "Send the cards you drag to the back instead of the front, so they tuck under whatever you drop them on.",
+    "text": "Manda las cartas que arrastras al fondo en lugar de al frente, para que queden debajo de lo que haya donde las sueltes."
+  },
+  "tap.heading": {
+    "en": "What a double-tap does",
+    "text": "Qué hace un doble toque"
+  },
+  "tap.lede": {
+    "en": "A double-tap flips a card. These make it do something else.",
+    "text": "Un doble toque voltea una carta. Estos modos hacen que haga otra cosa."
+  },
+  "shuffle.name": {
+    "en": "Shuffle",
+    "text": "Shuffle"
+  },
+  "shuffle.text": {
+    "en": "Make the next double-tap shuffle the pile in place instead of flipping it. Its second setting sorts the pile into order.",
+    "text": "El siguiente doble toque baraja el montón en su sitio en lugar de voltearlo. Su segunda opción ordena el montón."
+  },
+  "orient.name": {
+    "en": "Orient",
+    "text": "Orient"
+  },
+  "orient.text": {
+    "en": "Make the next double-tap turn every card face-up, or on its second setting face-down. Tidies a mixed pile in one tap.",
+    "text": "El siguiente doble toque pone todas las cartas boca arriba, o boca abajo con su segunda opción. Ordena un montón mezclado de un toque."
+  },
+  "tap.note": {
+    "en": "All and Grab work here too: act on the whole connected pile, or just its top cards.",
+    "text": "All y Grab también funcionan aquí: actúa sobre todo el montón que se toca, o solo sobre las cartas de arriba."
+  },
+  "keep.eyebrow": {
+    "en": "Keep",
+    "text": "Keep"
+  },
+  "keep.heading": {
+    "en": "Lay it out. Deal it.<br><em>Keep it.</em>",
+    "text": "Colócalo. Repártelo.<br><em>Guárdalo.</em>"
+  },
+  "keep.lede": {
+    "en": "Keep saves a table's layout and its deal.",
+    "text": "Keep guarda la disposición de una mesa y su reparto."
+  },
+  "depot.name": {
+    "en": "Depot",
+    "text": "Depósito"
+  },
+  "depot.text": {
+    "en": "Choose Depot, then click the felt to stamp a landing spot with no rules: a pile, column, row or fan. Stamp it onto a messy pile and the cards take its shape. Right-click the chip to choose the shape.",
+    "text": "Elige Depósito y haz clic en el tapete para crear un lugar de destino sin reglas: una pila, columna, fila o abanico. Ponlo sobre un montón desordenado y las cartas toman su forma. Haz clic derecho en el chip para elegir la forma."
+  },
+  "depot.description": {
+    "en": "Watch a fan-shaped landing spot drop onto a messy pile, and every card take its shape.",
+    "text": "Mira cómo un lugar de destino en abanico cae sobre un montón desordenado, y cada carta toma su forma."
+  },
+  "depot.fallback": {
+    "en": "Watch the Depot demonstration",
+    "text": "Ver la demostración de Depósito"
+  },
+  "depot.caption": {
+    "en": "Recorded in Cardz · Depot",
+    "text": "Grabado en Cardz · Depósito"
+  },
+  "keep.step1": {
+    "en": "Make room for your game",
+    "text": "Haz sitio para tu juego"
+  },
+  "keep.step1-text": {
+    "en": "Stamp a depot for each pile your game needs.",
+    "text": "Crea un depósito para cada montón que necesite tu juego."
+  },
+  "keep.step2": {
+    "en": "Deal it out",
+    "text": "Reparte"
+  },
+  "keep.step2-text": {
+    "en": "Deal cards from the stock onto them, face up or face down.",
+    "text": "Reparte cartas del mazo sobre ellos, boca arriba o boca abajo."
+  },
+  "keep.step3": {
+    "en": "Keep it",
+    "text": "Guárdalo"
+  },
+  "keep.step3-text": {
+    "en": "Choose Keep and name your table. Leave <em>Deal the cards as they lie</em> ticked to save the deal too.",
+    "text": "Elige Keep y ponle nombre a tu mesa. Deja marcada <em>Repartir las cartas como están</em> para guardar también el reparto."
+  },
+  "keep.step4": {
+    "en": "Come back and play",
+    "text": "Vuelve y juega"
+  },
+  "keep.step4-text": {
+    "en": "Find it in Your games. Every new game shuffles and deals your table again.",
+    "text": "Encuéntrala en Tus juegos. Cada partida nueva baraja y reparte tu mesa otra vez."
+  },
+  "keep.note": {
+    "en": "A kept deal is its shape, not its cards: three face down and one face up on this pile, never the ace of spades. Cards loose on the felt are left out.",
+    "text": "Un reparto guardado es su forma, no sus cartas: tres boca abajo y una boca arriba en este montón, nunca el as de picas. Las cartas sueltas en el tapete quedan fuera."
+  },
+  "keep.make": {
+    "en": "Want rules too? Make your own game <span aria-hidden=\"true\">→</span>",
+    "text": "¿También quieres reglas? Crea tu propio juego <span aria-hidden=\"true\">→</span>"
+  },
+  "cta.heading": {
+    "en": "What will you<br>do with the deck?",
+    "text": "¿Qué harás<br>con la baraja?"
+  },
+  "cta.store": {
+    "en": "<small>Download from the</small>Microsoft Store",
+    "text": "<small>Descárgalo de</small>Microsoft Store"
+  },
+  "meta.description": {
+    "en": "Arrange your own card table in Cardz Sandbox. Move cards freely, keep your layout and its deal, and play it again from Your games.",
+    "text": "Monta tu propia mesa de cartas en el Sandbox de Cardz. Mueve las cartas libremente, guarda tu disposición y su reparto, y vuelve a jugarla desde Tus juegos."
+  },
+  "basics.label": {
+    "en": "How modes work",
+    "text": "Cómo funcionan los modos"
+  },
+  "fish.video": {
+    "en": "Fish mode demonstration",
+    "text": "Demostración del modo Fish"
+  },
+  "grab.video": {
+    "en": "Grab mode demonstration",
+    "text": "Demostración del modo Grab"
+  },
+  "trawl.video": {
+    "en": "Trawl mode demonstration",
+    "text": "Demostración del modo Trawl"
+  },
+  "spread.video": {
+    "en": "Spread mode demonstration",
+    "text": "Demostración del modo Spread"
+  },
+  "corral.video": {
+    "en": "Corral mode demonstration",
+    "text": "Demostración del modo Corral"
+  },
+  "order.video": {
+    "en": "Order mode demonstration",
+    "text": "Demostración del modo Order"
+  },
+  "pair.label": {
+    "en": "Depth and double-taps",
+    "text": "Profundidad y dobles toques"
+  },
+  "depot.video": {
+    "en": "Depot mode demonstration",
+    "text": "Demostración del modo Depósito"
+  }
+}

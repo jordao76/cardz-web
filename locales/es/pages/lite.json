@@ -1,0 +1,250 @@
+{
+  "meta.title": {
+    "en": "Cardz Lite — Free solitaire for Windows",
+    "text": "Cardz Lite — Solitario gratis para Windows"
+  },
+  "skip": {
+    "en": "Skip to content",
+    "text": "Saltar al contenido"
+  },
+  "hero.heading": {
+    "en": "Solitaire.<br><em>Free.</em>",
+    "text": "El solitario.<br><em>Gratis.</em>"
+  },
+  "hero.lede": {
+    "en": "Cardz Lite is the free edition of Cardz: seven solitaire games and six decks, with hints, scores and statistics.",
+    "text": "Cardz Lite es la edición gratuita de Cardz: siete solitarios y seis barajas, con pistas, puntuaciones y estadísticas."
+  },
+  "cta.store": {
+    "en": "<small>Free from the</small>Microsoft Store",
+    "text": "<small>Gratis en</small>Microsoft Store"
+  },
+  "hero.games": {
+    "en": "See the games <span aria-hidden=\"true\">↓</span>",
+    "text": "Ver los juegos <span aria-hidden=\"true\">↓</span>"
+  },
+  "hero.free": {
+    "en": "Free",
+    "text": "Gratis"
+  },
+  "hero.no-ads": {
+    "en": "No ads",
+    "text": "Sin anuncios"
+  },
+  "hero.no-accounts": {
+    "en": "No accounts",
+    "text": "Sin cuentas"
+  },
+  "hero.offline": {
+    "en": "Fully offline",
+    "text": "Totalmente sin conexión"
+  },
+  "hero.on-table": {
+    "en": "On the table",
+    "text": "En la mesa"
+  },
+  "hero.how": {
+    "en": "How to play ↗",
+    "text": "Cómo se juega ↗"
+  },
+  "games.eyebrow": {
+    "en": "Games",
+    "text": "Juegos"
+  },
+  "games.heading": {
+    "en": "Seven classics.<br><em>Ten ways to play.</em>",
+    "text": "Siete clásicos.<br><em>Diez formas de jugar.</em>"
+  },
+  "games.lede": {
+    "en": "Klondike draws one or three, and Spider plays one suit, two or four. Plus FreeCell, Yukon, Golf, Tri Peaks and Pyramid.",
+    "text": "Klondike roba una o tres cartas, y Spider se juega con uno, dos o cuatro palos. Además, FreeCell, Yukon, Golf, Tri Peaks y Pyramid."
+  },
+  "tile.pyramid.text": {
+    "en": "Pairs add up to thirteen",
+    "text": "Parejas que suman trece"
+  },
+  "tile.pyramid.deck": {
+    "en": "Scarab deck",
+    "text": "Baraja Scarab"
+  },
+  "tile.spider.text": {
+    "en": "1, 2 &amp; 4 suits · Eight perfect runs",
+    "text": "1, 2 y 4 palos · Ocho escaleras perfectas"
+  },
+  "tile.spider.deck": {
+    "en": "Neon deck",
+    "text": "Baraja Neon"
+  },
+  "tile.freecell.text": {
+    "en": "Every card in plain sight",
+    "text": "Todas las cartas a la vista"
+  },
+  "tile.freecell.deck": {
+    "en": "Monosolid deck",
+    "text": "Baraja Monosolid"
+  },
+  "tile.tri-peaks.text": {
+    "en": "Clear all three peaks",
+    "text": "Despeja las tres cumbres"
+  },
+  "tile.tri-peaks.deck": {
+    "en": "Felt House deck",
+    "text": "Baraja Felt House"
+  },
+  "tile.yukon.text": {
+    "en": "Move whole tails at once",
+    "text": "Mueve colas enteras de una vez"
+  },
+  "tile.yukon.deck": {
+    "en": "Colourblind deck",
+    "text": "Baraja para daltónicos"
+  },
+  "tile.golf.text": {
+    "en": "One rank away",
+    "text": "A un valor de distancia"
+  },
+  "tile.golf.deck": {
+    "en": "Scarab deck",
+    "text": "Baraja Scarab"
+  },
+  "details.heading": {
+    "en": "What you get",
+    "text": "Lo que incluye"
+  },
+  "details.hints": {
+    "en": "Hints and auto-play",
+    "text": "Pistas y juego automático"
+  },
+  "details.hints-text": {
+    "en": "A hint shows a good move, and auto-play finishes the deal. Or switch the rules off.",
+    "text": "Una pista muestra una buena jugada, y el juego automático termina el reparto. O desactiva las reglas."
+  },
+  "details.score": {
+    "en": "Keep score",
+    "text": "Lleva la cuenta"
+  },
+  "details.score-text": {
+    "en": "Deals, wins, losses and streaks for every game. Klondike, Spider, Golf, Tri Peaks and Pyramid score every deal.",
+    "text": "Repartos, victorias, derrotas y rachas de cada juego. Klondike, Spider, Golf, Tri Peaks y Pyramid puntúan cada reparto."
+  },
+  "details.decks": {
+    "en": "Six decks",
+    "text": "Seis barajas"
+  },
+  "details.decks-text": {
+    "en": "Felt House, Scarab, Neon and Monosolid, plus a high-contrast deck and a colourblind-friendly one.",
+    "text": "Felt House, Scarab, Neon y Monosolid, además de una baraja de alto contraste y otra apta para daltónicos."
+  },
+  "details.saves": {
+    "en": "Saves as you play",
+    "text": "Guarda mientras juegas"
+  },
+  "details.saves-text": {
+    "en": "Your game is there when you come back, and so is undo. Replay any deal by its number.",
+    "text": "La partida sigue ahí cuando vuelves, y deshacer también. Vuelve a jugar cualquier reparto por su número."
+  },
+  "details.accessible": {
+    "en": "Accessible",
+    "text": "Accesible"
+  },
+  "details.accessible-text": {
+    "en": "Full keyboard play, screen-reader narration, reduced motion, and a mirrored table for left-handed play.",
+    "text": "Juego completo con el teclado, narración para lectores de pantalla, movimiento reducido y una mesa reflejada para zurdos."
+  },
+  "cardz.eyebrow": {
+    "en": "The full app",
+    "text": "La aplicación completa"
+  },
+  "cardz.heading": {
+    "en": "Want more?<br><em>That's Cardz.</em>",
+    "text": "¿Quieres más?<br><em>Eso es Cardz.</em>"
+  },
+  "cardz.games": {
+    "en": "More than twenty games, and every deck",
+    "text": "Más de veinte juegos, y todas las barajas"
+  },
+  "cardz.sandbox": {
+    "en": "Sandbox: a table with no rules",
+    "text": "Sandbox: una mesa sin reglas"
+  },
+  "cardz.own": {
+    "en": "Games of your own",
+    "text": "Juegos propios"
+  },
+  "cardz.meet": {
+    "en": "Meet Cardz <span aria-hidden=\"true\">→</span>",
+    "text": "Conoce Cardz <span aria-hidden=\"true\">→</span>"
+  },
+  "cardz.move": {
+    "en": "<span>Moving up?</span> Install Cardz on the same PC and it brings your Lite statistics and scores with it. <b>Get Cardz <span aria-hidden=\"true\">↗</span></b>",
+    "text": "<span>¿Te pasas a Cardz?</span> Instala Cardz en el mismo PC y se lleva consigo tus estadísticas y puntuaciones de Lite. <b>Consigue Cardz <span aria-hidden=\"true\">↗</span></b>"
+  },
+  "cardz.caption": {
+    "en": "High contrast",
+    "text": "Alto contraste"
+  },
+  "final.heading": {
+    "en": "Deal yourself<br><em>a good hand.</em>",
+    "text": "Repártete<br><em>una buena mano.</em>"
+  },
+  "final.windows": {
+    "en": "For Windows 10 and Windows 11",
+    "text": "Para Windows 10 y Windows 11"
+  },
+  "meta.description": {
+    "en": "Cardz Lite is the free edition of Cardz: Klondike, Spider, FreeCell, Yukon, Golf, Tri Peaks and Pyramid, with no ads, no accounts and nothing online.",
+    "text": "Cardz Lite es la edición gratuita de Cardz: Klondike, Spider, FreeCell, Yukon, Golf, Tri Peaks y Pyramid, sin anuncios, sin cuentas y sin nada en línea."
+  },
+  "meta.og-title": {
+    "en": "Cardz Lite — Free solitaire for Windows",
+    "text": "Cardz Lite — Solitario gratis para Windows"
+  },
+  "meta.og-description": {
+    "en": "The free edition of Cardz: seven solitaire games and six decks, with no ads, no accounts and nothing online.",
+    "text": "La edición gratuita de Cardz: siete solitarios y seis barajas, sin anuncios, sin cuentas y sin nada en línea."
+  },
+  "hero.qualities": {
+    "en": "Product qualities",
+    "text": "Cualidades del producto"
+  },
+  "hero.view": {
+    "en": "View the full Klondike screenshot",
+    "text": "Ver la captura de Klondike completa"
+  },
+  "hero.alt": {
+    "en": "Klondike in Cardz Lite, with Felt House cards on green felt and the game's scores open beside the table",
+    "text": "Klondike en Cardz Lite, con las cartas Felt House sobre un tapete verde y las puntuaciones de la partida abiertas junto a la mesa"
+  },
+  "tile.pyramid.alt": {
+    "en": "Pyramid in Cardz Lite with Egyptian Scarab cards, each showing the value it pairs with",
+    "text": "Pyramid en Cardz Lite con las cartas egipcias de Scarab, cada una mostrando el valor con el que hace pareja"
+  },
+  "tile.spider.alt": {
+    "en": "One-suit Spider in Cardz Lite with the dark Neon deck",
+    "text": "Spider de un palo en Cardz Lite con la oscura baraja Neon"
+  },
+  "tile.freecell.alt": {
+    "en": "FreeCell in Cardz Lite with the bold orange and black Monosolid deck",
+    "text": "FreeCell en Cardz Lite con la baraja Monosolid, en naranja intenso y negro"
+  },
+  "tile.tri-peaks.alt": {
+    "en": "Tri Peaks in Cardz Lite with Felt House cards, the bottom row cleared",
+    "text": "Tri Peaks en Cardz Lite con las cartas Felt House, la fila de abajo ya despejada"
+  },
+  "tile.yukon.alt": {
+    "en": "Yukon in Cardz Lite with the colourblind-friendly deck, its red suits drawn in blue",
+    "text": "Yukon en Cardz Lite con la baraja apta para daltónicos, sus palos rojos dibujados en azul"
+  },
+  "tile.golf.alt": {
+    "en": "Golf in Cardz Lite with Scarab cards, the toolbar folded away",
+    "text": "Golf en Cardz Lite con las cartas Scarab, la barra de herramientas plegada"
+  },
+  "cardz.view": {
+    "en": "View the full high-contrast Klondike screenshot",
+    "text": "Ver la captura de Klondike en alto contraste completa"
+  },
+  "cardz.alt": {
+    "en": "Klondike Draw 3 in Cardz Lite with the high-contrast deck: bold black outlines on white",
+    "text": "Klondike Robo 3 en Cardz Lite con la baraja de alto contraste: gruesos contornos negros sobre blanco"
+  }
+}

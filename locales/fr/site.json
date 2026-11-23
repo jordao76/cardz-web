@@ -342,5 +342,9 @@
   "decks.grid": {
     "en": "Illustrated decks",
     "text": "Jeux illustrés"
+  },
+  "header.get-lite": {
+    "en": "Get Cardz Lite",
+    "text": "Obtenir Cardz Lite"
   }
 }
