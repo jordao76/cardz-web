@@ -1,7 +1,19 @@
 {
-  "footer.languages": {
-    "en": "Languages",
-    "text": "Langues"
+  "offer.text": {
+    "en": "This site is also in English.",
+    "text": "Ce site existe aussi en français."
+  },
+  "offer.go": {
+    "en": "Read it in English",
+    "text": "Le lire en français"
+  },
+  "offer.close": {
+    "en": "No thanks",
+    "text": "Non merci"
+  },
+  "header.language": {
+    "en": "Language: {name}",
+    "text": "Langue : {name}"
   },
   "js.deck-picker": {
     "en": "Deal this site with another deck",
@@ -70,6 +82,10 @@
   "footer.contact": {
     "en": "Contact",
     "text": "Contact"
+  },
+  "footer.languages": {
+    "en": "Languages",
+    "text": "Langues"
   },
   "facts.variants": {
     "en": "{axis}: {labels}",

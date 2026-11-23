@@ -405,17 +405,44 @@ function chrome(depth, path) {
     .map((language) => `  <link rel="alternate" hreflang="${language.locale.tag}" href="${SITE}${language.locale.dir}${hrefOf(path)}">`)
     .concat(others.length > 1 ? [`  <link rel="alternate" hreflang="x-default" href="${SITE}${hrefOf(path)}">`] : [])
     .join("\n");
-  const languageLinks =
-    others.length > 1
-      ? `<nav class="language-switch" aria-label="${s("footer.languages", "Languages")}">${others
-          .map((language) => {
-            const href = (language === here ? up : root + language.locale.dir) + hrefOf(path) || "./";
-            return language === here
-              ? `<a href="${href}" lang="${language.locale.tag}" aria-current="true">${language.locale.name}</a>`
-              : `<a href="${href}" lang="${language.locale.tag}" hreflang="${language.locale.tag}">${language.locale.name}</a>`;
-          })
-          .join("")}</nav>`
+  // Every page offers every language: this page where the language has it, and
+  // the language's home page where it does not, so a reader always has a way back.
+  const languageLinks = languages
+    .map((language) => {
+      const target = language === here || language.localized.has(path) ? hrefOf(path) : "";
+      const href = (language === here ? up : root + language.locale.dir) + target || "./";
+      return language === here
+        ? `<a href="${href}" lang="${language.locale.tag}" aria-current="true">${language.locale.name}</a>`
+        : `<a href="${href}" lang="${language.locale.tag}" hreflang="${language.locale.tag}">${language.locale.name}</a>`;
+    })
+    .join("");
+  // The header's menu: a <details>, so it opens without script; languages.js only
+  // closes it on a click outside or on Escape.
+  const languageMenu = `<details class="language-menu">
+      <summary aria-label="${s("header.language", "Language: {name}", { name: here.locale.name })}"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>${here.locale.code.toUpperCase()}</span></summary>
+      <div>${languageLinks}</div>
+    </details>`;
+  // An English page carries what languages.js offers a reader whose browser
+  // prefers another language, each offer in its own language.
+  const offers =
+    here.locale === NEUTRAL
+      ? `\n  <script type="application/json" id="language-offers">${JSON.stringify(
+          Object.fromEntries(
+            languages
+              .filter((language) => language.locale !== NEUTRAL)
+              .map(({ locale, catalog }) => [
+                locale.code,
+                {
+                  tag: locale.tag,
+                  text: catalog.t("site", "offer.text", "This site is also in English."),
+                  go: catalog.t("site", "offer.go", "Read it in English"),
+                  close: catalog.t("site", "offer.close", "No thanks"),
+                },
+              ])
+          )
+        ).replaceAll("<", "\\u003c")}</script>`
       : "";
+  const languageScript = `\n  <script src="${root}languages.js" defer></script>`;
   // What deck.js and mode-demos.js say, in this language. English pages need none:
   // the scripts carry their English.
   const scriptStrings = here.locale === NEUTRAL ? "" : `\n  <script type="application/json" id="site-strings">${JSON.stringify(clientStrings(up)).replaceAll("<", "\\u003c")}</script>`;
@@ -425,7 +452,7 @@ function chrome(depth, path) {
     link,
     // The hand-written pages' own <head> keeps everything but this: the language
     // alternates and the scripts' strings.
-    headExtra: `${alternates}${scriptStrings}`,
+    headExtra: `${alternates}${scriptStrings}${offers}${languageScript}`.replace(/^\n/, ""),
     head: (title, description) => `<!doctype html>
 <html lang="${here.locale.tag}">
 <head>
@@ -436,7 +463,8 @@ function chrome(depth, path) {
   <title>${title}</title>
   <link rel="icon" href="${root}assets/cardz-logo.png">
   <link rel="stylesheet" href="${root}styles.css">
-${alternates ? `${alternates}\n` : ""}${scriptStrings ? `${scriptStrings.slice(1)}\n` : ""}  <script src="${root}deck.js"></script>
+${alternates ? `${alternates}\n` : ""}${`${scriptStrings}${offers}${languageScript}`.slice(1)}
+  <script src="${root}deck.js"></script>
 </head>`,
     // Cardz Lite's page sells Lite, so its button goes to Lite's Store page.
     header: (current) => `  <header class="site-header">
@@ -444,6 +472,7 @@ ${alternates ? `${alternates}\n` : ""}${scriptStrings ? `${scriptStrings.slice(1
     <nav aria-label="${s("header.nav", "Main navigation")}">
       ${NAV.map(([slug, href, label]) => `<a href="${link(href)}"${mark(current, slug)}>${s(`nav.${slug}`, label)}</a>`).join("")}
     </nav>
+    ${languageMenu}
     ${
       current === "lite"
         ? `<a class="button button-small" href="${store(LITE_STORE)}">${s("header.get-lite", "Get Cardz Lite")}</a>`
@@ -452,7 +481,7 @@ ${alternates ? `${alternates}\n` : ""}${scriptStrings ? `${scriptStrings.slice(1
   </header>`,
     footer: `  <footer><a class="brand" href="${link("index.html")}"><span aria-hidden="true">✣</span> Cardz</a><p>${s("footer.tagline", "Solitaire, your way.")}</p><div>${NAV.map(
       ([slug, href, label]) => `<a href="${link(href)}">${s(`nav.${slug}`, label)}</a>`
-    ).join("")}<a href="${link("privacy.html")}">${s("footer.privacy", "Privacy")}</a><a href="mailto:cardz@roderic.dev">${s("footer.contact", "Contact")}</a></div>${languageLinks}<small>© 2026 Cardz</small></footer>`,
+    ).join("")}<a href="${link("privacy.html")}">${s("footer.privacy", "Privacy")}</a><a href="mailto:cardz@roderic.dev">${s("footer.contact", "Contact")}</a></div><nav class="language-switch" aria-label="${s("footer.languages", "Languages")}">${languageLinks}</nav><small>© 2026 Cardz</small></footer>`,
   };
 }
 
@@ -971,13 +1000,12 @@ for (const language of languages) {
   emit("games/index.html", gamesPage(ordered));
   emit("decks.html", deckPage());
 
-  const top = chrome(0, "");
   for (const page of HAND_WRITTEN) {
     if (!language.localized.has(`${page}.html`)) continue;
     const pageChrome = chrome(0, `${page}.html`);
     const regions = {
       head: pageChrome.headExtra,
-      header: top.header(currentOf[page]),
+      header: pageChrome.header(currentOf[page]),
       footer: pageChrome.footer,
       ...regionsOf[page](),
     };

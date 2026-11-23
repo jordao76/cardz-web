@@ -122,6 +122,21 @@ footer p { margin: 0; }
 footer div { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
 footer .language-switch { display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
 footer .language-switch a[aria-current] { color: var(--ivory); text-decoration: none; font-weight: 600; }
+/* The header's language menu: a globe and the language's code, opening a short list. */
+.language-menu { position: relative; }
+.language-menu summary { display: flex; align-items: center; gap: .35rem; padding: .55rem .6rem; border: 1.5px solid var(--slot); border-radius: 8px; font-size: .8rem; letter-spacing: .04em; cursor: pointer; list-style: none; }
+.language-menu summary::-webkit-details-marker { display: none; }
+.language-menu summary:hover, .language-menu[open] summary { border-color: var(--ivory); }
+.language-menu svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.language-menu > div { position: absolute; right: 0; top: calc(100% + .4rem); z-index: 20; display: grid; min-width: 9rem; padding: .35rem; background: var(--card); border-radius: 8px; box-shadow: var(--lift); }
+.language-menu > div a { padding: .5rem .7rem; border-radius: 5px; color: var(--ink); text-decoration: none; font-size: .9rem; }
+.language-menu > div a:hover { background: rgba(0, 0, 0, .07); }
+.language-menu > div a[aria-current] { font-weight: 600; }
+/* The one-time offer of a reader's own language, above the header on an English page. */
+.language-offer { display: flex; align-items: center; justify-content: center; gap: .8rem; padding: .55rem var(--gutter); background: var(--felt-deep); font-size: .9rem; }
+.language-offer p { margin: 0; }
+.language-offer a { color: var(--ivory); font-weight: 600; }
+.language-offer button { flex: none; width: 2rem; height: 2rem; background: none; border: 0; color: inherit; font-size: 1.3rem; line-height: 1; cursor: pointer; }
 
 /* Games index and deck gallery. */
 .games-main, .decks-main { padding: 2rem var(--gutter) 0; }
@@ -238,7 +253,11 @@ code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
 @media (max-width: 900px) {
   .hero, .sandbox, .sandbox-hero, .sandbox-intro, .mode-demo, .mode-group-pair, .mode-basics, .format-steps { grid-template-columns: 1fr; }
   .table-gallery, .deck-strip, .keep-steps { grid-template-columns: 1fr 1fr; }
-  .site-header nav { order: 3; width: 100%; margin-left: 0; }
+  /* The nav takes its own row, and the language menu, icon only, ends it. */
+  .site-header nav { order: 3; width: calc(100% - 4rem); margin-left: 0; }
+  .language-menu { order: 4; }
+  .language-menu summary { padding: .7rem .55rem; }
+  .language-menu summary span { display: none; }
   .site-header nav a { flex: 1; min-width: 0; display: grid; place-items: center; padding: .7rem .3rem; font-size: .78rem; }
   .site-header .button { margin-left: auto; white-space: nowrap; }
 }
@@ -248,10 +267,17 @@ code { font-family: "Cascadia Code", Consolas, monospace; font-size: .86em; }
   .brand { font-size: 1.35rem; }
   .deck-picker { gap: .3rem; }
   .deck-picker button { width: 1.3rem; height: 1.8rem; }
-  .site-header nav { gap: .35rem; }
+  .site-header nav { gap: .35rem; width: calc(100% - 3.1rem); }
+  /* A translated button is longer than "Get Cardz": it wraps inside itself rather than taking a row. */
+  .site-header .button { max-width: 6.6rem; padding: .45rem .65rem; white-space: normal; text-align: center; font-size: .74rem; line-height: 1.15; }
   .site-header nav a { font-size: .72rem; }
   .table-gallery, .deck-strip, .keep-steps { grid-template-columns: 1fr; }
   .ref-toc ol { columns: 1; }
   .sandbox-deck { height: 240px; transform: scale(.8); }
+}
+@media (max-width: 400px) {
+  .brand { font-size: 1.2rem; }
+  .site-header { column-gap: .5rem; }
+  .deck-picker { gap: .25rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .deck-picker button { transition: none; } }
