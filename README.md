@@ -127,8 +127,8 @@ build reads beside it. `i18n.mjs` has the details; in short:
 - A missing string falls back to English and the build lists it. A hand-written
   page is in a language's own words only once every string it marks is
   translated; until then the language still has the page, with its own header and
-  footer around the English (marked `lang="en"`, and naming the English page as
-  canonical), so a link never drops a reader's language.
+  footer around the English (marked `lang="en"`, under a line saying the page
+  is only in English, and naming the English page as canonical), so a link never drops a reader's language.
 - A hand-written page marks its prose with `data-l10n="key"` (an element's
   content) and `data-l10n-alt="key"`, `data-l10n-content="key"` and the like (an
   attribute). Nothing else reads the marks.
