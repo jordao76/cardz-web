@@ -1,0 +1,126 @@
+{
+  "meta.title": {
+    "en": "Privacy Policy — Cardz",
+    "text": "Política de Privacidade — Cardz"
+  },
+  "skip": {
+    "en": "Skip to content",
+    "text": "Pular para o conteúdo"
+  },
+  "eyebrow": {
+    "en": "Legal",
+    "text": "Jurídico"
+  },
+  "heading": {
+    "en": "Privacy Policy",
+    "text": "Política de Privacidade"
+  },
+  "date": {
+    "en": "Last updated: 23 November 2026",
+    "text": "Última atualização: 23 de novembro de 2026"
+  },
+  "intro": {
+    "en": "Cardz and Cardz Lite are single-player card games that run entirely on your device. This policy covers both.",
+    "text": "O Cardz e o Cardz Lite são jogos de cartas para um jogador que funcionam inteiramente no seu dispositivo. Esta política vale para os dois."
+  },
+  "collect.heading": {
+    "en": "What we collect",
+    "text": "O que coletamos"
+  },
+  "collect.text": {
+    "en": "<strong>Nothing</strong>, unless you choose to send it. Cardz does not collect, transmit, sell, or share any personal information on its own. There are no accounts, no sign-in, no advertising, and no analytics or telemetry. The only thing that can reach us is a crash report you decide to email, described below.",
+    "text": "<strong>Nada</strong>, a não ser o que você decidir enviar. O Cardz não coleta, transmite, vende nem compartilha por conta própria nenhuma informação pessoal. Não há contas, login, anúncios, análises de uso nem telemetria. A única coisa que pode chegar até nós é um relatório de falha que você decida enviar por e-mail, descrito abaixo."
+  },
+  "device.heading": {
+    "en": "Data stored on your device",
+    "text": "Dados guardados no seu dispositivo"
+  },
+  "device.text": {
+    "en": "Cardz saves the following locally so your games and preferences persist between sessions. This data never leaves your computer unless you send it:",
+    "text": "O Cardz salva localmente o seguinte, para que suas partidas e preferências continuem de uma sessão para outra. Esses dados nunca saem do seu computador, a não ser que você os envie:"
+  },
+  "device.game": {
+    "en": "Your game in progress, so it resumes where you left it.",
+    "text": "Sua partida em andamento, para continuar de onde você parou."
+  },
+  "device.stats": {
+    "en": "Your statistics and scores.",
+    "text": "Suas estatísticas e pontuações."
+  },
+  "device.settings": {
+    "en": "Your settings, such as the chosen deck.",
+    "text": "Suas configurações, como o baralho escolhido."
+  },
+  "device.games": {
+    "en": "In Cardz, the games you keep, write or import, and the decks you import.",
+    "text": "No Cardz, os jogos que você guarda, escreve ou importa, e os baralhos que você importa."
+  },
+  "device.log": {
+    "en": "A log of errors and of the app's last few steps, so that a crash can be explained.",
+    "text": "Um registro de erros e dos últimos passos do aplicativo, para que uma falha possa ser explicada."
+  },
+  "device.removed": {
+    "en": "This data lives in the app's local storage and is removed when you uninstall the app.",
+    "text": "Esses dados ficam no armazenamento local do aplicativo e são removidos quando você o desinstala."
+  },
+  "device.lite": {
+    "en": "Cardz Lite also keeps a copy of your statistics and scores in a folder on your PC that it shares with Cardz, so that Cardz can pick them up if you install it. The copy never leaves your computer, and Windows removes it once neither app is installed.",
+    "text": "O Cardz Lite também guarda uma cópia das suas estatísticas e pontuações em uma pasta do seu PC que ele compartilha com o Cardz, para que o Cardz possa aproveitá-las se você instalá-lo. A cópia nunca sai do seu computador, e o Windows a remove quando nenhum dos dois aplicativos estiver instalado."
+  },
+  "network.heading": {
+    "en": "Network access",
+    "text": "Acesso à rede"
+  },
+  "network.text": {
+    "en": "Cardz works fully offline and makes no network connections in normal use. It does not require the internet to play.",
+    "text": "O Cardz funciona totalmente offline e não faz nenhuma conexão de rede no uso normal. Não é preciso internet para jogar."
+  },
+  "crash.heading": {
+    "en": "Crash reports",
+    "text": "Relatórios de falha"
+  },
+  "crash.text": {
+    "en": "If the app closes unexpectedly, it says so the next time you open it and offers to report it. Nothing is sent unless you choose to: <em>Email report</em> opens a message to <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a> in your own email app, and <em>Copy details</em> puts the same report on your clipboard. You can read and change the message before sending it, or not send it at all.",
+    "text": "Se o aplicativo fechar inesperadamente, ele avisa na próxima vez que você abri-lo e oferece relatar o problema. Nada é enviado sem a sua escolha: <em>Enviar relatório</em> abre uma mensagem para <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a> no seu próprio aplicativo de e-mail, e <em>Copiar detalhes</em> coloca o mesmo relatório na área de transferência. Você pode ler e alterar a mensagem antes de enviá-la, ou simplesmente não enviar."
+  },
+  "crash.contents": {
+    "en": "A report holds technical details only: the app's version, the versions of Windows and .NET, when the session started, the error that closed it, the app's last few steps (such as which screen was open), and where its log files are on your PC. That location includes your Windows user name.",
+    "text": "Um relatório contém apenas detalhes técnicos: a versão do aplicativo, as versões do Windows e do .NET, quando a sessão começou, o erro que a fechou, os últimos passos do aplicativo (como qual tela estava aberta) e onde ficam os arquivos de registro dele no seu PC. Esse local inclui o seu nome de usuário do Windows."
+  },
+  "crash.use": {
+    "en": "If you email a report, we receive it with your email address, and use them only to look into the problem and to reply. They are not shared with anyone.",
+    "text": "Se você enviar um relatório por e-mail, nós o recebemos junto com o seu endereço de e-mail, e usamos os dois apenas para investigar o problema e responder a você. Eles não são compartilhados com ninguém."
+  },
+  "crash.windows": {
+    "en": "Separately, Windows may offer to send a diagnostic report to the developer through the Microsoft Store's standard health reporting. These reports contain technical crash information only (such as the location in the code where the error occurred) and no personal data. They are governed by <a href=\"https://privacy.microsoft.com/privacystatement\">Microsoft's privacy statement</a>.",
+    "text": "Além disso, o Windows pode oferecer o envio de um relatório de diagnóstico ao desenvolvedor pelo sistema padrão de relatórios de integridade da Microsoft Store. Esses relatórios contêm apenas informações técnicas sobre a falha (como o ponto do código onde o erro ocorreu) e nenhum dado pessoal. Eles são regidos pela <a href=\"https://privacy.microsoft.com/privacystatement\">declaração de privacidade da Microsoft</a>."
+  },
+  "children.heading": {
+    "en": "Children's privacy",
+    "text": "Privacidade das crianças"
+  },
+  "children.text": {
+    "en": "Cardz does not collect any data from anyone, including children.",
+    "text": "O Cardz não coleta dados de ninguém, incluindo crianças."
+  },
+  "changes.heading": {
+    "en": "Changes to this policy",
+    "text": "Mudanças nesta política"
+  },
+  "changes.text": {
+    "en": "If this policy changes, the updated version will be posted at this address with a new “last updated” date.",
+    "text": "Se esta política mudar, a versão atualizada será publicada neste endereço com uma nova data de “última atualização”."
+  },
+  "contact.heading": {
+    "en": "Contact",
+    "text": "Contato"
+  },
+  "contact.text": {
+    "en": "Questions about this policy: <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a>",
+    "text": "Dúvidas sobre esta política: <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a>"
+  },
+  "meta.description": {
+    "en": "Privacy policy for Cardz and Cardz Lite for Windows.",
+    "text": "Política de privacidade do Cardz e do Cardz Lite para Windows."
+  }
+}
