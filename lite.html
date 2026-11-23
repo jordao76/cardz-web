@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cardz Lite is the free edition of Cardz: Klondike, Spider, FreeCell, Yukon, Golf, Tri Peaks and Pyramid, with no ads, no accounts and nothing online.">
+  <meta name="description" data-l10n-content="meta.description" content="Cardz Lite is the free edition of Cardz: Klondike, Spider, FreeCell, Yukon, Golf, Tri Peaks and Pyramid, with no ads, no accounts and nothing online.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cardz Lite — Free solitaire for Windows">
-  <meta property="og:description" content="The free edition of Cardz: seven solitaire games and six decks, with no ads, no accounts and nothing online.">
+  <meta property="og:title" data-l10n-content="meta.og-title" content="Cardz Lite — Free solitaire for Windows">
+  <meta property="og:description" data-l10n-content="meta.og-description" content="The free edition of Cardz: seven solitaire games and six decks, with no ads, no accounts and nothing online.">
   <meta property="og:url" content="https://cardz.roderic.dev/lite.html">
   <meta property="og:image" content="https://cardz.roderic.dev/assets/screenshots/lite-klondike-1600.webp">
   <meta name="theme-color" content="#100f14">
-  <title>Cardz Lite — Free solitaire for Windows</title>
+  <title data-l10n="meta.title">Cardz Lite — Free solitaire for Windows</title>
   <link rel="icon" href="assets/cardz-logo.png">
   <link rel="stylesheet" href="styles.css">
 <!-- build:head -->
+  <link rel="alternate" hreflang="en" href="https://cardz.roderic.dev/lite.html">
+  <link rel="alternate" hreflang="fr" href="https://cardz.roderic.dev/fr/lite.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://cardz.roderic.dev/pt/lite.html">
+  <link rel="alternate" hreflang="es" href="https://cardz.roderic.dev/es/lite.html">
+  <link rel="alternate" hreflang="x-default" href="https://cardz.roderic.dev/lite.html">
 <!-- /build:head -->
   <script src="deck.js"></script>
 </head>
 <body class="home-page lite-page">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-l10n="skip">Skip to content</a>
 <!-- build:header -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Cardz home"><span aria-hidden="true">✣</span> Cardz</a>
@@ -33,58 +38,58 @@
     <section class="hero" id="top">
       <div class="hero-copy">
         <p class="eyebrow light"><span></span> Cardz Lite</p>
-        <h1>Solitaire.<br><em>Free.</em></h1>
-        <p class="lede">Cardz Lite is the free edition of Cardz: seven solitaire games and six decks, with hints, scores and statistics.</p>
+        <h1 data-l10n="hero.heading">Solitaire.<br><em>Free.</em></h1>
+        <p class="lede" data-l10n="hero.lede">Cardz Lite is the free edition of Cardz: seven solitaire games and six decks, with hints, scores and statistics.</p>
         <div class="hero-actions">
-          <a class="button" href="https://apps.microsoft.com/detail/9PL2LZN8H36G"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Free from the</small>Microsoft Store</span></a>
-          <a class="text-link" href="#games">See the games <span aria-hidden="true">↓</span></a>
+          <a class="button" href="https://apps.microsoft.com/detail/9PL2LZN8H36G"><span class="windows-mark" aria-hidden="true">⊞</span><span data-l10n="cta.store"><small>Free from the</small>Microsoft Store</span></a>
+          <a class="text-link" href="#games" data-l10n="hero.games">See the games <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="trust-row" aria-label="Product qualities"><span>Free</span><span>No ads</span><span>No accounts</span><span>Fully offline</span></div>
+        <div class="trust-row" aria-label="Product qualities" data-l10n-aria-label="hero.qualities"><span data-l10n="hero.free">Free</span><span data-l10n="hero.no-ads">No ads</span><span data-l10n="hero.no-accounts">No accounts</span><span data-l10n="hero.offline">Fully offline</span></div>
       </div>
       <figure class="hero-art table-capture">
-        <a href="assets/screenshots/lite-klondike-1600.webp" aria-label="View the full Klondike screenshot"><img src="assets/screenshots/lite-klondike-1600.webp" srcset="assets/screenshots/lite-klondike-960.webp 960w, assets/screenshots/lite-klondike-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 65vw" alt="Klondike in Cardz Lite, with Felt House cards on green felt and the game's scores open beside the table" width="1600" height="900" fetchpriority="high"></a>
-        <figcaption><span>On the table</span> Klondike · Felt House <a href="games/klondike/">How to play ↗</a></figcaption>
+        <a href="assets/screenshots/lite-klondike-1600.webp" aria-label="View the full Klondike screenshot" data-l10n-aria-label="hero.view"><img src="assets/screenshots/lite-klondike-1600.webp" srcset="assets/screenshots/lite-klondike-960.webp 960w, assets/screenshots/lite-klondike-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 65vw" data-l10n-alt="hero.alt" alt="Klondike in Cardz Lite, with Felt House cards on green felt and the game's scores open beside the table" width="1600" height="900" fetchpriority="high"></a>
+        <figcaption><span data-l10n="hero.on-table">On the table</span> Klondike · Felt House <a href="games/klondike/" data-l10n="hero.how">How to play ↗</a></figcaption>
       </figure>
     </section>
 
     <section class="games section" id="games">
-      <div class="section-heading"><p class="eyebrow"><span></span> Games</p><h2>Seven classics.<br><em>Ten ways to play.</em></h2><p>Klondike draws one or three, and Spider plays one suit, two or four. Plus FreeCell, Yukon, Golf, Tri Peaks and Pyramid.</p></div>
+      <div class="section-heading"><p class="eyebrow"><span></span> <span data-l10n="games.eyebrow">Games</span></p><h2 data-l10n="games.heading">Seven classics.<br><em>Ten ways to play.</em></h2><p data-l10n="games.lede">Klondike draws one or three, and Spider plays one suit, two or four. Plus FreeCell, Yukon, Golf, Tri Peaks and Pyramid.</p></div>
       <div class="table-gallery">
-        <a class="table-tile" href="games/pyramid/"><img src="assets/screenshots/lite-pyramid-960.webp" alt="Pyramid in Cardz Lite with Egyptian Scarab cards, each showing the value it pairs with" width="960" height="540" loading="lazy"><div><h3>Pyramid <span aria-hidden="true">↗</span></h3><p>Pairs add up to thirteen</p><small>Scarab deck</small></div></a>
-        <a class="table-tile" href="games/spider/"><img src="assets/screenshots/lite-spider-960.webp" alt="One-suit Spider in Cardz Lite with the dark Neon deck" width="960" height="540" loading="lazy"><div><h3>Spider <span aria-hidden="true">↗</span></h3><p>1, 2 &amp; 4 suits · Eight perfect runs</p><small>Neon deck</small></div></a>
-        <a class="table-tile" href="games/freecell/"><img src="assets/screenshots/lite-freecell-960.webp" alt="FreeCell in Cardz Lite with the bold orange and black Monosolid deck" width="960" height="540" loading="lazy"><div><h3>FreeCell <span aria-hidden="true">↗</span></h3><p>Every card in plain sight</p><small>Monosolid deck</small></div></a>
-        <a class="table-tile" href="games/tri-peaks/"><img src="assets/screenshots/lite-tri-peaks-960.webp" alt="Tri Peaks in Cardz Lite with Felt House cards, the bottom row cleared" width="960" height="540" loading="lazy"><div><h3>Tri Peaks <span aria-hidden="true">↗</span></h3><p>Clear all three peaks</p><small>Felt House deck</small></div></a>
-        <a class="table-tile" href="games/yukon/"><img src="assets/screenshots/lite-yukon-960.webp" alt="Yukon in Cardz Lite with the colourblind-friendly deck, its red suits drawn in blue" width="960" height="540" loading="lazy"><div><h3>Yukon <span aria-hidden="true">↗</span></h3><p>Move whole tails at once</p><small>Colourblind deck</small></div></a>
-        <a class="table-tile" href="games/golf/"><img src="assets/screenshots/lite-golf-960.webp" alt="Golf in Cardz Lite with Scarab cards, the toolbar folded away" width="960" height="540" loading="lazy"><div><h3>Golf <span aria-hidden="true">↗</span></h3><p>One rank away</p><small>Scarab deck</small></div></a>
+        <a class="table-tile" href="games/pyramid/"><img src="assets/screenshots/lite-pyramid-960.webp" data-l10n-alt="tile.pyramid.alt" alt="Pyramid in Cardz Lite with Egyptian Scarab cards, each showing the value it pairs with" width="960" height="540" loading="lazy"><div><h3>Pyramid <span aria-hidden="true">↗</span></h3><p data-l10n="tile.pyramid.text">Pairs add up to thirteen</p><small data-l10n="tile.pyramid.deck">Scarab deck</small></div></a>
+        <a class="table-tile" href="games/spider/"><img src="assets/screenshots/lite-spider-960.webp" data-l10n-alt="tile.spider.alt" alt="One-suit Spider in Cardz Lite with the dark Neon deck" width="960" height="540" loading="lazy"><div><h3>Spider <span aria-hidden="true">↗</span></h3><p data-l10n="tile.spider.text">1, 2 &amp; 4 suits · Eight perfect runs</p><small data-l10n="tile.spider.deck">Neon deck</small></div></a>
+        <a class="table-tile" href="games/freecell/"><img src="assets/screenshots/lite-freecell-960.webp" data-l10n-alt="tile.freecell.alt" alt="FreeCell in Cardz Lite with the bold orange and black Monosolid deck" width="960" height="540" loading="lazy"><div><h3>FreeCell <span aria-hidden="true">↗</span></h3><p data-l10n="tile.freecell.text">Every card in plain sight</p><small data-l10n="tile.freecell.deck">Monosolid deck</small></div></a>
+        <a class="table-tile" href="games/tri-peaks/"><img src="assets/screenshots/lite-tri-peaks-960.webp" data-l10n-alt="tile.tri-peaks.alt" alt="Tri Peaks in Cardz Lite with Felt House cards, the bottom row cleared" width="960" height="540" loading="lazy"><div><h3>Tri Peaks <span aria-hidden="true">↗</span></h3><p data-l10n="tile.tri-peaks.text">Clear all three peaks</p><small data-l10n="tile.tri-peaks.deck">Felt House deck</small></div></a>
+        <a class="table-tile" href="games/yukon/"><img src="assets/screenshots/lite-yukon-960.webp" data-l10n-alt="tile.yukon.alt" alt="Yukon in Cardz Lite with the colourblind-friendly deck, its red suits drawn in blue" width="960" height="540" loading="lazy"><div><h3>Yukon <span aria-hidden="true">↗</span></h3><p data-l10n="tile.yukon.text">Move whole tails at once</p><small data-l10n="tile.yukon.deck">Colourblind deck</small></div></a>
+        <a class="table-tile" href="games/golf/"><img src="assets/screenshots/lite-golf-960.webp" data-l10n-alt="tile.golf.alt" alt="Golf in Cardz Lite with Scarab cards, the toolbar folded away" width="960" height="540" loading="lazy"><div><h3>Golf <span aria-hidden="true">↗</span></h3><p data-l10n="tile.golf.text">One rank away</p><small data-l10n="tile.golf.deck">Scarab deck</small></div></a>
       </div>
     </section>
 
     <div class="court-band court-band-felt-house" role="presentation"></div>
 
     <section class="details section" id="details">
-      <div class="section-heading"><h2>What you get</h2></div>
+      <div class="section-heading"><h2 data-l10n="details.heading">What you get</h2></div>
       <div class="feature-grid">
-        <article><h3>Hints and auto-play</h3><p>A hint shows a good move, and auto-play finishes the deal. Or switch the rules off.</p></article>
-        <article><h3>Keep score</h3><p>Deals, wins, losses and streaks for every game. Klondike, Spider, Golf, Tri Peaks and Pyramid score every deal.</p></article>
-        <article><h3>Six decks</h3><p>Felt House, Scarab, Neon and Monosolid, plus a high-contrast deck and a colourblind-friendly one.</p></article>
-        <article><h3>Saves as you play</h3><p>Your game is there when you come back, and so is undo. Replay any deal by its number.</p></article>
-        <article><h3>Accessible</h3><p>Full keyboard play, screen-reader narration, reduced motion, and a mirrored table for left-handed play.</p></article>
+        <article><h3 data-l10n="details.hints">Hints and auto-play</h3><p data-l10n="details.hints-text">A hint shows a good move, and auto-play finishes the deal. Or switch the rules off.</p></article>
+        <article><h3 data-l10n="details.score">Keep score</h3><p data-l10n="details.score-text">Deals, wins, losses and streaks for every game. Klondike, Spider, Golf, Tri Peaks and Pyramid score every deal.</p></article>
+        <article><h3 data-l10n="details.decks">Six decks</h3><p data-l10n="details.decks-text">Felt House, Scarab, Neon and Monosolid, plus a high-contrast deck and a colourblind-friendly one.</p></article>
+        <article><h3 data-l10n="details.saves">Saves as you play</h3><p data-l10n="details.saves-text">Your game is there when you come back, and so is undo. Replay any deal by its number.</p></article>
+        <article><h3 data-l10n="details.accessible">Accessible</h3><p data-l10n="details.accessible-text">Full keyboard play, screen-reader narration, reduced motion, and a mirrored table for left-handed play.</p></article>
       </div>
     </section>
 
     <section class="sandbox section" id="cardz">
-      <div class="sandbox-copy"><p class="eyebrow light"><span></span> The full app</p><h2>Want more?<br><em>That's Cardz.</em></h2><ul><li><span>01</span>More than twenty games, and every deck</li><li><span>02</span>Sandbox: a table with no rules</li><li><span>03</span>Games of your own</li></ul><a class="button sandbox-button" href="index.html">Meet Cardz <span aria-hidden="true">→</span></a><a class="make-callout" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span>Moving up?</span> Install Cardz on the same PC and it brings your Lite statistics and scores with it. <b>Get Cardz <span aria-hidden="true">↗</span></b></a></div>
-      <figure class="table-capture sandbox-capture"><a href="assets/screenshots/lite-klondike-high-contrast-1600.webp" aria-label="View the full high-contrast Klondike screenshot"><img src="assets/screenshots/lite-klondike-high-contrast-960.webp" srcset="assets/screenshots/lite-klondike-high-contrast-960.webp 960w, assets/screenshots/lite-klondike-high-contrast-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 55vw" alt="Klondike Draw 3 in Cardz Lite with the high-contrast deck: bold black outlines on white" width="1600" height="900" loading="lazy"></a><figcaption><span>High contrast</span> Klondike Draw 3</figcaption></figure>
+      <div class="sandbox-copy"><p class="eyebrow light"><span></span> <span data-l10n="cardz.eyebrow">The full app</span></p><h2 data-l10n="cardz.heading">Want more?<br><em>That's Cardz.</em></h2><ul><li><span>01</span><span data-l10n="cardz.games">More than twenty games, and every deck</span></li><li><span>02</span><span data-l10n="cardz.sandbox">Sandbox: a table with no rules</span></li><li><span>03</span><span data-l10n="cardz.own">Games of your own</span></li></ul><a class="button sandbox-button" href="index.html" data-l10n="cardz.meet">Meet Cardz <span aria-hidden="true">→</span></a><a class="make-callout" href="https://apps.microsoft.com/detail/9N96G6H34XCT" data-l10n="cardz.move"><span>Moving up?</span> Install Cardz on the same PC and it brings your Lite statistics and scores with it. <b>Get Cardz <span aria-hidden="true">↗</span></b></a></div>
+      <figure class="table-capture sandbox-capture"><a href="assets/screenshots/lite-klondike-high-contrast-1600.webp" aria-label="View the full high-contrast Klondike screenshot" data-l10n-aria-label="cardz.view"><img src="assets/screenshots/lite-klondike-high-contrast-960.webp" srcset="assets/screenshots/lite-klondike-high-contrast-960.webp 960w, assets/screenshots/lite-klondike-high-contrast-1600.webp 1600w" sizes="(max-width: 900px) 90vw, 55vw" data-l10n-alt="cardz.alt" alt="Klondike Draw 3 in Cardz Lite with the high-contrast deck: bold black outlines on white" width="1600" height="900" loading="lazy"></a><figcaption><span data-l10n="cardz.caption">High contrast</span> Klondike Draw 3</figcaption></figure>
     </section>
 
     <section class="final-cta">
-      <h2>Deal yourself<br><em>a good hand.</em></h2>
-      <a class="button" href="https://apps.microsoft.com/detail/9PL2LZN8H36G"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Free from the</small>Microsoft Store</span></a>
-      <small>For Windows 10 and Windows 11</small>
+      <h2 data-l10n="final.heading">Deal yourself<br><em>a good hand.</em></h2>
+      <a class="button" href="https://apps.microsoft.com/detail/9PL2LZN8H36G"><span class="windows-mark" aria-hidden="true">⊞</span><span data-l10n="cta.store"><small>Free from the</small>Microsoft Store</span></a>
+      <small data-l10n="final.windows">For Windows 10 and Windows 11</small>
     </section>
   </main>
 <!-- build:footer -->
-  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="lite.html">Cardz Lite</a><a href="privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><small>© 2026 Cardz</small></footer>
+  <footer><a class="brand" href="index.html"><span aria-hidden="true">✣</span> Cardz</a><p>Solitaire, your way.</p><div><a href="games/">Games</a><a href="decks.html">Decks</a><a href="sandbox.html">Sandbox</a><a href="make-a-game.html">Make a game</a><a href="lite.html">Cardz Lite</a><a href="privacy.html">Privacy</a><a href="mailto:cardz@roderic.dev">Contact</a></div><nav class="language-switch" aria-label="Languages"><a href="lite.html" lang="en" aria-current="true">English</a><a href="fr/lite.html" lang="fr" hreflang="fr">Français</a><a href="pt/lite.html" lang="pt-BR" hreflang="pt-BR">Português</a><a href="es/lite.html" lang="es" hreflang="es">Español</a></nav><small>© 2026 Cardz</small></footer>
 <!-- /build:footer -->
 </body>
 </html>

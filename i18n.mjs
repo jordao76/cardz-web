@@ -251,7 +251,7 @@ function relink(html, localized) {
     return `../${url}`;
   };
   return html
-    .replace(/\s(href|src)="([^"]*)"/g, (_, attribute, url) => ` ${attribute}="${move(url)}"`)
+    .replace(/\s(href|src|poster)="([^"]*)"/g, (_, attribute, url) => ` ${attribute}="${move(url)}"`)
     .replace(/\ssrcset="([^"]*)"/g, (_, set) =>
       ` srcset="${set
         .split(",")
