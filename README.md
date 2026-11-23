@@ -119,9 +119,8 @@ in the hand-written pages, and each language is a folder under `locales/` that t
 build reads beside it. `i18n.mjs` has the details; in short:
 
 - `locales/<code>/site.json` is what `build.mjs` writes (chrome, game pages, decks),
-  `roster.json` and `decks.json` translate the editorial files by slug,
-  `design-kit.json` the notes on design files, and `pages/<page>.json` a
-  hand-written page.
+  `roster.json` and `decks.json` translate the editorial files by slug, and
+  `pages/<page>.json` a hand-written page.
 - Each entry is `{ "en": …, "text": … }`: the English it was translated from, and
   the translation. When the English in the code changes, the build reports the
   entry as stale until someone reads it again. `text: null` is not translated yet.

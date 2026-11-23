@@ -554,17 +554,14 @@ const joinRoot = (path) => join(root, path);
 function designSource(page, link) {
   const extra = isExtra(page);
   const primary = page.variants[0];
-  let path, note, lead;
+  let path, lead;
   if (extra) {
     path = primary.download;
-    const entry = designKit.games.find((candidate) => `designs/${candidate.file}` === path);
-    note = entry?.note && here.catalog.t("design-kit", entry.file, entry.note);
     lead = s("source.lead-extra", "This is the file the download button gives you.");
   } else {
     const entry = designKit.builtIns.find((candidate) => candidate.page === page.slug);
     if (!entry) return "";
     path = entry.source;
-    note = entry.note && here.catalog.t("design-kit", entry.page, entry.note);
     lead =
       page.variants.length > 1
         ? s("source.lead-variant", "This is {name}; the other variants change a line or two.", { name: escape(entry.name) })
@@ -576,7 +573,7 @@ function designSource(page, link) {
   const lines = text.split("\n").length;
   return `      <details class="game-source">
         <summary>${s("source.summary", "Read its design file")} <small>${s("source.lines", "{n} lines", { n: lines })}</small></summary>
-        <p>${note ? `${escape(note)} ` : ""}${lead} ${s("source.explains", '<a href="{href}">Make a game</a> explains every part of it.', { href: link("make-a-game.html") })}</p>
+        <p>${lead} ${s("source.explains", '<a href="{href}">Make a game</a> explains every part of it.', { href: link("make-a-game.html") })}</p>
         <pre><code class="language-json">${highlightJson(text)}</code></pre>
       </details>
 `;
