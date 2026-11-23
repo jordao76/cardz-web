@@ -123,7 +123,11 @@ const languages = LOCALES.filter(
     locale,
     catalog: new Catalog(root, locale),
     bySlug: new Map(data.games.map((game) => [game.slug, game])),
+    // The pages in this language's subtree, and of those, the hand-written pages
+    // it has not translated: they are there with the language's header and footer
+    // around their English, so following a link never drops a reader's language.
     localized: new Set(),
+    english: new Set(),
   };
 });
 
@@ -399,7 +403,7 @@ function chrome(depth, path) {
   const up = "../".repeat(depth);
   const root = up + (here.locale.dir ? "../" : "");
   const link = (href) => (here.localized.has(pagePath(href)) ? up + href : root + href);
-  const others = languages.filter((language) => language.localized.has(path));
+  const others = languages.filter((language) => language.localized.has(path) && !language.english.has(path));
   // A page in one language only has no alternates to name.
   const alternates = (others.length > 1 ? others : [])
     .map((language) => `  <link rel="alternate" hreflang="${language.locale.tag}" href="${SITE}${language.locale.dir}${hrefOf(path)}">`)
@@ -963,8 +967,8 @@ const currentOf = { index: undefined, lite: "lite", sandbox: "sandbox", privacy:
 
 // First, which pages each language has, since every page's header, footer and
 // alternates link to the others. English has them all. Another language has the
-// generated pages, each game page its export covers, and each hand-written page it
-// has translated in full.
+// generated pages, each game page its export covers, and every hand-written page:
+// in its own words where it has translated all of it, and in English otherwise.
 for (const language of languages) {
   here = language;
   const has = language.localized;
@@ -975,7 +979,8 @@ for (const language of languages) {
       const t = language.catalog.scope(`pages/${page}`);
       localizePage(sources[page], page, t, language.locale, has);
       const file = `pages/${page}`;
-      if (language.catalog.asked.get(file)?.size && !language.catalog.missingIn(file)) has.add(`${page}.html`);
+      if (!language.catalog.asked.get(file)?.size || language.catalog.missingIn(file)) language.english.add(`${page}.html`);
+      has.add(`${page}.html`);
     }
   }
   has.add("games/index.html");
@@ -1008,11 +1013,24 @@ for (const language of languages) {
     };
     if (language.locale === NEUTRAL) writeFileSync(join(root, `${page}.html`), fillRegions(sources[page], regions, `${page}.html`), "utf8");
     else {
-      const t = language.catalog.scope(`pages/${page}`);
-      // The page's own address and its Store links name this language too.
-      const html = localizePage(sources[page], page, t, language.locale, language.localized)
-        .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}${language.locale.dir}${hrefOf(`${page}.html`)}"`)
-        .replace(/"(https:\/\/apps\.microsoft\.com\/detail\/\w+)"/g, (_, url) => `"${store(url)}"`);
+      const english = language.english.has(`${page}.html`);
+      // A page this language has not translated keeps its English inside, marked
+      // as English, and names the English page as the one to index.
+      const t = english ? (key, text) => text : language.catalog.scope(`pages/${page}`);
+      let html = localizePage(sources[page], page, t, language.locale, language.localized).replace(
+        /"(https:\/\/apps\.microsoft\.com\/detail\/\w+)"/g,
+        (_, url) => `"${store(url)}"`
+      );
+      if (english) {
+        if ((html.match(/<main\b/g) ?? []).length !== 1) throw new Error(`${page}.html: expected one <main>`);
+        html = html
+          .replace(/<main\b/, '<main lang="en"')
+          .replace(/(<a class="skip-link" href="#main">)[^<]*/, `$1${s("skip", "Skip to content")}`);
+        regions.head = `${regions.head ? `${regions.head}\n` : ""}  <link rel="canonical" href="${SITE}${hrefOf(`${page}.html`)}">`;
+      } else {
+        // The page's own address names this language too.
+        html = html.replace(/(<meta property="og:url" content=")[^"]*"/, `$1${SITE}${language.locale.dir}${hrefOf(`${page}.html`)}"`);
+      }
       emit(`${page}.html`, fillRegions(html, regions, `${page}.html`));
     }
   }
@@ -1026,10 +1044,12 @@ console.log(
 );
 for (const language of languages.filter((language) => language.locale !== NEUTRAL)) {
   const pages = [...language.localized];
-  const hand = HAND_WRITTEN.filter((page) => language.localized.has(`${page}.html`));
+  const hand = HAND_WRITTEN.filter((page) => !language.english.has(`${page}.html`));
+  const english = HAND_WRITTEN.filter((page) => language.english.has(`${page}.html`));
   console.log(
     `${language.locale.dir}  (${pages.filter((path) => path.startsWith("games/") && path !== "games/index.html").length} game pages, ` +
-      `${hand.length ? hand.map((page) => `${page}.html`).join(", ") : "no hand-written page yet"})`
+      `${hand.length ? hand.map((page) => `${page}.html`).join(", ") : "no hand-written page yet"}` +
+      `${english.length ? `; in English: ${english.map((page) => `${page}.html`).join(", ")}` : ""})`
   );
   for (const line of language.catalog.report()) console.log(line);
   if (sync) for (const path of language.catalog.sync()) console.log(`  synced ${path.slice(root.length + 1)}`);
