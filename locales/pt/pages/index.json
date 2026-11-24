@@ -17,7 +17,7 @@
   },
   "hero.lede": {
     "en": "Play the classics by the book, switch the rules off when you want to, or start from a bare deck and make up a game of your own.",
-    "text": "Jogue os clássicos seguindo as regras, desligue as regras quando quiser, ou comece de um baralho vazio e invente um jogo seu."
+    "text": "Jogue os clássicos seguindo as regras, desligue as regras quando quiser, ou comece somente com um baralho e invente um jogo só seu."
   },
   "cta.store": {
     "en": "<small>Download from the</small>Microsoft Store",
@@ -113,7 +113,7 @@
   },
   "decks.heading": {
     "en": "Each deck takes you places.",
-    "text": "Cada baralho leva você a outro lugar."
+    "text": "Cada baralho te leva a lugares únicos."
   },
   "decks.lede": {
     "en": "Switch at any time, even mid-game.",
@@ -145,7 +145,7 @@
   },
   "sandbox.keep": {
     "en": "Keep a layout and its deal, and play it again",
-    "text": "Guarde uma disposição e sua distribuição, e jogue de novo"
+    "text": "Salve uma mesa e sua distribuição de cartas, e jogue de novo"
   },
   "sandbox.how": {
     "en": "How Sandbox works <span aria-hidden=\"true\">→</span>",
@@ -197,7 +197,7 @@
   },
   "final.heading": {
     "en": "Deal yourself<br><em>a good hand.</em>",
-    "text": "Dê a si mesmo<br><em>uma boa mão.</em>"
+    "text": "Dê as cartas.<br><em>A mesa é sua.</em>"
   },
   "final.windows": {
     "en": "For Windows 10 and Windows 11 · <a href=\"lite.html\">Or try Cardz Lite, free</a>",
