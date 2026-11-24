@@ -147,6 +147,10 @@ function localVariants(page, language = here) {
 
 /** A Store link that opens the Store's page in the language being built. */
 const store = (url) => (here.locale.store ? `${url}?hl=${here.locale.store}` : url);
+// A Creative Commons licence's deed, in the reader's language when CC has one.
+// Design files are CC BY 4.0, extra decks CC BY-NC 4.0.
+const DEED = { fr: "deed.fr", pt: "deed.pt-br", es: "deed.es" };
+const deed = (licence) => `https://creativecommons.org/licenses/${licence}/4.0/${DEED[here.locale.code] ?? ""}`;
 
 /** The tagline roster.json gives a page, in the language being built. */
 const tagline = (page) => here.catalog.t("roster", page.slug, page.tagline);
@@ -578,7 +582,7 @@ function designSource(page, link) {
   const lines = text.split("\n").length;
   return `      <details class="game-source">
         <summary>${s("source.summary", "Read its design file")} <small>${s("source.lines", "{n} lines", { n: lines })}</small></summary>
-        <p>${lead} ${s("source.explains", '<a href="{href}">Make a game</a> explains every part of it.', { href: link("make-a-game.html") })}</p>
+        <p>${lead} ${s("source.explains", '<a href="{href}">Make a game</a> explains every part of it.', { href: link("make-a-game.html") })} ${s("license.games", 'You may share and change it under <a href="{href}">CC BY 4.0</a>.', { href: deed("by") })}</p>
         <pre><code class="language-json">${highlightJson(text)}</code></pre>
       </details>
 `;
@@ -827,7 +831,8 @@ ${header("decks")}
 ${cards}
     </section>
     <section class="decks-note">
-      <p>${escape(d("note", decks.note))}</p>
+      <p>${escape(d("note", decks.note))}</p>${deckDownloads.decks.length ? `
+      <p>${s("license.decks", 'The downloadable decks may be shared and changed for non-commercial use under <a href="{href}">CC BY-NC 4.0</a>.', { href: deed("by-nc") })}</p>` : ""}
     </section>
     <section class="decks-cta">
       <a class="button" href="${store(STORE)}"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>${s("cta.store-small", "Get it on the")}</small>${s("cta.store", "Microsoft Store")}</span></a>
@@ -907,7 +912,7 @@ ${all.filter((page) => !isExtra(page)).map(card).join("\n")}
     <section class="games-section" id="extras" aria-labelledby="extras-title">
       <div class="games-section-head">
         <h2 id="extras-title">${s("more.extras", "Extra games")}</h2>
-        <p>${s("games.extras-lead", 'Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href="{href}">Make a game</a>.', { href: link("make-a-game.html") })}</p>
+        <p>${s("games.extras-lead", 'Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href="{href}">Make a game</a>.', { href: link("make-a-game.html") })} ${s("license.games-index", 'Design files may be shared and changed under <a href="{href}">CC BY 4.0</a>.', { href: deed("by") })}</p>
       </div>
       <div class="games-grid">
 ${all.filter(isExtra).map(card).join("\n")}

@@ -195,6 +195,10 @@
     "en": "<a href=\"{href}\">Make a game</a> explains every part of it.",
     "text": "<a href=\"{href}\">Crie um jogo</a> explica cada parte dele (em inglês)."
   },
+  "license.games": {
+    "en": "You may share and change it under <a href=\"{href}\">CC BY 4.0</a>.",
+    "text": "Você pode compartilhá-lo e alterá-lo nos termos da licença <a href=\"{href}\">CC BY 4.0</a>."
+  },
   "cta.play-in": {
     "en": "Play it in",
     "text": "Jogue no"
@@ -315,6 +319,10 @@
     "en": "Not built into Cardz. Download one and open it in Cardz. Each is a design file you can change: see <a href=\"{href}\">Make a game</a>.",
     "text": "Não vêm com o Cardz. Baixe um e abra no Cardz. Cada um é um arquivo de design que você pode alterar: veja <a href=\"{href}\">Crie um jogo</a>."
   },
+  "license.games-index": {
+    "en": "Design files may be shared and changed under <a href=\"{href}\">CC BY 4.0</a>.",
+    "text": "Os arquivos de jogo podem ser compartilhados e alterados nos termos da licença <a href=\"{href}\">CC BY 4.0</a>."
+  },
   "card.new": {
     "en": "New",
     "text": "Novo"
@@ -354,6 +362,10 @@
   "decks.grid": {
     "en": "Illustrated decks",
     "text": "Baralhos ilustrados"
+  },
+  "license.decks": {
+    "en": "The downloadable decks may be shared and changed for non-commercial use under <a href=\"{href}\">CC BY-NC 4.0</a>.",
+    "text": "Os baralhos para baixar podem ser compartilhados e alterados para uso não comercial, nos termos da licença <a href=\"{href}\">CC BY-NC 4.0</a>."
   },
   "header.get-lite": {
     "en": "Get Cardz Lite",
