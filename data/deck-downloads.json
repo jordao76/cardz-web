@@ -7,7 +7,7 @@
       "author": "Cardz",
       "version": "1.0.0",
       "file": "decks/jet-set.cardzdeck",
-      "bytes": 3254856
+      "bytes": 3254876
     },
     {
       "slug": "mono",
@@ -15,7 +15,7 @@
       "author": "Cardz",
       "version": "1.0.0",
       "file": "decks/mono.cardzdeck",
-      "bytes": 155157
+      "bytes": 155175
     }
   ]
 }
