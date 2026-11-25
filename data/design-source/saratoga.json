@@ -1,0 +1,120 @@
+{
+  "name": "Saratoga",
+  "family": "Klondike",
+  "aliases": ["Thoughtful Klondike", "Thoughtful Solitaire"],
+  "description": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Play as in Klondike, but the cards Klondike deals face down are dealt **face up**, lying **sideways** under each column, so you know where every tableau card is.\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- When a column is emptied, the top sideways card under it **turns into play**. An empty column with nothing under it can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste **one card at a time**, or **three at a time** in Draw 3, where only the top card of the waste is in play. Recycle the waste back to the stock when it runs out, as often as you like.\n- Your **score**, kept for a win: 10 for each card on the foundations, 5 for each sideways card brought into play, and 100 off each time the waste goes back into the stock (in Draw 3, 20 off each time after the third pass). It never drops below 0.",
+  "rules": {
+    "foundation": { "seed": "Ace", "build": { "direction": "Up" }, "suit": "Same" },
+    "tableau": { "seed": "King", "build": { "direction": "Down" }, "suit": "AlternateColor" }
+  },
+  "depots": [
+    { "type": "Stock", "col": 0.2885, "row": 0, "name": "stock", "ejectRule": "locked",
+      "landFace": "Down", "draw": { "to": "waste", "recycle": true } },
+    { "type": "Waste", "col": 1.5385, "row": 0, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Foundation", "col": 4.0385, "row": 0, "name": "found-1",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 5.2885, "row": 0, "name": "found-2",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 6.5385, "row": 0, "name": "found-3",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Foundation", "col": 7.7885, "row": 0, "name": "found-4",
+      "acceptRule": "$foundation", "ejectRule": "locked" },
+    { "type": "Tableau", "col": 0.2885, "row": 1, "name": "tab-1", "acceptRule": "$tableau",
+      "ejectRule": "faceUp" },
+    { "type": "Reserve", "fanDirection": "Right", "fanAnchor": "Top", "col": 1.3942, "row": 1,
+      "name": "hidden-2", "acceptRule": "none", "ejectRule": "locked", "angle": -1.5707963267948966,
+      "fanOffsetFaceUp": 28 },
+    { "type": "Tableau", "col": 1.5385, "row": 1, "name": "tab-2", "acceptRule": "$tableau",
+      "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "empty(depot) && !empty(depot.under)",
+          "do": [
+            { "kind": "move", "from": "first(h in hidden, h == depot.under)", "to": "@self" }
+          ] }
+      ] },
+    { "type": "Reserve", "fanDirection": "Right", "fanAnchor": "Top", "col": 2.6442, "row": 1,
+      "name": "hidden-3", "acceptRule": "none", "ejectRule": "locked", "angle": -1.5707963267948966,
+      "fanOffsetFaceUp": 28 },
+    { "type": "Tableau", "col": 2.7885, "row": 1, "name": "tab-3", "acceptRule": "$tableau",
+      "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "empty(depot) && !empty(depot.under)",
+          "do": [
+            { "kind": "move", "from": "first(h in hidden, h == depot.under)", "to": "@self" }
+          ] }
+      ] },
+    { "type": "Reserve", "fanDirection": "Right", "fanAnchor": "Top", "col": 3.8942, "row": 1,
+      "name": "hidden-4", "acceptRule": "none", "ejectRule": "locked", "angle": -1.5707963267948966,
+      "fanOffsetFaceUp": 28 },
+    { "type": "Tableau", "col": 4.0385, "row": 1, "name": "tab-4", "acceptRule": "$tableau",
+      "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "empty(depot) && !empty(depot.under)",
+          "do": [
+            { "kind": "move", "from": "first(h in hidden, h == depot.under)", "to": "@self" }
+          ] }
+      ] },
+    { "type": "Reserve", "fanDirection": "Right", "fanAnchor": "Top", "col": 5.1442, "row": 1,
+      "name": "hidden-5", "acceptRule": "none", "ejectRule": "locked", "angle": -1.5707963267948966,
+      "fanOffsetFaceUp": 28 },
+    { "type": "Tableau", "col": 5.2885, "row": 1, "name": "tab-5", "acceptRule": "$tableau",
+      "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "empty(depot) && !empty(depot.under)",
+          "do": [
+            { "kind": "move", "from": "first(h in hidden, h == depot.under)", "to": "@self" }
+          ] }
+      ] },
+    { "type": "Reserve", "fanDirection": "Right", "fanAnchor": "Top", "col": 6.3942, "row": 1,
+      "name": "hidden-6", "acceptRule": "none", "ejectRule": "locked", "angle": -1.5707963267948966,
+      "fanOffsetFaceUp": 28 },
+    { "type": "Tableau", "col": 6.5385, "row": 1, "name": "tab-6", "acceptRule": "$tableau",
+      "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "empty(depot) && !empty(depot.under)",
+          "do": [
+            { "kind": "move", "from": "first(h in hidden, h == depot.under)", "to": "@self" }
+          ] }
+      ] },
+    { "type": "Reserve", "fanDirection": "Right", "fanAnchor": "Top", "col": 7.6442, "row": 1,
+      "name": "hidden-7", "acceptRule": "none", "ejectRule": "locked", "angle": -1.5707963267948966,
+      "fanOffsetFaceUp": 28 },
+    { "type": "Tableau", "col": 7.7885, "row": 1, "name": "tab-7", "acceptRule": "$tableau",
+      "ejectRule": "faceUp",
+      "triggers": [
+        { "when": "empty(depot) && !empty(depot.under)",
+          "do": [
+            { "kind": "move", "from": "first(h in hidden, h == depot.under)", "to": "@self" }
+          ] }
+      ] }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "tab-1", "faceUp": 1 },
+    { "kind": "dealGroup",
+      "to": ["hidden-2", "hidden-3", "hidden-4", "hidden-5", "hidden-6", "hidden-7"], "faceUp": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-2", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["hidden-3", "hidden-4", "hidden-5", "hidden-6", "hidden-7"],
+      "faceUp": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-3", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["hidden-4", "hidden-5", "hidden-6", "hidden-7"], "faceUp": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-4", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["hidden-5", "hidden-6", "hidden-7"], "faceUp": 1,
+      "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-5", "faceUp": 1 },
+    { "kind": "dealGroup", "to": ["hidden-6", "hidden-7"], "faceUp": 1, "roundRobin": true },
+    { "kind": "dealGroup", "to": "tab-6", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "hidden-7", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "tab-7", "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "properties": { "under": "first(h in hidden, index(h) == index(it))" },
+  "scoring": {
+    "value": "max(0, 10 * sum(Foundation, count(it)) + 5 * (21 - sum(hidden, count(it))) - 100 * recycles)"
+  },
+  "planner": { "value": "10 * sum(Foundation, count(it)) + 5 * (21 - sum(hidden, count(it)))" },
+  "tools": "None"
+}

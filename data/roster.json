@@ -42,14 +42,17 @@
     { "slug": "klondike-with-jokers", "tagline": "Two Jokers wild, and you can win them back", "capture": { "file": "40-klondikewithjokers-jetset.png", "deck": "Jet Set" } },
     { "slug": "hemispheres", "tagline": "Red to the north, black to the south", "capture": { "file": "42-hemispheres-frightnight.png", "deck": "Fright Night" } },
     { "slug": "die-schwierige", "tagline": "Two decks, two rounds, the difficult one", "capture": { "file": "44-dieschwierige-jetset.png", "deck": "Jet Set" } },
-    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "new": true, "capture": { "file": "38-royalcotillion-filigree.png", "deck": "Filigree" } },
-    { "slug": "alhambra", "tagline": "Build on the waste, up or down in suit", "new": true, "capture": { "file": "46-alhambra-jetset.png", "deck": "Jet Set" } },
-    { "slug": "stalactites", "tagline": "Columns that only give, by ones or by twos", "new": true, "capture": { "file": "47-stalactites-deepfield.png", "deck": "Deepfield" } },
-    { "slug": "baroness", "tagline": "Pairs to thirteen, Kings alone", "new": true, "capture": { "file": "48-baroness-scarab.png", "deck": "Scarab" } },
-    { "slug": "captive-queens", "tagline": "Fives down, Sixes up, round a court of Queens", "new": true, "capture": { "file": "49-captivequeens-herbarium.png", "deck": "Herbarium" } },
-    { "slug": "faerie-queen", "tagline": "Every card dealt onto the newest King", "new": true, "capture": { "file": "50-faeriequeen-ornamental.png", "deck": "Ornamental" } },
-    { "slug": "mount-olympus", "tagline": "A mountain of Aces and Twos, climbing by twos", "new": true },
-    { "slug": "penguin", "tagline": "The beak picks the rank every foundation starts from", "new": true, "capture": { "file": "53-penguin-neon.png", "deck": "Neon" } },
-    { "slug": "braid", "tagline": "Twenty cards braided down the middle", "new": true, "capture": { "file": "52-braid-frightnight.png", "deck": "Fright Night" } }
+    { "slug": "royal-cotillion", "tagline": "Lords and ladies, dancing up by twos", "capture": { "file": "38-royalcotillion-filigree.png", "deck": "Filigree" } },
+    { "slug": "alhambra", "tagline": "Build on the waste, up or down in suit", "capture": { "file": "46-alhambra-jetset.png", "deck": "Jet Set" } },
+    { "slug": "stalactites", "tagline": "Columns that only give, by ones or by twos", "capture": { "file": "47-stalactites-deepfield.png", "deck": "Deepfield" } },
+    { "slug": "baroness", "tagline": "Pairs to thirteen, Kings alone", "capture": { "file": "48-baroness-scarab.png", "deck": "Scarab" } },
+    { "slug": "captive-queens", "tagline": "Fives down, Sixes up, round a court of Queens", "capture": { "file": "49-captivequeens-herbarium.png", "deck": "Herbarium" } },
+    { "slug": "faerie-queen", "tagline": "Every card dealt onto the newest King", "capture": { "file": "50-faeriequeen-ornamental.png", "deck": "Ornamental" } },
+    { "slug": "mount-olympus", "tagline": "A mountain of Aces and Twos, climbing by twos" },
+    { "slug": "penguin", "tagline": "The beak picks the rank every foundation starts from", "capture": { "file": "53-penguin-neon.png", "deck": "Neon" } },
+    { "slug": "braid", "tagline": "Twenty cards braided down the middle", "capture": { "file": "52-braid-frightnight.png", "deck": "Fright Night" } },
+    { "slug": "saratoga", "tagline": "Draw 1 & Draw 3 · Klondike with nothing hidden", "new": true },
+    { "slug": "terrace", "tagline": "Thirteen on the terrace, and you choose the base", "new": true },
+    { "slug": "british-constitution", "tagline": "Climb row by row to the Privy Council", "new": true }
   ]
 }

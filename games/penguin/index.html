@@ -8,6 +8,11 @@
   <title>Penguin — how to play | Cardz</title>
   <link rel="icon" href="../../assets/cardz-logo.png">
   <link rel="stylesheet" href="../../styles.css?v=12c0aa7d">
+  <link rel="alternate" hreflang="en" href="https://cardz.roderic.dev/games/penguin/">
+  <link rel="alternate" hreflang="fr" href="https://cardz.roderic.dev/fr/games/penguin/">
+  <link rel="alternate" hreflang="pt-BR" href="https://cardz.roderic.dev/pt/games/penguin/">
+  <link rel="alternate" hreflang="es" href="https://cardz.roderic.dev/es/games/penguin/">
+  <link rel="alternate" hreflang="x-default" href="https://cardz.roderic.dev/games/penguin/">
   <script type="application/json" id="language-offers">{"fr":{"tag":"fr","text":"Ce site existe aussi en français.","go":"Le lire en français","close":"Non merci"},"pt":{"tag":"pt-BR","text":"Este site também está em português.","go":"Ler em português","close":"Não, obrigado"},"es":{"tag":"es","text":"Este sitio también está en español.","go":"Leerlo en español","close":"No, gracias"}}</script>
   <script src="../../languages.js?v=384a392b" defer></script>
   <script src="../../deck.js?v=ab3cef38"></script>
@@ -21,18 +26,17 @@
     </nav>
     <details class="language-menu">
       <summary aria-label="Language: English"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>EN</span></summary>
-      <div><a href="../../games/penguin/" lang="en" aria-current="true">English</a><a href="../../fr/" lang="fr" hreflang="fr">Français</a><a href="../../pt/" lang="pt-BR" hreflang="pt-BR">Português</a><a href="../../es/" lang="es" hreflang="es">Español</a></div>
+      <div><a href="../../games/penguin/" lang="en" aria-current="true">English</a><a href="../../fr/games/penguin/" lang="fr" hreflang="fr">Français</a><a href="../../pt/games/penguin/" lang="pt-BR" hreflang="pt-BR">Português</a><a href="../../es/games/penguin/" lang="es" hreflang="es">Español</a></div>
     </details>
     <a class="button button-small" href="https://apps.microsoft.com/detail/9N96G6H34XCT">Get Cardz</a>
   </header>
   <main id="main" class="game-main">
     <article class="game-shell">
-      <a class="back-link" href="../../games/#extras"><span aria-hidden="true">←</span> Extra games</a>
+      <a class="back-link" href="../../games/"><span aria-hidden="true">←</span> Games</a>
       <p class="eyebrow"><span></span> The beak picks the rank every foundation starts from</p>
       <h1>Penguin</h1>
       <div class="game-facts">
         <span>One deck</span>
-        <span>Extra game · download</span>
       </div>
       <dl class="game-kin">
         <div><dt>FreeCell family</dt><dd><a href="../../games/freecell/">FreeCell</a>, <a href="../../games/eight-off/">Eight Off</a>, <a href="../../games/seahaven-towers/">Seahaven Towers</a>, <a href="../../games/bakers-game/">Baker's Game</a></dd></div>
@@ -51,9 +55,10 @@
       </div>
 
       <details class="game-source">
-        <summary>Read its design file <small>40 lines</small></summary>
-        <p>This is the file the download button gives you. <a href="../../make-a-game.html">Make a game</a> explains every part of it. You may share and change it under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+        <summary>Read its design file <small>41 lines</small></summary>
+        <p>Written as a design file, this is the whole game. <a href="../../make-a-game.html">Make a game</a> explains every part of it. You may share and change it under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
         <pre><code class="language-json">{
+  <span class="j-key">&quot;requires&quot;</span>: <span class="j-str">&quot;2.7&quot;</span>,
   <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;Penguin&quot;</span>,
   <span class="j-key">&quot;family&quot;</span>: <span class="j-str">&quot;FreeCell&quot;</span>,
   <span class="j-key">&quot;description&quot;</span>: <span class="j-str">&quot;**Goal:** build all four foundations up in suit from the beak's rank, going round from King to Ace, until each holds thirteen cards.\n\n- The first card dealt is the **beak**, at the foot of the first column. The three other cards of its rank start the foundations; the fourth foundation waits for the beak itself.\n- Tableau columns build **down in the same suit**, going round from Ace to King.\n- Move one card, or a run already in same-suit order, as a unit.\n- The **flipper** is seven cells, each holding a single card.\n- An empty column takes only a card **one rank below the beak**, or a run headed by one.&quot;</span>,
@@ -62,17 +67,17 @@
       <span class="j-key">&quot;acceptRule&quot;</span>: { <span class="j-key">&quot;emptyOnly&quot;</span>: <span class="j-lit">true</span>, <span class="j-key">&quot;single&quot;</span>: <span class="j-lit">true</span> } },
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Foundation&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">7.5</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;found&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">4</span>, <span class="j-key">&quot;perRow&quot;</span>: <span class="j-num">1</span>,
       <span class="j-key">&quot;acceptRule&quot;</span>: {
-        <span class="j-key">&quot;seedFrom&quot;</span>: <span class="j-str">&quot;bottom(tab).rank&quot;</span>,
         <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Up&quot;</span>, <span class="j-key">&quot;wrap&quot;</span>: <span class="j-lit">true</span> },
-        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>
+        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>,
+        <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;bottom(tab).rank&quot;</span>
       },
       <span class="j-key">&quot;ejectRule&quot;</span>: <span class="j-str">&quot;locked&quot;</span> },
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Stock&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">-1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;stock&quot;</span>, <span class="j-key">&quot;offTable&quot;</span>: <span class="j-lit">true</span> },
     { <span class="j-key">&quot;type&quot;</span>: <span class="j-str">&quot;Tableau&quot;</span>, <span class="j-key">&quot;col&quot;</span>: <span class="j-num">0</span>, <span class="j-key">&quot;row&quot;</span>: <span class="j-num">1</span>, <span class="j-key">&quot;name&quot;</span>: <span class="j-str">&quot;tab&quot;</span>, <span class="j-key">&quot;repeat&quot;</span>: <span class="j-num">7</span>,
       <span class="j-key">&quot;acceptRule&quot;</span>: {
-        <span class="j-key">&quot;seedFrom&quot;</span>: <span class="j-str">&quot;step(bottom(tab).rank, -1)&quot;</span>,
         <span class="j-key">&quot;build&quot;</span>: { <span class="j-key">&quot;direction&quot;</span>: <span class="j-str">&quot;Down&quot;</span>, <span class="j-key">&quot;wrap&quot;</span>: <span class="j-lit">true</span> },
-        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>
+        <span class="j-key">&quot;suit&quot;</span>: <span class="j-str">&quot;Same&quot;</span>,
+        <span class="j-key">&quot;seed&quot;</span>: <span class="j-str">&quot;step(bottom(tab).rank, -1)&quot;</span>
       },
       <span class="j-key">&quot;ejectRule&quot;</span>: {
         <span class="j-key">&quot;gate&quot;</span>: <span class="j-str">&quot;FaceUp&quot;</span>,
@@ -95,14 +100,14 @@
 }</code></pre>
       </details>
       <div class="game-cta">
-        <a class="button" href="../../designs/penguin.cardz" download><span class="windows-mark" aria-hidden="true">↓</span><span><small>Download</small>penguin.cardz</span></a>
-        <small>Not built into Cardz. Download and open it in <a href="https://apps.microsoft.com/detail/9N96G6H34XCT">Cardz</a>.</small>
+        <a class="button" href="https://apps.microsoft.com/detail/9N96G6H34XCT"><span class="windows-mark" aria-hidden="true">⊞</span><span><small>Play it in</small>Cardz for Windows</span></a>
+        <small>No ads, no accounts, fully offline.</small>
       </div>
       <nav class="game-more" aria-label="Other games">
         <p class="eyebrow"><span></span> More solitaire</p>
-        <div><a href="../../games/klondike/">Klondike</a><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/bakers-dozen/">Baker's Dozen</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/pyramid/">Pyramid</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a><a href="../../games/weathervane/">Weathervane</a><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt/">Putt Putt</a></div>
+        <div><a href="../../games/klondike/">Klondike</a><a href="../../games/spider/">Spider</a><a href="../../games/freecell/">FreeCell</a><a href="../../games/eight-off/">Eight Off</a><a href="../../games/seahaven-towers/">Seahaven Towers</a><a href="../../games/yukon/">Yukon</a><a href="../../games/scorpion/">Scorpion</a><a href="../../games/forty-thieves/">Forty Thieves</a><a href="../../games/beleaguered-castle/">Beleaguered Castle</a><a href="../../games/bisley/">Bisley</a><a href="../../games/flower-garden/">Flower Garden</a><a href="../../games/bakers-dozen/">Baker's Dozen</a><a href="../../games/golf/">Golf</a><a href="../../games/tri-peaks/">Tri Peaks</a><a href="../../games/pyramid/">Pyramid</a><a href="../../games/black-hole/">Black Hole</a><a href="../../games/calculation/">Calculation</a><a href="../../games/canfield/">Canfield</a><a href="../../games/clock/">Clock</a><a href="../../games/la-belle-lucie/">La Belle Lucie</a><a href="../../games/crazy-quilt/">Crazy Quilt</a><a href="../../games/weathervane/">Weathervane</a><a href="../../games/double-klondike/">Double Klondike</a><a href="../../games/putt-putt/">Putt Putt</a><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a><a href="../../games/accordion/">Accordion</a><a href="../../games/monte-carlo/">Monte Carlo</a><a href="../../games/gaps/">Gaps</a><a href="../../games/klondike-with-jokers/">Klondike with Jokers</a><a href="../../games/hemispheres/">Hemispheres</a><a href="../../games/die-schwierige/">Die Schwierige</a><a href="../../games/royal-cotillion/">Royal Cotillion</a><a href="../../games/alhambra/">Alhambra</a><a href="../../games/stalactites/">Stalactites</a><a href="../../games/baroness/">Baroness</a><a href="../../games/faerie-queen/">Faerie Queen</a><a href="../../games/mount-olympus/">Mount Olympus</a><a href="../../games/braid/">Braid</a><a href="../../games/saratoga/">Saratoga</a><a href="../../games/terrace/">Terrace</a><a href="../../games/british-constitution/">British Constitution</a></div>
         <p class="eyebrow"><span></span> Extra games</p>
-        <div><a href="../../games/bakers-game/">Baker's Game</a><a href="../../games/spiderette/">Spiderette</a><a href="../../games/russian-solitaire/">Russian Solitaire</a><a href="../../games/simple-simon/">Simple Simon</a><a href="../../games/australian-patience/">Australian Patience</a><a href="../../games/aces-and-kings/">Aces and Kings</a><a href="../../games/carpet/">Carpet</a><a href="../../games/fourteen-out/">Fourteen Out</a><a href="../../games/sultan/">Sultan</a><a href="../../games/grandfathers-clock/">Grandfather's Clock</a><a href="../../games/puss-in-the-corner/">Puss in the Corner</a><a href="../../games/accordion/">Accordion</a><a href="../../games/monte-carlo/">Monte Carlo</a><a href="../../games/gaps/">Gaps</a><a href="../../games/klondike-with-jokers/">Klondike with Jokers</a><a href="../../games/hemispheres/">Hemispheres</a><a href="../../games/die-schwierige/">Die Schwierige</a><a href="../../games/royal-cotillion/">Royal Cotillion</a><a href="../../games/alhambra/">Alhambra</a><a href="../../games/stalactites/">Stalactites</a><a href="../../games/baroness/">Baroness</a><a href="../../games/captive-queens/">Captive Queens</a><a href="../../games/faerie-queen/">Faerie Queen</a><a href="../../games/mount-olympus/">Mount Olympus</a><a href="../../games/braid/">Braid</a></div>
+        <div><a href="../../games/captive-queens/">Captive Queens</a></div>
       </nav>
     </article>
   </main>

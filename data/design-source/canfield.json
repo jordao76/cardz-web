@@ -1,4 +1,5 @@
 {
+  "requires": "2.7",
   "name": "Canfield",
   "family": "Canfield",
   "aliases": ["Demon", "Demon Patience"],
@@ -10,9 +11,9 @@
       "ejectRule": "topOnly" },
     { "type": "Foundation", "col": 3, "row": 0, "name": "found", "repeat": 4,
       "acceptRule": {
-        "seedFrom": "bottom(found).rank",
         "build": { "direction": "Up", "wrap": true },
-        "suit": "Same"
+        "suit": "Same",
+        "seed": "bottom(found).rank"
       },
       "ejectRule": "locked" },
     { "type": "Reserve", "col": 0, "row": 1, "name": "reserve", "acceptRule": "none",

@@ -1,4 +1,5 @@
 {
+  "requires": "2.6",
   "name": "Calculation",
   "family": "Calculation",
   "aliases": ["Broken Intervals"],

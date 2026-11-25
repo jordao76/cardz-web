@@ -1,0 +1,87 @@
+{
+  "requires": "2.7",
+  "name": "British Constitution",
+  "aliases": ["Constitution"],
+  "description": "**Goal:** build eight foundations up from Ace to **Jack**, each in a single suit. The game uses two decks without their Kings and Queens.\n\n- Below the Aces lie **four rows** of eight cards. Only the top row, the **Privy Council**, plays to the foundations.\n- The Privy Council builds **down in alternating colour** (e.g. a red 6 on a black 7), one card at a time, from its own row or from the row just below.\n- A **gap** in any of the top three rows is filled with **any card from the row just below**. You choose which one, so cards climb a row at a time.\n- A card may **jump** rows: it goes straight up to a farther row, or onto a foundation, when **every row it passes has a gap**, just as if it had climbed through them one at a time.\n- A gap in the bottom row is filled from the **stock** at once. Stock cards never play straight to the foundations.\n- You lose when nothing more can be played.\n- Your **score** is the number of cards on the foundations, 88 for a win.",
+  "decks": [
+    { "ranks": ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+        "Jack"],
+      "count": 2 }
+  ],
+  "depots": [
+    { "type": "Foundation", "col": 0, "row": 0, "name": "found", "repeat": 8,
+      "acceptRule": {
+        "single": true,
+        "seed": "Ace",
+        "build": { "direction": "Up" },
+        "suit": "Same",
+        "when": "source.row == 1 || source.row == 2 && councilGap || source.row == 3 && councilGap && lordsGap || source.row == 4 && councilGap && lordsGap && commonsGap",
+        "reason": "Move up a row, or jump through gaps"
+      },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "fanWindow": 3, "col": 0, "row": 1, "name": "council", "repeat": 8,
+      "acceptRule": {
+        "single": true,
+        "build": { "direction": "Down" },
+        "suit": "AlternateColor",
+        "when": "!empty(depot) && source.row == 1 || source.row == 2 || source.row == 3 && lordsGap || source.row == 4 && lordsGap && commonsGap",
+        "reason": "Move up a row, or jump through gaps"
+      },
+      "ejectRule": "topOnly", "fanOffsetFaceUp": 24 },
+    { "type": "Reserve", "col": 0, "row": 2.36, "name": "lords", "repeat": 8,
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true,
+        "when": "source.row == 3 || source.row == 4 && commonsGap",
+        "reason": "Move up a row, or jump through gaps"
+      },
+      "ejectRule": "topOnly" },
+    { "type": "Reserve", "col": 0, "row": 3.36, "name": "commons", "repeat": 8,
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true,
+        "when": "source.row == 4",
+        "reason": "Move up a row, or jump through gaps"
+      },
+      "ejectRule": "topOnly" },
+    { "type": "Reserve", "col": 0, "row": 4.36, "name": "people", "repeat": 8,
+      "acceptRule": {
+        "emptyOnly": true,
+        "single": true,
+        "acceptFrom": ["stock"],
+        "allowFaceDown": true
+      },
+      "ejectRule": "topOnly", "landFace": "Up", "autoRefill": ["stock"] },
+    { "type": "Stock", "col": 8.5, "row": 4.36, "name": "stock", "acceptRule": "none",
+      "ejectRule": "topOnly", "landFace": "Down" }
+  ],
+  "dealRules": [
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "found-1" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "found-2" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "found-3" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "found-4" },
+    { "kind": "place", "rank": "Ace", "suit": "Spades", "to": "found-5" },
+    { "kind": "place", "rank": "Ace", "suit": "Hearts", "to": "found-6" },
+    { "kind": "place", "rank": "Ace", "suit": "Clubs", "to": "found-7" },
+    { "kind": "place", "rank": "Ace", "suit": "Diamonds", "to": "found-8" },
+    { "kind": "dealGroup", "to": "council", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "lords", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "commons", "faceUp": 1 },
+    { "kind": "dealGroup", "to": "people", "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "properties": {
+    "need": "if(empty(it), 0, 12 - top(it).value)",
+    "row": "if(any(d in council, d == it), 1, if(any(d in lords, d == it), 2, if(any(d in commons, d == it), 3, if(any(d in people, d == it), 4, 0))))",
+    "councilGap": "any(d in council, empty(d))",
+    "lordsGap": "any(d in lords, empty(d))",
+    "commonsGap": "any(d in commons, empty(d))"
+  },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "planner": {
+    "value": "100 * sum(Foundation, count(it)) + sum(lords, 2 * it.need) + sum(commons, it.need) + sum(council, 4 * it.need - sum(c in it, 12 - c.value))"
+  },
+  "tools": "None"
+}

@@ -6,7 +6,7 @@
   "depots": [
     { "type": "Reserve", "fanDirection": "Right", "col": 0, "row": 0, "name": "bouquet",
       "acceptRule": "none", "ejectRule": { "unit": "single" }, "looseOrder": true },
-    { "type": "Foundation", "col": 6.5, "row": 0, "name": "found", "repeat": 4,
+    { "type": "Foundation", "col": 6.5, "row": 0, "name": "found", "repeat": 4, "perRow": 1,
       "acceptRule": {
         "single": true,
         "seed": "Ace",

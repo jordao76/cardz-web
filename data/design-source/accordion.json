@@ -33,5 +33,6 @@
   "winCondition": { "kind": "expr", "when": "empty(stock) && count(slot, !empty(it)) == 1" },
   "lossCondition": { "kind": "noLegalMoves" },
   "scoring": { "value": "count(slot, !empty(it)) + count(stock)", "better": "Low", "keep": "Over" },
+  "planner": { "value": "0 - count(slot, !empty(it)) - count(stock)" },
   "tools": "None"
 }

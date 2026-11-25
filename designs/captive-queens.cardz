@@ -1,7 +1,22 @@
 {
+  "requires": "2.7",
   "name": "Captive Queens",
   "aliases": ["Quadrille"],
-  "description": "A game of pure luck. **Goal:** build the other 40 cards round the four **Queens**, who hold court in the middle and never move.\n\n- The four **Fives** and four **Sixes** are laid round the court to start eight foundations.\n- Each **Five** builds **down in suit** through the Ace to the King: 5 4 3 2 A K.\n- Each **Six** builds **up in suit** to the Jack: 6 7 8 9 10 J.\n- **Tap the stock** to turn one card at a time onto the waste. The top card of the waste is available.\n- When the stock is spent, tap it to turn the waste back over. You may do so **twice** (three passes in all).\n- Your **score** is the number of cards round the court, the Queens, Fives and Sixes among them, 52 for a win.",
+  "description": "$description",
+  "text": {
+    "description": "A game of pure luck. **Goal:** build the other 40 cards round the four **Queens**, who hold court in the middle and never move.\n\n- The four **Fives** and four **Sixes** are laid round the court to start eight foundations.\n- Each **Five** builds **down in suit** through the Ace to the King: 5 4 3 2 A K.\n- Each **Six** builds **up in suit** to the Jack: 6 7 8 9 10 J.\n- **Tap the stock** to turn one card at a time onto the waste. The top card of the waste is available.\n- When the stock is spent, tap it to turn the waste back over. You may do so **twice** (three passes in all).\n- Your **score** is the number of cards round the court, the Queens, Fives and Sixes among them, 52 for a win."
+  },
+  "translations": {
+    "es": {
+      "description": "Un juego de puro azar. **Objetivo:** construye las otras 40 cartas alrededor de las cuatro **Reinas**, que forman la corte en el centro y nunca se mueven.\n\n- Los cuatro **Cincos** y los cuatro **Seises** se colocan alrededor de la corte para empezar ocho fundaciones.\n- Cada **Cinco** baja **en el mismo palo**, pasando del As al Rey: 5 4 3 2 A K.\n- Cada **Seis** sube **en el mismo palo** hasta la Jota: 6 7 8 9 10 J.\n- **Toca el mazo** para pasar una carta cada vez al descarte. La carta superior del descarte está disponible.\n- Cuando el mazo se agote, tócalo para dar la vuelta al descarte. Puedes hacerlo **dos veces** (tres pasadas en total).\n- Tu **puntuación** es el número de cartas alrededor de la corte, incluidos Reinas, Cincos y Seises, 52 en una victoria."
+    },
+    "fr": {
+      "description": "Un jeu de pur hasard. **But :** montez les 40 autres cartes autour des quatre **Dames**, qui tiennent leur cour au centre et ne bougent jamais.\n\n- Les quatre **Cinq** et les quatre **Six** sont posés autour de la cour pour commencer huit fondations.\n- Chaque **Cinq** descend **dans l'enseigne** en passant de l'As au Roi : 5 4 3 2 A R.\n- Chaque **Six** monte **dans l'enseigne** jusqu'au Valet : 6 7 8 9 10 V.\n- **Touchez la pioche** pour retourner une carte à la fois sur la défausse. La carte du dessus de la défausse est disponible.\n- Quand la pioche est épuisée, touchez-la pour retourner la défausse. Vous pouvez le faire **deux fois** (trois passages en tout).\n- Votre **score** est le nombre de cartes autour de la cour, Dames, Cinq et Six compris, 52 pour une victoire."
+    },
+    "pt": {
+      "description": "Um jogo de pura sorte. **Objetivo:** monte as outras 40 cartas em volta das quatro **Damas**, que formam a corte no centro e nunca se movem.\n\n- Os quatro **Cincos** e os quatro **Seis** são postos em volta da corte para começar oito fundações.\n- Cada **Cinco** desce **no mesmo naipe**, passando do Ás ao Rei: 5 4 3 2 A R.\n- Cada **Seis** sobe **no mesmo naipe** até o Valete: 6 7 8 9 10 V.\n- **Toque no monte** para virar uma carta por vez no descarte. A carta do topo do descarte está disponível.\n- Quando o monte acabar, toque nele para virar o descarte de novo. Você pode fazer isso **duas vezes** (três passagens no total).\n- Sua **pontuação** é o número de cartas em volta da corte, incluídos Damas, Cincos e Seis, 52 numa vitória."
+    }
+  },
   "rules": {
     "five": { "seedNone": true, "build": { "direction": "Down", "wrap": true }, "suit": "Same" },
     "six": { "seedNone": true, "build": { "direction": "Up" }, "suit": "Same" }

@@ -1,4 +1,5 @@
 {
+  "requires": "2.7",
   "name": "Braid",
   "aliases": ["Der Zopf", "Plait", "Pigtail", "Herringbone"],
   "description": "**Goal:** build both decks onto eight foundations, **up in suit** from a base rank the deal sets, turning the corner from King to Ace.\n\n- The first card turned from the stock starts a foundation, and its rank is the base of all eight: with an 8, every foundation starts on an 8 and ends on a 7. Each card of that rank starts an empty foundation.\n- **The braid** of twenty cards runs down the middle, never two of the same card. Only its end card is available, and only to a foundation.\n- **The four corners** play to the foundations. A space there is refilled at once from the braid's end.\n- **The eight sides** play to the foundations. A space there takes the top waste card, whenever you choose.\n- Turn the stock one card at a time to the waste; the top waste card is available. You may **redeal twice** (three passes in all).\n- The braid must be used up to win. Your **score** is the number of cards on the foundations, 104 for a win.",
@@ -6,11 +7,11 @@
   "rules": {
     "foundation": {
       "single": true,
-      "seedFrom": "bottom(west).rank",
       "build": { "direction": "Up", "wrap": true },
       "suit": "Same",
       "when": "count(depot) < 13",
-      "reason": "A foundation holds thirteen cards"
+      "reason": "A foundation holds thirteen cards",
+      "seed": "bottom(west).rank"
     },
     "cell": { "emptyOnly": true, "single": true, "acceptFrom": ["waste"] },
     "reserve": { "emptyOnly": true, "single": true, "acceptFrom": "Tableau" }

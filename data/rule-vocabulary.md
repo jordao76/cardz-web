@@ -59,6 +59,7 @@ explained below.
 |---|---|---|---|
 | `name` | string | required | the game's name |
 | `description` | string | — | player-facing rules in Markdown; not read by the engine |
+| `text`, `translations` | object | — | user-facing text, in English and in other languages; see **Text and translations** below |
 | `family` | string | — | exact-string grouping key, e.g. `"Klondike"` |
 | `aliases` | list of strings | — | other names the game is known by, e.g. `["Demon", "Demon Patience"]`; found by search, not translated |
 | `decks` | list of packs | one 52-card deck | the cards; see **Deck composition** below |
@@ -67,8 +68,10 @@ explained below.
 | `dealRules`, `redealRules`, `redealWhen`, `maxRedeals` | | | the deal and redeals; see **Deal steps** below |
 | `winCondition`, `lossCondition` | | | see **Win & loss conditions** below |
 | `values` | object | pip value | what each card is worth to expressions; see **Values and scoring** below |
-| `properties` | object | — | named properties of a depot, used in expressions; see **Depot properties** below |
+| `properties` | object | — | calculated values, used in expressions; see **Properties** below |
 | `scoring` | object | — | how a deal is scored; see **Values and scoring** below |
+| `state` | object | — | counters and flags the game keeps besides its cards; see **State** below |
+| `readouts` | list of readouts | — | the state and properties the table shows; see **Readouts** below |
 | `planner` | `true`, `false` or object | by how the game is written | whether Cardz's own player may play the game, and how it values a board; see **Teaching Cardz to play** below |
 | `aids` | object | — | marks on the cards to help play this game; see **Card aids** below |
 | `depotOnly` | bool | `false` | a card dropped on open table, not on a depot, bounces back. Usually on for ruled games. |
@@ -170,8 +173,8 @@ which must pass. Fields shown without a type are `true`/`false`.
 | `minCount` (integer) | reject piles smaller than N, e.g. `13` for a Spider foundation. A depot with `minCount` checks the pile's own order against its `build` and `suit`, even when the cards come from an any-order unit |
 | `acceptFrom` (depot pattern) | accept only from matching depots |
 | `seed` (rank) | a drop onto an empty depot must start with this rank. The depot shows that rank in its slot. |
+| `seed` (rule expression) | the deal or the play sets the seed: see **A seed the game decides** below |
 | `seedNone` | reject drops while empty |
-| `seedFrom` (rule expression) | the deal sets the seed: a rank read off the board once, when the opening deal ends, and kept as the depot's `seed` from then on |
 | `rankIs` (rank) | accept only this rank, empty or not; every card of a dropped pile must match |
 | `build` | rank relation to the top card; see **Build and suit rules** below |
 | `suit` | suit relation to the top card; see **Build and suit rules** below |
@@ -181,7 +184,42 @@ which must pass. Fields shown without a type are `true`/`false`.
 | `wildDeclares` | what may follow a wild card left on top: `none` (default) follows it as printed, so only another wild follows a joker; `suit` follows a suit the player calls; `free` takes any card; `transparent` reads the wild as the card the pile needed. `true` means `"suit"`. |
 | `allowFaceDown` | accept face-down drops; they skip the checks on what the card is (`seed`, `rankIs`, `build`, `suit`, `follow`) |
 | `when`, `reason` | an expression the drop must also satisfy, and the reason text if it fails; see **Rule expressions** below |
+| `checks` | more expressions the drop must satisfy, each with its own reason; see **Checks** below |
 | `swap` | `true`, or an expression for a card already on the depot that the arriving card swaps with; see **Swapping a card** below |
+
+### A seed the game decides
+
+A `seed` may be an expression that gives a rank, for a game whose deal or play decides
+where its piles start. It is read when the opening deal ends and, until it gives a rank,
+again after each move. Once it gives one, it is not read again: from then on the seed is
+that rank, as if the rank had been written, whatever becomes of the card it was read from,
+and the slot shows it. Undoing the move that set it unsets it, and the expression is read
+again after each move until it gives a rank once more.
+
+- Canfield's foundations read the card its deal puts on the first of them:
+  `"seed": "bottom(found).rank"`.
+- Terrace's foundations read the first card on any of them, so the base the player
+  chooses seeds all eight: `"seed": "bottom(first(Foundation, !empty(it))).rank"`.
+
+Until the expression gives a rank, the seed asks nothing, and the rest of the rule decides
+what lands. A rank's name, such as `"Ace"`, is a rank, not an expression.
+
+### Checks
+
+`checks` is a list of conditions, each an object with a `when` and a `reason`, for a rule
+whose refusals need different words. Every check must hold, and they are judged in order,
+after the rule's own `when`. The first that fails gives its `reason`. Terrace's foundations
+have two:
+
+```
+"checks": [
+  { "when": "chosen || source != terrace", "reason": "Choose the base from the valley" },
+  { "when": "count(depot) < 13", "reason": "A foundation holds thirteen cards" }
+]
+```
+
+Here `chosen` is a property of the game (see **Properties** below), whether any foundation
+holds a card yet.
 
 ### Swapping a card
 
@@ -378,7 +416,7 @@ It can only read the board, never change it, and it always gives an answer.
 |---|---|---|
 | `acceptRule.when` | whether a drop lands. Checked after the depot's other accept fields, so it can only narrow what the depot takes. Add `reason` for the message a refused player sees. | `card` (the bottom card of the arriving pile), `pile` (all of it), `depot` (where it would land), `source` (where it came from), `top` (the depot's top card) |
 | `acceptRule.swap`, when not `true` | which card already on the depot a dropped card swaps with: a card, or nothing | the same as `when` |
-| `acceptRule.seedFrom` | the rank an empty depot starts with: a rank, read once when the opening deal ends | `depot` (the depot the rule is on) |
+| `acceptRule.seed`, when not a rank | the rank an empty depot starts with: a rank, read when the opening deal ends and after each move until it gives one | `depot` (the depot the rule is on) |
 | `draw.when` | whether tapping the stock does anything, recycles included | the depots |
 | a deal step's `when` | whether a `dealGroup` deals to a depot, or a `gather` takes from it | `depot` (the one tested) |
 | a `place`'s `when` | which stock card the step pulls | `card` (the stock card asked about, read as if face-up) |
@@ -433,7 +471,7 @@ cards have properties, lists can be counted. The kinds are:
 Operators join values into a larger expression, much as in a spreadsheet formula: arithmetic
 for numbers, comparisons for conditions, and `&&`, `||` and `!` combine conditions.
 The whole expression must end up as a condition, except where a number is expected,
-as in a `move`'s `count` or a game's `scoring`, or a rank, as in `seedFrom`.
+as in a `move`'s `count` or a game's `scoring`, or a rank, as in a seed the game decides.
 
 `||` (or), `&&` (and), `!` (not), `==`, `!=`, `<`, `<=`, `>`, `>=`, `+`, `-`, `*`, `%`, and
 parentheses. `&&` binds tighter than `||`, and `%` binds like `*`. `%` is the remainder, never
@@ -485,11 +523,12 @@ To ask about two lists at once, name the items instead: `c in discard` in place 
 `any(c in discard, count(d in discard, d.rank == c.rank) >= 4)` is true once four cards of
 one rank are in the discard.
 
-### Depot properties
+### Properties
 
-Reusable custom depot properties can be defined once under `properties`. Expressions can then
-read them like a card's property: `depot.column`, `d.inPlace`. Each property is an expression
-about one depot, called `it`. For example, Gaps defines these properties:
+Reusable custom properties can be defined once under `properties`. A property is an
+expression, worked out each time it is read. One about a depot calls that depot `it`, and
+expressions read it like a card's property: `depot.column`, `d.inPlace`. For example, Gaps
+defines these properties:
 
 ```
 "properties": {
@@ -507,10 +546,21 @@ and `inPlace` checks if the row fits from its first cell up to this one. The gam
 
 - A property may use only the properties listed **before** it, never itself or a later one.
   Order them so each builds on the ones above.
-- Inside a property, a function that iterates over a list must name its item
+- Inside a property about a depot, a function that iterates over a list must name its item
   (`all(k in cell, …)`), since `it` is already the property's depot.
 - A property's name can't be one a rule already uses: a card's property (`value`, `suit`…),
   a function, a word like `Hearts` or `Tableau`, or a depot's name.
+
+A property that never reads `it` (a depot) is about the whole board, and expressions refer
+to it by its name alone: `"left": "2 - redeals"` is used as `left`. An `it` used in an iterator
+doesn't count as a depot property, so `"open": "count(cell, empty(it))"` is about the board too.
+Such a property may read the game's state (see **State** below).
+
+A property may also be written in full, with its expression as its `value`:
+`"total": { "value": "sum(it)", "type": "counter", "min": 0, "max": 21 }`. `type` is
+`counter`, a whole number; or `flag`, true or false; and is checked against the expression;
+left out, the property is what its `value` gives, which may also be a card or a depot. The
+number reads as no less than `min` and no more than `max`.
 
 ### What an expression can't see
 
@@ -527,9 +577,7 @@ where that matters:
   nothing. It holds no cards, so it is also `empty`.
 - **Face-down cards are counted but not read**: they have no rank, suit or colour and are
   worth 0. A rule can't look at the stock's order.
-- **Nothing is remembered**: an expression sees the board as it is now, not what happened
-  earlier. The one thing the board does keep is how many redeals have run (`redeals`, see
-  **Deal steps** above).
+- **State**: the entries a game keeps in its `state` are available (see **State** below).
 
 A game that uses expressions, triggers or actions offers no hints and can't be auto-played,
 and the buttons are hidden, unless it opts in with `planner` (see **Teaching Cardz to
@@ -601,6 +649,102 @@ Moving the Ace away also makes the trigger's `when` false, so it stops firing.
 
 ---
 
+## State
+
+Some games need something the cards don't show: health, coins, an allowance that can be
+used once. **`state`** names what the game keeps. Each entry is a **counter** or a **flag**,
+which begins at its `start` and changes only when a `set` step changes it:
+`"health": { "type": "counter", "start": 20, "min": 0, "max": 20 }`,
+`"pardon": { "type": "flag", "start": true }`. What the game can work out from the board
+instead, like how many redeals are left, is a property (see **Properties** above).
+
+| Field | Default | Meaning |
+|---|---|---|
+| `type` | read off `start` | `counter`, a whole number, or `flag`, true or false. Left out, an entry whose `start` is `true` or `false` is a flag and any other is a counter |
+| `start` | `0`, or `false` for a flag | what the entry is when a deal begins |
+| `min` | no floor | the least a counter can be |
+| `max` | no ceiling | the most a counter can be |
+
+An entry has two short forms. A number is a counter's `start` (`"purse": 60`), and `true` or
+`false` a flag's (`"pardon": true`).
+
+- Every expression reads an entry by its name, like `redeals`. A counter reads as a number,
+  `health > 0` or `card.value <= purse`, and a flag as a condition, `pardon` or `!pardon`.
+- A **`set`** step changes an entry: `{ "kind": "set", "name": "health", "to": "health - 3" }`.
+  `to` is an expression read when the step runs.
+- A `set` step is valid wherever a deal step is: in a trigger, an action, an `each`, the deal or
+  a redeal. In the deal or a redeal it reads the whole board, with no `depot`.
+- Use readouts to show an entry on the table (see **Readouts** below).
+
+In the following game each discard costs 3 from a purse of 60. The trigger fires while more cards
+lie on the discard than have been paid for, and counts each one in `paid` as it charges for it. A
+readout shows the purse under the discard; `paid` is bookkeeping, and stays off the table.
+
+```json
+{
+  "name": "Toll Road",
+  "description": "Tap the stock to turn up a card, then play it to a pile or discard it. A pile takes a card higher than its top card. Each discard costs 3 from your purse of 60. Play out the deck before the purse is empty.",
+  "depotOnly": true,
+  "decks": [ { "ranks": ["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"] } ],
+  "depots": [
+    { "name": "stock", "type": "Stock", "col": 0, "row": 0,
+      "draw": { "to": "hand", "count": 1, "when": "empty(hand)" },
+      "landFace": "Down", "acceptRule": "none", "ejectRule": "locked" },
+    { "name": "hand", "type": "Waste", "col": 1, "row": 0,
+      "acceptRule": "none", "ejectRule": { "gate": "Any", "unit": "Single" } },
+    { "name": "pile", "type": "Foundation", "col": 0, "row": 1, "repeat": 4,
+      "acceptRule": { "single": true, "acceptFrom": ["hand"],
+        "when": "empty(depot) || card.value > top.value", "reason": "A pile climbs" },
+      "ejectRule": "locked" },
+    { "name": "discard", "type": "Reserve", "col": 5, "row": 1,
+      "acceptRule": { "single": true, "acceptFrom": ["hand"] }, "ejectRule": "locked",
+      "triggers": [
+        { "when": "count(depot) > paid",
+          "do": [ { "kind": "set", "name": "purse", "to": "purse - 3" },
+                  { "kind": "set", "name": "paid", "to": "paid + 1" } ] }
+      ] }
+  ],
+  "state": { "purse": { "type": "counter", "start": 60, "min": 0 }, "paid": 0 },
+  "readouts": [ { "show": "purse", "label": "Purse", "at": "discard", "side": "below" } ],
+  "winCondition": { "kind": "expr", "when": "empty(stock) && empty(hand) && purse > 0" },
+  "lossCondition": { "kind": "expr", "when": "purse == 0" }
+}
+```
+
+---
+
+## Readouts
+
+**`readouts`** puts the state on the table. A readout shows one state entry or one property
+beside a depot or in a place of its own. The readouts are listed in the order they are read aloud:
+
+```
+"readouts": [
+  { "show": "health", "label": "Health", "at": "hero", "side": "below" },
+  { "show": "potion", "label": "Potion", "at": "hero", "side": "below" },
+  { "show": "cards", "at": "stock", "side": "below", "aid": true }
+]
+```
+
+| Field | Default | Meaning |
+|---|---|---|
+| `show` | required | the state entry or property to show. It must be a number or a condition |
+| `label` | none | the words before the value, at most 24 characters. A condition needs one |
+| `at` | — | the depot it sits beside. For a depot property, the name of a repeated depot puts one beside each copy, showing that copy's own value |
+| `side` | `auto` | `above`, `below`, `left` or `right` of the depot, or `auto` |
+| `col`, `row` | — | a place of its own, centred where a depot in that cell would be |
+| `x`, `y` | — | a place of its own, in the same units as a depot's `x` and `y` |
+| `width` | what it needs | how wide it is, in card widths, more than 0 and at most 4 |
+| `aid` | `false` | `true` for help to play, like how many cards a pile holds. A player can hide aids with **Card aids** in the settings |
+
+A readout rendering depends on its source data:
+
+- A number with both a `min` and a `max` is a **gauge**: a bar, and a display like `17 / 20`.
+- Any other number is the **number** alone: `60`.
+- A condition is a **mark**, filled when true and hollow when false, beside its label.
+
+---
+
 ## Values and scoring
 
 **`values`** determines what cards are worth, for when a game counts them differently from their
@@ -661,6 +805,11 @@ and `keep` at their defaults: a higher total is better, and only a won deal keep
 }
 ```
 
+The game could also show each column's total. A property names it once,
+`"properties": { "total": { "value": "sum(it)", "min": 0, "max": 21 } }`, so the accept
+rule reads `depot.total`, and `"readouts": [ { "show": "total", "at": "column", "side": "below" } ]`
+puts it under each column, as a gauge from 0 to 21 that moves down as the column grows.
+
 ---
 
 ## Teaching Cardz to play
@@ -710,6 +859,9 @@ that can help the player; a deck that draws an aid then shows it. The table itse
 `available`, so every deck shows it. Players can turn card aids off, and the switch appears
 only when the game asks for an aid that the deck or the table can show.
 
+A readout that is an aid offers the switch too, and the same switch hides it (see
+**Readouts**).
+
 | Aid | Value | Each card shows |
 |---|---|---|
 | `pairSum` | number | the rank whose value adds up with this card's to the number, if unique |
@@ -724,6 +876,37 @@ Crazy Quilt's woven cards free one another as they leave, so it asks for
 Cards are counted by their pips default values (Ace 1 … King 13) or by the game's `values` if used.
 
 Card aids change no rule, and changing them doesn't reset a game's statistics.
+
+---
+
+## Text and translations
+
+User-facing text can be directly written in the game's attributes like `description`, but to make text
+translatable (or simply reusable), **`text`** can be used to define texts by a key, in English. Then,
+text fields can reference that key as `"$key"`. **`translations`** holds the same keys in other languages:
+
+```
+"text": {
+  "description": "**Goal:** clear the whole 28-card **pyramid**. …",
+  "pair": "Pair cards that total 13"
+},
+"translations": {
+  "fr": {
+    "description": "**But :** dégagez toute la **pyramide** de 28 cartes. …",
+    "pair": "Associez des cartes totalisant 13"
+  }
+},
+"description": "$description",
+"rules": { "pair": { "when": "…", "reason": "$pair" } }
+```
+
+- A key may stand for `description`, a rule's or a `redealWhen`'s `reason`, and a depot's or a
+  readout's `label`. Anywhere else, a string that starts with `$` means what it always does,
+  like `"$name"` for a rule from `rules`.
+- The game reads in the player's language, Brazilian Portuguese as `pt`. A key a translation
+  leaves out reads in English, and so does every key for a language the game has no
+  translation for.
+- `"$$"` starts text that begins with one `$`: `"$$home"` reads `$home`.
 
 ---
 
@@ -777,5 +960,5 @@ Common patterns, with JSON quotes left out:
 - **Flower Garden**: the bouquet accepts `none`, ejects `{ unit: single }`, and sets
   `looseOrder: true`.
 - **Canfield**: foundations accept
-  `{ seedFrom: "bottom(found).rank", build: { direction: Up, wrap: true }, suit: Same }` and eject
+  `{ seed: "bottom(found).rank", build: { direction: Up, wrap: true }, suit: Same }` and eject
   `locked`; the tableau sets `autoRefill: [reserve]`.

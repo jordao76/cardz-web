@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "en",
-  "generated": "2026-11-19T19:53:55Z",
+  "generated": "2026-11-25T20:09:19Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -759,6 +759,356 @@
             "name": "tab-9",
             "type": "tableau",
             "col": 9,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "saratoga",
+      "name": "Saratoga",
+      "family": "Klondike",
+      "aliases": [
+        "Thoughtful Klondike",
+        "Thoughtful Solitaire"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Play as in Klondike, but the cards Klondike deals face down are dealt **face up**, lying **sideways** under each column, so you know where every tableau card is.\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- When a column is emptied, the top sideways card under it **turns into play**. An empty column with nothing under it can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste **one card at a time**, or **three at a time** in Draw 3, where only the top card of the waste is in play. Recycle the waste back to the stock when it runs out, as often as you like.\n- Your **score**, kept for a win: 10 for each card on the foundations, 5 for each sideways card brought into play, and 100 off each time the waste goes back into the stock (in Draw 3, 20 off each time after the third pass). It never drops below 0.",
+      "inApp": true,
+      "variant": {
+        "of": "saratoga",
+        "name": "Saratoga",
+        "axis": "Draw",
+        "label": "1",
+        "selections": [
+          {
+            "id": "draw",
+            "axis": "Draw",
+            "value": "one",
+            "label": "1"
+          }
+        ]
+      },
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1.5385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 4.0385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 5.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 6.5385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7.7885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-2",
+            "type": "reserve",
+            "col": 1.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-3",
+            "type": "reserve",
+            "col": 2.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2.7885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-4",
+            "type": "reserve",
+            "col": 3.8942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 4.0385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-5",
+            "type": "reserve",
+            "col": 5.1442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 5.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-6",
+            "type": "reserve",
+            "col": 6.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 6.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-7",
+            "type": "reserve",
+            "col": 7.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 7.7885,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "saratoga-draw-3",
+      "name": "Saratoga (Draw 3)",
+      "family": "Klondike",
+      "aliases": [
+        "Thoughtful Klondike",
+        "Thoughtful Solitaire"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Play as in Klondike, but the cards Klondike deals face down are dealt **face up**, lying **sideways** under each column, so you know where every tableau card is.\n- Tableau columns build **down in alternating colour** (e.g. a red 6 on a black 7). Move a single card or a valid run.\n- When a column is emptied, the top sideways card under it **turns into play**. An empty column with nothing under it can be started with a **King** (or a run headed by a King).\n- Draw from the **stock** to the waste **one card at a time**, or **three at a time** in Draw 3, where only the top card of the waste is in play. Recycle the waste back to the stock when it runs out, as often as you like.\n- Your **score**, kept for a win: 10 for each card on the foundations, 5 for each sideways card brought into play, and 100 off each time the waste goes back into the stock (in Draw 3, 20 off each time after the third pass). It never drops below 0.",
+      "inApp": true,
+      "variant": {
+        "of": "saratoga",
+        "name": "Saratoga",
+        "axis": "Draw",
+        "label": "3",
+        "selections": [
+          {
+            "id": "draw",
+            "axis": "Draw",
+            "value": "three",
+            "label": "3"
+          }
+        ]
+      },
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1.5385,
+            "row": 0,
+            "fan": "right"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 4.0385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 5.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 6.5385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7.7885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-2",
+            "type": "reserve",
+            "col": 1.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-3",
+            "type": "reserve",
+            "col": 2.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2.7885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-4",
+            "type": "reserve",
+            "col": 3.8942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 4.0385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-5",
+            "type": "reserve",
+            "col": 5.1442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 5.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-6",
+            "type": "reserve",
+            "col": 6.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 6.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-7",
+            "type": "reserve",
+            "col": 7.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 7.7885,
             "row": 1,
             "fan": "down"
           }
@@ -4139,22 +4489,22 @@
           {
             "name": "found-2",
             "type": "foundation",
-            "col": 9.5,
-            "row": 0,
+            "col": 8.5,
+            "row": 1,
             "fan": "none"
           },
           {
             "name": "found-3",
             "type": "foundation",
-            "col": 10.5,
-            "row": 0,
+            "col": 8.5,
+            "row": 2,
             "fan": "none"
           },
           {
             "name": "found-4",
             "type": "foundation",
-            "col": 11.5,
-            "row": 0,
+            "col": 8.5,
+            "row": 3,
             "fan": "none"
           },
           {
@@ -4645,22 +4995,22 @@
           {
             "name": "found-2",
             "type": "foundation",
-            "col": 7.5,
-            "row": 0,
+            "col": 6.5,
+            "row": 1,
             "fan": "none"
           },
           {
             "name": "found-3",
             "type": "foundation",
-            "col": 8.5,
-            "row": 0,
+            "col": 6.5,
+            "row": 2,
             "fan": "none"
           },
           {
             "name": "found-4",
             "type": "foundation",
-            "col": 9.5,
-            "row": 0,
+            "col": 6.5,
+            "row": 3,
             "fan": "none"
           },
           {
@@ -4846,6 +5196,1215 @@
       }
     },
     {
+      "slug": "klondike-with-jokers",
+      "name": "Klondike with Jokers",
+      "family": "Klondike",
+      "sandbox": false,
+      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Play as in Klondike: tableau columns build **down in alternating colour**, an empty column takes a **King**, and the stock deals one card at a time to the waste, as often as you like.\n- The two **Jokers** are wild. In a column a Joker stands for the card the column wanted; on an empty column, a King.\n- A Joker can go on a **foundation**, where it stands for the next card up; on an empty foundation it is an Ace of any suit.\n- When a card a Joker stands for turns up, drop it on the Joker's column or foundation, even with the Joker buried: the card **takes its place** and the Joker goes back where the card came from, ready to play again.\n- You win once all 52 cards are on the foundations; the Jokers can end anywhere.\n- Your **score**, kept for a win: 10 for each card on the foundations (a Joker counts nothing), 5 for each tableau card turned up, and 100 off each time the waste goes back into the stock. It never drops below 0.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 54,
+        "jokers": 2
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "bakers-game",
+      "name": "Baker's Game",
+      "family": "FreeCell",
+      "sandbox": false,
+      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-3",
+            "type": "cell",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-4",
+            "type": "cell",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "penguin",
+      "name": "Penguin",
+      "family": "FreeCell",
+      "sandbox": false,
+      "rules": "**Goal:** build all four foundations up in suit from the beak's rank, going round from King to Ace, until each holds thirteen cards.\n\n- The first card dealt is the **beak**, at the foot of the first column. The three other cards of its rank start the foundations; the fourth foundation waits for the beak itself.\n- Tableau columns build **down in the same suit**, going round from Ace to King.\n- Move one card, or a run already in same-suit order, as a unit.\n- The **flipper** is seven cells, each holding a single card.\n- An empty column takes only a card **one rank below the beak**, or a run headed by one.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-3",
+            "type": "cell",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-4",
+            "type": "cell",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-5",
+            "type": "cell",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-6",
+            "type": "cell",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-7",
+            "type": "cell",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "spiderette",
+      "name": "Spiderette",
+      "family": "Spider",
+      "sandbox": false,
+      "rules": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.\n- Your **score** starts at 500, loses one for every move and gains 100 for each run sent to the foundations.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "simple-simon",
+      "name": "Simple Simon",
+      "family": "Spider",
+      "sandbox": false,
+      "rules": "**Goal:** assemble four same-suit runs from King to Ace. Completed runs move to the foundations automatically.\n\n- All 52 cards start **face up** in ten columns. There is **no stock or redeal**.\n- Build columns **down in any suit**, without wrapping from Ace to King.\n- Move one card, or a **same-suit descending sequence** as a group. Mixed-suit groups cannot move together.\n- Any card or valid sequence may fill an empty column.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "russian-solitaire",
+      "name": "Russian Solitaire",
+      "family": "Yukon",
+      "sandbox": false,
+      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**.\n- Any **face-up** card can be picked up together with everything on top of it, regardless of order — only the bottom card of the group needs to fit the target.\n- Uncovering a face-down card flips it; an empty column takes a **King** (or a group headed by one).\n- Your **score** is the number of cards on the foundations, 52 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "australian-patience",
+      "name": "Australian Patience",
+      "family": "Yukon",
+      "sandbox": false,
+      "rules": "**Goal:** build the four suit foundations from Ace to King.\n\n- Start with seven columns of four face-up cards. Columns build **down in the same suit**.\n- Move any face-up card with all cards covering it, even if they are out of order. Only the bottom card of the group must fit.\n- Only a **King**, alone or with its covering cards, can fill an empty column.\n- Tap the stock to turn **one card** onto the waste. Only the top waste card is playable.\n- There is **one pass through the stock**: the waste cannot be recycled.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "fourteen-out",
+      "name": "Fourteen Out",
+      "family": "Pyramid",
+      "sandbox": false,
+      "rules": "**Goal:** remove all 52 cards in pairs that total **14**.\n\n- All cards are dealt **face up** into twelve columns; the first four columns hold five cards and the other eight hold four.\n- Only the **top card** of each column is available.\n- Drag an available card **onto its partner**, the top card of another column, and both go to the **discard**: Ace + King, 2 + Queen, 3 + Jack, 4 + 10, 5 + 9, 6 + 8, or 7 + 7.\n- The game is lost when no pair is left.\n- Your **score** is the number of cards removed, 52 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-11",
+            "type": "tableau",
+            "col": 10,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-12",
+            "type": "tableau",
+            "col": 11,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "discard",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 2.6,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "monte-carlo",
+      "name": "Monte Carlo",
+      "family": "Pyramid",
+      "aliases": [
+        "Weddings"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** pair off all 52 cards.\n\n- Twenty-five cards are dealt face up in a **five by five grid**.\n- Drop a card onto another of the **same rank** that **touches** it: beside it, above or below, or **diagonally**. The pair goes to the **discard**.\n- **Tap the stock** to consolidate: the remaining cards slide toward the top left, in reading order, to close the gaps, and the empty cells at the end are refilled from the stock.\n- You win when every card has been paired. You lose when no pair touches and there is nothing left to consolidate.\n- Your **score** is the number of cards removed, 52 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-6",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-7",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-8",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-9",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-10",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-11",
+            "type": "tableau",
+            "col": 0,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-12",
+            "type": "tableau",
+            "col": 1,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-13",
+            "type": "tableau",
+            "col": 2,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-14",
+            "type": "tableau",
+            "col": 3,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-15",
+            "type": "tableau",
+            "col": 4,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-16",
+            "type": "tableau",
+            "col": 0,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-17",
+            "type": "tableau",
+            "col": 1,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-18",
+            "type": "tableau",
+            "col": 2,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-19",
+            "type": "tableau",
+            "col": 3,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-20",
+            "type": "tableau",
+            "col": 4,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-21",
+            "type": "tableau",
+            "col": 0,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-22",
+            "type": "tableau",
+            "col": 1,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-23",
+            "type": "tableau",
+            "col": 2,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-24",
+            "type": "tableau",
+            "col": 3,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-25",
+            "type": "tableau",
+            "col": 4,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 5.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "discard",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 1.5,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "puss-in-the-corner",
+      "name": "Puss in the Corner",
+      "family": "Calculation",
+      "sandbox": false,
+      "rules": "**Goal:** move every card to the four foundations.\n\n- The foundations start with the four **Aces** and build **up by colour** to King: red on red, black on black, whatever the suit.\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and only for a foundation.\n- When the stock runs out, tap it **once** to pick the holding piles up in order as a new stock.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 3,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 4,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "hold-1",
+            "type": "tableau",
+            "col": 2.1,
+            "row": 0.41,
+            "angleDegrees": 45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-2",
+            "type": "tableau",
+            "col": 4.9,
+            "row": 0.41,
+            "angleDegrees": -45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-3",
+            "type": "tableau",
+            "col": 2.1,
+            "row": 2.59,
+            "angleDegrees": -45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-4",
+            "type": "tableau",
+            "col": 4.9,
+            "row": 2.59,
+            "angleDegrees": 45,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.5,
+            "row": 0,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "accordion",
       "name": "Accordion",
       "family": "Accordion",
@@ -4856,8 +6415,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** squeeze the whole deck into **one pile**.\n\n- **Tap the stock** to deal its next card face up onto the end of the row. Deal whenever you like.\n- A pile may move onto the pile **directly to its left**, or **three places to its left**, when their top cards match in **rank or suit**. The whole pile moves, never part of it.\n- The row closes up behind a pile that moves.\n- You win when the stock is spent and a single pile is left.\n- Your **score** is the number of piles left, counting each card still in the stock as one; lower is better, 1 for a win.",
-      "inApp": false,
-      "download": "designs/accordion.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -5241,521 +6799,6 @@
       }
     },
     {
-      "slug": "aces-and-kings",
-      "name": "Aces and Kings",
-      "sandbox": false,
-      "rules": "**Goal:** move both decks to eight foundations. Four build **up from Ace to King** and four build **down from King to Ace**; suits do not matter.\n\n- The foundations start empty: any Ace starts an up foundation and any King a down one.\n- Two reserves hold thirteen face-up cards each, fanned so every card shows. Only their top cards are available.\n- Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.\n- Turn the stock one card at a time to the waste. The top waste card is available. There is **no redeal**.\n- Play reserve, feeder or waste cards to either kind of foundation. A foundation top may also move to another compatible foundation.",
-      "inApp": false,
-      "download": "designs/aces-and-kings.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "up-1",
-            "type": "foundation",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "up-2",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "up-3",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "up-4",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "down-1",
-            "type": "foundation",
-            "col": 2,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "down-2",
-            "type": "foundation",
-            "col": 3,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "down-3",
-            "type": "foundation",
-            "col": 4,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "down-4",
-            "type": "foundation",
-            "col": 5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "reserve-1",
-            "type": "reserve",
-            "col": 0,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-2",
-            "type": "reserve",
-            "col": 7,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 3,
-            "row": 3.5,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 4,
-            "row": 3.5,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-1",
-            "type": "tableau",
-            "col": 2,
-            "row": 2.25,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-2",
-            "type": "tableau",
-            "col": 3,
-            "row": 2.25,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-3",
-            "type": "tableau",
-            "col": 4,
-            "row": 2.25,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-4",
-            "type": "tableau",
-            "col": 5,
-            "row": 2.25,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "alhambra",
-      "name": "Alhambra",
-      "sandbox": false,
-      "rules": "**Goal:** build both decks onto eight foundations. An Ace and a King of each suit start them: the Aces build **up in suit** to the King, the Kings **down in suit** to the Ace.\n\n- Eight reserve piles hold four face-up cards each. Only their top cards are available, and an emptied pile is not refilled.\n- Turn the stock one card at a time to the waste. The top waste card is available for the foundations.\n- A reserve card may also go onto the waste, **up or down by one in the same suit**, turning the corner between King and Ace. The waste never takes a card from anywhere else, and never takes one while it is empty.\n- When the stock runs out, the waste turns over to become a new stock, cards built on it included. There are **two redeals**, three passes in all.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/alhambra.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "ace-1",
-            "type": "foundation",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "ace-2",
-            "type": "foundation",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "ace-3",
-            "type": "foundation",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "ace-4",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-1",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-2",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-3",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-4",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "reserve-1",
-            "type": "reserve",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-2",
-            "type": "reserve",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-3",
-            "type": "reserve",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-4",
-            "type": "reserve",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-5",
-            "type": "reserve",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-6",
-            "type": "reserve",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-7",
-            "type": "reserve",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-8",
-            "type": "reserve",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 3,
-            "row": 2.75,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 4,
-            "row": 2.75,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "australian-patience",
-      "name": "Australian Patience",
-      "family": "Yukon",
-      "sandbox": false,
-      "rules": "**Goal:** build the four suit foundations from Ace to King.\n\n- Start with seven columns of four face-up cards. Columns build **down in the same suit**.\n- Move any face-up card with all cards covering it, even if they are out of order. Only the bottom card of the group must fit.\n- Only a **King**, alone or with its covering cards, can fill an empty column.\n- Tap the stock to turn **one card** onto the waste. Only the top waste card is playable.\n- There is **one pass through the stock**: the waste cannot be recycled.",
-      "inApp": false,
-      "download": "designs/australian-patience.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "bakers-game",
-      "name": "Baker's Game",
-      "family": "FreeCell",
-      "sandbox": false,
-      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit** (e.g. a 6 of spades on a 7 of spades).\n- You move strictly **one card at a time**. A run already in same-suit order can be dragged as a group, but only as many cards as you could move by hand: **(1 + free cells) × 2 for each empty column**.\n- Each of the four **free cells** holds a single card — use them as temporary parking.\n- Any card may start an empty column.",
-      "inApp": false,
-      "download": "designs/bakers-game.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "cell",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "cell",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-3",
-            "type": "cell",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-4",
-            "type": "cell",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
       "slug": "baroness",
       "name": "Baroness",
       "aliases": [
@@ -5764,8 +6807,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** discard all 52 cards, in pairs that total **13** and Kings alone.\n\n- Five cards are dealt **face up** to start five piles. Only the **top card** of each pile is available.\n- Drag an available card **onto its partner**, the top card of another pile, and both go to the **discard**: Ace + Queen, 2 + Jack, 3 + 10, 4 + 9, 5 + 8, or 6 + 7.\n- A **King** is worth 13 on its own: drag it to the discard.\n- **Tap the stock** to deal five more cards, one onto each pile, filling any empty pile. Discard what you can first: a new row covers the tops.\n- The last two cards are the **grace cards**: they are dealt face up side by side at the end of the row, and are available like the piles' tops.\n- The game is lost when no discard is left and the stock is spent. Your **score** is the number of cards discarded, 52 for a win.",
-      "inApp": false,
-      "download": "designs/baroness.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -5841,487 +6883,11 @@
       }
     },
     {
-      "slug": "braid",
-      "name": "Braid",
-      "aliases": [
-        "Der Zopf",
-        "Plait",
-        "Pigtail",
-        "Herringbone"
-      ],
-      "sandbox": false,
-      "rules": "**Goal:** build both decks onto eight foundations, **up in suit** from a base rank the deal sets, turning the corner from King to Ace.\n\n- The first card turned from the stock starts a foundation, and its rank is the base of all eight: with an 8, every foundation starts on an 8 and ends on a 7. Each card of that rank starts an empty foundation.\n- **The braid** of twenty cards runs down the middle, never two of the same card. Only its end card is available, and only to a foundation.\n- **The four corners** play to the foundations. A space there is refilled at once from the braid's end.\n- **The eight sides** play to the foundations. A space there takes the top waste card, whenever you choose.\n- Turn the stock one card at a time to the waste; the top waste card is available. You may **redeal twice** (three passes in all).\n- The braid must be used up to win. Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/braid.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "west-1",
-            "type": "foundation",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "west-2",
-            "type": "foundation",
-            "col": 0,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "west-3",
-            "type": "foundation",
-            "col": 0,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "west-4",
-            "type": "foundation",
-            "col": 0,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "east-1",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "east-2",
-            "type": "foundation",
-            "col": 7,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "east-3",
-            "type": "foundation",
-            "col": 7,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "east-4",
-            "type": "foundation",
-            "col": 7,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "west-side-1",
-            "type": "cell",
-            "col": 1.2,
-            "row": 0,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "west-side-2",
-            "type": "cell",
-            "col": 1.2,
-            "row": 1,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "west-side-3",
-            "type": "cell",
-            "col": 1.2,
-            "row": 2,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "west-side-4",
-            "type": "cell",
-            "col": 1.2,
-            "row": 3,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "east-side-1",
-            "type": "cell",
-            "col": 5.8,
-            "row": 0,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "east-side-2",
-            "type": "cell",
-            "col": 5.8,
-            "row": 1,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "east-side-3",
-            "type": "cell",
-            "col": 5.8,
-            "row": 2,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "east-side-4",
-            "type": "cell",
-            "col": 5.8,
-            "row": 3,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "braid-1",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 0.097,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-2",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 0.2537,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-3",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 0.4104,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-4",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 0.5672,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-5",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 0.7239,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-6",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 0.8806,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-7",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 1.0373,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-8",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 1.194,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-9",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 1.3507,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-10",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 1.5075,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-11",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 1.6642,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-12",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 1.8209,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-13",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 1.9776,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-14",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 2.1343,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-15",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 2.291,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-16",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 2.4478,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-17",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 2.6045,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-18",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 2.7612,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-19",
-            "type": "tableau",
-            "col": 3.3462,
-            "row": 2.9179,
-            "angleDegrees": -30,
-            "fan": "down"
-          },
-          {
-            "name": "braid-20",
-            "type": "tableau",
-            "col": 3.6538,
-            "row": 3.0746,
-            "angleDegrees": 30,
-            "fan": "down"
-          },
-          {
-            "name": "corner-nw",
-            "type": "reserve",
-            "col": 2.25,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "corner-ne",
-            "type": "reserve",
-            "col": 4.75,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "corner-sw",
-            "type": "reserve",
-            "col": 2.25,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "corner-se",
-            "type": "reserve",
-            "col": 4.75,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 2.25,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 4.75,
-            "row": 4,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "captive-queens",
-      "name": "Captive Queens",
-      "aliases": [
-        "Quadrille"
-      ],
-      "sandbox": false,
-      "rules": "A game of pure luck. **Goal:** build the other 40 cards round the four **Queens**, who hold court in the middle and never move.\n\n- The four **Fives** and four **Sixes** are laid round the court to start eight foundations.\n- Each **Five** builds **down in suit** through the Ace to the King: 5 4 3 2 A K.\n- Each **Six** builds **up in suit** to the Jack: 6 7 8 9 10 J.\n- **Tap the stock** to turn one card at a time onto the waste. The top card of the waste is available.\n- When the stock is spent, tap it to turn the waste back over. You may do so **twice** (three passes in all).\n- Your **score** is the number of cards round the court, the Queens, Fives and Sixes among them, 52 for a win.",
-      "inApp": false,
-      "download": "designs/captive-queens.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 1.2313,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 0,
-            "row": 2.2761,
-            "fan": "none"
-          },
-          {
-            "name": "queen-diamonds",
-            "type": "foundation",
-            "col": 3.0769,
-            "row": 1.7537,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "queen-spades",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 1.3209,
-            "fan": "none"
-          },
-          {
-            "name": "queen-hearts",
-            "type": "foundation",
-            "col": 4.1923,
-            "row": 1.7537,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "queen-clubs",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 2.1866,
-            "angleDegrees": 180,
-            "fan": "none"
-          },
-          {
-            "name": "five-spades",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "six-spades",
-            "type": "foundation",
-            "col": 5.2324,
-            "row": 0.5137,
-            "angleDegrees": 45,
-            "fan": "none"
-          },
-          {
-            "name": "five-hearts",
-            "type": "foundation",
-            "col": 5.8942,
-            "row": 1.7537,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "six-hearts",
-            "type": "foundation",
-            "col": 5.2324,
-            "row": 2.9938,
-            "angleDegrees": 135,
-            "fan": "none"
-          },
-          {
-            "name": "five-clubs",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 3.5075,
-            "angleDegrees": 180,
-            "fan": "none"
-          },
-          {
-            "name": "six-clubs",
-            "type": "foundation",
-            "col": 2.0368,
-            "row": 2.9938,
-            "angleDegrees": -135,
-            "fan": "none"
-          },
-          {
-            "name": "five-diamonds",
-            "type": "foundation",
-            "col": 1.375,
-            "row": 1.7537,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "six-diamonds",
-            "type": "foundation",
-            "col": 2.0368,
-            "row": 0.5137,
-            "angleDegrees": -45,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "carpet",
       "name": "Carpet",
       "sandbox": false,
       "rules": "**Goal:** move every card to the four foundations, building **up by suit from Ace to King**.\n\n- Twenty face-up cards form the **carpet**. Any carpet card may move to a foundation.\n- A hole in the carpet may be filled only with the **top waste card**; choosing when and where to fill holes is the heart of the game.\n- Draw the stock one card at a time to the waste. There is **no recycle**.\n- The foundations begin with the four Aces.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
-      "inApp": false,
-      "download": "designs/carpet.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -6516,408 +7082,6 @@
       }
     },
     {
-      "slug": "die-schwierige",
-      "name": "Die Schwierige",
-      "sandbox": false,
-      "rules": "**Goal:** move all 104 cards to the eight foundations.\n\n- The foundations start with the eight **Aces** and build **up in suit** to King.\n- Tap the stock to deal **a row of six** onto the cascades. Only a cascade's top card can move, to a foundation or a sorting pile.\n- The four **sorting piles** build **down in suit**, one card at a time. An empty sorting pile takes any card.\n- In the first round, no card may be played onto a cascade.\n- When the stock is spent, tap it **once** for the second round: the cascades are picked up in order, unshuffled, with the **bottom two sorting piles** on top, so their cards come out last. Those two piles then close.\n- In the second round, an **empty cascade** takes the top card of a sorting pile.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/die-schwierige.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-1",
-            "type": "foundation",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-2",
-            "type": "foundation",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-3",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-4",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-5",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-6",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-7",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-8",
-            "type": "foundation",
-            "col": 8,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cascade-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "sort-1",
-            "type": "cell",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "sort-2",
-            "type": "cell",
-            "col": 8,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "spare-1",
-            "type": "cell",
-            "col": 7,
-            "row": 3,
-            "fan": "down"
-          },
-          {
-            "name": "spare-2",
-            "type": "cell",
-            "col": 8,
-            "row": 3,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "faerie-queen",
-      "name": "Faerie Queen",
-      "aliases": [
-        "Spenser's Fairie Queen",
-        "Fairie Queen"
-      ],
-      "sandbox": false,
-      "rules": "**Goal:** build the eight foundations from Ace up to Queen, 96 cards. The eight Kings stay on the table.\n\n- A King starts the first column. **Tap the stock** to turn the next card: a **King starts a new column**, an **Ace** goes to a foundation, and any other card is dealt onto the **newest King's column**.\n- Each foundation builds **up regardless of suit** from its Ace to the Queen: a 3 of any suit on any 2.\n- Only the **card at the foot** of each column is available. It may go to a foundation, or onto another column's foot **one rank higher, regardless of suit**: a 7 on an 8.\n- A **King alone** in its column takes any available card.\n- You may play at any time, during the deal or after it. There is no redeal.\n- Your **score** is the number of cards on the foundations, 96 for a win.",
-      "inApp": false,
-      "download": "designs/faerie-queen.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "column-1",
-            "type": "tableau",
-            "col": 1.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-2",
-            "type": "tableau",
-            "col": 2.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-3",
-            "type": "tableau",
-            "col": 3.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-4",
-            "type": "tableau",
-            "col": 4.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-5",
-            "type": "tableau",
-            "col": 5.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-6",
-            "type": "tableau",
-            "col": 6.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-7",
-            "type": "tableau",
-            "col": 7.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-8",
-            "type": "tableau",
-            "col": 8.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "foundation-1",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-2",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-3",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-4",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-5",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-6",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-7",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-8",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 3,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "fourteen-out",
-      "name": "Fourteen Out",
-      "family": "Pyramid",
-      "sandbox": false,
-      "rules": "**Goal:** remove all 52 cards in pairs that total **14**.\n\n- All cards are dealt **face up** into twelve columns; the first four columns hold five cards and the other eight hold four.\n- Only the **top card** of each column is available.\n- Drag an available card **onto its partner**, the top card of another column, and both go to the **discard**: Ace + King, 2 + Queen, 3 + Jack, 4 + 10, 5 + 9, 6 + 8, or 7 + 7.\n- The game is lost when no pair is left.\n- Your **score** is the number of cards removed, 52 for a win.",
-      "inApp": false,
-      "download": "designs/fourteen-out.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "column-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-9",
-            "type": "tableau",
-            "col": 8,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-10",
-            "type": "tableau",
-            "col": 9,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-11",
-            "type": "tableau",
-            "col": 10,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-12",
-            "type": "tableau",
-            "col": 11,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "discard",
-            "type": "foundation",
-            "col": 5.5,
-            "row": 2.6,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "gaps",
       "name": "Gaps",
       "family": "Gaps",
@@ -6929,8 +7093,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** order each row from **Two to King** in one suit.\n\n- The Aces are taken away, leaving four gaps.\n- Fill a gap with the card **one higher, in the same suit**, as the card on its left. A gap in the **first column** takes any **Two**.\n- A gap to the right of a King, or of another gap, stays empty.\n- **Stuck?** Tap the stock to redeal, **twice** at most. Each row keeps its run from a Two in the first column; the other cards are shuffled and dealt again, leaving one gap after each run.",
-      "inApp": false,
-      "download": "designs/gaps.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -7325,8 +7488,7 @@
       "name": "Grandfather's Clock",
       "sandbox": false,
       "rules": "**Goal:** complete the clock. Each of its twelve foundations builds **up in suit** until its top card shows the hour it stands at: Jack for eleven, Queen for twelve, Ace for one.\n\n- The twelve starting cards are set out before the deal: 9♣ at twelve o'clock, then clockwise 10♥ J♠ Q♦ K♣ 2♥ 3♠ 4♦ 5♣ 6♥ 7♠ 8♦. Ranks wrap from King to Ace.\n- The other forty cards are dealt **face up** into eight columns of five, four each side of the clock.\n- Columns build **down regardless of suit**. Move one card at a time.\n- Any card may fill an empty column.",
-      "inApp": false,
-      "download": "designs/grandfathers-clock.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -7490,6 +7652,1367 @@
       }
     },
     {
+      "slug": "stalactites",
+      "name": "Stalactites",
+      "sandbox": false,
+      "rules": "**Goal:** build every card onto four foundations, thirteen cards each. They build **up regardless of suit**, wrapping from King round to Ace, either **by ones** or **by twos**.\n\n- The first four cards dealt start the foundations, whatever their ranks.\n- **Your first build chooses the step** for all four foundations. On a 5, a 6 sets them building by ones (6 7 8 … K A … 4), a 7 by twos (7 9 J K 2 4 6 8 10 Q A 3).\n- The other forty-eight cards are dealt **face up** into eight columns of six.\n- **Nothing is built on the columns.** Their top cards go to a foundation or to one of the two cells, and an emptied column stays empty.\n- Each **cell** holds one card, which may go only to a foundation.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-1",
+            "type": "foundation",
+            "col": 2.5,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-1",
+            "type": "foundation",
+            "col": 2.6442,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-2",
+            "type": "foundation",
+            "col": 3.75,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-2",
+            "type": "foundation",
+            "col": 3.8942,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-3",
+            "type": "foundation",
+            "col": 5.1442,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-4",
+            "type": "foundation",
+            "col": 6.25,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-4",
+            "type": "foundation",
+            "col": 6.3942,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "aces-and-kings",
+      "name": "Aces and Kings",
+      "sandbox": false,
+      "rules": "**Goal:** move both decks to eight foundations. Four build **up from Ace to King** and four build **down from King to Ace**; suits do not matter.\n\n- The foundations start empty: any Ace starts an up foundation and any King a down one.\n- Two reserves hold thirteen face-up cards each, fanned so every card shows. Only their top cards are available.\n- Four single-card feeder spaces begin occupied and refill automatically from the stock whenever cleared.\n- Turn the stock one card at a time to the waste. The top waste card is available. There is **no redeal**.\n- Play reserve, feeder or waste cards to either kind of foundation. A foundation top may also move to another compatible foundation.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "up-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "down-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-2",
+            "type": "reserve",
+            "col": 7,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 3,
+            "row": 3.5,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4,
+            "row": 3.5,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-1",
+            "type": "tableau",
+            "col": 2,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-2",
+            "type": "tableau",
+            "col": 3,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-3",
+            "type": "tableau",
+            "col": 4,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-4",
+            "type": "tableau",
+            "col": 5,
+            "row": 2.25,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "alhambra",
+      "name": "Alhambra",
+      "sandbox": false,
+      "rules": "**Goal:** build both decks onto eight foundations. An Ace and a King of each suit start them: the Aces build **up in suit** to the King, the Kings **down in suit** to the Ace.\n\n- Eight reserve piles hold four face-up cards each. Only their top cards are available, and an emptied pile is not refilled.\n- Turn the stock one card at a time to the waste. The top waste card is available for the foundations.\n- A reserve card may also go onto the waste, **up or down by one in the same suit**, turning the corner between King and Ace. The waste never takes a card from anywhere else, and never takes one while it is empty.\n- When the stock runs out, the waste turns over to become a new stock, cards built on it included. There are **two redeals**, three passes in all.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "ace-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-1",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-2",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-3",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 3,
+            "row": 2.75,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4,
+            "row": 2.75,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "braid",
+      "name": "Braid",
+      "aliases": [
+        "Der Zopf",
+        "Plait",
+        "Pigtail",
+        "Herringbone"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build both decks onto eight foundations, **up in suit** from a base rank the deal sets, turning the corner from King to Ace.\n\n- The first card turned from the stock starts a foundation, and its rank is the base of all eight: with an 8, every foundation starts on an 8 and ends on a 7. Each card of that rank starts an empty foundation.\n- **The braid** of twenty cards runs down the middle, never two of the same card. Only its end card is available, and only to a foundation.\n- **The four corners** play to the foundations. A space there is refilled at once from the braid's end.\n- **The eight sides** play to the foundations. A space there takes the top waste card, whenever you choose.\n- Turn the stock one card at a time to the waste; the top waste card is available. You may **redeal twice** (three passes in all).\n- The braid must be used up to win. Your **score** is the number of cards on the foundations, 104 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "west-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "west-2",
+            "type": "foundation",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "west-3",
+            "type": "foundation",
+            "col": 0,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "west-4",
+            "type": "foundation",
+            "col": 0,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "east-1",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "east-2",
+            "type": "foundation",
+            "col": 7,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "east-3",
+            "type": "foundation",
+            "col": 7,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "east-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-1",
+            "type": "cell",
+            "col": 1.2,
+            "row": 0,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-2",
+            "type": "cell",
+            "col": 1.2,
+            "row": 1,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-3",
+            "type": "cell",
+            "col": 1.2,
+            "row": 2,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-4",
+            "type": "cell",
+            "col": 1.2,
+            "row": 3,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-1",
+            "type": "cell",
+            "col": 5.8,
+            "row": 0,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-2",
+            "type": "cell",
+            "col": 5.8,
+            "row": 1,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-3",
+            "type": "cell",
+            "col": 5.8,
+            "row": 2,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-4",
+            "type": "cell",
+            "col": 5.8,
+            "row": 3,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "braid-1",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 0.097,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-2",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 0.2537,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-3",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 0.4104,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-4",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 0.5672,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-5",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 0.7239,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-6",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 0.8806,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-7",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.0373,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-8",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 1.194,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-9",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.3507,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-10",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 1.5075,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-11",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.6642,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-12",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 1.8209,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-13",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.9776,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-14",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 2.1343,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-15",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 2.291,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-16",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 2.4478,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-17",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 2.6045,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-18",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 2.7612,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-19",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 2.9179,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-20",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 3.0746,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "corner-nw",
+            "type": "reserve",
+            "col": 2.25,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "corner-ne",
+            "type": "reserve",
+            "col": 4.75,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "corner-sw",
+            "type": "reserve",
+            "col": 2.25,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "corner-se",
+            "type": "reserve",
+            "col": 4.75,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 2.25,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4.75,
+            "row": 4,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "british-constitution",
+      "name": "British Constitution",
+      "aliases": [
+        "Constitution"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build eight foundations up from Ace to **Jack**, each in a single suit. The game uses two decks without their Kings and Queens.\n\n- Below the Aces lie **four rows** of eight cards. Only the top row, the **Privy Council**, plays to the foundations.\n- The Privy Council builds **down in alternating colour** (e.g. a red 6 on a black 7), one card at a time, from its own row or from the row just below.\n- A **gap** in any of the top three rows is filled with **any card from the row just below**. You choose which one, so cards climb a row at a time.\n- A card may **jump** rows: it goes straight up to a farther row, or onto a foundation, when **every row it passes has a gap**, just as if it had climbed through them one at a time.\n- A gap in the bottom row is filled from the **stock** at once. Stock cards never play straight to the foundations.\n- You lose when nothing more can be played.\n- Your **score** is the number of cards on the foundations, 88 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 88,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-5",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-6",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-7",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-8",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "council-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "lords-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 8.5,
+            "row": 4.36,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "die-schwierige",
+      "name": "Die Schwierige",
+      "sandbox": false,
+      "rules": "**Goal:** move all 104 cards to the eight foundations.\n\n- The foundations start with the eight **Aces** and build **up in suit** to King.\n- Tap the stock to deal **a row of six** onto the cascades. Only a cascade's top card can move, to a foundation or a sorting pile.\n- The four **sorting piles** build **down in suit**, one card at a time. An empty sorting pile takes any card.\n- In the first round, no card may be played onto a cascade.\n- When the stock is spent, tap it **once** for the second round: the cascades are picked up in order, unshuffled, with the **bottom two sorting piles** on top, so their cards come out last. Those two piles then close.\n- In the second round, an **empty cascade** takes the top card of a sorting pile.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 8,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cascade-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "sort-1",
+            "type": "cell",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "sort-2",
+            "type": "cell",
+            "col": 8,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "spare-1",
+            "type": "cell",
+            "col": 7,
+            "row": 3,
+            "fan": "down"
+          },
+          {
+            "name": "spare-2",
+            "type": "cell",
+            "col": 8,
+            "row": 3,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "faerie-queen",
+      "name": "Faerie Queen",
+      "aliases": [
+        "Spenser's Fairie Queen",
+        "Fairie Queen"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build the eight foundations from Ace up to Queen, 96 cards. The eight Kings stay on the table.\n\n- A King starts the first column. **Tap the stock** to turn the next card: a **King starts a new column**, an **Ace** goes to a foundation, and any other card is dealt onto the **newest King's column**.\n- Each foundation builds **up regardless of suit** from its Ace to the Queen: a 3 of any suit on any 2.\n- Only the **card at the foot** of each column is available. It may go to a foundation, or onto another column's foot **one rank higher, regardless of suit**: a 7 on an 8.\n- A **King alone** in its column takes any available card.\n- You may play at any time, during the deal or after it. There is no redeal.\n- Your **score** is the number of cards on the foundations, 96 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 1.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 2.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 3.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 4.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 5.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 6.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 7.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 8.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 3,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "hemispheres",
       "name": "Hemispheres",
       "aliases": [
@@ -7497,8 +9020,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** move all 104 cards to the eight foundations.\n\n- The four **red Aces** build **up in suit** to King, the four **black Kings** **down in suit** to Ace.\n- **Red cards belong to the north** (the six piles in the top half of the circle), **black cards to the south** (the six in the bottom half). Only a pile's top card can move, one card at a time.\n- In the north, a red card builds **down in suit** on a red card; in the south, a black card builds **up in suit** on a black card. The waste's top card may build **regardless of suit**, onto a pile of its own colour.\n- A card in the **wrong hemisphere is stranded**: it can't move, and nothing builds on it. **Exchange** it by dropping it on a stranded card of the other colour across the equator: the two swap places.\n- Tap the stock to turn one card onto the waste. There is no redeal.\n- An **empty pile is refilled at once** from the stock, or from the waste once the stock is spent.\n- Once the stock is spent, stranded cards are free, and the four **barriers** lying crossways may finish their foundations.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/hemispheres.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -7711,327 +9233,6 @@
       }
     },
     {
-      "slug": "klondike-with-jokers",
-      "name": "Klondike with Jokers",
-      "family": "Klondike",
-      "sandbox": false,
-      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Play as in Klondike: tableau columns build **down in alternating colour**, an empty column takes a **King**, and the stock deals one card at a time to the waste, as often as you like.\n- The two **Jokers** are wild. In a column a Joker stands for the card the column wanted; on an empty column, a King.\n- A Joker can go on a **foundation**, where it stands for the next card up; on an empty foundation it is an Ace of any suit.\n- When a card a Joker stands for turns up, drop it on the Joker's column or foundation, even with the Joker buried: the card **takes its place** and the Joker goes back where the card came from, ready to play again.\n- You win once all 52 cards are on the foundations; the Jokers can end anywhere.\n- Your **score**, kept for a win: 10 for each card on the foundations (a Joker counts nothing), 5 for each tableau card turned up, and 100 off each time the waste goes back into the stock. It never drops below 0.",
-      "inApp": false,
-      "download": "designs/klondike-with-jokers.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 54,
-        "jokers": 2
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "monte-carlo",
-      "name": "Monte Carlo",
-      "family": "Pyramid",
-      "aliases": [
-        "Weddings"
-      ],
-      "sandbox": false,
-      "rules": "**Goal:** pair off all 52 cards.\n\n- Twenty-five cards are dealt face up in a **five by five grid**.\n- Drop a card onto another of the **same rank** that **touches** it: beside it, above or below, or **diagonally**. The pair goes to the **discard**.\n- **Tap the stock** to consolidate: the remaining cards slide toward the top left, in reading order, to close the gaps, and the empty cells at the end are refilled from the stock.\n- You win when every card has been paired. You lose when no pair touches and there is nothing left to consolidate.\n- Your **score** is the number of cards removed, 52 for a win.",
-      "inApp": false,
-      "download": "designs/monte-carlo.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-6",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-7",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-8",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-9",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-10",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-11",
-            "type": "tableau",
-            "col": 0,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-12",
-            "type": "tableau",
-            "col": 1,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-13",
-            "type": "tableau",
-            "col": 2,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-14",
-            "type": "tableau",
-            "col": 3,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-15",
-            "type": "tableau",
-            "col": 4,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-16",
-            "type": "tableau",
-            "col": 0,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-17",
-            "type": "tableau",
-            "col": 1,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-18",
-            "type": "tableau",
-            "col": 2,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-19",
-            "type": "tableau",
-            "col": 3,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-20",
-            "type": "tableau",
-            "col": 4,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-21",
-            "type": "tableau",
-            "col": 0,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-22",
-            "type": "tableau",
-            "col": 1,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-23",
-            "type": "tableau",
-            "col": 2,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-24",
-            "type": "tableau",
-            "col": 3,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-25",
-            "type": "tableau",
-            "col": 4,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 5.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "discard",
-            "type": "foundation",
-            "col": 5.5,
-            "row": 1.5,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "mount-olympus",
       "name": "Mount Olympus",
       "aliases": [
@@ -8039,8 +9240,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** build both decks onto sixteen foundations. They build **up by twos, in suit**.\n\n- The eight Aces and eight Twos start the foundations, laid out as a mountain. An Ace builds A 3 5 7 9 J K, a Two builds 2 4 6 8 10 Q, so a won game shows Kings and Queens alternating up each side.\n- **The battery** of nine piles builds **down by twos, in suit**: a 7 on a 9, a 10 on a Queen. Only the top card of each pile is available, and cards move one at a time.\n- A space in the battery is refilled at once from the waste, or from the stock while the waste is empty.\n- Turn the stock one card at a time to the waste; the top waste card is available.\n- You may **redeal once**: tap the empty stock to turn the waste back over.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/mount-olympus.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -8258,237 +9458,6 @@
       }
     },
     {
-      "slug": "penguin",
-      "name": "Penguin",
-      "family": "FreeCell",
-      "sandbox": false,
-      "rules": "**Goal:** build all four foundations up in suit from the beak's rank, going round from King to Ace, until each holds thirteen cards.\n\n- The first card dealt is the **beak**, at the foot of the first column. The three other cards of its rank start the foundations; the fourth foundation waits for the beak itself.\n- Tableau columns build **down in the same suit**, going round from Ace to King.\n- Move one card, or a run already in same-suit order, as a unit.\n- The **flipper** is seven cells, each holding a single card.\n- An empty column takes only a card **one rank below the beak**, or a run headed by one.",
-      "inApp": false,
-      "download": "designs/penguin.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "cell",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "cell",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-3",
-            "type": "cell",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-4",
-            "type": "cell",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-5",
-            "type": "cell",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-6",
-            "type": "cell",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-7",
-            "type": "cell",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 7.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 7.5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 7.5,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 7.5,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "puss-in-the-corner",
-      "name": "Puss in the Corner",
-      "family": "Calculation",
-      "sandbox": false,
-      "rules": "**Goal:** move every card to the four foundations.\n\n- The foundations start with the four **Aces** and build **up by colour** to King: red on red, black on black, whatever the suit.\n- Play the face-up stock card straight to a foundation or park it on one of four holding piles.\n- Holding piles accept stock cards in any order, but only their top card can leave, and only for a foundation.\n- When the stock runs out, tap it **once** to pick the holding piles up in order as a new stock.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
-      "inApp": false,
-      "download": "designs/puss-in-the-corner.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "foundation-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-3",
-            "type": "foundation",
-            "col": 3,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-4",
-            "type": "foundation",
-            "col": 4,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "hold-1",
-            "type": "tableau",
-            "col": 2.1,
-            "row": 0.41,
-            "angleDegrees": 45,
-            "fan": "down"
-          },
-          {
-            "name": "hold-2",
-            "type": "tableau",
-            "col": 4.9,
-            "row": 0.41,
-            "angleDegrees": -45,
-            "fan": "down"
-          },
-          {
-            "name": "hold-3",
-            "type": "tableau",
-            "col": 2.1,
-            "row": 2.59,
-            "angleDegrees": -45,
-            "fan": "down"
-          },
-          {
-            "name": "hold-4",
-            "type": "tableau",
-            "col": 4.9,
-            "row": 2.59,
-            "angleDegrees": 45,
-            "fan": "down"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0.5,
-            "row": 0,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "royal-cotillion",
       "name": "Royal Cotillion",
       "aliases": [
@@ -8496,8 +9465,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** build both decks onto eight foundations, thirteen cards each. They build **up by twos, in suit**, wrapping from King round to Ace.\n\n- An Ace and a Two of each suit start the foundations. An Ace builds A 3 5 7 9 J K 2 4 6 8 10 Q, a Two builds 2 4 6 8 10 Q A 3 5 7 9 J K, so a won game shows each suit's King and Queen side by side.\n- **The ladies' side**, on the left, holds four columns of three. Only their top cards are available, and a card taken from there is not replaced.\n- **The lords' side**, on the right, holds sixteen cards, all available. A space there is refilled at once from the waste, or from the stock while the waste is empty.\n- Cards play only to the foundations, never from one pile to another.\n- Turn the stock one card at a time to the waste; the top waste card is available. There is **no redeal**.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/royal-cotillion.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -8720,470 +9688,6 @@
       }
     },
     {
-      "slug": "russian-solitaire",
-      "name": "Russian Solitaire",
-      "family": "Yukon",
-      "sandbox": false,
-      "rules": "**Goal:** build all four foundations up from Ace to King, each in a single suit.\n\n- Tableau columns build **down in the same suit**.\n- Any **face-up** card can be picked up together with everything on top of it, regardless of order — only the bottom card of the group needs to fit the target.\n- Uncovering a face-down card flips it; an empty column takes a **King** (or a group headed by one).\n- Your **score** is the number of cards on the foundations, 52 for a win.",
-      "inApp": false,
-      "download": "designs/russian-solitaire.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "simple-simon",
-      "name": "Simple Simon",
-      "family": "Spider",
-      "sandbox": false,
-      "rules": "**Goal:** assemble four same-suit runs from King to Ace. Completed runs move to the foundations automatically.\n\n- All 52 cards start **face up** in ten columns. There is **no stock or redeal**.\n- Build columns **down in any suit**, without wrapping from Ace to King.\n- Move one card, or a **same-suit descending sequence** as a group. Mixed-suit groups cannot move together.\n- Any card or valid sequence may fill an empty column.",
-      "inApp": false,
-      "download": "designs/simple-simon.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-9",
-            "type": "tableau",
-            "col": 8,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-10",
-            "type": "tableau",
-            "col": 9,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "spiderette",
-      "name": "Spiderette",
-      "family": "Spider",
-      "sandbox": false,
-      "rules": "**Goal:** assemble four complete **same-suit** King-to-Ace runs and move them to the foundations.\n\n- Tableau columns build **down in any suit** — a card lands on any card one rank higher.\n- Cards move as a group only when they form a **same-suit descending run**; otherwise you move **one card at a time**.\n- Only **face-up** cards can be picked up; uncovering a face-down card flips it.\n- Any card may start an empty column.\n- When you're stuck, **tap the stock** to deal one card onto every column — allowed only when **no column is empty**. Its last three cards go to the first three columns.\n- A **complete King-to-Ace run in a single suit** leaves for a foundation **on its own** the moment you finish it.\n- Your **score** starts at 500, loses one for every move and gains 100 for each run sent to the foundations.",
-      "inApp": false,
-      "download": "designs/spiderette.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "stalactites",
-      "name": "Stalactites",
-      "sandbox": false,
-      "rules": "**Goal:** build every card onto four foundations, thirteen cards each. They build **up regardless of suit**, wrapping from King round to Ace, either **by ones** or **by twos**.\n\n- The first four cards dealt start the foundations, whatever their ranks.\n- **Your first build chooses the step** for all four foundations. On a 5, a 6 sets them building by ones (6 7 8 … K A … 4), a 7 by twos (7 9 J K 2 4 6 8 10 Q A 3).\n- The other forty-eight cards are dealt **face up** into eight columns of six.\n- **Nothing is built on the columns.** Their top cards go to a foundation or to one of the two cells, and an emptied column stays empty.\n- Each **cell** holds one card, which may go only to a foundation.\n- Your **score** is the number of cards on the foundations, 52 for a win.",
-      "inApp": false,
-      "download": "designs/stalactites.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "cell",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "cell",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-1",
-            "type": "foundation",
-            "col": 2.5,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-1",
-            "type": "foundation",
-            "col": 2.6442,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-2",
-            "type": "foundation",
-            "col": 3.75,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-2",
-            "type": "foundation",
-            "col": 3.8942,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-3",
-            "type": "foundation",
-            "col": 5.1442,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-4",
-            "type": "foundation",
-            "col": 6.25,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-4",
-            "type": "foundation",
-            "col": 6.3942,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "column-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
       "slug": "sultan",
       "name": "Sultan",
       "aliases": [
@@ -9192,8 +9696,7 @@
       ],
       "sandbox": false,
       "rules": "**Goal:** surround the **Sultan** (the fixed King of Hearts) with eight completed foundations whose top cards are Queens.\n\n- Seven outer foundations begin with Kings and continue **Ace upward to Queen in suit**. The eighth begins with the Ace of Hearts and builds upward to Queen.\n- Six face-up **divan** cards are available for foundations. A cleared divan space refills automatically from the stock.\n- Draw the stock one card at a time to the waste. The waste may be recycled **twice** (three passes total).\n- The central King of Hearts never moves.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
-      "inApp": false,
-      "download": "designs/sultan.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -9319,6 +9822,297 @@
             "type": "waste",
             "col": 3.5,
             "row": 3.35,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "terrace",
+      "name": "Terrace",
+      "aliases": [
+        "The Terrace",
+        "Queen of Italy",
+        "Die Italienerin"
+      ],
+      "sandbox": false,
+      "rules": "**Goal:** build both decks onto eight foundations, **up in alternating colours** from a base rank you choose, turning the corner from King to Ace.\n\n- **Choose the base** first: move one of the three cards in the valley to any foundation. Its rank is the base of all eight: with an 8, every foundation starts on an 8 and ends on a 7. Each card of that rank starts an empty foundation, and their spaces show it. Nothing else moves until you choose, and then the valley fills to nine piles from the stock.\n- **The terrace** of thirteen cards runs along the top. Only its end card is available, and only to a foundation.\n- **The valley** builds **down in alternating colours**, one card at a time. A space there is refilled at once from the stock; once the stock is spent, it takes the top waste card.\n- Turn the stock one card at a time to the waste; the top waste card plays to a foundation or the valley. There is **no redeal**.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "terrace",
+            "type": "reserve",
+            "col": 0,
+            "row": 0,
+            "fan": "right"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 8,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 6,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 7,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "valley-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 2,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "captive-queens",
+      "name": "Captive Queens",
+      "aliases": [
+        "Quadrille"
+      ],
+      "sandbox": false,
+      "rules": "A game of pure luck. **Goal:** build the other 40 cards round the four **Queens**, who hold court in the middle and never move.\n\n- The four **Fives** and four **Sixes** are laid round the court to start eight foundations.\n- Each **Five** builds **down in suit** through the Ace to the King: 5 4 3 2 A K.\n- Each **Six** builds **up in suit** to the Jack: 6 7 8 9 10 J.\n- **Tap the stock** to turn one card at a time onto the waste. The top card of the waste is available.\n- When the stock is spent, tap it to turn the waste back over. You may do so **twice** (three passes in all).\n- Your **score** is the number of cards round the court, the Queens, Fives and Sixes among them, 52 for a win.",
+      "inApp": false,
+      "download": "designs/captive-queens.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 1.2313,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 0,
+            "row": 2.2761,
+            "fan": "none"
+          },
+          {
+            "name": "queen-diamonds",
+            "type": "foundation",
+            "col": 3.0769,
+            "row": 1.7537,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "queen-spades",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 1.3209,
+            "fan": "none"
+          },
+          {
+            "name": "queen-hearts",
+            "type": "foundation",
+            "col": 4.1923,
+            "row": 1.7537,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "queen-clubs",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 2.1866,
+            "angleDegrees": 180,
+            "fan": "none"
+          },
+          {
+            "name": "five-spades",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "six-spades",
+            "type": "foundation",
+            "col": 5.2324,
+            "row": 0.5137,
+            "angleDegrees": 45,
+            "fan": "none"
+          },
+          {
+            "name": "five-hearts",
+            "type": "foundation",
+            "col": 5.8942,
+            "row": 1.7537,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "six-hearts",
+            "type": "foundation",
+            "col": 5.2324,
+            "row": 2.9938,
+            "angleDegrees": 135,
+            "fan": "none"
+          },
+          {
+            "name": "five-clubs",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 3.5075,
+            "angleDegrees": 180,
+            "fan": "none"
+          },
+          {
+            "name": "six-clubs",
+            "type": "foundation",
+            "col": 2.0368,
+            "row": 2.9938,
+            "angleDegrees": -135,
+            "fan": "none"
+          },
+          {
+            "name": "five-diamonds",
+            "type": "foundation",
+            "col": 1.375,
+            "row": 1.7537,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "six-diamonds",
+            "type": "foundation",
+            "col": 2.0368,
+            "row": 0.5137,
+            "angleDegrees": -45,
             "fan": "none"
           }
         ]

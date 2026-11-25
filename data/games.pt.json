@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "culture": "pt",
-  "generated": "2026-11-22T23:05:44Z",
+  "generated": "2026-11-25T20:09:22Z",
   "layout": {
     "cardWidth": 84,
     "cardHeight": 114,
@@ -759,6 +759,356 @@
             "name": "tab-9",
             "type": "tableau",
             "col": 9,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "saratoga",
+      "name": "Saratoga",
+      "family": "Klondike",
+      "aliases": [
+        "Thoughtful Klondike",
+        "Thoughtful Solitaire"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as quatro fundações subindo do Ás ao Rei, cada uma em um único naipe.\n\n- Jogue como no Klondike, mas as cartas que o Klondike distribui viradas para baixo são distribuídas **viradas para cima**, **atravessadas** sob cada coluna, então você sabe onde está cada carta do tabuleiro.\n- As colunas do tabuleiro descem **em cores alternadas** (p. ex. um 6 vermelho sobre um 7 preto). Mova uma única carta ou uma sequência válida.\n- Quando uma coluna fica vazia, a carta atravessada do topo **entra em jogo**. Uma coluna vazia sem nada embaixo pode ser iniciada com um **Rei** (ou uma sequência encabeçada por um Rei).\n- Compre do **monte** para o descarte **uma carta por vez**, ou **três cartas por vez** na Compra 3, em que apenas a carta do topo do descarte está em jogo. Recicle o descarte de volta ao monte quando ele acabar, quantas vezes quiser.\n- Sua **pontuação**, guardada numa vitória: 10 por carta nas fundações, 5 por carta atravessada posta em jogo, e 100 a menos cada vez que o descarte volta para o monte (na Compra 3, 20 a menos a cada vez depois da terceira passagem). Nunca fica abaixo de 0.",
+      "inApp": true,
+      "variant": {
+        "of": "saratoga",
+        "name": "Saratoga",
+        "axis": "Compra",
+        "label": "1",
+        "selections": [
+          {
+            "id": "draw",
+            "axis": "Compra",
+            "value": "one",
+            "label": "1"
+          }
+        ]
+      },
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1.5385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 4.0385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 5.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 6.5385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7.7885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-2",
+            "type": "reserve",
+            "col": 1.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-3",
+            "type": "reserve",
+            "col": 2.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2.7885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-4",
+            "type": "reserve",
+            "col": 3.8942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 4.0385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-5",
+            "type": "reserve",
+            "col": 5.1442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 5.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-6",
+            "type": "reserve",
+            "col": 6.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 6.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-7",
+            "type": "reserve",
+            "col": 7.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 7.7885,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "saratoga-draw-3",
+      "name": "Saratoga (Draw 3)",
+      "family": "Klondike",
+      "aliases": [
+        "Thoughtful Klondike",
+        "Thoughtful Solitaire"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as quatro fundações subindo do Ás ao Rei, cada uma em um único naipe.\n\n- Jogue como no Klondike, mas as cartas que o Klondike distribui viradas para baixo são distribuídas **viradas para cima**, **atravessadas** sob cada coluna, então você sabe onde está cada carta do tabuleiro.\n- As colunas do tabuleiro descem **em cores alternadas** (p. ex. um 6 vermelho sobre um 7 preto). Mova uma única carta ou uma sequência válida.\n- Quando uma coluna fica vazia, a carta atravessada do topo **entra em jogo**. Uma coluna vazia sem nada embaixo pode ser iniciada com um **Rei** (ou uma sequência encabeçada por um Rei).\n- Compre do **monte** para o descarte **uma carta por vez**, ou **três cartas por vez** na Compra 3, em que apenas a carta do topo do descarte está em jogo. Recicle o descarte de volta ao monte quando ele acabar, quantas vezes quiser.\n- Sua **pontuação**, guardada numa vitória: 10 por carta nas fundações, 5 por carta atravessada posta em jogo, e 100 a menos cada vez que o descarte volta para o monte (na Compra 3, 20 a menos a cada vez depois da terceira passagem). Nunca fica abaixo de 0.",
+      "inApp": true,
+      "variant": {
+        "of": "saratoga",
+        "name": "Saratoga",
+        "axis": "Compra",
+        "label": "3",
+        "selections": [
+          {
+            "id": "draw",
+            "axis": "Compra",
+            "value": "three",
+            "label": "3"
+          }
+        ]
+      },
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1.5385,
+            "row": 0,
+            "fan": "right"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 4.0385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 5.2885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 6.5385,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7.7885,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-2",
+            "type": "reserve",
+            "col": 1.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-3",
+            "type": "reserve",
+            "col": 2.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2.7885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-4",
+            "type": "reserve",
+            "col": 3.8942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 4.0385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-5",
+            "type": "reserve",
+            "col": 5.1442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 5.2885,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-6",
+            "type": "reserve",
+            "col": 6.3942,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 6.5385,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "hidden-7",
+            "type": "reserve",
+            "col": 7.6442,
+            "row": 1,
+            "angleDegrees": -90,
+            "fan": "right"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 7.7885,
             "row": 1,
             "fan": "down"
           }
@@ -4139,22 +4489,22 @@
           {
             "name": "found-2",
             "type": "foundation",
-            "col": 9.5,
-            "row": 0,
+            "col": 8.5,
+            "row": 1,
             "fan": "none"
           },
           {
             "name": "found-3",
             "type": "foundation",
-            "col": 10.5,
-            "row": 0,
+            "col": 8.5,
+            "row": 2,
             "fan": "none"
           },
           {
             "name": "found-4",
             "type": "foundation",
-            "col": 11.5,
-            "row": 0,
+            "col": 8.5,
+            "row": 3,
             "fan": "none"
           },
           {
@@ -4645,22 +4995,22 @@
           {
             "name": "found-2",
             "type": "foundation",
-            "col": 7.5,
-            "row": 0,
+            "col": 6.5,
+            "row": 1,
             "fan": "none"
           },
           {
             "name": "found-3",
             "type": "foundation",
-            "col": 8.5,
-            "row": 0,
+            "col": 6.5,
+            "row": 2,
             "fan": "none"
           },
           {
             "name": "found-4",
             "type": "foundation",
-            "col": 9.5,
-            "row": 0,
+            "col": 6.5,
+            "row": 3,
             "fan": "none"
           },
           {
@@ -4846,6 +5196,1215 @@
       }
     },
     {
+      "slug": "klondike-with-jokers",
+      "name": "Klondike with Jokers",
+      "family": "Klondike",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as quatro fundações do Ás ao Rei, cada uma em um só naipe.\n\n- Jogue como no Klondike: as colunas do tableau descem em **cores alternadas**, uma coluna vazia aceita um **Rei**, e o monte vira uma carta por vez para o descarte, quantas vezes você quiser.\n- Os dois **Curingas** valem por qualquer carta. Numa coluna, um Curinga vale pela carta que a coluna esperava; numa coluna vazia, por um Rei.\n- Um Curinga pode ir para uma **fundação**, onde vale pela próxima carta; numa fundação vazia, é um Ás de qualquer naipe.\n- Quando aparecer uma carta que o Curinga substitui, solte-a na coluna ou na fundação do Curinga, mesmo com ele coberto: a carta **toma o lugar dele** e o Curinga volta para onde a carta estava, pronto para jogar de novo.\n- Você vence quando as 52 cartas estiverem nas fundações; os Curingas podem terminar em qualquer lugar.\n- Sua **pontuação**, guardada numa vitória: 10 por carta nas fundações (um Curinga não conta), 5 por carta do tableau virada, e 100 a menos cada vez que o descarte volta para o monte. Nunca fica abaixo de 0.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 54,
+        "jokers": 2
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "bakers-game",
+      "name": "Baker's Game",
+      "family": "FreeCell",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as quatro fundações subindo do Ás ao Rei, cada uma em um único naipe.\n\n- As colunas do tabuleiro descem **no mesmo naipe** (p. ex. um 6 de espadas sobre um 7 de espadas).\n- Você move estritamente **uma carta por vez**. Uma sequência já ordenada no mesmo naipe pode ser arrastada como um grupo, mas apenas a quantidade de cartas que você poderia mover manualmente: **(1 + células livres) × 2 para cada coluna vazia**.\n- Cada uma das quatro **células livres** guarda uma única carta — use-as como estacionamento temporário.\n- Qualquer carta pode iniciar uma coluna vazia.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-3",
+            "type": "cell",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-4",
+            "type": "cell",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "penguin",
+      "name": "Penguin",
+      "family": "FreeCell",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as quatro fundações subindo no naipe a partir do valor do bico, dando a volta do Rei para o Ás, até cada uma ter treze cartas.\n\n- A primeira carta distribuída é o **bico**, na base da primeira coluna. As outras três cartas do mesmo valor iniciam as fundações; a quarta fundação espera pelo próprio bico.\n- As colunas do tabuleiro descem **no mesmo naipe**, dando a volta do Ás para o Rei.\n- Mova uma carta, ou uma sequência já ordenada no mesmo naipe, de uma só vez.\n- A **nadadeira** tem sete células, cada uma guardando uma única carta.\n- Uma coluna vazia aceita apenas uma carta **um valor abaixo do bico**, ou uma sequência iniciada por uma.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-3",
+            "type": "cell",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-4",
+            "type": "cell",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-5",
+            "type": "cell",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-6",
+            "type": "cell",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-7",
+            "type": "cell",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 7.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "spiderette",
+      "name": "Spiderette",
+      "family": "Spider",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte quatro sequências completas do Rei ao Ás **no mesmo naipe** e mova-as para as fundações.\n\n- As colunas do tabuleiro descem **em qualquer naipe** — uma carta pousa sobre qualquer carta de valor imediatamente superior.\n- As cartas só se movem em grupo quando formam uma **sequência decrescente do mesmo naipe**; caso contrário, **uma carta por vez**.\n- Apenas cartas **viradas para cima** podem ser pegadas; descobrir uma carta virada para baixo a vira.\n- Qualquer carta pode iniciar uma coluna vazia.\n- Quando você estiver travado, **toque no monte** para distribuir uma carta em cada coluna — permitido apenas quando **nenhuma coluna está vazia**. As três últimas cartas vão para as três primeiras colunas.\n- Uma **sequência completa do Rei ao Ás em um único naipe** vai **sozinha** para uma fundação assim que você a completa.\n- Sua **pontuação** começa em 500, perde um ponto a cada jogada e ganha 100 por sequência enviada às fundações.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "simple-simon",
+      "name": "Simple Simon",
+      "family": "Spider",
+      "sandbox": false,
+      "rules": "**Objetivo:** forme quatro sequências do mesmo naipe do Rei ao Ás. As sequências completas vão automaticamente para as fundações.\n\n- As 52 cartas começam **viradas para cima** em dez colunas. Não há **monte nem redistribuição**.\n- Construa **em ordem decrescente em qualquer naipe**, sem colocar um Rei sobre um Ás.\n- Mova uma carta ou uma **sequência decrescente do mesmo naipe**. Grupos de naipes diferentes não podem se mover juntos.\n- Qualquer carta ou sequência válida pode ocupar uma coluna vazia.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "russian-solitaire",
+      "name": "Russian Solitaire",
+      "family": "Yukon",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as quatro fundações subindo do Ás ao Rei, cada uma em um único naipe.\n\n- As colunas do tabuleiro descem **no mesmo naipe**.\n- Qualquer carta **virada para cima** pode ser pegada junto com tudo o que está sobre ela, independentemente da ordem — apenas a carta de baixo do grupo precisa encaixar no destino.\n- Descobrir uma carta virada para baixo a vira; uma coluna vazia aceita um **Rei** (ou um grupo encabeçado por um Rei).\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "australian-patience",
+      "name": "Australian Patience",
+      "family": "Yukon",
+      "sandbox": false,
+      "rules": "**Objetivo:** construa as quatro fundações por naipe do Ás ao Rei.\n\n- Comece com sete colunas de quatro cartas viradas para cima. Construa **em ordem decrescente no mesmo naipe**.\n- Mova qualquer carta visível com todas as cartas sobre ela, mesmo fora de ordem. Apenas a carta inferior do grupo precisa encaixar no destino.\n- Apenas um **Rei**, sozinho ou com as cartas sobre ele, pode ocupar uma coluna vazia.\n- Toque no monte para virar **uma carta** para o descarte. Só a carta do topo do descarte pode ser jogada.\n- Há **uma única passagem pelo monte**: o descarte não pode ser reciclado.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "tab-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "tab-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "fourteen-out",
+      "name": "Fourteen Out",
+      "family": "Pyramid",
+      "sandbox": false,
+      "rules": "**Objetivo:** remova as 52 cartas em pares que somam **14**.\n\n- Todas as cartas são distribuídas **viradas para cima** em doze colunas; as quatro primeiras têm cinco cartas e as outras oito têm quatro.\n- Apenas a **carta do topo** de cada coluna está disponível.\n- Arraste uma carta disponível **sobre a parceira**, a carta do topo de outra coluna, e as duas vão para o **descarte**: Ás + Rei, 2 + Dama, 3 + Valete, 4 + 10, 5 + 9, 6 + 8 ou 7 + 7.\n- O jogo está perdido quando não resta nenhum par.\n- Sua **pontuação** é o número de cartas removidas, 52 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-10",
+            "type": "tableau",
+            "col": 9,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-11",
+            "type": "tableau",
+            "col": 10,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-12",
+            "type": "tableau",
+            "col": 11,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "discard",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 2.6,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "monte-carlo",
+      "name": "Monte Carlo",
+      "family": "Pyramid",
+      "aliases": [
+        "Weddings"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** forme pares com as 52 cartas.\n\n- Vinte e cinco cartas são distribuídas viradas para cima numa **grade de cinco por cinco**.\n- Solte uma carta sobre outra do **mesmo valor** que **encosta** nela: ao lado, acima ou abaixo, ou na **diagonal**. O par vai para o **descarte**.\n- **Toque no monte** para reagrupar: as cartas restantes deslizam para o canto superior esquerdo, na ordem de leitura, fechando os buracos, e as casas vazias do fim são preenchidas com o monte.\n- Você vence quando todas as cartas formaram pares. Você perde quando nenhum par se encosta e não há mais nada a reagrupar.\n- Sua **pontuação** é o número de cartas removidas, 52 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-6",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-7",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-8",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-9",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-10",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "cell-11",
+            "type": "tableau",
+            "col": 0,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-12",
+            "type": "tableau",
+            "col": 1,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-13",
+            "type": "tableau",
+            "col": 2,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-14",
+            "type": "tableau",
+            "col": 3,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-15",
+            "type": "tableau",
+            "col": 4,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "cell-16",
+            "type": "tableau",
+            "col": 0,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-17",
+            "type": "tableau",
+            "col": 1,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-18",
+            "type": "tableau",
+            "col": 2,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-19",
+            "type": "tableau",
+            "col": 3,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-20",
+            "type": "tableau",
+            "col": 4,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "cell-21",
+            "type": "tableau",
+            "col": 0,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-22",
+            "type": "tableau",
+            "col": 1,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-23",
+            "type": "tableau",
+            "col": 2,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-24",
+            "type": "tableau",
+            "col": 3,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "cell-25",
+            "type": "tableau",
+            "col": 4,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 5.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "discard",
+            "type": "foundation",
+            "col": 5.5,
+            "row": 1.5,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "puss-in-the-corner",
+      "name": "Puss in the Corner",
+      "family": "Calculation",
+      "sandbox": false,
+      "rules": "**Objetivo:** leve todas as cartas para as quatro fundações.\n\n- As fundações começam com os quatro **Ases** e sobem **pela cor** até o Rei: vermelho sobre vermelho, preto sobre preto, seja qual for o naipe.\n- Jogue a carta virada do monte direto numa fundação, ou estacione-a em uma das quatro pilhas de espera.\n- As pilhas de espera aceitam cartas do monte em qualquer ordem, mas só a carta do topo pode sair, e só para uma fundação.\n- Quando o monte acabar, toque nele **uma vez** para recolher as pilhas de espera em ordem como um novo monte.\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 3,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 4,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "hold-1",
+            "type": "tableau",
+            "col": 2.1,
+            "row": 0.41,
+            "angleDegrees": 45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-2",
+            "type": "tableau",
+            "col": 4.9,
+            "row": 0.41,
+            "angleDegrees": -45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-3",
+            "type": "tableau",
+            "col": 2.1,
+            "row": 2.59,
+            "angleDegrees": -45,
+            "fan": "down"
+          },
+          {
+            "name": "hold-4",
+            "type": "tableau",
+            "col": 4.9,
+            "row": 2.59,
+            "angleDegrees": 45,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0.5,
+            "row": 0,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "accordion",
       "name": "Accordion",
       "family": "Accordion",
@@ -4856,8 +6415,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** junte o baralho inteiro numa **só pilha**.\n\n- **Toque no monte** para pôr a próxima carta virada para cima no fim da fileira. Distribua quando quiser.\n- Uma pilha pode ir para a pilha **logo à sua esquerda**, ou **três lugares à sua esquerda**, quando as cartas de cima têm o mesmo **valor ou naipe**. A pilha vai inteira, nunca em parte.\n- A fileira se fecha atrás de uma pilha que sai.\n- Você vence quando o monte acaba e resta uma só pilha.\n- Sua **pontuação** é o número de montes que restam, contando cada carta ainda no monte de compra como um; quanto menor, melhor, 1 numa vitória.",
-      "inApp": false,
-      "download": "designs/accordion.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -5241,521 +6799,6 @@
       }
     },
     {
-      "slug": "aces-and-kings",
-      "name": "Aces and Kings",
-      "sandbox": false,
-      "rules": "**Objetivo:** leve os dois baralhos às oito fundações. Quatro sobem **do Ás ao Rei** e quatro descem **do Rei ao Ás**; os naipes não importam.\n\n- As fundações começam vazias: qualquer Ás inicia uma fundação ascendente e qualquer Rei uma descendente.\n- Duas reservas têm treze cartas viradas para cima cada, espalhadas para que todas fiquem à vista. Apenas as cartas do topo estão disponíveis.\n- Quatro espaços alimentadores começam ocupados e são preenchidos automaticamente pelo monte quando ficam vazios.\n- Vire o monte uma carta por vez para o descarte. A carta do topo do descarte está disponível. **Não há redistribuição**.\n- Jogue cartas das reservas, dos alimentadores ou do descarte em qualquer tipo de fundação. A carta do topo de uma fundação também pode ir para outra fundação compatível.",
-      "inApp": false,
-      "download": "designs/aces-and-kings.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "up-1",
-            "type": "foundation",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "up-2",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "up-3",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "up-4",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "down-1",
-            "type": "foundation",
-            "col": 2,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "down-2",
-            "type": "foundation",
-            "col": 3,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "down-3",
-            "type": "foundation",
-            "col": 4,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "down-4",
-            "type": "foundation",
-            "col": 5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "reserve-1",
-            "type": "reserve",
-            "col": 0,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-2",
-            "type": "reserve",
-            "col": 7,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 3,
-            "row": 3.5,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 4,
-            "row": 3.5,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-1",
-            "type": "tableau",
-            "col": 2,
-            "row": 2.25,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-2",
-            "type": "tableau",
-            "col": 3,
-            "row": 2.25,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-3",
-            "type": "tableau",
-            "col": 4,
-            "row": 2.25,
-            "fan": "none"
-          },
-          {
-            "name": "feeder-4",
-            "type": "tableau",
-            "col": 5,
-            "row": 2.25,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "alhambra",
-      "name": "Alhambra",
-      "sandbox": false,
-      "rules": "**Objetivo:** monte os dois baralhos em oito fundações. Um Ás e um Rei de cada naipe as começam: os Ases sobem **no mesmo naipe** até o Rei, os Reis descem **no mesmo naipe** até o Ás.\n\n- Oito pilhas de reserva têm quatro cartas viradas para cima cada. Só as cartas do topo estão disponíveis, e uma pilha esvaziada não é reposta.\n- Vire o monte uma carta por vez para o descarte. A carta do topo do descarte pode ir para as fundações.\n- Uma carta da reserva também pode ir para o descarte, **subindo ou descendo um valor no mesmo naipe**, passando do Rei ao Ás e vice-versa. O descarte não aceita carta de nenhum outro lugar, nem aceita carta enquanto estiver vazio.\n- Quando o monte acaba, o descarte é virado para formar um novo monte, incluindo as cartas colocadas nele. Há **duas redistribuições**, três passagens ao todo.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
-      "inApp": false,
-      "download": "designs/alhambra.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "ace-1",
-            "type": "foundation",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "ace-2",
-            "type": "foundation",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "ace-3",
-            "type": "foundation",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "ace-4",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-1",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-2",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-3",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "king-4",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "reserve-1",
-            "type": "reserve",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-2",
-            "type": "reserve",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-3",
-            "type": "reserve",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-4",
-            "type": "reserve",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-5",
-            "type": "reserve",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-6",
-            "type": "reserve",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-7",
-            "type": "reserve",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "reserve-8",
-            "type": "reserve",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 3,
-            "row": 2.75,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 4,
-            "row": 2.75,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "australian-patience",
-      "name": "Australian Patience",
-      "family": "Yukon",
-      "sandbox": false,
-      "rules": "**Objetivo:** construa as quatro fundações por naipe do Ás ao Rei.\n\n- Comece com sete colunas de quatro cartas viradas para cima. Construa **em ordem decrescente no mesmo naipe**.\n- Mova qualquer carta visível com todas as cartas sobre ela, mesmo fora de ordem. Apenas a carta inferior do grupo precisa encaixar no destino.\n- Apenas um **Rei**, sozinho ou com as cartas sobre ele, pode ocupar uma coluna vazia.\n- Toque no monte para virar **uma carta** para o descarte. Só a carta do topo do descarte pode ser jogada.\n- Há **uma única passagem pelo monte**: o descarte não pode ser reciclado.",
-      "inApp": false,
-      "download": "designs/australian-patience.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "bakers-game",
-      "name": "Baker's Game",
-      "family": "FreeCell",
-      "sandbox": false,
-      "rules": "**Objetivo:** monte as quatro fundações subindo do Ás ao Rei, cada uma em um único naipe.\n\n- As colunas do tabuleiro descem **no mesmo naipe** (p. ex. um 6 de espadas sobre um 7 de espadas).\n- Você move estritamente **uma carta por vez**. Uma sequência já ordenada no mesmo naipe pode ser arrastada como um grupo, mas apenas a quantidade de cartas que você poderia mover manualmente: **(1 + células livres) × 2 para cada coluna vazia**.\n- Cada uma das quatro **células livres** guarda uma única carta — use-as como estacionamento temporário.\n- Qualquer carta pode iniciar uma coluna vazia.",
-      "inApp": false,
-      "download": "designs/bakers-game.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "cell",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "cell",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-3",
-            "type": "cell",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-4",
-            "type": "cell",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
       "slug": "baroness",
       "name": "Baroness",
       "aliases": [
@@ -5764,8 +6807,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** descarte as 52 cartas, em pares que somam **13** e os Reis sozinhos.\n\n- Cinco cartas são distribuídas **viradas para cima** para começar cinco pilhas. Apenas a **carta do topo** de cada pilha está disponível.\n- Arraste uma carta disponível **sobre a parceira**, a carta do topo de outra pilha, e as duas vão para o **descarte**: Ás + Dama, 2 + Valete, 3 + 10, 4 + 9, 5 + 8 ou 6 + 7.\n- Um **Rei** vale 13 sozinho: arraste-o para o descarte.\n- **Toque no monte** para distribuir mais cinco cartas, uma sobre cada pilha, preenchendo as pilhas vazias. Descarte antes o que puder: uma nova fileira cobre os topos.\n- As duas últimas cartas são as **cartas de graça**: são distribuídas viradas para cima, lado a lado, no fim da fileira, e ficam disponíveis como os topos das pilhas.\n- O jogo está perdido quando não há mais nada a descartar e o monte acabou. Sua **pontuação** é o número de cartas descartadas, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/baroness.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -5841,141 +6883,11 @@
       }
     },
     {
-      "slug": "captive-queens",
-      "name": "Captive Queens",
-      "aliases": [
-        "Quadrille"
-      ],
-      "sandbox": false,
-      "rules": "Um jogo de pura sorte. **Objetivo:** monte as outras 40 cartas em volta das quatro **Damas**, que formam a corte no centro e nunca se movem.\n\n- Os quatro **Cincos** e os quatro **Seis** são postos em volta da corte para começar oito fundações.\n- Cada **Cinco** desce **no mesmo naipe**, passando do Ás ao Rei: 5 4 3 2 A R.\n- Cada **Seis** sobe **no mesmo naipe** até o Valete: 6 7 8 9 10 V.\n- **Toque no monte** para virar uma carta por vez no descarte. A carta do topo do descarte está disponível.\n- Quando o monte acabar, toque nele para virar o descarte de novo. Você pode fazer isso **duas vezes** (três passagens no total).\n- Sua **pontuação** é o número de cartas em volta da corte, incluídos Damas, Cincos e Seis, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/captive-queens.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 1.2313,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 0,
-            "row": 2.2761,
-            "fan": "none"
-          },
-          {
-            "name": "queen-diamonds",
-            "type": "foundation",
-            "col": 3.0769,
-            "row": 1.7537,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "queen-spades",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 1.3209,
-            "fan": "none"
-          },
-          {
-            "name": "queen-hearts",
-            "type": "foundation",
-            "col": 4.1923,
-            "row": 1.7537,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "queen-clubs",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 2.1866,
-            "angleDegrees": 180,
-            "fan": "none"
-          },
-          {
-            "name": "five-spades",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "six-spades",
-            "type": "foundation",
-            "col": 5.2324,
-            "row": 0.5137,
-            "angleDegrees": 45,
-            "fan": "none"
-          },
-          {
-            "name": "five-hearts",
-            "type": "foundation",
-            "col": 5.8942,
-            "row": 1.7537,
-            "angleDegrees": 90,
-            "fan": "none"
-          },
-          {
-            "name": "six-hearts",
-            "type": "foundation",
-            "col": 5.2324,
-            "row": 2.9938,
-            "angleDegrees": 135,
-            "fan": "none"
-          },
-          {
-            "name": "five-clubs",
-            "type": "foundation",
-            "col": 3.6346,
-            "row": 3.5075,
-            "angleDegrees": 180,
-            "fan": "none"
-          },
-          {
-            "name": "six-clubs",
-            "type": "foundation",
-            "col": 2.0368,
-            "row": 2.9938,
-            "angleDegrees": -135,
-            "fan": "none"
-          },
-          {
-            "name": "five-diamonds",
-            "type": "foundation",
-            "col": 1.375,
-            "row": 1.7537,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "six-diamonds",
-            "type": "foundation",
-            "col": 2.0368,
-            "row": 0.5137,
-            "angleDegrees": -45,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "carpet",
       "name": "Carpet",
       "sandbox": false,
       "rules": "**Objetivo:** leve todas as cartas às quatro fundações, construindo **por naipe do Ás ao Rei**.\n\n- Vinte cartas viradas para cima formam o **tapete**. Qualquer carta do tapete pode ir para uma fundação.\n- Um espaço no tapete só pode receber a **carta do topo do descarte**; escolher quando e onde preencher os espaços é o centro do jogo.\n- Compre do monte uma carta por vez para o descarte. **Não há reciclagem**.\n- As fundações começam com os quatro As.\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/carpet.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -6170,408 +7082,6 @@
       }
     },
     {
-      "slug": "die-schwierige",
-      "name": "Die Schwierige",
-      "sandbox": false,
-      "rules": "**Objetivo:** leve as 104 cartas para as oito fundações.\n\n- As fundações começam com os oito **Ases** e sobem **no mesmo naipe** até o Rei.\n- Toque no monte para distribuir **uma fileira de seis** cartas nas cascatas. Só a carta do topo de uma cascata pode se mover, para uma fundação ou uma pilha de triagem.\n- As quatro **pilhas de triagem** descem **no mesmo naipe**, uma carta por vez. Uma pilha de triagem vazia aceita qualquer carta.\n- Na primeira rodada, nenhuma carta pode ser jogada numa cascata.\n- Quando o monte acabar, toque nele **uma vez** para a segunda rodada: as cascatas são recolhidas em ordem, sem embaralhar, com as **duas pilhas de triagem de baixo** por cima, então as cartas delas saem por último. Essas duas pilhas então se fecham.\n- Na segunda rodada, uma **cascata vazia** aceita a carta do topo de uma pilha de triagem.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
-      "inApp": false,
-      "download": "designs/die-schwierige.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-1",
-            "type": "foundation",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-2",
-            "type": "foundation",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-3",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-4",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-5",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-6",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-7",
-            "type": "foundation",
-            "col": 7,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-8",
-            "type": "foundation",
-            "col": 8,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cascade-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "cascade-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "sort-1",
-            "type": "cell",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "sort-2",
-            "type": "cell",
-            "col": 8,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "spare-1",
-            "type": "cell",
-            "col": 7,
-            "row": 3,
-            "fan": "down"
-          },
-          {
-            "name": "spare-2",
-            "type": "cell",
-            "col": 8,
-            "row": 3,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "faerie-queen",
-      "name": "Faerie Queen",
-      "aliases": [
-        "Spenser's Fairie Queen",
-        "Fairie Queen"
-      ],
-      "sandbox": false,
-      "rules": "**Objetivo:** monte as oito fundações do Ás à Dama, 96 cartas. Os oito Reis ficam na mesa.\n\n- Um Rei começa a primeira coluna. **Toque no monte** para virar a próxima carta: um **Rei começa uma coluna nova**, um **Ás** vai para uma fundação, e qualquer outra carta é distribuída na **coluna do Rei mais recente**.\n- Cada fundação sobe **sem olhar o naipe** do seu Ás até a Dama: um 3 de qualquer naipe sobre qualquer 2.\n- Só a **carta do pé** de cada coluna está disponível. Ela pode ir para uma fundação, ou para o pé de outra coluna **um valor acima, sem olhar o naipe**: um 7 sobre um 8.\n- Um **Rei sozinho** na sua coluna aceita qualquer carta disponível.\n- Você pode jogar a qualquer momento, durante a distribuição ou depois dela. Não há nova distribuição.\n- Sua **pontuação** é o número de cartas nas fundações, 96 numa vitória.",
-      "inApp": false,
-      "download": "designs/faerie-queen.cardz",
-      "decks": {
-        "packs": 2,
-        "cards": 104,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "column-1",
-            "type": "tableau",
-            "col": 1.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-2",
-            "type": "tableau",
-            "col": 2.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-3",
-            "type": "tableau",
-            "col": 3.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-4",
-            "type": "tableau",
-            "col": 4.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-5",
-            "type": "tableau",
-            "col": 5.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-6",
-            "type": "tableau",
-            "col": 6.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-7",
-            "type": "tableau",
-            "col": 7.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-8",
-            "type": "tableau",
-            "col": 8.25,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "foundation-1",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-2",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-3",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-4",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-5",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-6",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-7",
-            "type": "foundation",
-            "col": 9.5,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-8",
-            "type": "foundation",
-            "col": 10.5,
-            "row": 3,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "fourteen-out",
-      "name": "Fourteen Out",
-      "family": "Pyramid",
-      "sandbox": false,
-      "rules": "**Objetivo:** remova as 52 cartas em pares que somam **14**.\n\n- Todas as cartas são distribuídas **viradas para cima** em doze colunas; as quatro primeiras têm cinco cartas e as outras oito têm quatro.\n- Apenas a **carta do topo** de cada coluna está disponível.\n- Arraste uma carta disponível **sobre a parceira**, a carta do topo de outra coluna, e as duas vão para o **descarte**: Ás + Rei, 2 + Dama, 3 + Valete, 4 + 10, 5 + 9, 6 + 8 ou 7 + 7.\n- O jogo está perdido quando não resta nenhum par.\n- Sua **pontuação** é o número de cartas removidas, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/fourteen-out.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "column-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-9",
-            "type": "tableau",
-            "col": 8,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-10",
-            "type": "tableau",
-            "col": 9,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-11",
-            "type": "tableau",
-            "col": 10,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "column-12",
-            "type": "tableau",
-            "col": 11,
-            "row": 0,
-            "fan": "down"
-          },
-          {
-            "name": "discard",
-            "type": "foundation",
-            "col": 5.5,
-            "row": 2.6,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "gaps",
       "name": "Gaps",
       "family": "Gaps",
@@ -6583,8 +7093,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** ordene cada fileira do **Dois ao Rei** num só naipe.\n\n- Os Ases são retirados, deixando quatro buracos.\n- Preencha um buraco com a carta **um acima, do mesmo naipe**, da carta à sua esquerda. Um buraco na **primeira coluna** aceita qualquer **Dois**.\n- Um buraco à direita de um Rei, ou de outro buraco, fica vazio.\n- **Sem jogadas?** Toque no monte para redistribuir, **duas vezes** no máximo. Cada fileira mantém sua sequência a partir de um Dois na primeira coluna; as outras cartas são embaralhadas e distribuídas de novo, com um buraco depois de cada sequência.",
-      "inApp": false,
-      "download": "designs/gaps.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -6979,8 +7488,7 @@
       "name": "Grandfather's Clock",
       "sandbox": false,
       "rules": "**Objetivo:** complete o relógio. Cada uma das doze fundações sobe **no mesmo naipe** até que a carta do topo mostre a hora em que está: Valete para as onze, Dama para as doze, Ás para a uma.\n\n- As doze cartas iniciais são colocadas antes da distribuição: o 9♣ às doze, depois no sentido horário 10♥ V♠ D♦ R♣ 2♥ 3♠ 4♦ 5♣ 6♥ 7♠ 8♦. Os valores passam do Rei ao Ás.\n- As outras quarenta cartas são distribuídas **viradas para cima** em oito colunas de cinco, quatro de cada lado do relógio.\n- As colunas descem **sem considerar o naipe**. Mova uma carta de cada vez.\n- Qualquer carta pode ocupar uma coluna vazia.",
-      "inApp": false,
-      "download": "designs/grandfathers-clock.cardz",
+      "inApp": true,
       "decks": {
         "packs": 1,
         "cards": 52,
@@ -7144,6 +7652,1367 @@
       }
     },
     {
+      "slug": "stalactites",
+      "name": "Stalactites",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte todas as cartas em quatro fundações de treze cartas cada. Elas sobem **sem considerar o naipe**, passando do Rei ao Ás, **de um em um** ou **de dois em dois**.\n\n- As quatro primeiras cartas distribuídas começam as fundações, sejam quais forem os valores.\n- **Sua primeira jogada numa fundação escolhe o passo** das quatro. Sobre um 5, um 6 faz todas subirem de um em um (6 7 8 … R A … 4), um 7 de dois em dois (7 9 V R 2 4 6 8 10 D A 3).\n- As outras quarenta e oito cartas são distribuídas **viradas para cima** em oito colunas de seis.\n- **Nada se constrói sobre as colunas.** As cartas do topo vão para uma fundação ou para uma das duas células, e uma coluna esvaziada continua vazia.\n- Cada **célula** guarda uma única carta, que só pode ir para uma fundação.\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "cell-1",
+            "type": "cell",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cell-2",
+            "type": "cell",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-1",
+            "type": "foundation",
+            "col": 2.5,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-1",
+            "type": "foundation",
+            "col": 2.6442,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-2",
+            "type": "foundation",
+            "col": 3.75,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-2",
+            "type": "foundation",
+            "col": 3.8942,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-3",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-3",
+            "type": "foundation",
+            "col": 5.1442,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "base-4",
+            "type": "foundation",
+            "col": 6.25,
+            "row": 0,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "build-4",
+            "type": "foundation",
+            "col": 6.3942,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "aces-and-kings",
+      "name": "Aces and Kings",
+      "sandbox": false,
+      "rules": "**Objetivo:** leve os dois baralhos às oito fundações. Quatro sobem **do Ás ao Rei** e quatro descem **do Rei ao Ás**; os naipes não importam.\n\n- As fundações começam vazias: qualquer Ás inicia uma fundação ascendente e qualquer Rei uma descendente.\n- Duas reservas têm treze cartas viradas para cima cada, espalhadas para que todas fiquem à vista. Apenas as cartas do topo estão disponíveis.\n- Quatro espaços alimentadores começam ocupados e são preenchidos automaticamente pelo monte quando ficam vazios.\n- Vire o monte uma carta por vez para o descarte. A carta do topo do descarte está disponível. **Não há redistribuição**.\n- Jogue cartas das reservas, dos alimentadores ou do descarte em qualquer tipo de fundação. A carta do topo de uma fundação também pode ir para outra fundação compatível.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "up-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "up-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "down-1",
+            "type": "foundation",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-2",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-3",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "down-4",
+            "type": "foundation",
+            "col": 5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-2",
+            "type": "reserve",
+            "col": 7,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 3,
+            "row": 3.5,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4,
+            "row": 3.5,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-1",
+            "type": "tableau",
+            "col": 2,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-2",
+            "type": "tableau",
+            "col": 3,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-3",
+            "type": "tableau",
+            "col": 4,
+            "row": 2.25,
+            "fan": "none"
+          },
+          {
+            "name": "feeder-4",
+            "type": "tableau",
+            "col": 5,
+            "row": 2.25,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "alhambra",
+      "name": "Alhambra",
+      "sandbox": false,
+      "rules": "**Objetivo:** monte os dois baralhos em oito fundações. Um Ás e um Rei de cada naipe as começam: os Ases sobem **no mesmo naipe** até o Rei, os Reis descem **no mesmo naipe** até o Ás.\n\n- Oito pilhas de reserva têm quatro cartas viradas para cima cada. Só as cartas do topo estão disponíveis, e uma pilha esvaziada não é reposta.\n- Vire o monte uma carta por vez para o descarte. A carta do topo do descarte pode ir para as fundações.\n- Uma carta da reserva também pode ir para o descarte, **subindo ou descendo um valor no mesmo naipe**, passando do Rei ao Ás e vice-versa. O descarte não aceita carta de nenhum outro lugar, nem aceita carta enquanto estiver vazio.\n- Quando o monte acaba, o descarte é virado para formar um novo monte, incluindo as cartas colocadas nele. Há **duas redistribuições**, três passagens ao todo.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "ace-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "ace-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-1",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-2",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-3",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "king-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "reserve-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "reserve-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 3,
+            "row": 2.75,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4,
+            "row": 2.75,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "braid",
+      "name": "Braid",
+      "aliases": [
+        "Der Zopf",
+        "Plait",
+        "Pigtail",
+        "Herringbone"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** monte os dois baralhos em oito fundações, **subindo no mesmo naipe** a partir de uma carta-base que a distribuição define, passando do Rei para o Ás.\n\n- A primeira carta virada do monte começa uma fundação, e seu valor é a base das oito: com um 8, cada fundação começa num 8 e termina num 7. Cada carta desse valor começa uma fundação vazia.\n- **A trança** de vinte cartas desce pelo meio, nunca com duas cartas iguais. Só a carta da ponta está disponível, e só para uma fundação.\n- **Os quatro cantos** jogam nas fundações. Um espaço vazio ali é preenchido na hora pela ponta da trança.\n- **Os oito lados** jogam nas fundações. Um espaço vazio ali recebe a carta do topo do descarte, quando você quiser.\n- Vire o monte uma carta por vez para o descarte; a carta do topo do descarte está disponível. Você pode **redistribuir duas vezes** (três passagens no total).\n- A trança precisa ser esgotada para vencer. Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "west-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "west-2",
+            "type": "foundation",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "west-3",
+            "type": "foundation",
+            "col": 0,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "west-4",
+            "type": "foundation",
+            "col": 0,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "east-1",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "east-2",
+            "type": "foundation",
+            "col": 7,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "east-3",
+            "type": "foundation",
+            "col": 7,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "east-4",
+            "type": "foundation",
+            "col": 7,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-1",
+            "type": "cell",
+            "col": 1.2,
+            "row": 0,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-2",
+            "type": "cell",
+            "col": 1.2,
+            "row": 1,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-3",
+            "type": "cell",
+            "col": 1.2,
+            "row": 2,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "west-side-4",
+            "type": "cell",
+            "col": 1.2,
+            "row": 3,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-1",
+            "type": "cell",
+            "col": 5.8,
+            "row": 0,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-2",
+            "type": "cell",
+            "col": 5.8,
+            "row": 1,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-3",
+            "type": "cell",
+            "col": 5.8,
+            "row": 2,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "east-side-4",
+            "type": "cell",
+            "col": 5.8,
+            "row": 3,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "braid-1",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 0.097,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-2",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 0.2537,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-3",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 0.4104,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-4",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 0.5672,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-5",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 0.7239,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-6",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 0.8806,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-7",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.0373,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-8",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 1.194,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-9",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.3507,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-10",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 1.5075,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-11",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.6642,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-12",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 1.8209,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-13",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 1.9776,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-14",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 2.1343,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-15",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 2.291,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-16",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 2.4478,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-17",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 2.6045,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-18",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 2.7612,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-19",
+            "type": "tableau",
+            "col": 3.3462,
+            "row": 2.9179,
+            "angleDegrees": -30,
+            "fan": "down"
+          },
+          {
+            "name": "braid-20",
+            "type": "tableau",
+            "col": 3.6538,
+            "row": 3.0746,
+            "angleDegrees": 30,
+            "fan": "down"
+          },
+          {
+            "name": "corner-nw",
+            "type": "reserve",
+            "col": 2.25,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "corner-ne",
+            "type": "reserve",
+            "col": 4.75,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "corner-sw",
+            "type": "reserve",
+            "col": 2.25,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "corner-se",
+            "type": "reserve",
+            "col": 4.75,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 2.25,
+            "row": 4,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 4.75,
+            "row": 4,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "british-constitution",
+      "name": "British Constitution",
+      "aliases": [
+        "Constitution"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** monte oito fundações do Ás ao **Valete**, cada uma em um único naipe. O jogo usa dois baralhos sem os Reis e as Damas.\n\n- Abaixo dos Ases ficam **quatro fileiras** de oito cartas. Só a fileira de cima, o **Conselho Privado**, joga nas fundações.\n- O Conselho Privado desce **em cores alternadas** (p. ex. um 6 vermelho sobre um 7 preto), uma carta por vez, a partir da própria fileira ou da fileira logo abaixo.\n- Um **espaço vazio** em qualquer uma das três fileiras de cima é preenchido com **qualquer carta da fileira logo abaixo**. Você escolhe qual, então as cartas sobem uma fileira por vez.\n- Uma carta pode **pular** fileiras: ela sobe direto para uma fileira mais acima, ou para uma fundação, quando **cada fileira que ela atravessa tem um espaço vazio**, como se tivesse subido por elas uma a uma.\n- Um espaço vazio na fileira de baixo é preenchido na hora pelo **monte**. As cartas do monte nunca vão direto para as fundações.\n- Você perde quando não há mais nada para jogar.\n- Sua **pontuação** é o número de cartas nas fundações, 88 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 88,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "found-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-5",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-6",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-7",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "found-8",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "council-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "council-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "lords-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "lords-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 2.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "commons-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 3.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-1",
+            "type": "reserve",
+            "col": 0,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-2",
+            "type": "reserve",
+            "col": 1,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-3",
+            "type": "reserve",
+            "col": 2,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-4",
+            "type": "reserve",
+            "col": 3,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-5",
+            "type": "reserve",
+            "col": 4,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-6",
+            "type": "reserve",
+            "col": 5,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-7",
+            "type": "reserve",
+            "col": 6,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "people-8",
+            "type": "reserve",
+            "col": 7,
+            "row": 4.36,
+            "fan": "none"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 8.5,
+            "row": 4.36,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "die-schwierige",
+      "name": "Die Schwierige",
+      "sandbox": false,
+      "rules": "**Objetivo:** leve as 104 cartas para as oito fundações.\n\n- As fundações começam com os oito **Ases** e sobem **no mesmo naipe** até o Rei.\n- Toque no monte para distribuir **uma fileira de seis** cartas nas cascatas. Só a carta do topo de uma cascata pode se mover, para uma fundação ou uma pilha de triagem.\n- As quatro **pilhas de triagem** descem **no mesmo naipe**, uma carta por vez. Uma pilha de triagem vazia aceita qualquer carta.\n- Na primeira rodada, nenhuma carta pode ser jogada numa cascata.\n- Quando o monte acabar, toque nele **uma vez** para a segunda rodada: as cascatas são recolhidas em ordem, sem embaralhar, com as **duas pilhas de triagem de baixo** por cima, então as cartas delas saem por último. Essas duas pilhas então se fecham.\n- Na segunda rodada, uma **cascata vazia** aceita a carta do topo de uma pilha de triagem.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 1,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 2,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 3,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 4,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 6,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 8,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "cascade-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "cascade-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "sort-1",
+            "type": "cell",
+            "col": 7,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "sort-2",
+            "type": "cell",
+            "col": 8,
+            "row": 1,
+            "fan": "down"
+          },
+          {
+            "name": "spare-1",
+            "type": "cell",
+            "col": 7,
+            "row": 3,
+            "fan": "down"
+          },
+          {
+            "name": "spare-2",
+            "type": "cell",
+            "col": 8,
+            "row": 3,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "faerie-queen",
+      "name": "Faerie Queen",
+      "aliases": [
+        "Spenser's Fairie Queen",
+        "Fairie Queen"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** monte as oito fundações do Ás à Dama, 96 cartas. Os oito Reis ficam na mesa.\n\n- Um Rei começa a primeira coluna. **Toque no monte** para virar a próxima carta: um **Rei começa uma coluna nova**, um **Ás** vai para uma fundação, e qualquer outra carta é distribuída na **coluna do Rei mais recente**.\n- Cada fundação sobe **sem olhar o naipe** do seu Ás até a Dama: um 3 de qualquer naipe sobre qualquer 2.\n- Só a **carta do pé** de cada coluna está disponível. Ela pode ir para uma fundação, ou para o pé de outra coluna **um valor acima, sem olhar o naipe**: um 7 sobre um 8.\n- Um **Rei sozinho** na sua coluna aceita qualquer carta disponível.\n- Você pode jogar a qualquer momento, durante a distribuição ou depois dela. Não há nova distribuição.\n- Sua **pontuação** é o número de cartas nas fundações, 96 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "column-1",
+            "type": "tableau",
+            "col": 1.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-2",
+            "type": "tableau",
+            "col": 2.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-3",
+            "type": "tableau",
+            "col": 3.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-4",
+            "type": "tableau",
+            "col": 4.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-5",
+            "type": "tableau",
+            "col": 5.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-6",
+            "type": "tableau",
+            "col": 6.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-7",
+            "type": "tableau",
+            "col": 7.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "column-8",
+            "type": "tableau",
+            "col": 8.25,
+            "row": 0,
+            "fan": "down"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 2,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 9.5,
+            "row": 3,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 10.5,
+            "row": 3,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
       "slug": "hemispheres",
       "name": "Hemispheres",
       "aliases": [
@@ -7151,8 +9020,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** leve as 104 cartas para as oito fundações.\n\n- Os quatro **Ases vermelhos** sobem **no mesmo naipe** até o Rei, os quatro **Reis pretos** descem **no mesmo naipe** até o Ás.\n- **As cartas vermelhas pertencem ao norte** (as seis pilhas da metade de cima do círculo), **as pretas ao sul** (as seis da metade de baixo). Só a carta do topo de uma pilha pode se mover, uma carta por vez.\n- No norte, uma carta vermelha desce **no mesmo naipe** sobre uma carta vermelha; no sul, uma carta preta sobe **no mesmo naipe** sobre uma carta preta. A carta do topo do descarte pode ser jogada **sem olhar o naipe**, numa pilha da sua cor.\n- Uma carta no **hemisfério errado fica presa**: não pode se mover, e nada é jogado sobre ela. **Troque-a** soltando-a sobre uma carta presa da outra cor, do outro lado do equador: as duas trocam de lugar.\n- Toque no monte para virar uma carta no descarte. Não há nova distribuição.\n- Uma **pilha vazia é preenchida na hora** pelo monte, ou pelo descarte quando o monte acabar.\n- Quando o monte acabar, as cartas presas ficam livres, e as quatro **barreiras** deitadas de través podem completar suas fundações.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
-      "inApp": false,
-      "download": "designs/hemispheres.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -7365,327 +9233,6 @@
       }
     },
     {
-      "slug": "klondike-with-jokers",
-      "name": "Klondike with Jokers",
-      "family": "Klondike",
-      "sandbox": false,
-      "rules": "**Objetivo:** monte as quatro fundações do Ás ao Rei, cada uma em um só naipe.\n\n- Jogue como no Klondike: as colunas do tableau descem em **cores alternadas**, uma coluna vazia aceita um **Rei**, e o monte vira uma carta por vez para o descarte, quantas vezes você quiser.\n- Os dois **Curingas** valem por qualquer carta. Numa coluna, um Curinga vale pela carta que a coluna esperava; numa coluna vazia, por um Rei.\n- Um Curinga pode ir para uma **fundação**, onde vale pela próxima carta; numa fundação vazia, é um Ás de qualquer naipe.\n- Quando aparecer uma carta que o Curinga substitui, solte-a na coluna ou na fundação do Curinga, mesmo com ele coberto: a carta **toma o lugar dele** e o Curinga volta para onde a carta estava, pronto para jogar de novo.\n- Você vence quando as 52 cartas estiverem nas fundações; os Curingas podem terminar em qualquer lugar.\n- Sua **pontuação**, guardada numa vitória: 10 por carta nas fundações (um Curinga não conta), 5 por carta do tableau virada, e 100 a menos cada vez que o descarte volta para o monte. Nunca fica abaixo de 0.",
-      "inApp": false,
-      "download": "designs/klondike-with-jokers.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 54,
-        "jokers": 2
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "waste",
-            "type": "waste",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "monte-carlo",
-      "name": "Monte Carlo",
-      "family": "Pyramid",
-      "aliases": [
-        "Weddings"
-      ],
-      "sandbox": false,
-      "rules": "**Objetivo:** forme pares com as 52 cartas.\n\n- Vinte e cinco cartas são distribuídas viradas para cima numa **grade de cinco por cinco**.\n- Solte uma carta sobre outra do **mesmo valor** que **encosta** nela: ao lado, acima ou abaixo, ou na **diagonal**. O par vai para o **descarte**.\n- **Toque no monte** para reagrupar: as cartas restantes deslizam para o canto superior esquerdo, na ordem de leitura, fechando os buracos, e as casas vazias do fim são preenchidas com o monte.\n- Você vence quando todas as cartas formaram pares. Você perde quando nenhum par se encosta e não há mais nada a reagrupar.\n- Sua **pontuação** é o número de cartas removidas, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/monte-carlo.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-6",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-7",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-8",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-9",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-10",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "cell-11",
-            "type": "tableau",
-            "col": 0,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-12",
-            "type": "tableau",
-            "col": 1,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-13",
-            "type": "tableau",
-            "col": 2,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-14",
-            "type": "tableau",
-            "col": 3,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-15",
-            "type": "tableau",
-            "col": 4,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "cell-16",
-            "type": "tableau",
-            "col": 0,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-17",
-            "type": "tableau",
-            "col": 1,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-18",
-            "type": "tableau",
-            "col": 2,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-19",
-            "type": "tableau",
-            "col": 3,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-20",
-            "type": "tableau",
-            "col": 4,
-            "row": 3,
-            "fan": "none"
-          },
-          {
-            "name": "cell-21",
-            "type": "tableau",
-            "col": 0,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-22",
-            "type": "tableau",
-            "col": 1,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-23",
-            "type": "tableau",
-            "col": 2,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-24",
-            "type": "tableau",
-            "col": 3,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "cell-25",
-            "type": "tableau",
-            "col": 4,
-            "row": 4,
-            "fan": "none"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 5.5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "discard",
-            "type": "foundation",
-            "col": 5.5,
-            "row": 1.5,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "mount-olympus",
       "name": "Mount Olympus",
       "aliases": [
@@ -7693,8 +9240,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** monte os dois baralhos em dezesseis fundações. Elas sobem **de dois em dois, no mesmo naipe**.\n\n- Os oito Ases e os oito Dois começam as fundações, dispostos em forma de montanha. Um Ás sobe A 3 5 7 9 V R, um Dois sobe 2 4 6 8 10 D, então uma partida vencida mostra Reis e Damas alternados em cada lado.\n- **A bateria** de nove pilhas desce **de dois em dois, no mesmo naipe**: um 7 sobre um 9, um 10 sobre uma Dama. Só a carta do topo de cada pilha está disponível, e as cartas se movem uma por vez.\n- Um espaço vazio na bateria é preenchido na hora pelo descarte, ou pelo monte enquanto o descarte estiver vazio.\n- Vire o monte uma carta por vez para o descarte; a carta do topo do descarte está disponível.\n- Você pode **redistribuir uma vez**: toque no monte vazio para virar o descarte de volta.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
-      "inApp": false,
-      "download": "designs/mount-olympus.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -7912,92 +9458,6 @@
       }
     },
     {
-      "slug": "puss-in-the-corner",
-      "name": "Puss in the Corner",
-      "family": "Calculation",
-      "sandbox": false,
-      "rules": "**Objetivo:** leve todas as cartas para as quatro fundações.\n\n- As fundações começam com os quatro **Ases** e sobem **pela cor** até o Rei: vermelho sobre vermelho, preto sobre preto, seja qual for o naipe.\n- Jogue a carta virada do monte direto numa fundação, ou estacione-a em uma das quatro pilhas de espera.\n- As pilhas de espera aceitam cartas do monte em qualquer ordem, mas só a carta do topo pode sair, e só para uma fundação.\n- Quando o monte acabar, toque nele **uma vez** para recolher as pilhas de espera em ordem como um novo monte.\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/puss-in-the-corner.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "foundation-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 1,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-3",
-            "type": "foundation",
-            "col": 3,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "foundation-4",
-            "type": "foundation",
-            "col": 4,
-            "row": 2,
-            "fan": "none"
-          },
-          {
-            "name": "hold-1",
-            "type": "tableau",
-            "col": 2.1,
-            "row": 0.41,
-            "angleDegrees": 45,
-            "fan": "down"
-          },
-          {
-            "name": "hold-2",
-            "type": "tableau",
-            "col": 4.9,
-            "row": 0.41,
-            "angleDegrees": -45,
-            "fan": "down"
-          },
-          {
-            "name": "hold-3",
-            "type": "tableau",
-            "col": 2.1,
-            "row": 2.59,
-            "angleDegrees": -45,
-            "fan": "down"
-          },
-          {
-            "name": "hold-4",
-            "type": "tableau",
-            "col": 4.9,
-            "row": 2.59,
-            "angleDegrees": 45,
-            "fan": "down"
-          },
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0.5,
-            "row": 0,
-            "fan": "none"
-          }
-        ]
-      }
-    },
-    {
       "slug": "royal-cotillion",
       "name": "Royal Cotillion",
       "aliases": [
@@ -8005,8 +9465,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** monte os dois baralhos em oito fundações de treze cartas cada. Elas sobem **de dois em dois, no mesmo naipe**, passando do Rei ao Ás.\n\n- Um Ás e um Dois de cada naipe começam as fundações. Um Ás sobe A 3 5 7 9 V R 2 4 6 8 10 D, um Dois sobe 2 4 6 8 10 D A 3 5 7 9 V R, então uma partida vencida mostra o Rei e a Dama de cada naipe lado a lado.\n- **O lado das damas**, à esquerda, tem quatro colunas de três. Só as cartas do topo estão disponíveis, e uma carta tirada dali não é reposta.\n- **O lado dos lordes**, à direita, tem dezesseis cartas, todas disponíveis. Um espaço vazio ali é preenchido na hora pelo descarte, ou pelo monte enquanto o descarte estiver vazio.\n- As cartas só vão para as fundações, nunca de uma pilha para outra.\n- Vire o monte uma carta por vez para o descarte; a carta do topo do descarte está disponível. **Não há redistribuição**.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
-      "inApp": false,
-      "download": "designs/royal-cotillion.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -8229,470 +9688,6 @@
       }
     },
     {
-      "slug": "russian-solitaire",
-      "name": "Russian Solitaire",
-      "family": "Yukon",
-      "sandbox": false,
-      "rules": "**Objetivo:** monte as quatro fundações subindo do Ás ao Rei, cada uma em um único naipe.\n\n- As colunas do tabuleiro descem **no mesmo naipe**.\n- Qualquer carta **virada para cima** pode ser pegada junto com tudo o que está sobre ela, independentemente da ordem — apenas a carta de baixo do grupo precisa encaixar no destino.\n- Descobrir uma carta virada para baixo a vira; uma coluna vazia aceita um **Rei** (ou um grupo encabeçado por um Rei).\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/russian-solitaire.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "simple-simon",
-      "name": "Simple Simon",
-      "family": "Spider",
-      "sandbox": false,
-      "rules": "**Objetivo:** forme quatro sequências do mesmo naipe do Rei ao Ás. As sequências completas vão automaticamente para as fundações.\n\n- As 52 cartas começam **viradas para cima** em dez colunas. Não há **monte nem redistribuição**.\n- Construa **em ordem decrescente em qualquer naipe**, sem colocar um Rei sobre um Ás.\n- Mova uma carta ou uma **sequência decrescente do mesmo naipe**. Grupos de naipes diferentes não podem se mover juntos.\n- Qualquer carta ou sequência válida pode ocupar uma coluna vazia.",
-      "inApp": false,
-      "download": "designs/simple-simon.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-9",
-            "type": "tableau",
-            "col": 8,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-10",
-            "type": "tableau",
-            "col": 9,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "spiderette",
-      "name": "Spiderette",
-      "family": "Spider",
-      "sandbox": false,
-      "rules": "**Objetivo:** monte quatro sequências completas do Rei ao Ás **no mesmo naipe** e mova-as para as fundações.\n\n- As colunas do tabuleiro descem **em qualquer naipe** — uma carta pousa sobre qualquer carta de valor imediatamente superior.\n- As cartas só se movem em grupo quando formam uma **sequência decrescente do mesmo naipe**; caso contrário, **uma carta por vez**.\n- Apenas cartas **viradas para cima** podem ser pegadas; descobrir uma carta virada para baixo a vira.\n- Qualquer carta pode iniciar uma coluna vazia.\n- Quando você estiver travado, **toque no monte** para distribuir uma carta em cada coluna — permitido apenas quando **nenhuma coluna está vazia**. As três últimas cartas vão para as três primeiras colunas.\n- Uma **sequência completa do Rei ao Ás em um único naipe** vai **sozinha** para uma fundação assim que você a completa.\n- Sua **pontuação** começa em 500, perde um ponto a cada jogada e ganha 100 por sequência enviada às fundações.",
-      "inApp": false,
-      "download": "designs/spiderette.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "stock",
-            "type": "stock",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-1",
-            "type": "foundation",
-            "col": 3,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-2",
-            "type": "foundation",
-            "col": 4,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "found-4",
-            "type": "foundation",
-            "col": 6,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "tab-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "tab-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "stalactites",
-      "name": "Stalactites",
-      "sandbox": false,
-      "rules": "**Objetivo:** monte todas as cartas em quatro fundações de treze cartas cada. Elas sobem **sem considerar o naipe**, passando do Rei ao Ás, **de um em um** ou **de dois em dois**.\n\n- As quatro primeiras cartas distribuídas começam as fundações, sejam quais forem os valores.\n- **Sua primeira jogada numa fundação escolhe o passo** das quatro. Sobre um 5, um 6 faz todas subirem de um em um (6 7 8 … R A … 4), um 7 de dois em dois (7 9 V R 2 4 6 8 10 D A 3).\n- As outras quarenta e oito cartas são distribuídas **viradas para cima** em oito colunas de seis.\n- **Nada se constrói sobre as colunas.** As cartas do topo vão para uma fundação ou para uma das duas células, e uma coluna esvaziada continua vazia.\n- Cada **célula** guarda uma única carta, que só pode ir para uma fundação.\n- Sua **pontuação** é o número de cartas nas fundações, 52 numa vitória.",
-      "inApp": false,
-      "download": "designs/stalactites.cardz",
-      "decks": {
-        "packs": 1,
-        "cards": 52,
-        "jokers": 0
-      },
-      "board": {
-        "anchor": "topCenter",
-        "depots": [
-          {
-            "name": "cell-1",
-            "type": "cell",
-            "col": 0,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "cell-2",
-            "type": "cell",
-            "col": 1,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-1",
-            "type": "foundation",
-            "col": 2.5,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-1",
-            "type": "foundation",
-            "col": 2.6442,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-2",
-            "type": "foundation",
-            "col": 3.75,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-2",
-            "type": "foundation",
-            "col": 3.8942,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-3",
-            "type": "foundation",
-            "col": 5,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-3",
-            "type": "foundation",
-            "col": 5.1442,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "base-4",
-            "type": "foundation",
-            "col": 6.25,
-            "row": 0,
-            "angleDegrees": -90,
-            "fan": "none"
-          },
-          {
-            "name": "build-4",
-            "type": "foundation",
-            "col": 6.3942,
-            "row": 0,
-            "fan": "none"
-          },
-          {
-            "name": "column-1",
-            "type": "tableau",
-            "col": 0,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-2",
-            "type": "tableau",
-            "col": 1,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-3",
-            "type": "tableau",
-            "col": 2,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-4",
-            "type": "tableau",
-            "col": 3,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-5",
-            "type": "tableau",
-            "col": 4,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-6",
-            "type": "tableau",
-            "col": 5,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-7",
-            "type": "tableau",
-            "col": 6,
-            "row": 1,
-            "fan": "down"
-          },
-          {
-            "name": "column-8",
-            "type": "tableau",
-            "col": 7,
-            "row": 1,
-            "fan": "down"
-          }
-        ]
-      }
-    },
-    {
       "slug": "sultan",
       "name": "Sultan",
       "aliases": [
@@ -8701,8 +9696,7 @@
       ],
       "sandbox": false,
       "rules": "**Objetivo:** cerque o **Sultão** (o Rei de Copas fixo) com oito fundações completas cujas cartas do topo sejam Damas.\n\n- Sete fundações externas começam com Reis e continuam **do Ás à Dama no mesmo naipe**. A oitava começa com o Ás de Copas e sobe até a Dama.\n- Seis cartas viradas para cima do **divã** estão disponíveis para as fundações. Um espaço liberado é preenchido automaticamente pelo monte.\n- Compre do monte uma carta por vez para o descarte. O descarte pode ser reciclado **duas vezes** (três passagens).\n- O Rei de Copas central nunca se move.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
-      "inApp": false,
-      "download": "designs/sultan.cardz",
+      "inApp": true,
       "decks": {
         "packs": 2,
         "cards": 104,
@@ -8828,6 +9822,297 @@
             "type": "waste",
             "col": 3.5,
             "row": 3.35,
+            "fan": "none"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "terrace",
+      "name": "Terrace",
+      "aliases": [
+        "The Terrace",
+        "Queen of Italy",
+        "Die Italienerin"
+      ],
+      "sandbox": false,
+      "rules": "**Objetivo:** monte os dois baralhos em oito fundações, **subindo e alternando as cores** a partir de uma carta-base que você escolhe, passando do Rei para o Ás.\n\n- **Escolha a base** primeiro: leve para qualquer fundação uma das três cartas do vale. Seu valor é a base das oito: com um 8, cada fundação começa num 8 e termina num 7. Cada carta desse valor começa uma fundação vazia, e os espaços delas mostram esse valor. Nada mais se move até você escolher, e então o vale se completa com nove pilhas a partir do monte.\n- **O terraço** de treze cartas se estende no alto. Só a carta da ponta está disponível, e só para uma fundação.\n- **O vale** desce **alternando as cores**, uma carta por vez. Um espaço vazio ali é preenchido na hora pelo monte; quando o monte acaba, ele recebe a carta do topo do descarte.\n- Vire o monte uma carta por vez para o descarte; a carta do topo do descarte vai para uma fundação ou para o vale. **Não há redistribuição**.\n- Sua **pontuação** é o número de cartas nas fundações, 104 numa vitória.",
+      "inApp": true,
+      "decks": {
+        "packs": 2,
+        "cards": 104,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "terrace",
+            "type": "reserve",
+            "col": 0,
+            "row": 0,
+            "fan": "right"
+          },
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 7,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 8,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-1",
+            "type": "foundation",
+            "col": 0,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-2",
+            "type": "foundation",
+            "col": 1,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-3",
+            "type": "foundation",
+            "col": 2,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-4",
+            "type": "foundation",
+            "col": 3,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-5",
+            "type": "foundation",
+            "col": 4,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-6",
+            "type": "foundation",
+            "col": 5,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-7",
+            "type": "foundation",
+            "col": 6,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "foundation-8",
+            "type": "foundation",
+            "col": 7,
+            "row": 1,
+            "fan": "none"
+          },
+          {
+            "name": "valley-1",
+            "type": "tableau",
+            "col": 0,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-2",
+            "type": "tableau",
+            "col": 1,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-3",
+            "type": "tableau",
+            "col": 2,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-4",
+            "type": "tableau",
+            "col": 3,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-5",
+            "type": "tableau",
+            "col": 4,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-6",
+            "type": "tableau",
+            "col": 5,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-7",
+            "type": "tableau",
+            "col": 6,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-8",
+            "type": "tableau",
+            "col": 7,
+            "row": 2,
+            "fan": "down"
+          },
+          {
+            "name": "valley-9",
+            "type": "tableau",
+            "col": 8,
+            "row": 2,
+            "fan": "down"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "captive-queens",
+      "name": "Captive Queens",
+      "aliases": [
+        "Quadrille"
+      ],
+      "sandbox": false,
+      "rules": "Um jogo de pura sorte. **Objetivo:** monte as outras 40 cartas em volta das quatro **Damas**, que formam a corte no centro e nunca se movem.\n\n- Os quatro **Cincos** e os quatro **Seis** são postos em volta da corte para começar oito fundações.\n- Cada **Cinco** desce **no mesmo naipe**, passando do Ás ao Rei: 5 4 3 2 A R.\n- Cada **Seis** sobe **no mesmo naipe** até o Valete: 6 7 8 9 10 V.\n- **Toque no monte** para virar uma carta por vez no descarte. A carta do topo do descarte está disponível.\n- Quando o monte acabar, toque nele para virar o descarte de novo. Você pode fazer isso **duas vezes** (três passagens no total).\n- Sua **pontuação** é o número de cartas em volta da corte, incluídos Damas, Cincos e Seis, 52 numa vitória.",
+      "inApp": false,
+      "download": "designs/captive-queens.cardz",
+      "decks": {
+        "packs": 1,
+        "cards": 52,
+        "jokers": 0
+      },
+      "board": {
+        "anchor": "topCenter",
+        "depots": [
+          {
+            "name": "stock",
+            "type": "stock",
+            "col": 0,
+            "row": 1.2313,
+            "fan": "none"
+          },
+          {
+            "name": "waste",
+            "type": "waste",
+            "col": 0,
+            "row": 2.2761,
+            "fan": "none"
+          },
+          {
+            "name": "queen-diamonds",
+            "type": "foundation",
+            "col": 3.0769,
+            "row": 1.7537,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "queen-spades",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 1.3209,
+            "fan": "none"
+          },
+          {
+            "name": "queen-hearts",
+            "type": "foundation",
+            "col": 4.1923,
+            "row": 1.7537,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "queen-clubs",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 2.1866,
+            "angleDegrees": 180,
+            "fan": "none"
+          },
+          {
+            "name": "five-spades",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 0,
+            "fan": "none"
+          },
+          {
+            "name": "six-spades",
+            "type": "foundation",
+            "col": 5.2324,
+            "row": 0.5137,
+            "angleDegrees": 45,
+            "fan": "none"
+          },
+          {
+            "name": "five-hearts",
+            "type": "foundation",
+            "col": 5.8942,
+            "row": 1.7537,
+            "angleDegrees": 90,
+            "fan": "none"
+          },
+          {
+            "name": "six-hearts",
+            "type": "foundation",
+            "col": 5.2324,
+            "row": 2.9938,
+            "angleDegrees": 135,
+            "fan": "none"
+          },
+          {
+            "name": "five-clubs",
+            "type": "foundation",
+            "col": 3.6346,
+            "row": 3.5075,
+            "angleDegrees": 180,
+            "fan": "none"
+          },
+          {
+            "name": "six-clubs",
+            "type": "foundation",
+            "col": 2.0368,
+            "row": 2.9938,
+            "angleDegrees": -135,
+            "fan": "none"
+          },
+          {
+            "name": "five-diamonds",
+            "type": "foundation",
+            "col": 1.375,
+            "row": 1.7537,
+            "angleDegrees": -90,
+            "fan": "none"
+          },
+          {
+            "name": "six-diamonds",
+            "type": "foundation",
+            "col": 2.0368,
+            "row": 0.5137,
+            "angleDegrees": -45,
             "fan": "none"
           }
         ]

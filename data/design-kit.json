@@ -1,108 +1,9 @@
 {
   "games": [
     {
-      "name": "Accordion",
-      "file": "accordion.cardz"
-    },
-    {
-      "name": "Aces and Kings",
-      "file": "aces-and-kings.cardz"
-    },
-    {
-      "name": "Alhambra",
-      "file": "alhambra.cardz"
-    },
-    {
-      "name": "Australian Patience",
-      "file": "australian-patience.cardz"
-    },
-    {
-      "name": "Baker's Game",
-      "file": "bakers-game.cardz"
-    },
-    {
-      "name": "Baroness",
-      "file": "baroness.cardz"
-    },
-    {
-      "name": "Braid",
-      "file": "braid.cardz"
-    },
-    {
       "name": "Captive Queens",
-      "file": "captive-queens.cardz"
-    },
-    {
-      "name": "Carpet",
-      "file": "carpet.cardz"
-    },
-    {
-      "name": "Die Schwierige",
-      "file": "die-schwierige.cardz"
-    },
-    {
-      "name": "Faerie Queen",
-      "file": "faerie-queen.cardz"
-    },
-    {
-      "name": "Fourteen Out",
-      "file": "fourteen-out.cardz"
-    },
-    {
-      "name": "Gaps",
-      "file": "gaps.cardz"
-    },
-    {
-      "name": "Grandfather's Clock",
-      "file": "grandfathers-clock.cardz"
-    },
-    {
-      "name": "Hemispheres",
-      "file": "hemispheres.cardz"
-    },
-    {
-      "name": "Klondike with Jokers",
-      "file": "klondike-with-jokers.cardz"
-    },
-    {
-      "name": "Monte Carlo",
-      "file": "monte-carlo.cardz"
-    },
-    {
-      "name": "Mount Olympus",
-      "file": "mount-olympus.cardz"
-    },
-    {
-      "name": "Penguin",
-      "file": "penguin.cardz"
-    },
-    {
-      "name": "Puss in the Corner",
-      "file": "puss-in-the-corner.cardz"
-    },
-    {
-      "name": "Royal Cotillion",
-      "file": "royal-cotillion.cardz"
-    },
-    {
-      "name": "Russian Solitaire",
-      "file": "russian-solitaire.cardz"
-    },
-    {
-      "name": "Simple Simon",
-      "file": "simple-simon.cardz"
-    },
-    {
-      "name": "Spiderette",
-      "file": "spiderette.cardz"
-    },
-    {
-      "name": "Stalactites",
-      "file": "stalactites.cardz"
-    },
-    {
-      "name": "Sultan",
-      "file": "sultan.cardz"
+      "file": "captive-queens.cardz",
+      "requires": "2.7"
     }
   ],
   "builtIns": [
@@ -115,6 +16,11 @@
       "name": "Double Klondike",
       "page": "double-klondike",
       "source": "data/design-source/double-klondike.json"
+    },
+    {
+      "name": "Saratoga",
+      "page": "saratoga",
+      "source": "data/design-source/saratoga.json"
     },
     {
       "name": "FreeCell",
@@ -174,7 +80,8 @@
     {
       "name": "Canfield",
       "page": "canfield",
-      "source": "data/design-source/canfield.json"
+      "source": "data/design-source/canfield.json",
+      "requires": "2.7"
     },
     {
       "name": "Crazy Quilt",
@@ -194,7 +101,8 @@
     {
       "name": "Calculation",
       "page": "calculation",
-      "source": "data/design-source/calculation.json"
+      "source": "data/design-source/calculation.json",
+      "requires": "2.6"
     },
     {
       "name": "Eight Off",
@@ -225,6 +133,145 @@
       "name": "Baker's Dozen",
       "page": "bakers-dozen",
       "source": "data/design-source/bakers-dozen.json"
+    },
+    {
+      "name": "Klondike with Jokers",
+      "page": "klondike-with-jokers",
+      "source": "data/design-source/klondike-with-jokers.json"
+    },
+    {
+      "name": "Baker's Game",
+      "page": "bakers-game",
+      "source": "data/design-source/bakers-game.json"
+    },
+    {
+      "name": "Penguin",
+      "page": "penguin",
+      "source": "data/design-source/penguin.json",
+      "requires": "2.7"
+    },
+    {
+      "name": "Spiderette",
+      "page": "spiderette",
+      "source": "data/design-source/spiderette.json"
+    },
+    {
+      "name": "Simple Simon",
+      "page": "simple-simon",
+      "source": "data/design-source/simple-simon.json"
+    },
+    {
+      "name": "Russian Solitaire",
+      "page": "russian-solitaire",
+      "source": "data/design-source/russian-solitaire.json"
+    },
+    {
+      "name": "Australian Patience",
+      "page": "australian-patience",
+      "source": "data/design-source/australian-patience.json"
+    },
+    {
+      "name": "Fourteen Out",
+      "page": "fourteen-out",
+      "source": "data/design-source/fourteen-out.json"
+    },
+    {
+      "name": "Monte Carlo",
+      "page": "monte-carlo",
+      "source": "data/design-source/monte-carlo.json"
+    },
+    {
+      "name": "Puss in the Corner",
+      "page": "puss-in-the-corner",
+      "source": "data/design-source/puss-in-the-corner.json"
+    },
+    {
+      "name": "Accordion",
+      "page": "accordion",
+      "source": "data/design-source/accordion.json"
+    },
+    {
+      "name": "Baroness",
+      "page": "baroness",
+      "source": "data/design-source/baroness.json"
+    },
+    {
+      "name": "Carpet",
+      "page": "carpet",
+      "source": "data/design-source/carpet.json"
+    },
+    {
+      "name": "Gaps",
+      "page": "gaps",
+      "source": "data/design-source/gaps.json"
+    },
+    {
+      "name": "Grandfather's Clock",
+      "page": "grandfathers-clock",
+      "source": "data/design-source/grandfathers-clock.json"
+    },
+    {
+      "name": "Stalactites",
+      "page": "stalactites",
+      "source": "data/design-source/stalactites.json"
+    },
+    {
+      "name": "Aces and Kings",
+      "page": "aces-and-kings",
+      "source": "data/design-source/aces-and-kings.json"
+    },
+    {
+      "name": "Alhambra",
+      "page": "alhambra",
+      "source": "data/design-source/alhambra.json"
+    },
+    {
+      "name": "Braid",
+      "page": "braid",
+      "source": "data/design-source/braid.json",
+      "requires": "2.7"
+    },
+    {
+      "name": "British Constitution",
+      "page": "british-constitution",
+      "source": "data/design-source/british-constitution.json",
+      "requires": "2.7"
+    },
+    {
+      "name": "Die Schwierige",
+      "page": "die-schwierige",
+      "source": "data/design-source/die-schwierige.json"
+    },
+    {
+      "name": "Faerie Queen",
+      "page": "faerie-queen",
+      "source": "data/design-source/faerie-queen.json"
+    },
+    {
+      "name": "Hemispheres",
+      "page": "hemispheres",
+      "source": "data/design-source/hemispheres.json"
+    },
+    {
+      "name": "Mount Olympus",
+      "page": "mount-olympus",
+      "source": "data/design-source/mount-olympus.json"
+    },
+    {
+      "name": "Royal Cotillion",
+      "page": "royal-cotillion",
+      "source": "data/design-source/royal-cotillion.json"
+    },
+    {
+      "name": "Sultan",
+      "page": "sultan",
+      "source": "data/design-source/sultan.json"
+    },
+    {
+      "name": "Terrace",
+      "page": "terrace",
+      "source": "data/design-source/terrace.json",
+      "requires": "2.7"
     }
   ]
 }

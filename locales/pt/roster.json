@@ -198,5 +198,17 @@
   "braid": {
     "en": "Twenty cards braided down the middle",
     "text": "Vinte cartas trançadas pelo meio"
+  },
+  "saratoga": {
+    "en": "Draw 1 & Draw 3 · Klondike with nothing hidden",
+    "text": "Compra 1 e compra 3 · O Klondike sem nada escondido"
+  },
+  "terrace": {
+    "en": "Thirteen on the terrace, and you choose the base",
+    "text": "Treze no terraço, e você escolhe a base"
+  },
+  "british-constitution": {
+    "en": "Climb row by row to the Privy Council",
+    "text": "Suba fileira por fileira até o Conselho Privado"
   }
 }

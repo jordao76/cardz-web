@@ -1,0 +1,53 @@
+{
+  "requires": "2.7",
+  "name": "Terrace",
+  "aliases": ["The Terrace", "Queen of Italy", "Die Italienerin"],
+  "description": "**Goal:** build both decks onto eight foundations, **up in alternating colours** from a base rank you choose, turning the corner from King to Ace.\n\n- **Choose the base** first: move one of the three cards in the valley to any foundation. Its rank is the base of all eight: with an 8, every foundation starts on an 8 and ends on a 7. Each card of that rank starts an empty foundation, and their spaces show it. Nothing else moves until you choose, and then the valley fills to nine piles from the stock.\n- **The terrace** of thirteen cards runs along the top. Only its end card is available, and only to a foundation.\n- **The valley** builds **down in alternating colours**, one card at a time. A space there is refilled at once from the stock; once the stock is spent, it takes the top waste card.\n- Turn the stock one card at a time to the waste; the top waste card plays to a foundation or the valley. There is **no redeal**.\n- Your **score** is the number of cards on the foundations, 104 for a win.",
+  "decks": [{ "count": 2 }],
+  "depots": [
+    { "type": "Reserve", "fanDirection": "Right", "col": 0, "row": 0, "name": "terrace",
+      "acceptRule": "none", "ejectRule": "topOnly" },
+    { "type": "Stock", "col": 7, "row": 0, "name": "stock", "acceptRule": "none",
+      "ejectRule": "topOnly", "landFace": "Down", "draw": { "to": "waste", "when": "chosen" } },
+    { "type": "Waste", "col": 8, "row": 0, "name": "waste", "acceptRule": "none",
+      "ejectRule": "topOnly" },
+    { "type": "Foundation", "col": 0, "row": 1, "name": "foundation", "repeat": 8,
+      "acceptRule": {
+        "single": true,
+        "build": { "direction": "Up", "wrap": true },
+        "suit": "AlternateColor",
+        "checks": [
+          { "when": "chosen || source != terrace", "reason": "Choose the base from the valley" },
+          { "when": "count(depot) < 13", "reason": "A foundation holds thirteen cards" }
+        ],
+        "seed": "baseRank"
+      },
+      "ejectRule": "locked" },
+    { "type": "Tableau", "col": 0, "row": 2, "name": "valley", "repeat": 9,
+      "acceptRule": {
+        "single": true,
+        "build": { "direction": "Down" },
+        "suit": "AlternateColor",
+        "allowFaceDown": true,
+        "when": "chosen && if(empty(depot), source == stock || empty(stock) && source == waste, source != terrace && source != stock)",
+        "reason": "Build down in alternating colours"
+      },
+      "ejectRule": "topOnly", "landFace": "Up", "autoRefill": ["stock"] }
+  ],
+  "dealRules": [
+    { "kind": "dealGroup", "to": "terrace", "faceUp": 13 },
+    { "kind": "dealGroup", "to": ["valley-1", "valley-2", "valley-3"], "faceUp": 1 }
+  ],
+  "depotOnly": true,
+  "winCondition": { "kind": "allCardsIn", "depots": "Foundation" },
+  "lossCondition": { "kind": "noLegalMoves" },
+  "properties": {
+    "chosen": "any(Foundation, !empty(it))",
+    "baseRank": "bottom(first(Foundation, !empty(it))).rank"
+  },
+  "scoring": { "value": "sum(Foundation, count(it))", "keep": "Over" },
+  "planner": {
+    "value": "100 * sum(Foundation, count(it)) - 3 * count(stock) - 2 * count(waste) - 5 * count(terrace)"
+  },
+  "tools": "None"
+}
