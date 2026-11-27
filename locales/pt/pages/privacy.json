@@ -16,28 +16,28 @@
     "text": "Política de Privacidade"
   },
   "date": {
-    "en": "Last updated: 23 November 2026",
-    "text": "Última atualização: 23 de novembro de 2026"
+    "en": "Last updated: 26 November 2026",
+    "text": "Última atualização: 26 de novembro de 2026"
   },
   "intro": {
-    "en": "Cardz and Cardz Lite are single-player card games that run entirely on your device. This policy covers both.",
-    "text": "O Cardz e o Cardz Lite são jogos de cartas para um jogador que funcionam inteiramente no seu dispositivo. Esta política vale para os dois."
+    "en": "Cardz and Cardz Lite are single-player card games that run entirely on your device. This policy covers both: Cardz on Windows, the Mac and the iPad, and Cardz Lite on Windows.",
+    "text": "O Cardz e o Cardz Lite são jogos de cartas para um jogador que funcionam inteiramente no seu dispositivo. Esta política vale para os dois: o Cardz no Windows, no Mac e no iPad, e o Cardz Lite no Windows."
   },
   "collect.heading": {
     "en": "What we collect",
     "text": "O que coletamos"
   },
   "collect.text": {
-    "en": "<strong>Nothing</strong>, unless you choose to send it. Cardz does not collect, transmit, sell, or share any personal information on its own. There are no accounts, no sign-in, no advertising, and no analytics or telemetry. The only thing that can reach us is a crash report you decide to email, described below.",
-    "text": "<strong>Nada</strong>, a não ser o que você decidir enviar. O Cardz não coleta, transmite, vende nem compartilha por conta própria nenhuma informação pessoal. Não há contas, login, anúncios, análises de uso nem telemetria. A única coisa que pode chegar até nós é um relatório de falha que você decida enviar por e-mail, descrito abaixo."
+    "en": "<strong>Nothing</strong>, unless you choose to send it. Cardz does not collect, transmit, sell, or share any personal information on its own. There are no accounts, no sign-in, no advertising, and no analytics or telemetry. The only things that can reach us are a crash report you decide to email, and the crash reports your device shares with developers if you allow it, both described below.",
+    "text": "<strong>Nada</strong>, a não ser o que você decidir enviar. O Cardz não coleta, transmite, vende nem compartilha por conta própria nenhuma informação pessoal. Não há contas, login, anúncios, análises de uso nem telemetria. As únicas coisas que podem chegar até nós são um relatório de falha que você decida enviar por e-mail e os relatórios de falha que o seu dispositivo compartilha com os desenvolvedores se você permitir, descritos abaixo."
   },
   "device.heading": {
     "en": "Data stored on your device",
     "text": "Dados guardados no seu dispositivo"
   },
   "device.text": {
-    "en": "Cardz saves the following locally so your games and preferences persist between sessions. This data never leaves your computer unless you send it:",
-    "text": "O Cardz salva localmente o seguinte, para que suas partidas e preferências continuem de uma sessão para outra. Esses dados nunca saem do seu computador, a não ser que você os envie:"
+    "en": "Cardz saves the following locally so your games and preferences persist between sessions. This data never leaves your device unless you send it:",
+    "text": "O Cardz salva localmente o seguinte, para que suas partidas e preferências continuem de uma sessão para outra. Esses dados nunca saem do seu dispositivo, a não ser que você os envie:"
   },
   "device.game": {
     "en": "Your game in progress, so it resumes where you left it.",
@@ -60,12 +60,12 @@
     "text": "Um registro de erros e dos últimos passos do aplicativo, para que uma falha possa ser explicada."
   },
   "device.removed": {
-    "en": "This data lives in the app's local storage and is removed when you uninstall the app.",
-    "text": "Esses dados ficam no armazenamento local do aplicativo e são removidos quando você o desinstala."
+    "en": "This data lives in the app's own storage, and uninstalling the app removes it. On the Mac, moving the app to the Bin can leave it behind, in the app's folder in your Library.",
+    "text": "Esses dados ficam no armazenamento do próprio aplicativo, e desinstalá-lo os remove. No Mac, mover o aplicativo para o Lixo pode deixá-los para trás, na pasta do aplicativo na sua Biblioteca."
   },
   "device.lite": {
-    "en": "Cardz Lite also keeps a copy of your statistics and scores in a folder on your PC that it shares with Cardz, so that Cardz can pick them up if you install it. The copy never leaves your computer, and Windows removes it once neither app is installed.",
-    "text": "O Cardz Lite também guarda uma cópia das suas estatísticas e pontuações em uma pasta do seu PC que ele compartilha com o Cardz, para que o Cardz possa aproveitá-las se você instalá-lo. A cópia nunca sai do seu computador, e o Windows a remove quando nenhum dos dois aplicativos estiver instalado."
+    "en": "On Windows, Cardz Lite also keeps a copy of your statistics and scores in a folder on your PC that it shares with Cardz, so that Cardz can pick them up if you install it. The copy never leaves your computer, and Windows removes it once neither app is installed.",
+    "text": "No Windows, o Cardz Lite também guarda uma cópia das suas estatísticas e pontuações em uma pasta do seu PC que ele compartilha com o Cardz, para que o Cardz possa aproveitá-las se você instalá-lo. A cópia nunca sai do seu computador, e o Windows a remove quando nenhum dos dois aplicativos estiver instalado."
   },
   "network.heading": {
     "en": "Network access",
@@ -75,13 +75,21 @@
     "en": "Cardz works fully offline and makes no network connections in normal use. It does not require the internet to play.",
     "text": "O Cardz funciona totalmente offline e não faz nenhuma conexão de rede no uso normal. Não é preciso internet para jogar."
   },
+  "purchase.heading": {
+    "en": "Purchases",
+    "text": "Compras"
+  },
+  "purchase.text": {
+    "en": "On Windows, Cardz is bought from the Microsoft Store. On the Mac and the iPad, Cardz is free to download and one in-app purchase unlocks the rest, through Apple's App Store; checking or restoring that purchase is also the App Store's doing, not a connection Cardz makes. The store handles the payment and your account with it. We receive no payment details and no personal information from it. Each store's own privacy policy covers its part: <a href=\"https://privacy.microsoft.com/privacystatement\">Microsoft's</a> and <a href=\"https://www.apple.com/legal/privacy/\">Apple's</a>.",
+    "text": "No Windows, o Cardz é comprado na Microsoft Store. No Mac e no iPad, o Cardz é baixado de graça e uma única compra no app libera o resto, pela App Store da Apple; verificar ou restaurar essa compra também fica por conta da App Store, não é uma conexão que o Cardz faz. A loja cuida do pagamento e da sua conta nela. Não recebemos dela nenhum dado de pagamento nem nenhuma informação pessoal. A política de privacidade de cada loja cobre a parte dela: <a href=\"https://privacy.microsoft.com/privacystatement\">a da Microsoft</a> e <a href=\"https://www.apple.com/legal/privacy/\">a da Apple</a>."
+  },
   "crash.heading": {
     "en": "Crash reports",
     "text": "Relatórios de falha"
   },
   "crash.text": {
-    "en": "If the app closes unexpectedly, it says so the next time you open it and offers to report it. Nothing is sent unless you choose to: <em>Email report</em> opens a message to <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a> in your own email app, and <em>Copy details</em> puts the same report on your clipboard. You can read and change the message before sending it, or not send it at all.",
-    "text": "Se o aplicativo fechar inesperadamente, ele avisa na próxima vez que você abri-lo e oferece relatar o problema. Nada é enviado sem a sua escolha: <em>Enviar relatório</em> abre uma mensagem para <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a> no seu próprio aplicativo de e-mail, e <em>Copiar detalhes</em> coloca o mesmo relatório na área de transferência. Você pode ler e alterar a mensagem antes de enviá-la, ou simplesmente não enviar."
+    "en": "On Windows, if the app closes unexpectedly, it says so the next time you open it and offers to report it. Nothing is sent unless you choose to: <em>Email report</em> opens a message to <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a> in your own email app, and <em>Copy details</em> puts the same report on your clipboard. You can read and change the message before sending it, or not send it at all.",
+    "text": "No Windows, se o aplicativo fechar inesperadamente, ele avisa na próxima vez que você abri-lo e oferece relatar o problema. Nada é enviado sem a sua escolha: <em>Enviar relatório</em> abre uma mensagem para <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a> no seu próprio aplicativo de e-mail, e <em>Copiar detalhes</em> coloca o mesmo relatório na área de transferência. Você pode ler e alterar a mensagem antes de enviá-la, ou simplesmente não enviar."
   },
   "crash.contents": {
     "en": "A report holds technical details only: the app's version, the versions of Windows and .NET, when the session started, the error that closed it, the app's last few steps (such as which screen was open), and where its log files are on your PC. That location includes your Windows user name.",
@@ -94,6 +102,10 @@
   "crash.windows": {
     "en": "Separately, Windows may offer to send a diagnostic report to the developer through the Microsoft Store's standard health reporting. These reports contain technical crash information only (such as the location in the code where the error occurred) and no personal data. They are governed by <a href=\"https://privacy.microsoft.com/privacystatement\">Microsoft's privacy statement</a>.",
     "text": "Além disso, o Windows pode oferecer o envio de um relatório de diagnóstico ao desenvolvedor pelo sistema padrão de relatórios de integridade da Microsoft Store. Esses relatórios contêm apenas informações técnicas sobre a falha (como o ponto do código onde o erro ocorreu) e nenhum dado pessoal. Eles são regidos pela <a href=\"https://privacy.microsoft.com/privacystatement\">declaração de privacidade da Microsoft</a>."
+  },
+  "crash.apple": {
+    "en": "On the Mac and the iPad, Cardz does not offer a report of its own. If you have chosen to share analytics with app developers in your device's settings, Apple may pass on to us crash reports, which hold technical crash information only and no personal data. They are governed by <a href=\"https://www.apple.com/legal/privacy/\">Apple's privacy policy</a>.",
+    "text": "No Mac e no iPad, o Cardz não oferece um relatório próprio. Se você escolheu, nos ajustes do seu dispositivo, compartilhar análises com desenvolvedores de apps, a Apple pode nos repassar relatórios de falha, que contêm apenas informações técnicas sobre a falha e nenhum dado pessoal. Eles são regidos pela <a href=\"https://www.apple.com/legal/privacy/\">política de privacidade da Apple</a>."
   },
   "children.heading": {
     "en": "Children's privacy",
@@ -120,7 +132,7 @@
     "text": "Dúvidas sobre esta política: <a href=\"mailto:cardz@roderic.dev\">cardz@roderic.dev</a>"
   },
   "meta.description": {
-    "en": "Privacy policy for Cardz and Cardz Lite for Windows.",
-    "text": "Política de privacidade do Cardz e do Cardz Lite para Windows."
+    "en": "Privacy policy for Cardz on Windows, the Mac and the iPad, and for Cardz Lite.",
+    "text": "Política de privacidade do Cardz no Windows, no Mac e no iPad, e do Cardz Lite."
   }
 }
